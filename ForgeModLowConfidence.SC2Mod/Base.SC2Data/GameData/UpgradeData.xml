@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUpgrade id="GA1BehaviorIndex">
+        <MaxLevel value="200"/>
+    </CUpgrade>
+    <CUpgrade id="3"/>
+    <CUpgrade id="1">
+        <MaxLevel value="200"/>
+    </CUpgrade>
+    <CUpgrade id="2"/>
+    <CUpgrade id="4"/>
+    <CUpgrade id="Starport1speedupg">
+        <EffectArray Reference="Unit,Wraith,Speed" Value="2.000000"/>
+        <EffectArray Reference="Unit,VikingFighter,Speed" Value="2.000000"/>
+        <EffectArray Reference="Unit,Phoenix,Speed" Value="2.000000"/>
+    </CUpgrade>
+    <CUpgrade id="barracks3firebatupg"/>
+    <CUpgrade id="barracks2hydraliskupg"/>
+    <CUpgrade id="barracks3sentryupg"/>
+    <CUpgrade id="barracks3adeptupg"/>
+    <CUpgrade id="barracks3medicupg"/>
+    <CUpgrade id="barracks2stalkerupg"/>
+    <CUpgrade id="barracks4lurkerupg"/>
+    <CUpgrade id="barracks4ghostupg"/>
+    <CUpgrade id="barracks2warpigupg"/>
+    <CUpgrade id="factory2diamondback"/>
+    <CUpgrade id="factory2warhoundupg"/>
+    <CUpgrade id="factory3ultralisk"/>
+    <CUpgrade id="starport1vikingupg"/>
+    <CUpgrade id="starport1corsairupg"/>
+    <CUpgrade id="starport2mutaupg"/>
+    <CUpgrade id="starport2liberatorupg"/>
+    <CUpgrade id="starport1wraithupg"/>
+    <CUpgrade id="factory1vultureupg"/>
+    <CUpgrade id="factory1predator"/>
+    <CUpgrade id="factory1hellion"/>
+    <CUpgrade id="factory2immortalupg"/>
+    <CUpgrade id="factory2siegetankupg"/>
+    <CUpgrade id="factory3thor"/>
+    <CUpgrade id="factory3colossus"/>
+    <CUpgrade id="barracks4hightemplarupg"/>
+    <CUpgrade id="barracks4infestorupg"/>
+    <CUpgrade id="barracks3marauder"/>
+    <CUpgrade id="barracks3roachupg"/>
+    <CUpgrade id="barracks4archonupg"/>
+    <CUpgrade id="barracksMarineUpg"/>
+    <CUpgrade id="barracksZealotUpg"/>
+    <CUpgrade id="barracksZergling"/>
+    <CUpgrade id="forgecolossussplashupg">
+        <EffectArray Reference="Effect,ThermalLancesEReverse,AreaArray[0].Radius" Value="5"/>
+        <EffectArray Reference="Effect,ThermalLancesE,AreaArray[0].Radius" Value="5"/>
+    </CUpgrade>
+    <CUpgrade id="factory2ravager"/>
+    <CUpgrade id="forgezerglingswarmlingupg">
+        <EffectArray Operation="Multiply" Reference="Abil,BarracksTrain,InfoArray[Train5].Time" Value="0.500000"/>
+        <EffectArray Operation="Multiply" Reference="Unit,Zergling,Food" Value="0.5"/>
+    </CUpgrade>
+    <CUpgrade id="starport1phoenix"/>
+    <CUpgrade id="starport2bansheeupg"/>
+    <CUpgrade id="starport3ravenupg"/>
+    <CUpgrade id="starport3sciencevesselupg"/>
+    <CUpgrade id="starport3tempestupg"/>
+    <CUpgrade id="starport3viperupg"/>
+</Catalog>

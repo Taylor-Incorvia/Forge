@@ -1,0 +1,180 @@
+include "TriggerLibs/forgeUnitHelpers"
+include "TriggerLibs/forgeProductionFacilityHeplers"
+
+void initializeUnitUnlockUpgradeMapping() {
+    // ############### RAX #############################
+    // slot 1
+    setUnitUnlockUpgrade("Zergling", "barracksZergling");
+    setUnitUnlockUpgrade("Marine", "barracksMarineUpg");
+    setUnitUnlockUpgrade("Zealot", "barracksZealotUpg");
+
+    // slot 2
+    setUnitUnlockUpgrade("Stalker", "barracks2stalkerupg");
+    setUnitUnlockUpgrade("Hydralisk", "barracks2hydraliskupg");
+    setUnitUnlockUpgrade("WarPig", "barracks2warpigupg");
+
+    //slot 3
+    setUnitUnlockUpgrade("Firebat", "barracks3firebatupg");
+    setUnitUnlockUpgrade("Marauder", "barracks3marauder");
+    setUnitUnlockUpgrade("Roach", "barracks3roachupg");
+    setUnitUnlockUpgrade("Sentry", "barracks3sentryupg");
+    setUnitUnlockUpgrade("Adept", "barracks3adeptupg");
+    setUnitUnlockUpgrade("Medic", "barracks3medicupg");
+
+    // slot 4 
+    setUnitUnlockUpgrade("Infestor", "barracks4infestorupg");
+    setUnitUnlockUpgrade("Ghost", "barracks4ghostupg");
+    setUnitUnlockUpgrade("Lurker", "barracks4lurkerupg");
+
+    // ############### FACTORY #############################
+    // slot 1
+    setUnitUnlockUpgrade("Vulture", "factory1vultureupg");
+    setUnitUnlockUpgrade("Hellion", "factory1hellion");
+    setUnitUnlockUpgrade("Predator", "factory1predator");
+
+    // slot 2
+    setUnitUnlockUpgrade("Diamondback", "factory2diamondback");
+    setUnitUnlockUpgrade("Immortal", "factory2immortalupg");
+    setUnitUnlockUpgrade("Ravager", "factory2ravager");
+    setUnitUnlockUpgrade("SiegeTank", "factory2siegetankupg"); // note that sieged tank is a different unit
+    setUnitUnlockUpgrade("WarHound", "factory2warhoundupg");
+
+    // slot 3
+    setUnitUnlockUpgrade("ThorAP", "factory3thor"); // thor in AA mode is a different unit
+    setUnitUnlockUpgrade("Ultralisk", "factory3ultralisk"); // I don't think range will work on this unit?
+    setUnitUnlockUpgrade("Colossus", "factory3colossus");
+
+    // ############### STARPORT #############################
+    // slot 1
+    setUnitUnlockUpgrade("CorsairMP", "starport1corsairupg");
+    setUnitUnlockUpgrade("Phoenix", "starport1phoenix");
+    setUnitUnlockUpgrade("VikingFighter", "starport1vikingupg");
+    setUnitUnlockUpgrade("Wraith", "starport1wraithupg");
+
+    // slot 2
+    setUnitUnlockUpgrade("Banshee", "starport2bansheeupg");
+    setUnitUnlockUpgrade("Liberator", "starport2liberatorupg"); // maybe disable range here since it fucks up the maps
+    setUnitUnlockUpgrade("Mutalisk", "starport2mutaupg");
+
+    // slot 3
+    setUnitUnlockUpgrade("Raven", "starport3ravenupg");
+    setUnitUnlockUpgrade("ScienceVessel", "starport3sciencevesselupg");
+    setUnitUnlockUpgrade("Tempest", "starport3tempestupg");
+    setUnitUnlockUpgrade("Viper", "starport3viperupg");
+// Assets\Textures\btn-upgrade-zerg-hotsgroovedspines.dds
+}
+
+void initializeBarracksSlot1Pool() {
+    int slot = 1;
+    string facility = rax;
+    // addUnitToSlotPool(facility, slot, "Marine");
+    addUnitToSlotPool(facility, slot, "Zergling");
+    addUnitToSlotPool(facility, slot, "Zealot");
+}
+
+void initializeBarracksSlot2Pool() {
+    int slot = 2;
+    string facility = rax;
+    addUnitToSlotPool(facility, slot, "Stalker"); 
+    addUnitToSlotPool(facility, slot, "Hydralisk");
+    addUnitToSlotPool(facility, slot, "WarPig");
+}
+
+// slot 3 pool was previously known as slot 2b. 
+// it is unlocked by Ghost academy completion. 
+void initializeBarracksSlot3Pool() {
+    int slot = 3;
+    string facility = rax;
+    addUnitToSlotPool(facility, slot, "Firebat"); // range probably does not work
+    addUnitToSlotPool(facility, slot, "Marauder");
+    addUnitToSlotPool(facility, slot, "Roach");
+    addUnitToSlotPool(facility, slot, "Sentry");
+    addUnitToSlotPool(facility, slot, "Adept");
+    addUnitToSlotPool(facility, slot, "Medic");
+}
+
+void initializeBarracksSlot4Pool() {
+    int slot = 4;
+    string facility = rax;
+    addUnitToSlotPool(facility, slot, "Ghost"); // todo uncomment
+    addUnitToSlotPool(facility, slot, "Infestor");
+    addUnitToSlotPool(facility, slot, "Lurker"); // range not working
+}
+
+void initializeFactorySlot1Pool() {
+    int slot = 1;
+    string facility = factory;
+    addUnitToSlotPool(facility, slot, "Vulture");
+    addUnitToSlotPool(facility, slot, "Hellion"); // range doesn't work
+    addUnitToSlotPool(facility, slot, "Predator");
+}
+
+void initializeFactorySlot2Pool() {
+    int slot = 2;
+    string facility = factory;
+    addUnitToSlotPool(facility, slot, "Diamondback");
+    addUnitToSlotPool(facility, slot, "Immortal");
+    addUnitToSlotPool(facility, slot, "Ravager");
+    addUnitToSlotPool(facility, slot, "SiegeTank");
+    addUnitToSlotPool(facility, slot, "WarHound");
+}
+
+void initializeFactorySlot3Pool() {
+    int slot = 3;
+    string facility = factory;
+    addUnitToSlotPool(facility, slot, "ThorAP");
+    addUnitToSlotPool(facility, slot, "Ultralisk"); // range works
+    addUnitToSlotPool(facility, slot, "Colossus");
+}
+// ---------------------------------------------------
+void initializeStarportSlot1Pool() {
+    int slot = 1;
+    string facility = starport;
+    addUnitToSlotPool(facility, slot, "CorsairMP"); 
+    addUnitToSlotPool(facility, slot, "Phoenix");
+    addUnitToSlotPool(facility, slot, "Wraith");
+    addUnitToSlotPool(facility, slot, "VikingFighter");
+}
+
+void initializeStarportSlot2Pool() {
+    int slot = 2;
+    string facility = starport;
+    addUnitToSlotPool(facility, slot, "Banshee");
+    addUnitToSlotPool(facility, slot, "Liberator"); // range not working
+    addUnitToSlotPool(facility, slot, "Mutalisk"); 
+}
+
+void initializeStarportSlot3Pool() {
+    int slot = 3;
+    string facility = starport;
+    addUnitToSlotPool(facility, slot, "Raven");
+    addUnitToSlotPool(facility, slot, "Tempest");
+    addUnitToSlotPool(facility, slot, "Viper");
+    addUnitToSlotPool(facility, slot, "ScienceVessel");
+}
+
+void initializePools() {
+    initializeBarracksSlot1Pool();
+    initializeBarracksSlot2Pool();
+    initializeBarracksSlot3Pool();
+    initializeBarracksSlot4Pool();
+    initializeFactorySlot1Pool();
+    initializeFactorySlot2Pool();
+    initializeFactorySlot3Pool();
+    initializeStarportSlot1Pool();
+    initializeStarportSlot2Pool();
+    initializeStarportSlot3Pool();
+}
+
+void setSlotsForFacility(string facility, int facilitySlotCount, int playerIndex){
+    int slotIndex;
+    for (slotIndex = 1; slotIndex <= facilitySlotCount; slotIndex += 1) {
+        setRandomSlotUnitFromPoolForPlayer(facility, slotIndex, playerIndex);
+    }
+}
+
+void setProductionSlotsForPlayer(int playerIndex) {
+    setSlotsForFacility(rax, 4, playerIndex);
+    setSlotsForFacility(factory, 3, playerIndex);
+    setSlotsForFacility(starport, 3, playerIndex);
+}

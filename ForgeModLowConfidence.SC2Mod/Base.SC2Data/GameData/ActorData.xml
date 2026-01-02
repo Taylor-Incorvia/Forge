@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CActorModel id="BlinkOriginModel2" parent="ModelAnimationStyleOneShot">
+        <InheritType value="OneShot"/>
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <On Terms="Effect.Blink2.Start; At Source" Send="Create"/>
+        <On Terms="Effect.Blink2.Start; At Source; ValidateUnit NoDarkProtoss" Send="ModelSwap DarkBlinkOriginModel"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOriginStationary"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
+    </CActorModel>
+    <CActorModel id="BlinkStopModel2" parent="ModelAnimationStyleOneShot">
+        <InheritType value="OneShot"/>
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <On Terms="Effect.Blink2.Stop; At Source" Send="Create"/>
+        <On Terms="Effect.Blink2.Stop; At Source; ValidateUnit NoDarkProtoss" Send="ModelSwap DarkBlinkStopModel"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+    </CActorModel>
+    <CActorSound id="BlinkStopSound2" parent="SoundOneShot">
+        <On Terms="Effect.Blink2.Stop; At Source" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <Sound value="Stalker_Blink2"/>
+    </CActorSound>
+    <CActorSimple id="CombatVisibilityClearer2">
+        <On Terms="Effect.MassRecallTeleport.Start; At Target" Send="Create"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="CombatRevealClearTimers"/>
+        <On Terms="ActorCreation" Send="Destroy"/>
+        <On Terms="Effect.MothershipMassRecallTeleport.Start; At Target" Send="Create"/>
+        <On Terms="Effect.MothershipCoreMassRecallTeleport.Start; At Target" Send="Create"/>
+        <On Terms="Effect.Blink2.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.DarkTemplarBlink.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.NexusMassRecallTeleport.Start; At Target" Send="Create"/>
+        <On Terms="Effect.MothershipStrategicRecallTeleport.Start; At Target" Send="Create"/>
+    </CActorSimple>
+    <CActorModel id="ForgeDeath">
+        <Scale value="2.000000"/>
+    </CActorModel>
+    <!--                                                                                         -->
+    <!-- Nexus ................................................................................. -->
+    <!--                                                                                         -->
+    <CActorUnit id="Nexus">
+        <Scale value="0.660000"/>
+    </CActorUnit>
+    <CActorModel id="NexusBuild">
+        <Scale value="0.660000"/>
+    </CActorModel>
+    <CActorModel id="NexusPlacementModel">
+        <Scale value="0.660000"/>
+    </CActorModel>
+    <CActorSplat id="NexusSplat">
+        <Scale value="0.660000"/>
+    </CActorSplat>
+</Catalog>

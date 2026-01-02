@@ -1,0 +1,48 @@
+include "TriggerLibs/forgeUnitHelpers"
+
+void initializeTags() {
+    // *** RAX *** 
+    // slot 1
+    addUnitTag("Zergling", "melee");
+    addUnitTag("Zealot", "melee");
+
+    // slot 2
+
+
+    // slot 3
+    addUnitTag("Firebat", "shortrange");
+    addUnitTag("Roach", "shortrange");
+    addUnitTag("Sentry", "caster");
+    addUnitTag("Medic", "caster");
+
+    // slot 4
+    addUnitTag("Infestor", "caster");
+    addUnitTag("Ghost", "fighter-caster");
+    addUnitTag("Lurker", "stationary-attacker");
+
+    // *** FACTORY  ***
+    // slot 1
+    addUnitTag("Predator", "melee");
+
+    // slot 2
+    addUnitTag("SiegeTank", "stationary-attacker");
+
+    // slot 3
+    addUnitTag("Ultralisk", "melee");
+
+    // *** STARPORT  ***
+
+    // slot 3
+    addUnitTag("Raven", "caster");
+    addUnitTag("ScienceVessel", "caster");
+    addUnitTag("Viper", "caster");
+}
+
+void initializeAlternateForms() { // if a lurker is burrowed when an upgrade completes, it doesn't get the upgrade because it is a different unit. 
+    setUnitAltForm("Lurker", "LurkerBurrowed");
+    setUnitAltForm("SiegeTank", "SiegeTankSieged");
+    setUnitAltForm("ThorAP", "Thor");
+    setUnitAltForm("VikingFighter", "VikingAssault");
+    setUnitAltForm("Hellion", "HellionTank");
+    setUnitAltForm("Liberator", "LiberatorAG");
+}

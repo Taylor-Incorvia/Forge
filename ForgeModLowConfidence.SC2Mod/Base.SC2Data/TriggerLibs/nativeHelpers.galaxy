@@ -1,0 +1,26 @@
+include "TriggerLibs/NativeLib"
+
+void grantUpgrade(int playerIndex, string upgradeId) {
+    libNtve_gf_SetUpgradeLevelForPlayer(playerIndex, upgradeId, 1);
+}
+
+void revokeUpgrade(int playerIndex, string upgradeId) {
+    libNtve_gf_SetUpgradeLevelForPlayer(playerIndex, upgradeId, 0);
+}
+
+int getStringLength(string s){
+    return StringLength(s);
+}
+
+// galaxy strings start at index 1
+string getSubString(string s, int start, int end){
+    return StringSub(s, start, end);
+}
+
+void showMessage(string message){
+    UIDisplayMessage(
+        PlayerGroupAll(),
+        c_messageAreaSubtitle,
+        StringToText(message)
+    );
+}

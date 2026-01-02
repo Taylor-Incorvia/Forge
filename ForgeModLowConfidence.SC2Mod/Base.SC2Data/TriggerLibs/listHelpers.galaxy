@@ -1,0 +1,193 @@
+include "LibA201917C"
+
+// =====================================
+// STRING LIST HELPERS
+// =====================================
+
+void createStringList(string listName) {
+    libA201917C_gf_ListNew(listName, libA201917C_ge_ListValueTypes_String);
+}
+
+bool stringListExists(string listName) {
+    return libA201917C_gf_ListExist(listName, libA201917C_ge_ListValueTypes_String);
+}
+
+  
+void listStringRequire(string listName) {
+    if (!stringListExists(listName)) {
+        libA201917C_gf_ListNew(listName, libA201917C_ge_ListValueTypes_String);
+    }
+}
+
+int getStringListSize(string listName) {
+    if (!stringListExists(listName)) {
+        return 0;
+    }
+    return libA201917C_gf_ListValuesCount(listName, libA201917C_ge_ListValueTypes_String);
+}
+
+void addToStringList(string listName, string value) {
+    libA201917C_gf_ListAddString(listName, value);
+}
+
+bool stringListContains(string listName, string value) {
+    return (libA201917C_gf_ListIndexOfString(listName, value) >= 0);
+}
+
+string getStringAtIndex(string listName, int index) {
+    return libA201917C_gf_ListGetString(listName, index);
+}
+
+string getRandomStringFromList(string listName) {
+    int len = getStringListSize(listName);
+    int idx;
+    if (len <= 0) {
+        return "";
+    }
+    idx = RandomInt(0, len - 1);
+    return getStringAtIndex(listName, idx);
+}
+
+int getStringListIntersectionSize(string listAName, string listBName) {
+    int sizeA;
+    int i;
+    int intersectionCount;
+    string value;
+
+    intersectionCount = 0;
+
+    if (!stringListExists(listAName) || !stringListExists(listBName)) {
+        return 0;
+    }
+
+    sizeA = getStringListSize(listAName);
+
+    i = 0;
+    while (i < sizeA) {
+        value = getStringAtIndex(listAName, i);
+        if (stringListContains(listBName, value)) {
+            intersectionCount += 1;
+        }
+        i += 1;
+    }
+
+    return intersectionCount;
+}
+
+bool getStringListIsSubset(string subsetListName, string supersetListName) {
+    return getStringListSize(subsetListName) == getStringListIntersectionSize(subsetListName, supersetListName);
+}
+
+bool getStringListsDisjoint(string listAName, string listBName) {
+    return getStringListIntersectionSize(listAName, listBName) == 0;
+}
+
+bool getStringListsIntersect(string listAName, string listBName) {
+    return getStringListIntersectionSize(listAName, listBName) > 0;
+}
+
+string logicType_NoneOf = "NoneOf";
+string logicType_AllOf = "AllOf";
+string logicType_AnyOf = "AnyOf";
+
+bool evaluateListLogicType(string logicType, string supersetListName, string subsetListName) {
+    if(logicType == logicType_NoneOf) {
+        return getStringListsDisjoint(subsetListName, supersetListName);
+    }
+
+    if(logicType == logicType_AnyOf) {
+        return getStringListsIntersect(subsetListName, supersetListName);
+    }
+
+    if(logicType == logicType_AllOf) {
+        return getStringListIsSubset(subsetListName, supersetListName);
+    }
+
+    // showMessage("invalid logicType " + logicType);
+
+    return false;
+}
+
+// =====================================
+// INTEGER LIST HELPERS
+// =====================================
+
+void createIntList(string listName) {
+    libA201917C_gf_ListNew(listName, libA201917C_ge_ListValueTypes_Integer);
+}
+
+void listIntRequire(string listName) {
+    if (!libA201917C_gf_ListExist(listName, libA201917C_ge_ListValueTypes_Integer)) {
+        libA201917C_gf_ListNew(listName, libA201917C_ge_ListValueTypes_Integer);
+    }
+}
+
+int getIntListSize(string listName) {
+    return libA201917C_gf_ListValuesCount(listName, libA201917C_ge_ListValueTypes_Integer);
+}
+
+void addToIntList(string listName, int value) {
+    libA201917C_gf_ListAddInteger(listName, value);
+}
+
+bool intListContains(string listName, int value) {
+    return (libA201917C_gf_ListIndexOfInteger(listName, value) >= 0);
+}
+
+int getIntAtIndex(string listName, int index) {
+    return libA201917C_gf_ListGetInteger(listName, index);
+}
+
+int getRandomIntFromList(string listName) {
+    int len = getIntListSize(listName);
+    int idx;
+
+    if (len <= 0) {
+        return -1;  // sentinel value for "no entries"
+    }
+
+    idx = RandomInt(0, len - 1);
+    return getIntAtIndex(listName, idx);
+}
+
+// =====================================
+// DECIMAL (REAL) LIST HELPERS
+// =====================================
+
+void createDecimalList(string listName) {
+    libA201917C_gf_ListNew(listName, libA201917C_ge_ListValueTypes_Real);
+}
+
+void listDecimalRequire(string listName) {
+    if (!libA201917C_gf_ListExist(listName, libA201917C_ge_ListValueTypes_Real)) {
+        libA201917C_gf_ListNew(listName, libA201917C_ge_ListValueTypes_Real);
+    }
+}
+
+int getDecimalListSize(string listName) {
+    return libA201917C_gf_ListValuesCount(listName, libA201917C_ge_ListValueTypes_Real);
+}
+
+void addToDecimalList(string listName, fixed value) {
+    libA201917C_gf_ListAddReal(listName, value);
+}
+
+bool decimalListContains(string listName, fixed value) {
+    return (libA201917C_gf_ListIndexOfReal(listName, value) >= 0);
+}
+
+fixed getDecimalAtIndex(string listName, int index) {
+    return libA201917C_gf_ListGetReal(listName, index);
+}
+
+fixed getRandomDecimalFromList(string listName) {
+    int len = getDecimalListSize(listName);
+    int idx;
+
+    if (len <= 0) {
+        return 0.0;   // sentinel default
+    }
+
+    idx = RandomInt(0, len - 1);
+    return getDecimalAtIndex(listName, idx);
+}

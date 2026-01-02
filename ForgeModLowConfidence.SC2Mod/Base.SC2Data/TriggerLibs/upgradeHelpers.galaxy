@@ -1,0 +1,165 @@
+include "TriggerLibs/listHelpers"
+include "TriggerLibs/nativeHelpers"
+include "TriggerLibs/stringHelpers"
+include "TriggerLibs/behaviorHelpers"
+include "TriggerLibs/abilityHelpers"
+include "TriggerLibs/forgeProductionFacilityHeplers"
+
+string allUpgradesListKey = "allUpgrades";
+
+string upgradeTagType_unitTag = "unitTag";
+
+
+
+
+string getUpgradeTagsListName(string upgrade, string logicType, string tagType) {
+    // e.g. Stimpack, noneOf, unitTag → "upgrade.Stimpack.logicType.noneOf.tagType.unitTag"
+    // This list may contain ["caster"]
+    return "upgrade." + upgrade + ".logicType." + logicType + ".tagType." + tagType;
+}
+
+void addUpgradeRequirementTag(string upgrade, string logicType, string tagType, string tag) {
+    string listName = getUpgradeTagsListName(upgrade, logicType, tagType);
+    listStringRequire(listName);
+    addToStringList(listName, tag);
+}
+
+bool satisfiesUnitTagUpgradePoolRequirement(string upgrade, string logicType, string unitId) {
+    string upgradeRequirementTagsListName = getUpgradeTagsListName(upgrade, logicType, upgradeTagType_unitTag);
+    string unitTagsListName = getUnitTagsListName(unitId);
+    if(!stringListExists(upgradeRequirementTagsListName)) {
+        return true;
+    }
+
+    return evaluateListLogicType(logicType, unitTagsListName, upgradeRequirementTagsListName);
+}
+
+string getUpgradeAbilityListName(string upgrade) {
+    return "upgrade." + upgrade + ".abilityList";
+}
+
+string getUpgradeBehaviorListName(string upgrade) {
+    return "upgrade." + upgrade + ".behaviorList";
+}
+
+void registerToAllUpgradesList(string upgrade) {
+    listStringRequire(allUpgradesListKey);
+    // automatically add the upgrade to the list of all upgrades
+    if(!stringListContains(allUpgradesListKey, upgrade)) {
+        addToStringList(allUpgradesListKey, upgrade);
+    }
+}
+
+void addAbilityToUpgrade(string upgrade, string ability) {
+    string upgradeAbilityListKey = getUpgradeAbilityListName(upgrade);
+    listStringRequire(upgradeAbilityListKey);
+    addToStringList(upgradeAbilityListKey, ability);
+    registerToAllUpgradesList(upgrade);
+}
+
+void addBehaviorToUpgrade(string upgrade, string behavior) {
+    string upgradeBehaviorListKey = getUpgradeBehaviorListName(upgrade);
+    listStringRequire(upgradeBehaviorListKey);
+    addToStringList(upgradeBehaviorListKey, behavior);
+    registerToAllUpgradesList(upgrade);
+}
+
+// this is a stupid name for this function. 
+// in forge, an upgrade can be one of three things:
+//1) an ability that gets granted to all existing units that satisfy a condition and gets applied to units that satisfy that condition on unit creation
+//2) a behavior that gets granted to all existing units that satisfy a condition and gets applied to units that satisfy that condition on unit creation
+//3) a standard count upgrade that unlocks a requirement. 
+void addUpgradeToUpgrade(string upgrade, string ability) {
+    showMessage("todo implement addUpgradeToUpgrade");
+    registerToAllUpgradesList(upgrade);
+}
+
+void grantGenericUpgrade(int player, string upgrade, string unitId) {
+    string upgradeAbilityListName = getUpgradeAbilityListName(upgrade);
+    int upgradeAbilityListSize = getStringListSize(upgradeAbilityListName);
+    string upgradeBehaviorListName = getUpgradeBehaviorListName(upgrade);
+    int upgradeBehaviorListSize = getStringListSize(upgradeBehaviorListName);
+    int index;
+
+    for (index = 0; index < upgradeAbilityListSize; index+=1) {
+        addToAbilityListForUnit(getStringAtIndex(upgradeAbilityListName, index), unitId, player);
+        grantAbilityToExistingUnitsOfTypeForPlayer(player, getStringAtIndex(upgradeAbilityListName, index), unitId);
+    }
+
+    for (index = 0; index < upgradeBehaviorListSize; index+=1) {
+        addToBehaviorListForUnitType(getStringAtIndex(upgradeBehaviorListName, index), unitId, player);
+        grantBehaviorToExistingUnitsOfTypeForPlayer(player, getStringAtIndex(upgradeBehaviorListName, index), unitId);
+    }
+
+    // todo count upgrades.
+    
+    
+}
+
+string getSlotSelectedUpgradeKey(int player, int slotIndex, string facilityId) {
+    return "player." + IntToString(player) + ".slot." + IntToString(slotIndex) + ".productionFacility." + facilityId + "selectedUpgradeString";
+}
+
+string getSlotSelectedUpgrade(int player, int slotIndex, string facilityid) {
+    return DataTableGetString(true, getSlotSelectedUpgradeKey(player, slotIndex, facilityid));
+}
+
+void setSlotSelectedUpgrade(int player, int slotIndex, string facilityid, string upgradeId) {
+    string upgradeFacilityId = getUpgradeFacilityFromProductionFacility(facilityid);
+    string upgradeAbilityListName = getUpgradeAbilityListName(upgradeId);
+    int upgradAbilityListSize = getStringListSize(upgradeAbilityListName);
+    string upgradeBehaviorListName = getUpgradeBehaviorListName(upgradeId);
+    int upgradeBehaviorListSize = getStringListSize(upgradeBehaviorListName);
+    int index;
+    DataTableSetString(true, getSlotSelectedUpgradeKey(player, slotIndex, facilityid), upgradeId);
+    
+    if(!upgradAbilityListSize == 0) {
+        for(index = 0; index < upgradAbilityListSize; index+=1) {
+        // this may not work well if there are multiple abilities for a single upgrade.
+        // I have set up the data so that for an ability such as Blink, the name of the ability that
+        // researches that ability at slot 1 is always called Blink1. 
+        addToAbilityListForUnit(getStringAtIndex(upgradeAbilityListName, index) + IntToString(slotIndex), upgradeFacilityId, player);
+    }
+    }
+
+    
+    if(!upgradeBehaviorListSize == 0){
+        // this is bad code. It relies on the id for ability for researching a behavior upgrade having the name of the behavior followed by the slot id 
+        for(index = 0; index < upgradeBehaviorListSize; index+=1) {
+            addToAbilityListForUnit(getStringAtIndex(upgradeBehaviorListName, index) + IntToString(slotIndex), upgradeFacilityId, player);
+        }
+    }
+    
+}
+
+void onGenericUpgradeCompleted(){
+    unit upgradeFacillity = EventUnit();
+    string completedUpgrade = EventUnitProgressObjectType();
+    string realCompletedUpgradeFromSlot;
+    int player = EventPlayer();  
+    int slot;
+    string upgradeFacilityName = UnitGetType(upgradeFacillity);
+    string productionFacilityName = getProductionFacilityFromUpgradeFacility(upgradeFacilityName);    
+    string unitName;
+
+
+
+    if(completedUpgrade == "1" || completedUpgrade == "2" || completedUpgrade == "3" || completedUpgrade == "4") {
+        slot = StringToInt(completedUpgrade);
+        unitName = getPlayerSlotUnitId(productionFacilityName, slot, player);
+        realCompletedUpgradeFromSlot = getSlotSelectedUpgrade(player, slot, productionFacilityName);
+        grantGenericUpgrade(player, realCompletedUpgradeFromSlot, unitName);
+
+
+        // showMessage("playerId" + IntToString(player));
+        // showMessage("slot" + IntToString(slot)); 
+        // showMessage("realCompletedUpgradeFromSlot: " + realCompletedUpgradeFromSlot);
+        // showMessage("upgradeFacilityName: " + upgradeFacilityName);
+        // showMessage("productionFacilityName: " + productionFacilityName);
+        // showMessage("unitName: " + unitName);
+    }
+}
+
+
+
+

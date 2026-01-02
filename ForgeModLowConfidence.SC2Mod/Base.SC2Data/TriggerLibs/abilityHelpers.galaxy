@@ -1,0 +1,44 @@
+include "TriggerLibs/listHelpers"
+include "TriggerLibs/nativeHelpers"
+include "TriggerLibs/stringHelpers"
+include "TriggerLibs/forgeUnitHelpers"
+
+
+
+string getUnitAbilityListKey(string unitName, int player){
+    return "player." + IntToString(player) + "." + unitName + "." + "abilityList";
+}
+
+void addToAbilityListForUnit(string ability, string unitName, int player){
+    string key = getUnitAbilityListKey(unitName, player);
+    listStringRequire(key);
+    addToStringList(key, ability);
+}
+
+void applyAbilityListToUnit(unit u){
+    string unitName = UnitGetType(u);
+    int player = UnitGetOwner(u);
+    string key = getUnitAbilityListKey(unitName, player);
+    int index;
+
+    // showMessage("applyAbilityListToUnit unitName " + unitName);
+
+    if(!stringListExists(key)) {
+        return;
+    }
+
+    for(index = 0; index < getStringListSize(key); index+= 1){
+        // showMessage("abilityList for " + unitName + " at index " + IntToString(index) + ": " + getStringAtIndex(key, index));
+        UnitAbilityAdd(u, getStringAtIndex(key, index));
+    }
+}
+
+void grantAbilityToExistingUnitsOfTypeForPlayer(int playerIndex, string ability, string unitName) {
+    string altFormUnitName = getUnitAltForm(unitName);
+
+    applyToLivingUnitsOfTypeForPlayer(playerIndex, unitName, c_applyKindAbility, ability);
+
+    if (altFormUnitName != "") {
+        applyToLivingUnitsOfTypeForPlayer(playerIndex, altFormUnitName, c_applyKindAbility, ability);
+    }
+}

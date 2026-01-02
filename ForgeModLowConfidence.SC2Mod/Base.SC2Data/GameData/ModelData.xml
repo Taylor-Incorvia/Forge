@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CModel id="BlinkOriginModel2" parent="StalkerBlinkOutBase">
+        <Model value="Assets\Effects\Protoss\BlinkOut\BlinkOut.m3"/>
+    </CModel>
+    <CModel id="BlinkStopModel2" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Protoss\BlinkIn\BlinkIn.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <RadiusLoose value="1.200000"/>
+    </CModel>
+</Catalog>

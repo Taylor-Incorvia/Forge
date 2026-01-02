@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CRequirement id="HaveGhostAcademy">
+        <EditorCategories value="TechType:Unit"/>
+        <NodeArray index="Use" Link="CountUnitGhostAcademyCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="ShowIfHaveBarrAddOnParent2">
+        <EditorCategories value="Race:Terran,TechType:Unit"/>
+        <NodeArray index="Use" Link="AndCountUnitGhostAcademyCompleteOnlyCountUnitAlias_BarracksCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="CountUnitAlias_BarracksCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="UseBlink">
+        <NodeArray index="Use" Link="CountBehaviorblink_testCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="UseFrenzy">
+        <NodeArray index="Use" Link=""/>
+    </CRequirement>
+    <CRequirement id="barracks2warpigtreq">
+        <NodeArray index="Use" Link="AndGTECountUpgradebarracks2warpigupgCompleteOnly1CountUnitGhostAcademyTotal"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks2warpigupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="barracks3firebatreq">
+        <NodeArray index="Use" Link="AndGTECountUpgradebarracks3firebatupgCompleteOnly1CountUnitGhostAcademyTotal"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks3firebatupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="UnknownRequirement10">
+        <NodeArray index="Use" Link="AndCountUnitStarportTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradestarport3ravenupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradestarport3ravenupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="UnknownRequirement11">
+        <NodeArray index="Use" Link="AndCountUpgradebarracksZerglingCompleteOnlyNotCountUpgradeforgezerglingswarmlingupgQueuedOrBetter"/>
+        <NodeArray index="Show" Link="AndCountUpgradebarracksZerglingCompleteOnlyNotCountUpgradeforgezerglingswarmlingupgQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="UnknownRequirement12">
+        <NodeArray index="Use" Link="CountUnitFusionCoreCompleteOnlyTechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="barracks2hydralisktreq">
+        <NodeArray index="Use" Link="AndGTECountUpgradebarracks2hydraliskupgCompleteOnly1CountUnitGhostAcademyTotal"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks2hydraliskupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="UnknownRequirement2">
+        <NodeArray index="Use" Link="GTECountUpgradefactory1predatorCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradefactory1predatorCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="UnknownRequirement3">
+        <NodeArray index="Use" Link="GTECountUpgradefactory1hellionCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradefactory1hellionCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="UnknownRequirement4">
+        <NodeArray index="Use" Link="AndGTECountUpgradefactory2immortalupgCompleteOnly1CountUnitArmoryCompleteOnly"/>
+        <NodeArray index="Show" Link="GTECountUpgradefactory2immortalupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="UnknownRequirement5">
+        <NodeArray index="Use" Link="AndGTECountUpgradefactory3colossusCompleteOnly1CountUnitFactoryTechLabCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="GTECountUpgradefactory3colossusCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="UnknownRequirement6">
+        <NodeArray index="Use" Link="AndGTECountUpgradefactory3ultraliskCompleteOnly1CountUnitFactoryTechLabCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="GTECountUpgradefactory3ultraliskCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="UnknownRequirement7">
+        <NodeArray index="Use" Link="GTECountUpgradestarport1vikingupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradestarport1vikingupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="UnknownRequirement8">
+        <NodeArray index="Use" Link="AndGTECountUpgradestarport2mutaupgCompleteOnly1CountUnitFusionCoreCompleteOnly"/>
+        <NodeArray index="Show" Link="GTECountUpgradestarport2mutaupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="UnknownRequirement9">
+        <NodeArray index="Use" Link="AndGTECountUpgradestarport2liberatorupgCompleteOnly1CountUnitFusionCoreCompleteOnly"/>
+        <NodeArray index="Show" Link="GTECountUpgradestarport2liberatorupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="barracks3sentryreq">
+        <NodeArray index="Use" Link="AndGTECountUpgradebarracks3sentryupgCompleteOnly1CountUnitGhostAcademyTotal"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks3sentryupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="barracks3adeptreq">
+        <NodeArray index="Use" Link="AndGTECountUpgradebarracks3adeptupgCompleteOnly1CountUnitGhostAcademyTotal"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks3adeptupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="barracks2medicreq">
+        <NodeArray index="Use" Link="AndGTECountUpgradebarracks3medicupgCompleteOnly1CountUnitGhostAcademyTotal"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks3medicupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="barracks3marauderreq">
+        <NodeArray index="Use" Link="AndGTECountUpgradebarracks3marauderCompleteOnly1CountUnitGhostAcademyTotal"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks3marauderCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="barracks2roachreq">
+        <NodeArray index="Use" Link="AndGTECountUpgradebarracks3roachupgCompleteOnly1CountUnitGhostAcademyCompleteOnly"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks3roachupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="barracks2stalkerreq">
+        <NodeArray index="Use" Link="AndGTECountUpgradebarracks2stalkerupgCompleteOnly1CountUnitGhostAcademyCompleteOnly"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks2stalkerupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="barracks4archonreq">
+        <NodeArray index="Use" Link="AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4archonupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks4archonupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="barracks4lurkerreq">
+        <NodeArray index="Use" Link="AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4lurkerupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks4lurkerupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="barracks4hightemplarreq">
+        <NodeArray index="Use" Link="AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4hightemplarupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks4hightemplarupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="barracks4infesterreq">
+        <NodeArray index="Use" Link="AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4infestorupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks4infestorupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="barracks4ghostreq">
+        <NodeArray index="Use" Link="AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4ghostupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks4ghostupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="barracksMarineReq">
+        <NodeArray index="Use" Link="GTECountUpgradebarracksMarineUpgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracksMarineUpgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="barracksZealot">
+        <NodeArray index="Use" Link="GTECountUpgradebarracksZealotUpgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracksZealotUpgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="barracksZergling">
+        <NodeArray index="Use" Link="GTE2590769371CountUpgradebarracksZerglingCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracksZerglingCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="factory2warhound">
+        <NodeArray index="Use" Link="AndGTECountUpgradefactory2warhoundupgCompleteOnly1CountUnitArmoryCompleteOnly"/>
+        <NodeArray index="Show" Link="GTECountUpgradefactory2warhoundupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="factory2ravager">
+        <NodeArray index="Use" Link="AndGTECountUpgradefactory2ravagerCompleteOnly1CountUnitArmoryCompleteOnly"/>
+        <NodeArray index="Show" Link="GTECountUpgradefactory2ravagerCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="factory1vulture">
+        <NodeArray index="Use" Link="GTECountUpgradefactory1vultureupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradefactory1vultureupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="factory2siegetank">
+        <NodeArray index="Use" Link="AndGTECountUpgradefactory2siegetankupgCompleteOnly1CountUnitArmoryCompleteOnly"/>
+        <NodeArray index="Show" Link="GTECountUpgradefactory2siegetankupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="factory2diamondback">
+        <NodeArray index="Use" Link="AndGTECountUpgradefactory2diamondbackCompleteOnly1CountUnitArmoryCompleteOnly"/>
+        <NodeArray index="Show" Link="GTECountUpgradefactory2diamondbackCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="factory3thor">
+        <NodeArray index="Use" Link="AndGTECountUpgradefactory3thorCompleteOnly1CountUnitFactoryTechLabCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="GTECountUpgradefactory3thorCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="forgecanupgradecolossus">
+        <NodeArray index="Use" Link="AndCountUpgradefactory3colossusCompleteOnlyNotCountUpgradeforgecolossussplashupgQueuedOrBetter"/>
+        <NodeArray index="Show" Link="AndCountUpgradefactory3colossusCompleteOnlyNotCountUpgradeforgecolossussplashupgQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="gaBlinkSlot1"/>
+    <CRequirement id="ghostacademyarmoryorfusioncore">
+        <NodeArray index="Use" Link="OrCountUnitArmoryCompleteOnlyCountUnitFusionCoreCompleteOnlyCountUnitGhostAcademyCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="havefavtoryorghostacademy">
+        <NodeArray index="Use" Link="OrCountUnitAlias_FactoryCompleteOnly96167438TechTreeCheatCountUnitGhostAcademyCompleteOnly96167438TechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="starport1phoenixreq">
+        <NodeArray index="Use" Link="GTECountUpgradestarport1phoenixCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradestarport1phoenixCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="starport1wraithreq">
+        <NodeArray index="Use" Link="GTECountUpgradestarport1wraithupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradestarport1wraithupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="starport1corsairreq">
+        <NodeArray index="Use" Link="GTECountUpgradestarport1corsairupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradestarport1corsairupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="starport2bansheereq">
+        <NodeArray index="Use" Link="AndGTECountUpgradestarport2bansheeupgCompleteOnly1CountUnitFusionCoreCompleteOnly"/>
+        <NodeArray index="Show" Link="GTECountUpgradestarport2bansheeupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="starport3tempestreq">
+        <NodeArray index="Use" Link="AndCountUnitStarportTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradestarport3tempestupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradestarport3tempestupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="starport3viperreq">
+        <NodeArray index="Use" Link="AndCountUnitStarportTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradestarport3viperupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradestarport3viperupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="starport3sciencevesselreq">
+        <NodeArray index="Use" Link="AndCountUnitStarportTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradestarport3sciencevesselupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradestarport3sciencevesselupgCompleteOnly1"/>
+    </CRequirement>
+</Catalog>

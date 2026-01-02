@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CButton id="Blink">
+        <HotkeyAlias value="Ghost"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="Charge">
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="Colossus">
+        <HotkeyAlias value="Thor"/>
+    </CButton>
+    <CButton id="Corsair">
+        <HotkeyAlias value="VikingFighter"/>
+    </CButton>
+    <CButton id="D8Charge">
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="Diamondback">
+        <HotkeyAlias value="WidowMine"/>
+    </CButton>
+    <CButton id="Firebat">
+        <HotkeyAlias value="Marauder"/>
+    </CButton>
+    <CButton id="HireKelmorianMiners">
+        <HotkeyAlias value="Reaper"/>
+    </CButton>
+    <CButton id="Hydralisk">
+        <HotkeyAlias value="Reaper"/>
+    </CButton>
+    <CButton id="Immortal">
+        <HotkeyAlias value="WidowMine"/>
+    </CButton>
+    <CButton id="Infestor">
+        <HotkeyAlias value="Ghost"/>
+    </CButton>
+    <CButton id="KD8Charge">
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="Liberator">
+        <HotkeyAlias value="Banshee"/>
+    </CButton>
+    <CButton id="LurkerFromHydraliskBurrowed">
+        <HotkeyAlias value="Ghost"/>
+    </CButton>
+    <CButton id="Medic">
+        <HotkeyAlias value="Marauder"/>
+    </CButton>
+    <CButton id="Mutalisk">
+        <HotkeyAlias value="Banshee"/>
+    </CButton>
+    <CButton id="Phoenix">
+        <HotkeyAlias value="VikingFighter"/>
+    </CButton>
+    <CButton id="Predator">
+        <HotkeyAlias value="Hellion"/>
+    </CButton>
+    <CButton id="Ravager">
+        <HotkeyAlias value="WidowMine"/>
+    </CButton>
+    <CButton id="ResearchKD8Charge1">
+        <Icon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ResearchCharge2">
+        <Icon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchCharge1">
+        <Icon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ResearchD8Charge1">
+        <Icon value="Assets\Textures\btn-ability-terran-d8charge.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-d8charge.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ResearchKD8Charge2">
+        <Icon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchD8Charge2">
+        <Icon value="Assets\Textures\btn-ability-terran-d8charge.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-d8charge.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchKD8Charge3">
+        <Icon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchCharge4">
+        <Icon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchCharge3">
+        <Icon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchD8Charge3">
+        <Icon value="Assets\Textures\btn-ability-terran-d8charge.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-d8charge.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchKD8Charge4">
+        <Icon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchD8Charge4">
+        <Icon value="Assets\Textures\btn-ability-terran-d8charge.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-d8charge.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchStalkerTeleport1">
+        <Icon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="ResearchEnhancedShockwaves"/>
+    </CButton>
+    <CButton id="ResearchSpeed1">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ResearchSpeed2">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchSpeed3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchSpeed4">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchRange1">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-hotsgroovedspines.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-hotsgroovedspines.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ResearchRange2">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-hotsgroovedspines.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-hotsgroovedspines.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchRange3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-hotsgroovedspines.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-hotsgroovedspines.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchRange4">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-hotsgroovedspines.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-hotsgroovedspines.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchStim1">
+        <Icon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="Marine"/>
+    </CButton>
+    <CButton id="ResearchStim2">
+        <Icon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="Reaper"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchStim3">
+        <Icon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="Marauder"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchStalkerTeleport4">
+        <Icon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="Ghost"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchStalkerTeleport2">
+        <Icon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="Reaper"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchStalkerTeleport3">
+        <Icon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="Marauder"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchStim4">
+        <Icon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="Ghost"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="Roach">
+        <HotkeyAlias value="Marauder"/>
+    </CButton>
+    <CButton id="Sentry">
+        <HotkeyAlias value="Marauder"/>
+    </CButton>
+    <CButton id="SiegeTank">
+        <HotkeyAlias value="WidowMine"/>
+    </CButton>
+    <CButton id="Stalker">
+        <HotkeyAlias value="Reaper"/>
+    </CButton>
+    <CButton id="Stim2">
+        <Icon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="Ghost"/>
+        <Universal value="1"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="Tempest">
+        <HotkeyAlias value="Raven"/>
+    </CButton>
+    <CButton id="Ultralisk">
+        <HotkeyAlias value="Thor"/>
+    </CButton>
+    <CButton id="Viper">
+        <HotkeyAlias value="Raven"/>
+    </CButton>
+    <CButton id="Vulture">
+        <HotkeyAlias value="Hellion"/>
+    </CButton>
+    <CButton id="WarHound">
+        <HotkeyAlias value="WidowMine"/>
+    </CButton>
+    <CButton id="WarpInAdept">
+        <HotkeyAlias value="Marauder"/>
+    </CButton>
+    <CButton id="Wraith">
+        <HotkeyAlias value="VikingFighter"/>
+    </CButton>
+    <CButton id="YamatoGun">
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="Zealot">
+        <HotkeyAlias value="Marine"/>
+    </CButton>
+    <CButton id="Zergling">
+        <HotkeyAlias value="Marine"/>
+    </CButton>
+</Catalog>

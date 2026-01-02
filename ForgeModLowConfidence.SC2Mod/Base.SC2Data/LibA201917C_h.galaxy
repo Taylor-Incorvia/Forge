@@ -1,0 +1,61 @@
+include "TriggerLibs/natives"
+
+//--------------------------------------------------------------------------------------------------
+// Library: Lists
+//--------------------------------------------------------------------------------------------------
+// Preset Declarations
+const int libA201917C_ge_ListValueTypes_Integer = 0;
+const int libA201917C_ge_ListValueTypes_Real = 1;
+const int libA201917C_ge_ListValueTypes_String = 2;
+const int libA201917C_ge__ListData_LastIndex = 0;
+const int libA201917C_ge__ListData_Value = 1;
+
+// Constants
+const string libA201917C_gv__E_OutOfRange = "Out of range.";
+const string libA201917C_gv__E_NotExist = "Doesn't Exist";
+const string libA201917C_gv__E_Exist = "ID Already Exist";
+const string libA201917C_gv__CL_ListValuesCount = "List Values Count";
+const string libA201917C_gv__CL_ListNew = "List New";
+const string libA201917C_gv__CL_ListRemoveAt = "List Remove At";
+const string libA201917C_gv__CL_ListSetInt = "List Set <Integer>";
+const string libA201917C_gv__CL_ListGetInt = "List Get <Integer>";
+const string libA201917C_gv__CL_ListAddInt = "List Add <Integer>";
+const string libA201917C_gv__CL_ListSetReal = "List Set <Real>";
+const string libA201917C_gv__CL_ListGetReal = "List Get <Real>";
+const string libA201917C_gv__CL_ListAddReal = "List Add <Real>";
+const string libA201917C_gv__CL_ListSetString = "List Set <String>";
+const string libA201917C_gv__CL_ListGetString = "List Get <String>";
+const string libA201917C_gv__CL_ListAddString = "List Add <String>";
+const string libA201917C_gv__CL_ListIndexOfInteger = "List IndexOf <Integer>";
+const string libA201917C_gv__CL_ListIndexOfReal = "List IndexOf <Real>";
+const string libA201917C_gv__CL_ListIndexOfString = "List IndexOf <String>";
+const int libA201917C_gv_oPsLimitBeforeWait = 5000;
+const string libA201917C_gv__fS = ";;";
+const string libA201917C_gv__iS = "::";
+
+// Function Declarations
+int libA201917C_gf_ListValuesCount (string lp_listname, int lp_valuetype);
+void libA201917C_gf_ListNew (string lp_listname, int lp_valuestype);
+void libA201917C_gf_ListRemoveAt (string lp_listname, int lp_valuetype, int lp_index);
+void libA201917C_gf_ListClear (string lp_listname, int lp_valuestype);
+bool libA201917C_gf_ListExist (string lp_listname, int lp_valuestype);
+void libA201917C_gf_ListSetString (string lp_listname, int lp_index, string lp_value);
+string libA201917C_gf_ListGetString (string lp_listname, int lp_index);
+void libA201917C_gf_ListAddString (string lp_listname, string lp_value);
+int libA201917C_gf_ListIndexOfString (string lp_listname, string lp_value);
+void libA201917C_gf_ListSetReal (string lp_listname, int lp_index, fixed lp_value);
+fixed libA201917C_gf_ListGetReal (string lp_listname, int lp_index);
+void libA201917C_gf_ListAddReal (string lp_listname, fixed lp_value);
+int libA201917C_gf_ListIndexOfReal (string lp_listname, fixed lp_value);
+void libA201917C_gf_ListSetInteger (string lp_listname, int lp_index, int lp_value);
+int libA201917C_gf_ListGetInteger (string lp_listname, int lp_index);
+void libA201917C_gf_ListAddInteger (string lp_listname, int lp_value);
+int libA201917C_gf_ListIndexOfInteger (string lp_listname, int lp_value);
+void libA201917C_gf_OPWait (int lp_i);
+string libA201917C_gf__ListSyntax (string lp_listid, int lp_ftype, int lp_field, int lp_findex);
+void libA201917C_gf__ListError (string lp_caller, string lp_id, string lp_msg);
+bool libA201917C_gf__Check (string lp_caller, string lp_listid, int lp_index, string lp_syntax, bool lp_bool, string lp_msg);
+
+// Library Initialization
+void libA201917C_InitVariables ();
+

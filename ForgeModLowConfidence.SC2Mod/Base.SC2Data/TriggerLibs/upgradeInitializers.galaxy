@@ -1,0 +1,86 @@
+include "TriggerLibs/listHelpers"
+include "TriggerLibs/upgradeHelpers"
+
+void initializeUpgrades() {
+    // // Stimpack
+    addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "caster");
+    addAbilityToUpgrade("Stimpack", "Stimpack");
+    // // Blink
+    addAbilityToUpgrade("Blink", "Blink");
+
+    // //charge
+    addUpgradeRequirementTag("Charge", logicType_AllOf, "unitTag", "melee");
+    addAbilityToUpgrade("Charge", "Charge");
+    
+    addAbilityToUpgrade("KD8Charge", "KD8Charge"); // reaper grenade (multiplayer)
+    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", factory +"3");
+    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", starport +"3");
+    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Vulture");
+
+    addAbilityToUpgrade("D8Charge", "D8Charge"); // clusterbomb (campaign)
+    addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", factory +"3");
+    addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", starport +"3");
+    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Colossus");
+
+    addBehaviorToUpgrade("Speed", "Speed"); 
+
+    addBehaviorToUpgrade("Range", "Range"); 
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "caster");
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Firebat");
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Lurker");
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Hellion");
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Liberator");
+
+    
+    
+}
+
+string getUpgradePoolListKey(int player, int slotIndex, string facilityId){
+    return "player." + IntToString(player) + ".slot." + IntToString(slotIndex) + ".productionFacility." + facilityId + ".upgradePoolList";
+}
+
+void addToUpgradePool(int player, int slotIndex, string facilityId, string upgrade) {
+    string upgradePoolListKey = getUpgradePoolListKey(player, slotIndex, facilityId);
+    listStringRequire(upgradePoolListKey);
+    addToStringList(upgradePoolListKey, upgrade);
+}
+
+void initializeUpgradePoolForPlayerSlot(int player, int slotIndex, string facilityId) {
+    int allUpgradesIndex;
+    string currentUpgradeId;
+    string unitId = getPlayerSlotUnitId(facilityId, slotIndex, player);
+    bool satisfies_AllOf_UnitTagRequirement;
+    bool satisfies_NoneOf_UnitTagRequirement;
+    bool satisfies_AnyOf_UnitTagRequirement;
+    for(allUpgradesIndex = 0; allUpgradesIndex < getStringListSize(allUpgradesListKey); allUpgradesIndex+=1) {
+        currentUpgradeId = getStringAtIndex(allUpgradesListKey, allUpgradesIndex);
+        satisfies_NoneOf_UnitTagRequirement = satisfiesUnitTagUpgradePoolRequirement(currentUpgradeId, logicType_NoneOf, unitId);
+        satisfies_AllOf_UnitTagRequirement = satisfiesUnitTagUpgradePoolRequirement(currentUpgradeId, logicType_AllOf, unitId);
+        satisfies_AnyOf_UnitTagRequirement = satisfiesUnitTagUpgradePoolRequirement(currentUpgradeId, logicType_AnyOf, unitId);
+
+        if(satisfies_NoneOf_UnitTagRequirement && satisfies_AllOf_UnitTagRequirement && satisfies_AnyOf_UnitTagRequirement) {
+            addToUpgradePool(player, slotIndex, facilityId, currentUpgradeId);
+        }
+    }
+}
+
+void assignRandomUpgradeFromPoolToPlayerSlot(int player, int slotIndex, string facilityId) {
+    setSlotSelectedUpgrade(player, slotIndex, facilityId, getRandomStringFromList(getUpgradePoolListKey(player, slotIndex, facilityId)));
+}
+
+
+void setUpgradeSlotsForFacility(string facility, int facilitySlotCount, int playerIndex){
+    int slotIndex;
+    for (slotIndex = 1; slotIndex <= facilitySlotCount; slotIndex += 1) {
+        initializeUpgradePoolForPlayerSlot(playerIndex, slotIndex, facility);
+        assignRandomUpgradeFromPoolToPlayerSlot(playerIndex, slotIndex, facility);
+    }
+}
+
+void initializeUpgradePoolsForPlayer(int player) {
+    setUpgradeSlotsForFacility(rax, 4, player);
+    setUpgradeSlotsForFacility(factory, 3, player);
+    setUpgradeSlotsForFacility(starport, 3, player);
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CWeaponLegacy id="90mmCannons"/>
+    <CWeaponLegacy id="90mmCannonsFake"/>
+    <CWeaponLegacy id="AcidSaliva"/>
+    <CWeaponLegacy id="Adept"/>
+    <CWeaponLegacy id="BacklashRockets"/>
+    <CWeaponLegacy id="C10CanisterRifle"/>
+    <CWeaponLegacy id="Claws"/>
+    <CWeaponLegacy id="CrucioShockCannon"/>
+    <CWeaponLegacy id="Diamondback"/>
+    <CWeaponLegacy id="Firebat"/>
+    <CWeaponLegacy id="GuassRifle"/>
+    <CWeaponLegacy id="HellionTank"/>
+    <CWeaponLegacy id="HydraliskMelee"/>
+    <CWeaponLegacy id="InfernalFlameThrower"/>
+    <CWeaponLegacy id="IonCannons"/>
+    <CWeaponLegacy id="JavelinMissileLaunchers"/>
+    <CWeaponLegacy id="KelmorianMinerGaussRifle"/>
+    <CWeaponLegacy id="LanceMissileLaunchers">
+        <!--Effect value="LanceMissileLaunchersLaunchMissile"/-->
+    </CWeaponLegacy>
+    <CWeaponLegacy id="LanzerTorpedoes"/>
+    <CWeaponLegacy id="Lurker"/>
+    <CWeaponLegacy id="NeedleSpines"/>
+    <!--                                                                                         -->
+    <!--                                                                                         -->
+    <!-- SC 1 Unit ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!--                                                                                         -->
+    <!--                                                                                         -->
+    <!--                                                                                         -->
+    <!-- Corsair ............................................................................... -->
+    <!--                                                                                         -->
+    <CWeaponLegacy id="NeutronFlare"/>
+    <CWeaponLegacy id="ParticleDisruptors"/>
+    <CWeaponLegacy id="PhaseDisruptors"/>
+    <CWeaponLegacy id="PsiBlades"/>
+    <CWeaponLegacy id="PunisherGrenades"/>
+    <CWeaponLegacy id="RavagerWeapon"/>
+    <CWeaponLegacy id="RoachMelee"/>
+    <CWeaponLegacy id="Tempest"/>
+    <CWeaponLegacy id="TempestGround"/>
+    <CWeaponLegacy id="ThermalLances"/>
+    <CWeaponLegacy id="ThorsHammer"/>
+    <CWeaponLegacy id="TwinGatlingCannon"/>
+    <CWeaponLegacy id="Vulture"/>
+    <CWeaponLegacy id="WarHound"/>
+    <CWeaponLegacy id="WarHoundMelee"/>
+    <CWeaponLegacy id="WraithA"/>
+    <CWeaponLegacy id="WraithG"/>
+</Catalog>

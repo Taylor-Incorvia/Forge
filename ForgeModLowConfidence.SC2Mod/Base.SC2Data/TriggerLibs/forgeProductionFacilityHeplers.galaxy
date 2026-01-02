@@ -1,0 +1,143 @@
+
+include "TriggerLibs/NativeLib"
+include "TriggerLibs/listHelpers"
+include "TriggerLibs/forgeUnitHelpers"
+include "TriggerLibs/nativeHelpers"
+
+string rax = "Barracks";
+string factory = "Factory";
+string starport = "Starport";
+
+string ghostAcademy = "GhostAcademy";
+string armory = "Armory";
+string fusionCore = "FusionCore";
+string forge = "Forge";
+
+// =====================================
+// SLOT POOL HELPERS
+// =====================================
+
+string slotPoolKey(string facilityId, int slotIndex) {
+    // e.g. "rax", 1 → "rax.slot.1.pool"
+    return facilityId + ".slot." + IntToString(slotIndex) + ".pool";
+}
+
+void addUnitToSlotPool(string facilityId, int slotIndex, string unitId) {
+    string listName = slotPoolKey(facilityId, slotIndex);
+    listStringRequire(listName);
+    addToStringList(listName, unitId);
+
+    // when you add a unit to the slot pool, automatically tag it with the slot/prod facility info. 
+    addUnitTag(unitId, facilityId + IntToString(slotIndex));
+    addUnitTag(unitId, facilityId);
+    addUnitTag(unitId, "slot" + IntToString(slotIndex));
+    addUnitTag(unitId, unitId); //  this is for edge cases when the tagging system needs an exception for a particular unit. 
+}
+
+void addUpgradeToSlotPool(string facilityId, int slotIndex, string upgradeId) {
+    string listName = slotPoolKey(facilityId, slotIndex);
+    listStringRequire(listName);
+    addToStringList(listName, upgradeId);
+}
+
+string getRandomUnitIdFromSlotPool(string facilityId, int slotIndex) {
+    string listName = slotPoolKey(facilityId, slotIndex);
+    return getRandomStringFromList(listName); // returns unitId like "zergling"
+}
+
+// =====================================
+// PLAYER SLOT SELECTION HELPERS
+// =====================================
+
+void clearPlayerSlotUpgrades(string facilityId, int slotIndex, int playerIndex) {
+    string poolListName = slotPoolKey(facilityId, slotIndex);
+    int len = getStringListSize(poolListName);
+    int i;
+    string unitId;
+    string upgradeId;
+
+    // No pool or empty pool -> nothing to clear
+    if (len <= 0) {
+        return;
+    }
+
+    i = 0;
+    while (i < len) {
+        unitId = getStringAtIndex(poolListName, i);
+        upgradeId = getUnitUnlockUpg(unitId);
+
+        if (upgradeId != "") {
+            revokeUpgrade(playerIndex, upgradeId);
+        }
+
+        i += 1;
+    }
+}
+
+string slotKeyForPlayer(string facilityId, int slotIndex, int playerIndex) {
+    // e.g. "rax", 1, 0 → "rax.slot.1.player.0"
+    return facilityId + ".slot." + IntToString(slotIndex) + ".player." + IntToString(playerIndex);
+}
+
+void setPlayerSlotUnit(string facilityId, int slotIndex, int playerIndex, string unitId) {
+    string unitUnlockUpgrade = getUnitUnlockUpg(unitId);
+    // showMessage("unitUnlockUpgrade=" + unitUnlockUpgrade + "unitId " + unitId);
+    clearPlayerSlotUpgrades(facilityId, slotIndex, playerIndex);
+    DataTableSetString(true, slotKeyForPlayer(facilityId, slotIndex, playerIndex), unitId);
+    grantUpgrade(playerIndex, getUnitUnlockUpg(unitId));
+}
+
+void setRandomSlotUnitFromPoolForPlayer(string facilityId, int slotIndex, int playerIndex) {
+    string selectedUnitId = getRandomUnitIdFromSlotPool(facilityId, slotIndex);
+    if(playerIndex == 1) {
+        // showMessage(selectedUnitId);
+    }
+        
+    setPlayerSlotUnit(facilityId, slotIndex, playerIndex, selectedUnitId);
+}
+
+string getPlayerSlotUnitId(string facilityId, int slotIndex, int playerIndex) {
+    string key = slotKeyForPlayer(facilityId, slotIndex, playerIndex);
+    // showMessage(key);
+    return DataTableGetString(true, slotKeyForPlayer(facilityId, slotIndex, playerIndex));
+}
+
+string getProductionFacilityFromUpgradeFacility(string upgradeFacilityName){
+    if(upgradeFacilityName == ghostAcademy) {
+        return rax;
+    }
+
+    if(upgradeFacilityName == armory) {
+        return factory;
+    }
+
+    if(upgradeFacilityName == fusionCore) {
+        return starport;
+    }
+
+    showMessage("WARNING: no production facility found for " + upgradeFacilityName);
+
+    return null;
+}
+
+string getUpgradeFacilityFromProductionFacility(string productionFacilityName) {
+    if (productionFacilityName == rax) {
+        return ghostAcademy;
+    }
+
+    if (productionFacilityName == factory) {
+        return armory;
+    }
+
+    if (productionFacilityName == starport) {
+        return fusionCore;
+    }
+
+    showMessage("WARNING: no upgrade facility found for " + productionFacilityName);
+
+    return null;
+}
+
+
+
+

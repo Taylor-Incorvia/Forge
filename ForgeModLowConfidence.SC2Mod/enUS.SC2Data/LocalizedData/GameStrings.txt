@@ -1,0 +1,162 @@
+﻿Abil/Name/BarracksReactorMorph2=Nuclear Reactor Morph (Barracks)
+Abil/Name/Blink1=ResearchBlink1
+Abil/Name/Blink2=ResearchBlink2
+Abil/Name/Blink3=ResearchBlink3
+Abil/Name/Blink4=ResearchBlink4
+Abil/Name/Charge1=ResearchCharge1
+Abil/Name/Charge2=ResearchCharge2
+Abil/Name/Charge3=ResearchCharge3
+Abil/Name/Charge42=ResearchCharge4
+Abil/Name/D8Charge1=D8Charge1
+Abil/Name/D8Charge2=D8Charge2
+Abil/Name/D8Charge3=D8Charge3
+Abil/Name/D8Charge4=D8Charge4
+Abil/Name/KD8Charge1=KD8Charge1
+Abil/Name/KD8Charge2=KD8Charge2
+Abil/Name/KD8Charge3=KD8Charge3
+Abil/Name/KD8Charge4=KD8Charge4
+Abil/Name/Stimpack1=Stimpack1
+Abil/Name/Stimpack2=Stimpack2
+Abil/Name/Stimpack3=Stimpack3
+Abil/Name/Stimpack4=Stimpack4
+Abil/Name/marineBlink=Blink
+Behavior/Name/blink_test=blink_test
+Button/Name/Blink=Blink - stalker
+Button/Name/ResearchCharge1=Research Charge 1
+Button/Name/ResearchCharge2=Research Charge 2
+Button/Name/ResearchCharge3=Research Charge 3
+Button/Name/ResearchCharge4=Research Charge 4
+Button/Name/ResearchD8Charge1=ResearchD8Charge 1
+Button/Name/ResearchD8Charge2=ResearchD8Charge2
+Button/Name/ResearchD8Charge3=ResearchD8Charge3
+Button/Name/ResearchD8Charge4=ResearchD8Charge4
+Button/Name/ResearchKD8Charge1=Research KD8Charge 1
+Button/Name/ResearchKD8Charge2=Research KD8Charge 2
+Button/Name/ResearchKD8Charge3=Research KD8Charge 3
+Button/Name/ResearchKD8Charge4=Research KD8Charge4
+Button/Name/ResearchStalkerTeleport1=Research Blink 1
+Button/Name/ResearchStalkerTeleport2=Research Blink 2
+Button/Name/ResearchStalkerTeleport3=Research Blink 3
+Button/Name/ResearchStalkerTeleport4=Research Blink 4
+Button/Name/ResearchStim1=Research Stim 1
+Button/Name/ResearchStim2=Research Stim 2
+Button/Name/ResearchStim3=Research Stim 3
+Button/Name/ResearchStim4=Research Stim 4
+Button/Name/Stim2=Stimpack - Forge
+Button/Tooltip/Blink2=Teleports the Stalker to a nearby target location. Ability can only be used once every <d ref="Abil,Blink,Cost[0].Cooldown.TimeUse"/> seconds.
+Button/Tooltip/GhostAcademy2=Contains upgrades for Ghosts. Can build Nukes for Ghosts.<n/><n/><c val="ffff8a">Enables:</c><n/>- Ghosts at the Barracks
+Button/Tooltip/ResearchCharge1=Allows <c val="ffff8a">Zealots</c> to intercept nearby enemies. Also increases the movement speed of <c val="ffff8a">Zealots</c>. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
+Button/Tooltip/ResearchCharge2=Allows <c val="ffff8a">Zealots</c> to intercept nearby enemies. Also increases the movement speed of <c val="ffff8a">Zealots</c>. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
+Button/Tooltip/ResearchCharge3=Allows <c val="ffff8a">Zealots</c> to intercept nearby enemies. Also increases the movement speed of <c val="ffff8a">Zealots</c>. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
+Button/Tooltip/ResearchCharge4=Allows <c val="ffff8a">Zealots</c> to intercept nearby enemies. Also increases the movement speed of <c val="ffff8a">Slot 4</c>. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
+Button/Tooltip/ResearchD8Charge1=Allows <c val="ffff8a">Zealots</c> to intercept nearby enemies. Also increases the movement speed of <c val="ffff8a">Zealots</c>. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
+Button/Tooltip/ResearchD8Charge2=Allows <c val="ffff8a">Zealots</c> to intercept nearby enemies. Also increases the movement speed of <c val="ffff8a">Zealots</c>. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
+Button/Tooltip/ResearchD8Charge3=Allows <c val="ffff8a">Zealots</c> to intercept nearby enemies. Also increases the movement speed of <c val="ffff8a">Zealots</c>. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
+Button/Tooltip/ResearchD8Charge4=Allows <c val="ffff8a">Zealots</c> to intercept nearby enemies. Also increases the movement speed of <c val="ffff8a">Slot 4</c>. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
+Button/Tooltip/ResearchKD8Charge1=Allows <c val="ffff8a">Zealots</c> to intercept nearby enemies. Also increases the movement speed of <c val="ffff8a">Zealots</c>. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
+Button/Tooltip/ResearchKD8Charge2=Allows <c val="ffff8a">Zealots</c> to intercept nearby enemies. Also increases the movement speed of <c val="ffff8a">Zealots</c>. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
+Button/Tooltip/ResearchKD8Charge3=Allows <c val="ffff8a">Zealots</c> to intercept nearby enemies. Also increases the movement speed of <c val="ffff8a">Zealots</c>. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
+Button/Tooltip/ResearchKD8Charge4=Allows <c val="ffff8a">Zealots</c> to intercept nearby enemies. Also increases the movement speed of <c val="ffff8a">Slot 4</c>. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
+Button/Tooltip/ResearchStalkerTeleport1=Allows slot 1 units to teleport to a nearby target location.
+Button/Tooltip/ResearchStalkerTeleport2=Allows slot 2 units to teleport to a nearby target location.
+Button/Tooltip/ResearchStalkerTeleport3=Allows slot 3 units to teleport to a nearby target location.
+Button/Tooltip/ResearchStalkerTeleport4=Allows slot 3 units to teleport to a nearby target location.
+Button/Tooltip/ResearchStim1=Allows slot 1 units to use STIM pack to temporarily increase movement and attack speed at the cost of health
+Button/Tooltip/ResearchStim2=Allows slot 2 units to use STIM pack to temporarily increase movement and attack speed at the cost of health
+Button/Tooltip/ResearchStim3=Allows slot 3 units to use STIM pack to temporarily increase movement and attack speed at the cost of health
+Button/Tooltip/ResearchStim4=Allows slot 4 units to use STIM pack to temporarily increase movement and attack speed at the cost of health
+Button/Tooltip/Stim2=Injects the unit with powerful stimulants that greatly increase attack and movement speeds for a few seconds. Injures the unit for 10 of the unit's life.
+Button/Tooltip/Vulture=Fast skirmish unit. Can use the KD8 Charge ability(Reaper Grenade).<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+DocInfo/DescShort=Any
+DocInfo/Name=Just Another StarCraft II Mod
+Effect/Name/Blink2=Blink (Teleport)
+Effect/Name/UnknownEffect=Unknown Effect
+RequirementNode/Tooltip/CountUnitAlias_FactoryCompleteOnly96167438TechTreeCheat=Factory
+RequirementNode/Tooltip/CountUnitGhostAcademyCompleteOnly96167438TechTreeCheat=Factory
+RequirementNode/Tooltip/CountUnitStarportTechLabCompleteOnlyAtUnit2589852481TechTreeCheat=Attached Tech Lab
+RequirementNode/Tooltip/GTE2590769371CountUpgradebarracksZerglingCompleteOnly1=Test
+Upgrade/Name/1=GU Slot 1
+Upgrade/Name/2=GU Slot 2
+Upgrade/Name/3=GU Slot 3
+Upgrade/Name/4=GU Slot 4
+Upgrade/Name/GA1BehaviorIndex=1SlotBehaviorIndex
+Upgrade/Name/Starport1speedupg=Starport 1 speed upg
+Upgrade/Name/barracks2hydraliskupg=barracks 2 hydralisk upg
+Upgrade/Name/barracks2stalkerupg=barracks 2 stalker upg
+Upgrade/Name/barracks2warpigupg=barracks War Pig Upg
+Upgrade/Name/barracks3adeptupg=barracks 3 adept upg
+Upgrade/Name/barracks3firebatupg=barracks 3 firebat upg
+Upgrade/Name/barracks3marauder=barracks 3 marauder
+Upgrade/Name/barracks3medicupg=barracks 3 medic upg
+Upgrade/Name/barracks3roachupg=barracks 3 roach upg
+Upgrade/Name/barracks3sentryupg=barracks 3 sentry upg
+Upgrade/Name/barracks4archonupg=barracks 4 archon upg
+Upgrade/Name/barracks4ghostupg=barracks 4 ghost upg
+Upgrade/Name/barracks4hightemplarupg=barracks 4 high templar upg
+Upgrade/Name/barracks4infestorupg=barracks 4 infestor upg
+Upgrade/Name/barracks4lurkerupg=barracks 4 lurker upg
+Upgrade/Name/barracksMarineUpg=barracks Marine Upg
+Upgrade/Name/barracksZealotUpg=barracks Zealot Upg
+Upgrade/Name/barracksZergling=barracks Zergling
+Upgrade/Name/factory1hellion=factory 1 hellion
+Upgrade/Name/factory1predator=factory 1 predator
+Upgrade/Name/factory1vultureupg=factory 1 vulture upg
+Upgrade/Name/factory2diamondback=factory 2 diamondback
+Upgrade/Name/factory2immortalupg=factory 2 immortal upg
+Upgrade/Name/factory2ravager=factory 2 ravager
+Upgrade/Name/factory2siegetankupg=factory 2 siege tank upg
+Upgrade/Name/factory2warhoundupg=factory 2 warhound upg
+Upgrade/Name/factory3colossus=factory 3 colossus
+Upgrade/Name/factory3thor=factory 3 thor
+Upgrade/Name/factory3ultralisk=factory 3 ultralisk
+Upgrade/Name/forgecolossussplashupg=forge colossus splash upg
+Upgrade/Name/forgezerglingswarmlingupg=forge zergling swarmling upg
+Upgrade/Name/starport1corsairupg=starport 1 corsair upg
+Upgrade/Name/starport1phoenix=starport 1 phoenix upg
+Upgrade/Name/starport1vikingupg=starport 1 viking upg
+Upgrade/Name/starport1wraithupg=starport 1 wraith upg
+Upgrade/Name/starport2bansheeupg=starport 2 banshee upg
+Upgrade/Name/starport2liberatorupg=starport 2 liberator upg
+Upgrade/Name/starport2mutaupg=starport 2 muta upg
+Upgrade/Name/starport3ravenupg=starport 3 raven upg
+Upgrade/Name/starport3sciencevesselupg=starport 3 science vessel upg
+Upgrade/Name/starport3tempestupg=starport 3 tempest upg
+Upgrade/Name/starport3viperupg=starport 3 viper upg
+Weapon/Name/90mmCannons=F_90mm Cannons
+Weapon/Name/90mmCannonsFake=F_90mm Cannons Fake
+Weapon/Name/AcidSaliva=F_Acid Saliva
+Weapon/Name/Adept=F_Glaive Cannon
+Weapon/Name/BacklashRockets=F_Backlash Rockets
+Weapon/Name/C10CanisterRifle=F_C-10 Canister Rifle
+Weapon/Name/Claws=F_Claws
+Weapon/Name/CrucioShockCannon=F_Crucio Shock Cannon
+Weapon/Name/Diamondback=F_Eviscerator Rail Gun
+Weapon/Name/Firebat=F_Perdition Flamethrower
+Weapon/Name/GuassRifle=F_C-14 Gauss Rifle
+Weapon/Name/HellionTank=F_Napalm Spray
+Weapon/Name/HydraliskMelee=F_Melee
+Weapon/Name/InfernalFlameThrower=F_Infernal Flamethrower
+Weapon/Name/IonCannons=F_Ion Cannons
+Weapon/Name/JavelinMissileLaunchers=F_Javelin Missile Launchers
+Weapon/Name/KelmorianMinerGaussRifle=F_Gauss Rifle
+Weapon/Name/LanceMissileLaunchers=F_250mm Punisher Cannons
+Weapon/Name/LanzerTorpedoes=F_Lanzer Torpedoes
+Weapon/Name/Lurker=F_Spines
+Weapon/Name/NeedleSpines=F_Needle Spines
+Weapon/Name/NeutronFlare=F_Neutron Flare
+Weapon/Name/ParticleDisruptors=F_Particle Disruptors
+Weapon/Name/PhaseDisruptors=F_Phase Disruptors
+Weapon/Name/PsiBlades=F_Psi Blades
+Weapon/Name/PunisherGrenades=F_Punisher Grenades
+Weapon/Name/RavagerWeapon=F_Plasma Discharge
+Weapon/Name/RoachMelee=F_Needle Spines (Melee)
+Weapon/Name/Tempest=F_Kinetic Overload
+Weapon/Name/TempestGround=F_Resonance Coil
+Weapon/Name/ThermalLances=F_Thermal Lance
+Weapon/Name/ThorsHammer=F_Thor's Hammer
+Weapon/Name/TwinGatlingCannon=F_Gatling Cannon
+Weapon/Name/Vulture=F_Fragmentation Grenade
+Weapon/Name/WarHound=F_Railgun
+Weapon/Name/WarHoundMelee=F_War Hound Melee
+Weapon/Name/WraithA=F_Gemini Missiles
+Weapon/Name/WraithG=F_Burst Lasers

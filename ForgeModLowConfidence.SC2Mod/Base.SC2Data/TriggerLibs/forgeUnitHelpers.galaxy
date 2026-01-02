@@ -1,0 +1,75 @@
+include "TriggerLibs/NativeLib"
+include "TriggerLibs/listHelpers"
+
+string getUnitTagsListName(string unitId) {
+    // e.g. "zergling" → "unit.zergling.tags"
+    return "unit." + unitId + ".tags";
+}
+
+void addUnitTag(string unitId, string tag) {
+    string listName = getUnitTagsListName(unitId);
+    listStringRequire(listName);
+    addToStringList(listName, tag);
+}
+
+string unitUnlockUpgKey(string unitId) {
+    // e.g. "zergling" → "unit.zergling.unlockUpg"
+    return "unit." + unitId + ".unlockUpg";
+}
+
+void setUnitUnlockUpgrade(string unitId, string upgradeId) {
+    // showMessage("setUnitUnlockUpgrade(" + unitId + " " + upgradeId);
+    DataTableSetString(true, unitUnlockUpgKey(unitId), upgradeId);
+}
+
+string getUnitUnlockUpg(string unitId) {
+     return DataTableGetString(true, unitUnlockUpgKey(unitId));
+}
+
+bool unitHasTag(string unitId, string tag) {
+    string listName = getUnitTagsListName(unitId);
+
+    // If the tag list doesn't exist, the unit has no tags.
+    if (!libA201917C_gf_ListExist(listName, libA201917C_ge_ListValueTypes_String)) {
+        return false;
+    }
+
+    return stringListContains(listName, tag);
+}
+
+string getUnitAltFormKey(string unitId) {
+    // e.g. "zergling" → "unit.zergling.altForm"
+    return "unit." + unitId + ".altForm";
+}
+
+void setUnitAltForm(string unitId, string altFormUnitId) {
+    string key = getUnitAltFormKey(unitId);
+    DataTableSetString(true, key, altFormUnitId);
+}
+
+string getUnitAltForm(string unitId) {
+    return DataTableGetString(true, getUnitAltFormKey(unitId));
+}
+
+int c_applyKindAbility  = 0;
+int c_applyKindBehavior = 1;
+
+// Applies either an ability or a behavior to all living units of a given unit type for a player.
+void applyToLivingUnitsOfTypeForPlayer(int playerIndex, string unitType, int applyKind, string abilityOrBehaviorId) {
+    unitgroup g = UnitGroup(unitType, playerIndex, null, null, c_noMaxCount);
+    int livingUnitCount = UnitGroupCount(g, c_unitCountAlive);
+    unit u;
+
+    int i = 1;
+    while (i <= livingUnitCount) {
+        u = UnitGroupUnit(g, i);
+
+        if (applyKind == c_applyKindAbility) {
+            UnitAbilityAdd(u, abilityOrBehaviorId);
+        } else { 
+            UnitBehaviorAdd(u, abilityOrBehaviorId, null, 1);
+        }
+
+        i += 1;
+    }
+}

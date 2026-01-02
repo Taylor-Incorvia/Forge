@@ -1,0 +1,41 @@
+include "TriggerLibs/listHelpers"
+include "TriggerLibs/nativeHelpers"
+include "TriggerLibs/stringHelpers"
+include "TriggerLibs/forgeUnitHelpers"
+
+void grantBehaviorToExistingUnitsOfTypeForPlayer(int playerIndex, string behavior, string unitName) {
+    string alt = getUnitAltForm(unitName);
+
+    applyToLivingUnitsOfTypeForPlayer(playerIndex, unitName, c_applyKindBehavior, behavior);
+
+    if (alt != "") {
+        applyToLivingUnitsOfTypeForPlayer(playerIndex, alt, c_applyKindBehavior, behavior);
+    }
+}
+
+string getUnitBehaviorListKey(string unitName, int player){
+    return "player." + IntToString(player) + "." + unitName + "." + "behaviorList";
+}
+
+void addToBehaviorListForUnitType(string behavior, string unitName, int player){
+    string key = getUnitBehaviorListKey(unitName, player);
+    listStringRequire(key);
+    addToStringList(key, behavior);
+} 
+
+void applyBehaviorListToUnit(unit u){
+    string unitName = UnitGetType(u);
+    int player = UnitGetOwner(u);
+    string key = getUnitBehaviorListKey(unitName, player);
+    int index; 
+
+
+    if(!stringListExists(key)) {
+        return;
+    }
+
+    for(index = 0; index < getStringListSize(key); index+= 1){
+        UnitBehaviorAdd(u, getStringAtIndex(key, index), null, 1);
+    }
+}
+

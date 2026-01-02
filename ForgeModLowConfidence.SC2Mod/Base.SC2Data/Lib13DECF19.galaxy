@@ -1,0 +1,182 @@
+include "TriggerLibs/NativeLib"
+
+include "Lib13DECF19_h"
+
+//--------------------------------------------------------------------------------------------------
+// Library: Forge
+//--------------------------------------------------------------------------------------------------
+// External Library Initialization
+void lib13DECF19_InitLibraries () {
+    libNtve_InitVariables();
+}
+
+// Custom Script
+//--------------------------------------------------------------------------------------------------
+// Custom Script: Untitled Custom Script 002
+//--------------------------------------------------------------------------------------------------
+include "TriggerLibs/test2"
+include "TriggerLibs/initialize"
+include "TriggerLibs/upgradeHelpers"
+include "TriggerLibs/upgradeInitializers"
+include "TriggerLibs/unitInitializers"
+include "TriggerLibs/abilityHelpers"
+
+void lib13DECF19_InitCustomScript () {
+}
+
+// Triggers
+//--------------------------------------------------------------------------------------------------
+// Trigger: Untitled Trigger 001
+//--------------------------------------------------------------------------------------------------
+bool lib13DECF19_gt_onUpgradeCompleted_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!(((UnitGetType(EventUnit()) == "Forge") || (UnitGetType(EventUnit()) == "GhostAcademy") || (UnitGetType(EventUnit()) == "Armory") || (UnitGetType(EventUnit()) == "FusionCore")))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    onGenericUpgradeCompleted();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib13DECF19_gt_onUpgradeCompleted_Init () {
+    lib13DECF19_gt_onUpgradeCompleted = TriggerCreate("lib13DECF19_gt_onUpgradeCompleted_Func");
+    TriggerAddEventUnitResearchProgress(lib13DECF19_gt_onUpgradeCompleted, null, c_unitProgressStageComplete);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Untitled Trigger 001
+//--------------------------------------------------------------------------------------------------
+bool lib13DECF19_gt_onUnitCreated_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    applyBehaviorListToUnit(EventUnitCreatedUnit());
+    applyAbilityListToUnit(EventUnitCreatedUnit());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib13DECF19_gt_onUnitCreated_Init () {
+    lib13DECF19_gt_onUnitCreated = TriggerCreate("lib13DECF19_gt_onUnitCreated_Func");
+    TriggerAddEventUnitCreated(lib13DECF19_gt_onUnitCreated, null, null, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Forge Upgrade completion
+//--------------------------------------------------------------------------------------------------
+bool lib13DECF19_gt_ForgeUpgradecompletion_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetType(EventUnit()) == "Forge"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitKill(EventUnit());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib13DECF19_gt_ForgeUpgradecompletion_Init () {
+    lib13DECF19_gt_ForgeUpgradecompletion = TriggerCreate("lib13DECF19_gt_ForgeUpgradecompletion_Func");
+    TriggerAddEventUnitResearchProgress(lib13DECF19_gt_ForgeUpgradecompletion, null, c_unitProgressStageComplete);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Mod Init
+//--------------------------------------------------------------------------------------------------
+bool lib13DECF19_gt_ModInit_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_currentPlayer;
+    int lv_ghostAcademySlot1;
+    int lv_armorySlot1;
+    int lv_fusionCoreSlot1;
+
+    // Automatic Variable Declarations
+    playergroup auto144187F5_g;
+    int auto144187F5_var;
+
+    // Variable Initialization
+    lv_currentPlayer = -1;
+    lv_ghostAcademySlot1 = RandomInt(0, 2);
+    lv_armorySlot1 = RandomInt(0, 1);
+    lv_fusionCoreSlot1 = RandomInt(0, 1);
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    // initialize unlock upgrades, unit pools, upgrade tags, unit tags, unit alt forms
+    initializeUnitUnlockUpgradeMapping();
+    initializePools();
+    initializeUpgrades();
+    initializeTags();
+    initializeAlternateForms();
+    auto144187F5_g = PlayerGroupAll();
+    auto144187F5_var = -1;
+    while (true) {
+        auto144187F5_var = PlayerGroupNextPlayer(auto144187F5_g, auto144187F5_var);
+        if (auto144187F5_var < 0) { break; }
+        lv_currentPlayer = auto144187F5_var;
+        setProductionSlotsForPlayer(lv_currentPlayer);
+        initializeUpgradePoolsForPlayer(lv_currentPlayer);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib13DECF19_gt_ModInit_Init () {
+    lib13DECF19_gt_ModInit = TriggerCreate("lib13DECF19_gt_ModInit_Func");
+    TriggerAddEventTimeElapsed(lib13DECF19_gt_ModInit, 0.0, c_timeGame);
+}
+
+void lib13DECF19_InitTriggers () {
+    lib13DECF19_gt_onUpgradeCompleted_Init();
+    lib13DECF19_gt_onUnitCreated_Init();
+    lib13DECF19_gt_ForgeUpgradecompletion_Init();
+    lib13DECF19_gt_ModInit_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+bool lib13DECF19_InitLib_completed = false;
+
+void lib13DECF19_InitLib () {
+    if (lib13DECF19_InitLib_completed) {
+        return;
+    }
+
+    lib13DECF19_InitLib_completed = true;
+
+    lib13DECF19_InitLibraries();
+    lib13DECF19_InitCustomScript();
+    lib13DECF19_InitTriggers();
+}
+

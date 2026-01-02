@@ -1,0 +1,20 @@
+include "TriggerLibs/nativeHelpers"
+
+string getLastChar(string s) {
+    int len = getStringLength(s);
+    string ret;
+    if (len <= 0) {
+        return "";
+    }
+
+    ret = getSubString(s, len, len);
+    return getSubString(s, len, len);
+}
+
+string chopLastChar(string s) {
+    int len = getStringLength(s);
+    if (len <= 1) {
+        return "";
+    }
+    return getSubString(s, 1, len - 1);
+}

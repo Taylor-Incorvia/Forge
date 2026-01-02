@@ -1,0 +1,11 @@
+include "TriggerLibs/natives"
+
+//--------------------------------------------------------------------------------------------------
+// Library: Forge
+//--------------------------------------------------------------------------------------------------
+// Trigger Declarations
+trigger lib13DECF19_gt_onUpgradeCompleted;
+trigger lib13DECF19_gt_onUnitCreated;
+trigger lib13DECF19_gt_ForgeUpgradecompletion;
+trigger lib13DECF19_gt_ModInit;
+
