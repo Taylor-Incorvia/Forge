@@ -505,6 +505,9 @@
         <InfoArray index="Build1">
             <Button Requirements="UnknownRequirement12"/>
         </InfoArray>
+        <InfoArray index="Build3" Unit="StarportTechReactor">
+            <Button DefaultButtonFace="TechReactor" Requirements="UnknownRequirement12"/>
+        </InfoArray>
     </CAbilBuild>
     <CAbilMorph id="StarportTechLabMorph">
         <CmdButtonArray index="Execute" Requirements="HaveFusionWelder"/>

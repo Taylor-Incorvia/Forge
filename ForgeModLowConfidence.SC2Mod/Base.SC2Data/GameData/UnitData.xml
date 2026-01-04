@@ -162,7 +162,6 @@
     </CUnit>
     <CUnit id="Hydralisk">
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="HydraliskFrenzy" AbilCmd="HydraliskFrenzy,Execute" Column="0"/>
             <LayoutButtons index="6" removed="1"/>
             <LayoutButtons index="7" removed="1"/>
             <LayoutButtons index="8" removed="1"/>
@@ -262,16 +261,10 @@
     <CUnit id="Predator">
         <CardLayouts index="0">
             <LayoutButtons index="6" Row="1"/>
-            <LayoutButtons Face="K D8Charge" Type="AbilCmd" AbilCmd="KD8Charge,Execute" Row="2" Column="4"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="Ravager">
-        <AbilArray Link="DarkTemplarBlink"/>
-        <AbilArray Link="KD8Charge"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="RavagerCorrosiveBile" AbilCmd="RavagerCorrosiveBile,Execute" Column="0"/>
-            <LayoutButtons index="6" Face="DarkTemplarBlink" AbilCmd="DarkTemplarBlink,Execute" Column="1"/>
-            <LayoutButtons index="7" Face="KD8Charge" AbilCmd="KD8Charge,Execute" Column="2"/>
             <LayoutButtons index="8" removed="1"/>
             <LayoutButtons index="9" removed="1"/>
             <LayoutButtons index="10" removed="1"/>
@@ -334,10 +327,6 @@
             <LayoutButtons index="7" removed="1"/>
             <LayoutButtons index="8" removed="1"/>
         </CardLayouts>
-        <CardLayouts index="2">
-            <LayoutButtons Face="Nexus" Type="AbilCmd" AbilCmd="TerranBuild,Build13" Row="1" Column="2"/>
-            <LayoutButtons Face="Forge" Type="AbilCmd" AbilCmd="TerranBuild,Build15" Row="1" Column="3"/>
-        </CardLayouts>
     </CUnit>
     <CUnit id="ScienceVessel">
         <CardLayouts index="0">
@@ -354,25 +343,39 @@
     </CUnit>
     <CUnit id="Starport">
         <CardLayouts index="0">
-            <LayoutButtons index="0" Column="1"/>
-            <LayoutButtons index="1" Column="0"/>
-            <LayoutButtons index="3" Column="2"/>
+            <LayoutButtons index="1" Row="1" Column="0"/>
+            <LayoutButtons index="2" Column="2"/>
+            <LayoutButtons index="3" Column="1"/>
             <LayoutButtons index="4" Face="Rally" AbilCmd="Rally,Rally1" Column="4"/>
-            <LayoutButtons index="5" Face="TechLabStarport" AbilCmd="StarportAddOns,Build1" Row="2" Column="0"/>
+            <LayoutButtons index="5" Face="TechReactor" AbilCmd="StarportAddOns,Build3" Row="2" Column="0"/>
             <LayoutButtons index="6" Face="Lift" AbilCmd="StarportLiftOff,Execute" Column="3"/>
             <LayoutButtons index="7" Face="Halt" AbilCmd="BuildInProgress,Halt" Column="3"/>
             <LayoutButtons index="8" Face="Cancel" AbilCmd="que5,CancelLast" Column="4"/>
             <LayoutButtons index="9" Face="Cancel" AbilCmd="StarportAddOns,Halt" Column="4"/>
             <LayoutButtons index="10" Face="CancelBuilding" AbilCmd="BuildInProgress,Cancel"/>
             <LayoutButtons index="11" Face="SelectBuilder" Type="SelectBuilder" AbilCmd="StarportTrain,Train5" Row="1" Column="3"/>
-            <LayoutButtons index="12" Face="Phoenix" AbilCmd="StarportTrain,Train6" Row="0" Column="1"/>
-            <LayoutButtons index="13" Face="Liberator" Type="AbilCmd" AbilCmd="StarportTrain,Train7" Row="0" Column="2"/>
-            <LayoutButtons index="14" Face="Viper" AbilCmd="StarportTrain,Train11" Column="3"/>
-            <LayoutButtons Face="Corsair" Type="AbilCmd" AbilCmd="StarportTrain,Train12" Row="0" Column="1"/>
-            <LayoutButtons Face="Wraith" Type="AbilCmd" AbilCmd="StarportTrain,Train8" Row="0" Column="1"/>
-            <LayoutButtons Face="BuildScienceVessel" Type="AbilCmd" AbilCmd="StarportTrain,Train13" Row="0" Column="3"/>
-            <LayoutButtons Face="Tempest" Type="AbilCmd" AbilCmd="StarportTrain,Train10" Row="0" Column="3"/>
-            <LayoutButtons Face="Mutalisk" Type="AbilCmd" AbilCmd="StarportTrain,Train9" Row="0" Column="2"/>
+            <LayoutButtons index="12" Face="Phoenix" AbilCmd="StarportTrain,Train6" Row="0" Column="0"/>
+            <LayoutButtons index="13" Face="Liberator" Type="AbilCmd" AbilCmd="StarportTrain,Train7" Row="0" Column="1"/>
+            <LayoutButtons index="14" Face="Viper" AbilCmd="StarportTrain,Train11"/>
+            <LayoutButtons Face="Mutalisk" Type="AbilCmd" AbilCmd="StarportTrain,Train9" Row="0" Column="1"/>
+            <LayoutButtons Face="Corsair" Type="AbilCmd" AbilCmd="StarportTrain,Train12" Row="0" Column="0"/>
+            <LayoutButtons Face="Wraith" Type="AbilCmd" AbilCmd="StarportTrain,Train8" Row="0" Column="0"/>
+            <LayoutButtons Face="BuildScienceVessel" Type="AbilCmd" AbilCmd="StarportTrain,Train13" Row="0" Column="2"/>
+            <LayoutButtons Face="Tempest" Type="AbilCmd" AbilCmd="StarportTrain,Train10" Row="0" Column="2"/>
+        </CardLayouts>
+        <BehaviorArray index="1" Link="TerranStructuresKnockbackBehavior"/>
+        <BehaviorArray index="2" removed="1"/>
+    </CUnit>
+    <CUnit id="StarportFlying">
+        <!--5.0.15 Data-->
+        <CardLayouts index="0">
+            <LayoutButtons index="1" Face="TechReactor" AbilCmd="StarportAddOns,Build3" Column="0"/>
+            <LayoutButtons index="2" Face="Stop" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons index="3" Face="Move" AbilCmd="move,Move" Column="0"/>
+            <LayoutButtons index="4" Face="MoveHoldPosition" AbilCmd="move,HoldPos" Column="2"/>
+            <LayoutButtons index="5" Face="MovePatrol" AbilCmd="move,Patrol" Column="3"/>
+            <LayoutButtons index="6" Face="Rally" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
+            <LayoutButtons index="7" removed="1"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="StarportTechLab">

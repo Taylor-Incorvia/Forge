@@ -24,7 +24,7 @@
         <NodeArray index="Show" Link="GTECountUpgradebarracks3firebatupgCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="UnknownRequirement10">
-        <NodeArray index="Use" Link="AndCountUnitStarportTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradestarport3ravenupgCompleteOnly1"/>
+        <NodeArray index="Use" Link="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3ravenupgCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradestarport3ravenupgCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="UnknownRequirement11">
@@ -178,15 +178,15 @@
         <NodeArray index="Show" Link="GTECountUpgradestarport2bansheeupgCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="starport3tempestreq">
-        <NodeArray index="Use" Link="AndCountUnitStarportTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradestarport3tempestupgCompleteOnly1"/>
+        <NodeArray index="Use" Link="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3tempestupgCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradestarport3tempestupgCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="starport3viperreq">
-        <NodeArray index="Use" Link="AndCountUnitStarportTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradestarport3viperupgCompleteOnly1"/>
+        <NodeArray index="Use" Link="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3viperupgCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradestarport3viperupgCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="starport3sciencevesselreq">
-        <NodeArray index="Use" Link="AndCountUnitStarportTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradestarport3sciencevesselupgCompleteOnly1"/>
+        <NodeArray index="Use" Link="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3sciencevesselupgCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradestarport3sciencevesselupgCompleteOnly1"/>
     </CRequirement>
 </Catalog>
