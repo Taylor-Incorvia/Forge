@@ -51,11 +51,11 @@
         <NodeArray index="Show" Link="GTECountUpgradefactory2immortalupgCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="UnknownRequirement5">
-        <NodeArray index="Use" Link="AndGTECountUpgradefactory3colossusCompleteOnly1CountUnitFactoryTechLabCompleteOnlyAtUnit"/>
+        <NodeArray index="Use" Link="AndGTECountUpgradefactory3colossusCompleteOnly1CountUnitFactoryReactorCompleteOnlyAtUnit"/>
         <NodeArray index="Show" Link="GTECountUpgradefactory3colossusCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="UnknownRequirement6">
-        <NodeArray index="Use" Link="AndGTECountUpgradefactory3ultraliskCompleteOnly1CountUnitFactoryTechLabCompleteOnlyAtUnit"/>
+        <NodeArray index="Use" Link="AndGTECountUpgradefactory3ultraliskCompleteOnly1CountUnitFactoryReactorCompleteOnlyAtUnit"/>
         <NodeArray index="Show" Link="GTECountUpgradefactory3ultraliskCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="UnknownRequirement7">
@@ -147,7 +147,7 @@
         <NodeArray index="Show" Link="GTECountUpgradefactory2diamondbackCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="factory3thor">
-        <NodeArray index="Use" Link="AndGTECountUpgradefactory3thorCompleteOnly1CountUnitFactoryTechLabCompleteOnlyAtUnit"/>
+        <NodeArray index="Use" Link="AndGTECountUpgradefactory3thorCompleteOnly1CountUnitFactoryReactorCompleteOnlyAtUnit"/>
         <NodeArray index="Show" Link="GTECountUpgradefactory3thorCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="forgecanupgradecolossus">

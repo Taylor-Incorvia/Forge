@@ -49,6 +49,18 @@
             <LayoutButtons Face="LurkerFromHydraliskBurrowed" Type="AbilCmd" AbilCmd="BarracksTrain,Train17" Row="0" Column="3"/>
         </CardLayouts>
     </CUnit>
+    <CUnit id="BarracksFlying">
+        <!--5.0.15 Data-->
+        <CardLayouts index="0">
+            <LayoutButtons index="1" Face="TechLabBarracks" AbilCmd="BarracksAddOns,Build1" Column="0"/>
+            <LayoutButtons index="2" Face="Stop" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons index="3" Face="Move" AbilCmd="move,Move" Column="0"/>
+            <LayoutButtons index="4" Face="MoveHoldPosition" AbilCmd="move,HoldPos" Column="2"/>
+            <LayoutButtons index="5" Face="MovePatrol" AbilCmd="move,Patrol" Column="3"/>
+            <LayoutButtons index="6" Face="Rally" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
+            <LayoutButtons index="7" removed="1"/>
+        </CardLayouts>
+    </CUnit>
     <CUnit id="BarracksTechLab">
         <CardLayouts index="0">
             <LayoutButtons index="2" removed="1"/>
@@ -78,7 +90,7 @@
             <LayoutButtons index="1" Face="Rally" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
             <LayoutButtons index="2" Face="Lift" Type="AbilCmd" AbilCmd="FactoryLiftOff,Execute" Row="2" Column="3"/>
             <LayoutButtons index="3" Face="Halt" AbilCmd="BuildInProgress,Halt" Row="2" Column="3"/>
-            <LayoutButtons index="4" Face="TechLabFactory" AbilCmd="FactoryAddOns,Build1" Column="0"/>
+            <LayoutButtons index="4" Face="Reactor" AbilCmd="FactoryAddOns,Build1" Column="0"/>
             <LayoutButtons index="5" Face="Cancel" AbilCmd="que5,CancelLast" Column="4"/>
             <LayoutButtons index="6" Face="Cancel" AbilCmd="FactoryAddOns,Halt" Column="4"/>
             <LayoutButtons index="7" Face="CancelBuilding" AbilCmd="BuildInProgress,Cancel" Column="4"/>
@@ -94,6 +106,24 @@
             <LayoutButtons Face="WarHound" Type="AbilCmd" AbilCmd="FactoryTrain,Train16" Row="0" Column="1"/>
             <LayoutButtons Face="Ultralisk" Type="AbilCmd" AbilCmd="FactoryTrain,Train14" Row="0" Column="2"/>
         </CardLayouts>
+        <BehaviorArray index="1" Link="TerranStructuresKnockbackBehavior"/>
+        <BehaviorArray index="2" removed="1"/>
+    </CUnit>
+    <CUnit id="FactoryFlying">
+        <!--5.0.15 Data-->
+        <CardLayouts index="0">
+            <LayoutButtons index="1" Column="0"/>
+            <LayoutButtons index="2" Face="Stop" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons index="3" Face="Move" AbilCmd="move,Move" Column="0"/>
+            <LayoutButtons index="4" Face="MoveHoldPosition" AbilCmd="move,HoldPos" Column="2"/>
+            <LayoutButtons index="5" Face="MovePatrol" AbilCmd="move,Patrol" Column="3"/>
+            <LayoutButtons index="6" Face="Rally" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
+            <LayoutButtons index="7" removed="1"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="FactoryReactor">
+        <CostResource index="Minerals" value="100"/>
+        <CostResource index="Vespene" value="100"/>
     </CUnit>
     <CUnit id="Forge">
         <BehaviorArray index="0" removed="1"/>
@@ -288,6 +318,10 @@
             <LayoutButtons index="28" removed="1"/>
         </CardLayouts>
     </CUnit>
+    <CUnit id="Reactor">
+        <CostResource index="Minerals" value="100"/>
+        <CostResource index="Vespene" value="100"/>
+    </CUnit>
     <CUnit id="Roach">
         <CardLayouts index="0">
             <LayoutButtons index="5" removed="1"/>
@@ -383,6 +417,18 @@
             <LayoutButtons index="2" removed="1"/>
             <LayoutButtons index="3" removed="1"/>
             <LayoutButtons index="4" removed="1"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="StarportTechReactor">
+        <CostResource index="Minerals" value="100"/>
+        <CostResource index="Vespene" value="100"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="2" removed="1"/>
+            <LayoutButtons index="3" removed="1"/>
+            <LayoutButtons index="4" removed="1"/>
+            <LayoutButtons index="5" removed="1"/>
+            <LayoutButtons index="6" removed="1"/>
+            <LayoutButtons index="7" removed="1"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="Ultralisk">

@@ -111,17 +111,17 @@
         <OperandArray value="GTECountUpgradefactory2warhoundupgCompleteOnly1"/>
         <OperandArray value="CountUnitArmoryCompleteOnly"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndGTECountUpgradefactory3colossusCompleteOnly1CountUnitFactoryTechLabCompleteOnlyAtUnit">
+    <CRequirementAnd id="AndGTECountUpgradefactory3colossusCompleteOnly1CountUnitFactoryReactorCompleteOnlyAtUnit">
         <OperandArray value="GTECountUpgradefactory3colossusCompleteOnly1"/>
-        <OperandArray value="CountUnitFactoryTechLabCompleteOnlyAtUnit"/>
+        <OperandArray value="CountUnitFactoryReactorCompleteOnlyAtUnit"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndGTECountUpgradefactory3thorCompleteOnly1CountUnitFactoryTechLabCompleteOnlyAtUnit">
+    <CRequirementAnd id="AndGTECountUpgradefactory3thorCompleteOnly1CountUnitFactoryReactorCompleteOnlyAtUnit">
         <OperandArray value="GTECountUpgradefactory3thorCompleteOnly1"/>
-        <OperandArray value="CountUnitFactoryTechLabCompleteOnlyAtUnit"/>
+        <OperandArray value="CountUnitFactoryReactorCompleteOnlyAtUnit"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndGTECountUpgradefactory3ultraliskCompleteOnly1CountUnitFactoryTechLabCompleteOnlyAtUnit">
+    <CRequirementAnd id="AndGTECountUpgradefactory3ultraliskCompleteOnly1CountUnitFactoryReactorCompleteOnlyAtUnit">
         <OperandArray value="GTECountUpgradefactory3ultraliskCompleteOnly1"/>
-        <OperandArray value="CountUnitFactoryTechLabCompleteOnlyAtUnit"/>
+        <OperandArray value="CountUnitFactoryReactorCompleteOnlyAtUnit"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndGTECountUpgradestarport2bansheeupgCompleteOnly1CountUnitFusionCoreCompleteOnly">
         <OperandArray value="GTECountUpgradestarport2bansheeupgCompleteOnly1"/>
@@ -142,9 +142,9 @@
     <CRequirementCountUnit id="CountUnitAlias_FactoryCompleteOnly96167438TechTreeCheat">
         <Tooltip value="RequirementNode/Tooltip/CountUnitAlias_FactoryCompleteOnly96167438TechTreeCheat"/>
     </CRequirementCountUnit>
-    <CRequirementCountUnit id="CountUnitFactoryTechLabCompleteOnlyAtUnit">
+    <CRequirementCountUnit id="CountUnitFactoryReactorCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="FactoryTechLab" State="CompleteOnlyAtUnit"/>
+        <Count Link="FactoryReactor" State="CompleteOnlyAtUnit"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitGhostAcademyCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>

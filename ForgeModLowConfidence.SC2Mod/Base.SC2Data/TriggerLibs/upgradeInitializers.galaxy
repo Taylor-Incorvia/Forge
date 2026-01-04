@@ -23,6 +23,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", factory +"3");
     addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", starport +"3");
     addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Colossus");
+    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "ScienceVessel"); // couldn't turn towards target
 
     addBehaviorToUpgrade("Speed", "Speed"); 
 

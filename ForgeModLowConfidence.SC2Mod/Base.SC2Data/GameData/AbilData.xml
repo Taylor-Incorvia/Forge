@@ -416,8 +416,8 @@
         </InfoArray>
     </CAbilResearch>
     <CAbilBuild id="FactoryAddOns">
-        <InfoArray index="Build1">
-            <Button Requirements="HaveArmory"/>
+        <InfoArray index="Build1" Unit="FactoryReactor" Time="50">
+            <Button DefaultButtonFace="Reactor" Requirements="HaveArmory"/>
         </InfoArray>
     </CAbilBuild>
     <CAbilTrain id="FactoryTrain">
@@ -505,7 +505,7 @@
         <InfoArray index="Build1">
             <Button Requirements="UnknownRequirement12"/>
         </InfoArray>
-        <InfoArray index="Build3" Unit="StarportTechReactor">
+        <InfoArray index="Build3" Unit="StarportTechReactor" Time="50">
             <Button DefaultButtonFace="TechReactor" Requirements="UnknownRequirement12"/>
         </InfoArray>
     </CAbilBuild>

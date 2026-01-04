@@ -58,6 +58,9 @@
     <CButton id="Ravager">
         <HotkeyAlias value="WidowMine"/>
     </CButton>
+    <CButton id="Reactor">
+        <HotkeyAlias value="TechLabFactory"/>
+    </CButton>
     <CButton id="ResearchKD8Charge1">
         <Icon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
