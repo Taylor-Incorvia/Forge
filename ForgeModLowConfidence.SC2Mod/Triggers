@@ -363,6 +363,7 @@
             <Variable Type="Variable" Library="13DECF19" Id="7CAA290A"/>
             <Variable Type="Variable" Library="13DECF19" Id="4C847CD3"/>
             <Event Type="FunctionCall" Library="13DECF19" Id="8FDBEEF1"/>
+            <Action Type="FunctionCall" Library="13DECF19" Id="C7ED54F0"/>
             <Action Type="FunctionCall" Library="13DECF19" Id="1DBD928C"/>
             <Action Type="FunctionCall" Library="13DECF19" Id="144187F5"/>
         </Element>
@@ -462,6 +463,12 @@
         <Element Type="Param" Id="A45BAAB3">
             <ParameterDef Type="ParamDef" Library="Ntve" Id="BCEBDC95"/>
             <Preset Type="PresetValue" Library="Ntve" Id="00000013"/>
+        </Element>
+        <Element Type="FunctionCall" Id="C7ED54F0">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000123"/>
+            <ScriptCode>
+                enableTestingCheats();
+            </ScriptCode>
         </Element>
         <Element Type="FunctionCall" Id="1DBD928C">
             <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000123"/>

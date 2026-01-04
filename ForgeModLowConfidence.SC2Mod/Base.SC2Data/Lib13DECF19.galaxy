@@ -132,6 +132,7 @@ bool lib13DECF19_gt_ModInit_Func (bool testConds, bool runActions) {
         return true;
     }
 
+    enableTestingCheats();
     // initialize unlock upgrades, unit pools, upgrade tags, unit tags, unit alt forms
     initializeUnitUnlockUpgradeMapping();
     initializePools();

@@ -1,4 +1,25 @@
 include "TriggerLibs/listHelpers"
 include "TriggerLibs/nativeHelpers"
 
+bool devMode = false;
+// bool devMode = true;
 
+// Function to enable testing cheats at game start
+// This gives all players resources and speeds up build times
+void enableTestingCheats() {
+    playergroup pg = PlayerGroupAll();
+    int playerIndex = -1;
+
+    if(devMode) {
+        while (true) {
+            playerIndex = PlayerGroupNextPlayer(pg, playerIndex);
+            if (playerIndex < 0) {
+                break;
+            }
+
+            // Add resources (equivalent to "minerals" and "vespene" cheats)
+            PlayerModifyPropertyInt(playerIndex, c_playerPropMinerals, c_playerPropOperAdd, 50000);
+            PlayerModifyPropertyInt(playerIndex, c_playerPropVespene, c_playerPropOperAdd, 50000);
+        }
+    }
+}
