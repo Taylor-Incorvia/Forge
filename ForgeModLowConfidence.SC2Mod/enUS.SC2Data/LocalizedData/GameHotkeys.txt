@@ -28,3 +28,4 @@ Button/Hotkey/ResearchStim3=B
 Button/Hotkey/ResearchStim4=B
 Button/Hotkey/Stim=F
 Button/Hotkey/Stim2=G
+G=G
