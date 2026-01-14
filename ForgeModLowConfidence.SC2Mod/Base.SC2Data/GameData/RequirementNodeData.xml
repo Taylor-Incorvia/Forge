@@ -498,6 +498,43 @@
     <CRequirementNot id="NotCountUpgradeforgezerglingswarmlingupgQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeforgezerglingswarmlingupgQueuedOrBetter"/>
     </CRequirementNot>
+    <!-- NOT operators for blocker upgrades -->
+    <CRequirementNot id="NotCountUpgradeGA1InProgressCompleteOnly">
+        <OperandArray index="0" value="CountUpgradeGA1InProgressCompleteOnly"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeGA2InProgressCompleteOnly">
+        <OperandArray index="0" value="CountUpgradeGA2InProgressCompleteOnly"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeGA3InProgressCompleteOnly">
+        <OperandArray index="0" value="CountUpgradeGA3InProgressCompleteOnly"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeGA4InProgressCompleteOnly">
+        <OperandArray index="0" value="CountUpgradeGA4InProgressCompleteOnly"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeArmory1InProgressCompleteOnly">
+        <OperandArray index="0" value="CountUpgradeArmory1InProgressCompleteOnly"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeArmory2InProgressCompleteOnly">
+        <OperandArray index="0" value="CountUpgradeArmory2InProgressCompleteOnly"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeArmory3InProgressCompleteOnly">
+        <OperandArray index="0" value="CountUpgradeArmory3InProgressCompleteOnly"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeArmory4InProgressCompleteOnly">
+        <OperandArray index="0" value="CountUpgradeArmory4InProgressCompleteOnly"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeFC1InProgressCompleteOnly">
+        <OperandArray index="0" value="CountUpgradeFC1InProgressCompleteOnly"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeFC2InProgressCompleteOnly">
+        <OperandArray index="0" value="CountUpgradeFC2InProgressCompleteOnly"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeFC3InProgressCompleteOnly">
+        <OperandArray index="0" value="CountUpgradeFC3InProgressCompleteOnly"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeFC4InProgressCompleteOnly">
+        <OperandArray index="0" value="CountUpgradeFC4InProgressCompleteOnly"/>
+    </CRequirementNot>
     <CRequirementOr id="OrCountUnitAlias_FactoryCompleteOnly96167438TechTreeCheatCountUnitGhostAcademyCompleteOnly96167438TechTreeCheat">
         <OperandArray value="CountUnitAlias_FactoryCompleteOnly96167438TechTreeCheat"/>
         <OperandArray value="CountUnitGhostAcademyCompleteOnly96167438TechTreeCheat"/>

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CAbilEffectTarget id="AmorphousArmorcloud">
+        <CmdButtonArray index="Execute" Requirements=""/>
+    </CAbilEffectTarget>
     <CAbilBuild id="BarracksAddOns">
         <InfoArray index="Build1">
             <Button Requirements="ShowIfHaveBarrAddOnParent2"/>
@@ -231,6 +234,12 @@
             </Button>
         </InfoArray>
     </CAbilResearch>
+    <CAbilEffectTarget id="NeuralParasite">
+        <CmdButtonArray index="Execute" Requirements=""/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="RavenScramblerMissile">
+        <CmdButtonArray index="Execute" Requirements=""/>
+    </CAbilEffectTarget>
     <CAbilResearch id="Speed1">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Activity value="UI/Training"/>
@@ -468,17 +477,17 @@
         <InfoArray index="Research2" Time="150" Alert="UpgradeComplete_Prot" Upgrade="1">
             <Resource index="Minerals" value="150"/>
             <Resource index="Vespene" value="150"/>
-            <Button DefaultButtonFace="ResearchStalkerTeleport1"/>
+            <Button DefaultButtonFace="ResearchStalkerTeleport1" Requirements="GA1ButtonVisible"/>
         </InfoArray>
         <InfoArray index="Research3" Time="150" Alert="UpgradeComplete_Prot" Upgrade="2">
             <Resource index="Minerals" value="150"/>
             <Resource index="Vespene" value="150"/>
-            <Button DefaultButtonFace="ResearchStalkerTeleport2"/>
+            <Button DefaultButtonFace="ResearchStalkerTeleport2" Requirements="GA2ButtonVisible"/>
         </InfoArray>
         <InfoArray index="Research4" Time="150" Alert="UpgradeComplete_Prot" Upgrade="3">
             <Resource index="Minerals" value="150"/>
             <Resource index="Vespene" value="150"/>
-            <Button DefaultButtonFace="ResearchStalkerTeleport3">
+            <Button DefaultButtonFace="ResearchStalkerTeleport3" Requirements="GA3ButtonVisible">
                 <Flags index="UseDefaultButton" value="1"/>
                 <Flags index="CreateDefaultButton" value="1"/>
             </Button>
@@ -486,7 +495,7 @@
         <InfoArray index="Research5" Time="150" Alert="UpgradeComplete_Prot" Upgrade="4">
             <Resource index="Minerals" value="150"/>
             <Resource index="Vespene" value="150"/>
-            <Button DefaultButtonFace="ResearchStalkerTeleport4"/>
+            <Button DefaultButtonFace="ResearchStalkerTeleport4" Requirements="GA4ButtonVisible"/>
         </InfoArray>
     </CAbilResearch>
     <CAbilResearch id="Blink1">

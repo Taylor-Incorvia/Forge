@@ -34,8 +34,11 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Hellion");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Liberator");
 
-    
-    
+}
+
+void grantInitialUpgrades() {
+    // some units need upgrades to not be terrible.
+    //  grantUpgrade()
 }
 
 string getUpgradePoolListKey(int player, int slotIndex, string facilityId){
