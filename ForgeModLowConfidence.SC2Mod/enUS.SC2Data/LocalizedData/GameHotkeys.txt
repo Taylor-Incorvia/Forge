@@ -1,4 +1,7 @@
-﻿Button/Hotkey/Blink=G
+﻿Button/Hotkey/ArbiterMPRecall=G
+Button/Hotkey/ArbiterMPRecall2=R
+Button/Hotkey/Blink=G
+Button/Hotkey/Irradiate=G
 Button/Hotkey/Blink2=F
 Button/Hotkey/Charge=G
 Button/Hotkey/KD8Charge=G

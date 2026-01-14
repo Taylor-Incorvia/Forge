@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton id="ArbiterMPRecall">
+        <Hotkey value="G"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
     <CButton id="Blink">
         <HotkeyAlias value="Ghost"/>
         <DefaultButtonLayout Row="2" Column="3"/>
@@ -34,6 +38,10 @@
     <CButton id="Infestor">
         <HotkeyAlias value="Ghost"/>
     </CButton>
+    <CButton id="Irradiate">
+        <Hotkey value="G"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
     <CButton id="KD8Charge">
         <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
@@ -60,6 +68,52 @@
     </CButton>
     <CButton id="Reactor">
         <HotkeyAlias value="TechLabFactory"/>
+    </CButton>
+    <CButton id="ResearchArbiterMPRecall1">
+        <Icon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ResearchArbiterMPRecall2">
+        <Icon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchArbiterMPRecall3">
+        <Icon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchArbiterMPRecall4">
+        <Icon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchIrradiate1">
+        <Icon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ResearchIrradiate2">
+        <Icon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchIrradiate3">
+        <Icon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchIrradiate4">
+        <Icon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="3"/>
     </CButton>
     <CButton id="ResearchKD8Charge1">
         <Icon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>

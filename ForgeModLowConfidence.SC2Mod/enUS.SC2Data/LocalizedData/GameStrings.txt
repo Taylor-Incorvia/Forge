@@ -21,6 +21,7 @@ Abil/Name/Stimpack3=Stimpack3
 Abil/Name/Stimpack4=Stimpack4
 Abil/Name/marineBlink=Blink
 Behavior/Name/blink_test=blink_test
+Button/Name/ArbiterMPRecall2=Recall
 Button/Name/Blink=Blink - stalker
 Button/Name/ResearchCharge1=Research Charge 1
 Button/Name/ResearchCharge2=Research Charge 2
@@ -43,6 +44,7 @@ Button/Name/ResearchStim2=Research Stim 2
 Button/Name/ResearchStim3=Research Stim 3
 Button/Name/ResearchStim4=Research Stim 4
 Button/Name/Stim2=Stimpack - Forge
+Button/Tooltip/ArbiterMPRecall2=Teleports all friendly units in the target area to the location of the Arbiter.
 Button/Tooltip/Blink2=Teleports the Stalker to a nearby target location. Ability can only be used once every <d ref="Abil,Blink,Cost[0].Cooldown.TimeUse"/> seconds.
 Button/Tooltip/GhostAcademy2=Contains upgrades for Ghosts. Can build Nukes for Ghosts.<n/><n/><c val="ffff8a">Enables:</c><n/>- Ghosts at the Barracks
 Button/Tooltip/ResearchCharge1=Allows <c val="ffff8a">Zealots</c> to intercept nearby enemies. Also increases the movement speed of <c val="ffff8a">Zealots</c>. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.

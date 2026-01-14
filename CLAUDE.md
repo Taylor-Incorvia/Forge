@@ -54,3 +54,104 @@ When working with `.galaxy` files:
 
 - `TriggerLibs/` - Custom script files
 - `GameData/` - XML data files (abilities, units, upgrades, requirements, etc.)
+- `enUS.SC2Data/LocalizedData/` - Localized data including hotkeys
+
+## Adding a New Researchable Ability
+
+When adding a new ability that can be researched from Ghost Academy/Armory/Fusion Core, follow these steps. Replace `AbilityName` with your ability name (e.g., `ArbiterMPRecall`).
+
+### 1. ButtonData.xml
+
+Add the **ability button** (appears on the unit's command card):
+```xml
+<CButton id="AbilityName">
+    <Hotkey value="G"/>
+    <DefaultButtonLayout Row="2" Column="3"/>
+</CButton>
+```
+- All researchable abilities use hotkey `G` and position `Row="2" Column="3"`
+
+Add **4 research buttons** (one per production slot, for Ghost Academy/Armory/Fusion Core):
+```xml
+<CButton id="ResearchAbilityName1">
+    <Icon value="Assets\Textures\your-icon.dds"/>
+    <AlertIcon value="Assets\Textures\your-icon.dds"/>
+    <EditorCategories value="Race:Protoss"/>
+</CButton>
+<CButton id="ResearchAbilityName2">
+    <Icon value="Assets\Textures\your-icon.dds"/>
+    <AlertIcon value="Assets\Textures\your-icon.dds"/>
+    <EditorCategories value="Race:Protoss"/>
+    <DefaultButtonLayout Column="1"/>
+</CButton>
+<CButton id="ResearchAbilityName3">
+    <Icon value="Assets\Textures\your-icon.dds"/>
+    <AlertIcon value="Assets\Textures\your-icon.dds"/>
+    <EditorCategories value="Race:Protoss"/>
+    <DefaultButtonLayout Column="2"/>
+</CButton>
+<CButton id="ResearchAbilityName4">
+    <Icon value="Assets\Textures\your-icon.dds"/>
+    <AlertIcon value="Assets\Textures\your-icon.dds"/>
+    <EditorCategories value="Race:Protoss"/>
+    <DefaultButtonLayout Column="3"/>
+</CButton>
+```
+- Slot 1: No column (defaults to 0)
+- Slot 2: `Column="1"`
+- Slot 3: `Column="2"`
+- Slot 4: `Column="3"`
+
+### 2. AbilData.xml
+
+Ensure the **ability definition** has a `CmdButtonArray` to make it appear on the unit:
+```xml
+<CAbilEffectTarget id="AbilityName">
+    <!-- Other ability properties like Range -->
+    <CmdButtonArray index="Execute" Requirements="">
+        <Flags index="UseDefaultButton" value="1"/>
+        <Flags index="CreateDefaultButton" value="1"/>
+    </CmdButtonArray>
+</CAbilEffectTarget>
+```
+
+Add **4 research abilities** (one per production slot):
+```xml
+<CAbilResearch id="AbilityName1">
+    <EditorCategories value="AbilityorEffectType:Units"/>
+    <Activity value="UI/Training"/>
+    <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="1">
+        <Resource index="Minerals" value="150"/>
+        <Resource index="Vespene" value="150"/>
+        <Button DefaultButtonFace="ResearchAbilityName1">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </Button>
+    </InfoArray>
+</CAbilResearch>
+```
+- Repeat for `AbilityName2`, `AbilityName3`, `AbilityName4` with `Upgrade="2"`, `Upgrade="3"`, `Upgrade="4"` respectively
+- The `Upgrade` value corresponds to the production slot number
+
+### 3. GameHotkeys.txt
+
+Add the hotkey entry in `enUS.SC2Data/LocalizedData/GameHotkeys.txt`:
+```
+Button/Hotkey/AbilityName=G
+```
+- This is required for the hotkey to work on the unit's command card
+- The `<Hotkey value="G"/>` in ButtonData.xml alone is NOT sufficient
+
+### 4. Triggers (User handles this)
+
+The user will add the ability to `upgradeInitializers.galaxy` using:
+- `addAbilityToUpgrade("AbilityName", "AbilityName")`
+- `addUpgradeRequirementTag()` calls to control which units can receive the ability
+
+### Summary Checklist
+
+- [ ] ButtonData.xml: Add ability button with `<Hotkey value="G"/>` and `Row="2" Column="3"`
+- [ ] ButtonData.xml: Add 4 research buttons with icons and column positions (0, 1, 2, 3)
+- [ ] AbilData.xml: Ensure ability has `CmdButtonArray` with `UseDefaultButton` and `CreateDefaultButton` flags
+- [ ] AbilData.xml: Add 4 research abilities with `Upgrade="1"` through `Upgrade="4"`
+- [ ] GameHotkeys.txt: Add `Button/Hotkey/AbilityName=G`
