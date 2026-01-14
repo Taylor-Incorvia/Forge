@@ -3,6 +3,9 @@
     <CAbilEffectTarget id="AmorphousArmorcloud">
         <CmdButtonArray index="Execute" Requirements=""/>
     </CAbilEffectTarget>
+    <CAbilEffectTarget id="ArbiterMPRecall">
+        <Range index="0" value="35"/>
+    </CAbilEffectTarget>
     <CAbilBuild id="BarracksAddOns">
         <InfoArray index="Build1">
             <Button Requirements="ShowIfHaveBarrAddOnParent2"/>
@@ -561,6 +564,10 @@
         <InfoArray index="Train13" Time="35">
             <Button DefaultButtonFace="BuildScienceVessel" Requirements="starport3sciencevesselreq"/>
             <Unit value="ScienceVessel"/>
+        </InfoArray>
+        <InfoArray index="Train14" Time="45">
+            <Button DefaultButtonFace="Arbiter" Requirements="starport3arbiterreq"/>
+            <Unit value="ArbiterMP"/>
         </InfoArray>
     </CAbilTrain>
     <CAbilResearch id="Stimpack2">

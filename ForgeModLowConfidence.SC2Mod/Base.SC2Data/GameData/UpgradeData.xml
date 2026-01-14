@@ -57,6 +57,7 @@
     </CUpgrade>
     <CUpgrade id="starport1phoenix"/>
     <CUpgrade id="starport2bansheeupg"/>
+    <CUpgrade id="starport3arbiterupg"/>
     <CUpgrade id="starport3ravenupg"/>
     <CUpgrade id="starport3sciencevesselupg"/>
     <CUpgrade id="starport3tempestupg"/>

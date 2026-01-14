@@ -57,11 +57,11 @@ void initializeUnitUnlockUpgradeMapping() {
     setUnitUnlockUpgrade("Mutalisk", "starport2mutaupg");
 
     // slot 3
+    setUnitUnlockUpgrade("ArbiterMP", "starport3arbiterupg");
     setUnitUnlockUpgrade("Raven", "starport3ravenupg");
     setUnitUnlockUpgrade("ScienceVessel", "starport3sciencevesselupg");
     setUnitUnlockUpgrade("Tempest", "starport3tempestupg");
     setUnitUnlockUpgrade("Viper", "starport3viperupg");
-// Assets\Textures\btn-upgrade-zerg-hotsgroovedspines.dds
 }
 
 void initializeBarracksSlot1Pool() {
@@ -147,9 +147,11 @@ void initializeStarportSlot2Pool() {
 void initializeStarportSlot3Pool() {
     int slot = 3;
     string facility = starport;
-    addUnitToSlotPool(facility, slot, "Raven");
+    // addUnitToSlotPool(facility, slot, "ArbiterMP");
+    addUnitToSlotPool(facility, slot, "Raven"); // todo uncomment
     addUnitToSlotPool(facility, slot, "Tempest");
     addUnitToSlotPool(facility, slot, "Viper");
+
     // addUnitToSlotPool(facility, slot, "ScienceVessel"); // not using science vessel. Irradiate will be an upgrade
 }
 

@@ -27,6 +27,11 @@
         <OperandArray value="CountUnitGhostAcademyCompleteOnly"/>
         <OperandArray value="CountUnitAlias_BarracksCompleteOnlyAtUnit"/>
     </CRequirementAnd>
+    <CRequirementAnd id="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3arbiterupgCompleteOnly1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="CountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheat"/>
+        <OperandArray value="GTECountUpgradestarport3arbiterupgCompleteOnly1"/>
+    </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3ravenupgCompleteOnly1">
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheat"/>
@@ -312,6 +317,10 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="starport2mutaupg" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradestarport3arbiterupgCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="starport3arbiterupg" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradestarport3ravenupgCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="starport3ravenupg" State="CompleteOnly"/>
@@ -474,6 +483,10 @@
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradestarport2mutaupgCompleteOnly1">
         <OperandArray index="0" value="CountUpgradestarport2mutaupgCompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountUpgradestarport3arbiterupgCompleteOnly1">
+        <OperandArray index="0" value="CountUpgradestarport3arbiterupgCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradestarport3ravenupgCompleteOnly1">

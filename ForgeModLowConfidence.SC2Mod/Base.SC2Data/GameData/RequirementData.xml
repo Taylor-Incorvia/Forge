@@ -177,6 +177,10 @@
         <NodeArray index="Use" Link="AndGTECountUpgradestarport2bansheeupgCompleteOnly1CountUnitFusionCoreCompleteOnly"/>
         <NodeArray index="Show" Link="GTECountUpgradestarport2bansheeupgCompleteOnly1"/>
     </CRequirement>
+    <CRequirement id="starport3arbiterreq">
+        <NodeArray index="Use" Link="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3arbiterupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradestarport3arbiterupgCompleteOnly1"/>
+    </CRequirement>
     <CRequirement id="starport3tempestreq">
         <NodeArray index="Use" Link="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3tempestupgCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradestarport3tempestupgCompleteOnly1"/>
