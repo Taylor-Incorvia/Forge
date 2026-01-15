@@ -31,6 +31,10 @@ void initializeTags() {
     addUnitTag("Ultralisk", "melee");
 
     // *** STARPORT  ***
+    // slot 1
+    addUnitTag("Wraith", "caster"); // consider if these make sense. Especailly wraith
+    addUnitTag("Phoenix", "caster");
+    addUnitTag("CorsairMP", "caster"); 
 
     // slot 3
     addUnitTag("Raven", "caster");

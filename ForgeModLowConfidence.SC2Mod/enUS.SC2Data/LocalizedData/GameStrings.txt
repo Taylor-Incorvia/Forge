@@ -11,6 +11,26 @@ Abil/Name/D8Charge1=D8Charge1
 Abil/Name/D8Charge2=D8Charge2
 Abil/Name/D8Charge3=D8Charge3
 Abil/Name/D8Charge4=D8Charge4
+Abil/Name/F_ArbiterMPRecall=F_Recall
+Abil/Name/F_ArbiterMPStasisField=F_ArbiterMP Stasis Field
+Abil/Name/F_BlindingCloud=F_Blinding Cloud
+Abil/Name/F_Blink=F_Blink
+Abil/Name/F_BuildAutoTurret=F_Place Auto Turret
+Abil/Name/F_Charge=F_Charge
+Abil/Name/F_CorsairMPDisruptionWeb=F_CorsairMP Disruption Web
+Abil/Name/F_D8Charge=F_G-4 Charge
+Abil/Name/F_ForceField=F_Force Field
+Abil/Name/F_FungalGrowth=F_Fungal Growth
+Abil/Name/F_GuardianShield=F_Guardian Shield
+Abil/Name/F_Irradiate=F_Irradiate
+Abil/Name/F_KD8Charge=F_KD8 Charge
+Abil/Name/F_NeuralParasite=F_Neural Parasite
+Abil/Name/F_ParasiticBomb=F_Parasitic Bomb
+Abil/Name/F_RavenScramblerMissile=F_Scrambler Missile
+Abil/Name/F_SeekerMissile=F_Seeker Missile
+Abil/Name/F_Stimpack=F_Stimpack
+Abil/Name/F_Transfusion=F_Transfusion
+Abil/Name/F_Yoink=F_Abduct
 Abil/Name/KD8Charge1=KD8Charge1
 Abil/Name/KD8Charge2=KD8Charge2
 Abil/Name/KD8Charge3=KD8Charge3
@@ -21,8 +41,28 @@ Abil/Name/Stimpack3=Stimpack3
 Abil/Name/Stimpack4=Stimpack4
 Abil/Name/marineBlink=Blink
 Behavior/Name/blink_test=blink_test
-Button/Name/ArbiterMPRecall2=Recall
 Button/Name/Blink=Blink - stalker
+Button/Name/F_ArbiterMPRecall=F_Recall
+Button/Name/F_ArbiterMPStasisField=F_Stasis Field
+Button/Name/F_AutoTurret=F_AutoTurret
+Button/Name/F_BlindingCloud=F_Blinding Cloud
+Button/Name/F_Blink=F_Blink - stalker
+Button/Name/F_Charge=F_Charge
+Button/Name/F_CorsairMPDisruptionWeb=F_Disruption Web
+Button/Name/F_D8Charge=F_D8 Charge
+Button/Name/F_FaceEmbrace=F_Abduct
+Button/Name/F_ForceField=F_Force Field
+Button/Name/F_FungalGrowth=F_Fungal Growth
+Button/Name/F_GuardianShield=F_Guardian Shield
+Button/Name/F_HunterSeekerMissile=F_Seeker Missile
+Button/Name/F_Irradiate=F_Irradiate
+Button/Name/F_KD8Charge=F_KD8 Charge
+Button/Name/F_NeuralParasite=F_Neural Parasite
+Button/Name/F_ParasiticBomb=F_Parasitic Bomb
+Button/Name/F_RavenScramblerMissile=F_Interference Matrix (scramblr)
+Button/Name/F_Stim=F_Stimpack
+Button/Name/F_Transfusion=F_Transfusion
+Button/Name/F_Yoink=F_Yoink
 Button/Name/ResearchCharge1=Research Charge 1
 Button/Name/ResearchCharge2=Research Charge 2
 Button/Name/ResearchCharge3=Research Charge 3
@@ -43,9 +83,24 @@ Button/Name/ResearchStim1=Research Stim 1
 Button/Name/ResearchStim2=Research Stim 2
 Button/Name/ResearchStim3=Research Stim 3
 Button/Name/ResearchStim4=Research Stim 4
-Button/Name/Stim2=Stimpack - Forge
-Button/Tooltip/ArbiterMPRecall2=Teleports all friendly units in the target area to the location of the Arbiter.
-Button/Tooltip/Blink2=Teleports the Stalker to a nearby target location. Ability can only be used once every <d ref="Abil,Blink,Cost[0].Cooldown.TimeUse"/> seconds.
+Button/Tooltip/F_ArbiterMPRecall=Teleports all friendly units in the target area to the location of the Arbiter.
+Button/Tooltip/F_ArbiterMPStasisField=Puts enemies in target area into stasis. Units in Stasis cannot move, attack, or be attacked or be affected by spells for <d ref="Behavior,ArbiterMPStasisField,Duration"/> seconds.
+Button/Tooltip/F_AutoTurret=Automated defensive turret. Times out after <d ref="Behavior,AutoTurretTimedLife,Duration"/> seconds.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/F_BlindingCloud=Creates a cloud for <d ref="(Effect,BlindingCloudCP,PeriodCount + 1) * Effect,BlindingCloudCP,PeriodicPeriodArray[0]"/> seconds that reduces attack range of ground units and structures underneath to melee range.
+Button/Tooltip/F_Blink=Teleports the Stalker to a nearby target location. Ability can only be used once every <d ref="Abil,Blink,Cost[0].Cooldown.TimeUse"/> seconds.
+Button/Tooltip/F_Charge=Allows Zealots to intercept nearby enemies. Also increases the movement speed of Zealots. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
+Button/Tooltip/F_D8Charge=Explodes after a short delay, doing 30 initial damage.
+Button/Tooltip/F_FaceEmbrace=Pulls target unit to the location of the viper.
+Button/Tooltip/F_ForceField=Barrier that lasts <d time="15"/> and impedes movement of ground units. Massive units will shatter Force Fields on contact.
+Button/Tooltip/F_FungalGrowth=Target units take <d ref="(Behavior,FungalGrowth,Duration / Behavior,FungalGrowth,Period) * Effect,FungalGrowthDamage,Amount"/> damage over <d time="4"/> and have movement speed reduced by <d ref="(1-Behavior,FungalGrowthSlowMovement,Modification.MoveSpeedMultiplier)*100"/>%. Reveals cloaked and burrowed units. Affected units cannot Blink or load into transports or buildings.
+Button/Tooltip/F_GuardianShield=Creates a range <d ref="Effect,GuardianShieldSearch,AreaArray[0].Radius" precision="1"/> aura that reduces incoming ranged damage to friendly units by <d ref="Behavior,GuardianShield,DamageResponse.ModifyAmount * (-1)"/>. Lasts <d time="[d ref='(Effect,GuardianShieldPersistent,PeriodicPeriodArray[0] + 0.13) * Effect,GuardianShieldPersistent,PeriodCount'/]"/>.
+Button/Tooltip/F_HunterSeekerMissile=Deploys a Seeker Missile which activates after <d time="5"/> and pursues the target unit, dealing <d ref="Effect,SeekerMissileDamage,Amount"/> splash damage upon contact.
+Button/Tooltip/F_Irradiate=Irradiates a single target, causing damage over time to target and any nearby units for <d ref="Behavior,Irradiate,Duration"/> seconds. Irradiate does not damage mechanical units, but nearby biological units will take damage from an Irradiated mechanical unit.
+Button/Tooltip/F_KD8Charge=Explodes after a short delay, dealing <d ref="Effect,KD8ChargeExplodeDamage,Amount"/> damage and knocking back nearby units.
+Button/Tooltip/F_NeuralParasite=Target unit is controlled by the Infestor for <d ref="Behavior,NeuralParasite,Duration"/> seconds. The Infestor cannot take any other action while controlling an enemy unit.<n/><n/><c val="ffff8a">Channeled ability. Can cast while burrowed.</c><n/><c val="#ColorAttackInfo">Heroic units are immune.</c>
+Button/Tooltip/F_ParasiticBomb=Creates a parasitic cloud that deals <d ref="Behavior,ParasiticBomb,Duration/Behavior,ParasiticBomb,Period*Effect,ParasiticBombDotDamage,Amount"/> damage over <d ref="Behavior,ParasiticBomb,Duration"/> seconds to the target and enemy air units nearby. If the target dies, the cloud remains in the air where the enemy died until it expires.<n/><n/><c val="#ColorAttackInfo">Cannot target ground units or structures.</c>
+Button/Tooltip/F_RavenScramblerMissile=Disables a target unit rendering it unable to attack or use abilities for <d ref="Behavior,RavenScramblerMissile,Duration"/> seconds. Reveals Cloaked units.<n/><n/><c val="#ColorAttackInfo">Can target mechanical and psionic units.</c>
+Button/Tooltip/F_Transfusion=Instantly heals target biological unit or structure for <d ref="Effect,Transfusion,VitalArray[Life].Change"/> life. An additional <d ref="Behavior,Transfusion,Duration/Behavior,Transfusion,Period*Effect,TransfusionHealTick,VitalArray[Life].Change"  precision="3"/> life regenerates over <d ref="Behavior,Transfusion,Duration"/> seconds.
 Button/Tooltip/GhostAcademy2=Contains upgrades for Ghosts. Can build Nukes for Ghosts.<n/><n/><c val="ffff8a">Enables:</c><n/>- Ghosts at the Barracks
 Button/Tooltip/ResearchCharge1=Allows <c val="ffff8a">Zealots</c> to intercept nearby enemies. Also increases the movement speed of <c val="ffff8a">Zealots</c>. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
 Button/Tooltip/ResearchCharge2=Allows <c val="ffff8a">Zealots</c> to intercept nearby enemies. Also increases the movement speed of <c val="ffff8a">Zealots</c>. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
@@ -67,7 +122,6 @@ Button/Tooltip/ResearchStim1=Allows slot 1 units to use STIM pack to temporarily
 Button/Tooltip/ResearchStim2=Allows slot 2 units to use STIM pack to temporarily increase movement and attack speed at the cost of health
 Button/Tooltip/ResearchStim3=Allows slot 3 units to use STIM pack to temporarily increase movement and attack speed at the cost of health
 Button/Tooltip/ResearchStim4=Allows slot 4 units to use STIM pack to temporarily increase movement and attack speed at the cost of health
-Button/Tooltip/Stim2=Injects the unit with powerful stimulants that greatly increase attack and movement speeds for a few seconds. Injures the unit for 10 of the unit's life.
 Button/Tooltip/Vulture=Fast skirmish unit. Can use the KD8 Charge ability(Reaper Grenade).<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 DocInfo/DescShort=Any
 DocInfo/Name=Just Another StarCraft II Mod

@@ -320,8 +320,6 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="Raven">
-        <AbilArray Link="SeekerMissile"/>
-        <AbilArray Link="Irradiate"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="RavenShredderMissile" Type="AbilCmd" AbilCmd="RavenShredderMissile,Execute" Column="1"/>
             <LayoutButtons index="7" Face="RavenScramblerMissile" Type="AbilCmd" AbilCmd="RavenScramblerMissile,Execute" Column="2"/>

@@ -1,15 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CButton id="ArbiterMPRecall">
+    <CButton id="F_ArbiterMPStasisField">
+        <Icon value="Assets\Textures\btn-ability-protoss-forcefield-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-forcefield-color.dds"/>
         <Hotkey value="G"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="F_AutoTurret">
+        <Icon value="Assets\Textures\btn-building-terran-autoturret.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-autoturret.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="F_BlindingCloud">
+        <Icon value="Assets\Textures\btn-ability-zerg-blindingcloud.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-blindingcloud.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="F_D8Charge">
+        <Icon value="Assets\Textures\BTN-Ability-Terran-D8Charge.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Terran-D8Charge.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="F_Charge">
+        <Icon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="F_Blink">
+        <Icon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="F_ArbiterMPRecall">
+        <Icon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
     <CButton id="Blink">
         <HotkeyAlias value="Ghost"/>
-        <DefaultButtonLayout Row="2" Column="3"/>
-    </CButton>
-    <CButton id="Charge">
-        <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
     <CButton id="Colossus">
         <HotkeyAlias value="Thor"/>
@@ -17,17 +58,62 @@
     <CButton id="Corsair">
         <HotkeyAlias value="VikingFighter"/>
     </CButton>
-    <CButton id="D8Charge">
+    <CButton id="F_CorsairMPDisruptionWeb">
+        <Icon value="Assets\Textures\btn-ability-protoss-disruptionweb.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-disruptionweb.dds"/>
+        <Hotkey value="G"/>
         <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
     <CButton id="Diamondback">
         <HotkeyAlias value="WidowMine"/>
     </CButton>
+    <CButton id="F_FaceEmbrace">
+        <Icon value="Assets\Textures\btn-ability-zerg-abduct.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-abduct.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="F_Stim">
+        <Icon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
     <CButton id="Firebat">
         <HotkeyAlias value="Marauder"/>
     </CButton>
+    <CButton id="F_ForceField">
+        <Icon value="Assets\Textures\BTN-Ability-protoss-forcefield-color.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-protoss-forcefield-color.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="F_FungalGrowth">
+        <Icon value="Assets\Textures\btn-ability-zerg-fungalgrowth-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-fungalgrowth-color.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="F_GuardianShield">
+        <Icon value="Assets\Textures\btn-ability-protoss-shieldbattery-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-shieldbattery-color.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
     <CButton id="HireKelmorianMiners">
         <HotkeyAlias value="Reaper"/>
+    </CButton>
+    <CButton id="F_HunterSeekerMissile">
+        <Icon value="Assets\Textures\BTN-Ability-Terran-HunterMissile-color.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Terran-HunterMissile-color.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
     <CButton id="Hydralisk">
         <HotkeyAlias value="Reaper"/>
@@ -38,11 +124,19 @@
     <CButton id="Infestor">
         <HotkeyAlias value="Ghost"/>
     </CButton>
-    <CButton id="Irradiate">
+    <CButton id="F_Irradiate">
+        <Icon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
         <Hotkey value="G"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
         <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
-    <CButton id="KD8Charge">
+    <CButton id="F_KD8Charge">
+        <Icon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
     <CButton id="Liberator">
@@ -57,6 +151,18 @@
     <CButton id="Mutalisk">
         <HotkeyAlias value="Banshee"/>
     </CButton>
+    <CButton id="F_NeuralParasite">
+        <Icon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite-color.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="F_ParasiticBomb">
+        <Icon value="Assets\Textures\btn-ability-zerg-parasiticbomb.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
     <CButton id="Phoenix">
         <HotkeyAlias value="VikingFighter"/>
     </CButton>
@@ -65,6 +171,13 @@
     </CButton>
     <CButton id="Ravager">
         <HotkeyAlias value="WidowMine"/>
+    </CButton>
+    <CButton id="F_RavenScramblerMissile">
+        <Icon value="Assets\Textures\btn-upgrade-terran-interferencematrix.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-interferencematrix.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
     <CButton id="Reactor">
         <HotkeyAlias value="TechLabFactory"/>
@@ -113,6 +226,305 @@
         <Icon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
         <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchArbiterMPStasisField1">
+        <Icon value="Assets\Textures\btn-ability-protoss-intostasisfield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-intostasisfield.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ResearchArbiterMPStasisField2">
+        <Icon value="Assets\Textures\btn-ability-protoss-intostasisfield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-intostasisfield.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchArbiterMPStasisField3">
+        <Icon value="Assets\Textures\btn-ability-protoss-intostasisfield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-intostasisfield.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchArbiterMPStasisField4">
+        <Icon value="Assets\Textures\btn-ability-protoss-intostasisfield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-intostasisfield.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchBlindingCloud1">
+        <Icon value="Assets\Textures\btn-ability-zerg-intoblindingcloud.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intoblindingcloud.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="ResearchBlindingCloud2">
+        <Icon value="Assets\Textures\btn-ability-zerg-intoblindingcloud.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intoblindingcloud.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchBlindingCloud3">
+        <Icon value="Assets\Textures\btn-ability-zerg-intoblindingcloud.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intoblindingcloud.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchBlindingCloud4">
+        <Icon value="Assets\Textures\btn-ability-zerg-intoblindingcloud.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intoblindingcloud.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchBuildAutoTurret1">
+        <Icon value="Assets\Textures\btn-ability-terran-intobuildautoturret.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-intobuildautoturret.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ResearchBuildAutoTurret2">
+        <Icon value="Assets\Textures\btn-ability-terran-intobuildautoturret.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-intobuildautoturret.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchBuildAutoTurret3">
+        <Icon value="Assets\Textures\btn-ability-terran-intobuildautoturret.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-intobuildautoturret.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchBuildAutoTurret4">
+        <Icon value="Assets\Textures\btn-ability-terran-intobuildautoturret.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-intobuildautoturret.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchCorsairMPDisruptionWeb1">
+        <Icon value="Assets\Textures\btn-ability-protoss-intodisruptionweb.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-intodisruptionweb.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ResearchCorsairMPDisruptionWeb2">
+        <Icon value="Assets\Textures\btn-ability-protoss-intodisruptionweb.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-intodisruptionweb.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchCorsairMPDisruptionWeb3">
+        <Icon value="Assets\Textures\btn-ability-protoss-intodisruptionweb.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-intodisruptionweb.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchCorsairMPDisruptionWeb4">
+        <Icon value="Assets\Textures\btn-ability-protoss-intodisruptionweb.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-intodisruptionweb.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchForceField1">
+        <Icon value="Assets\Textures\btn-ability-protoss-intoforcefield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-intoforcefield.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ResearchForceField2">
+        <Icon value="Assets\Textures\btn-ability-protoss-intoforcefield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-intoforcefield.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchForceField3">
+        <Icon value="Assets\Textures\btn-ability-protoss-intoforcefield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-intoforcefield.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchForceField4">
+        <Icon value="Assets\Textures\btn-ability-protoss-intoforcefield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-intoforcefield.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchFungalGrowth1">
+        <Icon value="Assets\Textures\btn-ability-zerg-intofungalgrowth.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intofungalgrowth.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="ResearchFungalGrowth2">
+        <Icon value="Assets\Textures\btn-ability-zerg-intofungalgrowth.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intofungalgrowth.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchFungalGrowth3">
+        <Icon value="Assets\Textures\btn-ability-zerg-intofungalgrowth.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intofungalgrowth.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchFungalGrowth4">
+        <Icon value="Assets\Textures\btn-ability-zerg-intofungalgrowth.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intofungalgrowth.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchGuardianShield1">
+        <Icon value="Assets\Textures\btn-ability-protoss-intoshield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-intoshield.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ResearchGuardianShield2">
+        <Icon value="Assets\Textures\btn-ability-protoss-intoshield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-intoshield.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchGuardianShield3">
+        <Icon value="Assets\Textures\btn-ability-protoss-intoshield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-intoshield.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchGuardianShield4">
+        <Icon value="Assets\Textures\btn-ability-protoss-intoshield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-intoshield.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchNeuralParasite1">
+        <Icon value="Assets\Textures\btn-ability-zerg-intomindcontrol.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intomindcontrol.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="ResearchNeuralParasite2">
+        <Icon value="Assets\Textures\btn-ability-zerg-intomindcontrol.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intomindcontrol.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchNeuralParasite3">
+        <Icon value="Assets\Textures\btn-ability-zerg-intomindcontrol.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intomindcontrol.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchNeuralParasite4">
+        <Icon value="Assets\Textures\btn-ability-zerg-intomindcontrol.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intomindcontrol.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchParasiticBomb1">
+        <Icon value="Assets\Textures\btn-ability-zerg-intobomb.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intobomb.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="ResearchParasiticBomb2">
+        <Icon value="Assets\Textures\btn-ability-zerg-intobomb.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intobomb.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchParasiticBomb3">
+        <Icon value="Assets\Textures\btn-ability-zerg-intobomb.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intobomb.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchParasiticBomb4">
+        <Icon value="Assets\Textures\btn-ability-zerg-intobomb.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intobomb.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchRavenScramblerMissile1">
+        <Icon value="Assets\Textures\btn-ability-terran-intoscrambermissile.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-intoscrambermissile.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ResearchRavenScramblerMissile2">
+        <Icon value="Assets\Textures\btn-ability-terran-intoscrambermissile.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-intoscrambermissile.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchRavenScramblerMissile3">
+        <Icon value="Assets\Textures\btn-ability-terran-intoscrambermissile.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-intoscrambermissile.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchRavenScramblerMissile4">
+        <Icon value="Assets\Textures\btn-ability-terran-intoscrambermissile.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-intoscrambermissile.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchSeekerMissile1">
+        <Icon value="Assets\Textures\btn-ability-terran-intoseekermissile.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-intoseekermissile.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ResearchSeekerMissile2">
+        <Icon value="Assets\Textures\btn-ability-terran-intoseekermissile.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-intoseekermissile.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchSeekerMissile3">
+        <Icon value="Assets\Textures\btn-ability-terran-intoseekermissile.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-intoseekermissile.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchSeekerMissile4">
+        <Icon value="Assets\Textures\btn-ability-terran-intoseekermissile.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-intoseekermissile.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchTransfusion1">
+        <Icon value="Assets\Textures\btn-ability-zerg-intotransfusion.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intotransfusion.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="ResearchTransfusion2">
+        <Icon value="Assets\Textures\btn-ability-zerg-intotransfusion.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intotransfusion.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchTransfusion3">
+        <Icon value="Assets\Textures\btn-ability-zerg-intotransfusion.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intotransfusion.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchTransfusion4">
+        <Icon value="Assets\Textures\btn-ability-zerg-intotransfusion.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intotransfusion.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchYoink1">
+        <Icon value="Assets\Textures\btn-ability-zerg-intoyoink.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intoyoink.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="ResearchYoink2">
+        <Icon value="Assets\Textures\btn-ability-zerg-intoyoink.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intoyoink.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchYoink3">
+        <Icon value="Assets\Textures\btn-ability-zerg-intoyoink.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intoyoink.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchYoink4">
+        <Icon value="Assets\Textures\btn-ability-zerg-intoyoink.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-intoyoink.dds"/>
+        <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Column="3"/>
     </CButton>
     <CButton id="ResearchKD8Charge1">
@@ -296,16 +708,15 @@
     <CButton id="Stalker">
         <HotkeyAlias value="Reaper"/>
     </CButton>
-    <CButton id="Stim2">
-        <Icon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
-        <EditorCategories value="Race:Terran"/>
-        <HotkeyAlias value="Ghost"/>
-        <Universal value="1"/>
-        <DefaultButtonLayout Row="2" Column="3"/>
-    </CButton>
     <CButton id="Tempest">
         <HotkeyAlias value="Raven"/>
+    </CButton>
+    <CButton id="F_Transfusion">
+        <Icon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
     <CButton id="Ultralisk">
         <HotkeyAlias value="Thor"/>
@@ -326,6 +737,15 @@
         <HotkeyAlias value="VikingFighter"/>
     </CButton>
     <CButton id="YamatoGun">
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="Yoink">
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-abduct.dds"/>
+    </CButton>
+    <CButton id="F_Yoink">
+        <Icon value="Assets\Textures\btn-ability-zerg-abduct.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-abduct.dds"/>
+        <Hotkey value="G"/>
         <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
     <CButton id="Zealot">

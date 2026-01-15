@@ -18,3 +18,16 @@ string chopLastChar(string s) {
     }
     return getSubString(s, 1, len - 1);
 }
+
+bool stringStartsWith(string s, string prefix) {
+    int prefixLen = getStringLength(prefix);
+    int sLen = getStringLength(s);
+
+    if (prefixLen == 0) {
+        return true;
+    }
+    if (sLen < prefixLen) {
+        return false;
+    }
+    return getSubString(s, 1, prefixLen) == prefix;
+}

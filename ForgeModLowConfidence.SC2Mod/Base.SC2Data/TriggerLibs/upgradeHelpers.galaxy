@@ -52,6 +52,10 @@ void registerToAllUpgradesList(string upgrade) {
 
 void addAbilityToUpgrade(string upgrade, string ability) {
     string upgradeAbilityListKey = getUpgradeAbilityListName(upgrade);
+
+    if(!stringStartsWith(ability, "F_")) {
+        showMessage("Warning:: Ability does not start with F_ :: " + ability);
+    }
     listStringRequire(upgradeAbilityListKey);
     addToStringList(upgradeAbilityListKey, ability);
     registerToAllUpgradesList(upgrade);
@@ -80,10 +84,13 @@ void grantGenericUpgrade(int player, string upgrade, string unitId) {
     string upgradeBehaviorListName = getUpgradeBehaviorListName(upgrade);
     int upgradeBehaviorListSize = getStringListSize(upgradeBehaviorListName);
     int index;
+    string abilityToGrant;
 
     for (index = 0; index < upgradeAbilityListSize; index+=1) {
-        addToAbilityListForUnit(getStringAtIndex(upgradeAbilityListName, index), unitId, player);
-        grantAbilityToExistingUnitsOfTypeForPlayer(player, getStringAtIndex(upgradeAbilityListName, index), unitId);
+        abilityToGrant = getStringAtIndex(upgradeAbilityListName, index);
+        showMessage("Granting ability: " + abilityToGrant + " to unit: " + unitId);
+        addToAbilityListForUnit(abilityToGrant, unitId, player);
+        grantAbilityToExistingUnitsOfTypeForPlayer(player, abilityToGrant, unitId);
     }
 
     for (index = 0; index < upgradeBehaviorListSize; index+=1) {
@@ -114,12 +121,9 @@ void setSlotSelectedUpgrade(int player, int slotIndex, string facilityid, string
     DataTableSetString(true, getSlotSelectedUpgradeKey(player, slotIndex, facilityid), upgradeId);
     
     if(!upgradAbilityListSize == 0) {
-        for(index = 0; index < upgradAbilityListSize; index+=1) {
-        // this may not work well if there are multiple abilities for a single upgrade.
-        // I have set up the data so that for an ability such as Blink, the name of the ability that
-        // researches that ability at slot 1 is always called Blink1. 
-        addToAbilityListForUnit(getStringAtIndex(upgradeAbilityListName, index) + IntToString(slotIndex), upgradeFacilityId, player);
-    }
+        // The research ability name is based on the upgradeId (e.g., "Blink"), not the ability name (e.g., "F_Blink").
+        // So for slot 1, we add "Blink1" to the facility, not "F_Blink1".
+        addToAbilityListForUnit(upgradeId + IntToString(slotIndex), upgradeFacilityId, player);
     }
 
     
@@ -151,12 +155,12 @@ void onGenericUpgradeCompleted(){
         grantGenericUpgrade(player, realCompletedUpgradeFromSlot, unitName);
 
 
-        // showMessage("playerId" + IntToString(player));
-        // showMessage("slot" + IntToString(slot)); 
-        // showMessage("realCompletedUpgradeFromSlot: " + realCompletedUpgradeFromSlot);
-        // showMessage("upgradeFacilityName: " + upgradeFacilityName);
-        // showMessage("productionFacilityName: " + productionFacilityName);
-        // showMessage("unitName: " + unitName);
+        showMessage("playerId" + IntToString(player));
+        showMessage("slot" + IntToString(slot));
+        showMessage("realCompletedUpgradeFromSlot: " + realCompletedUpgradeFromSlot);
+        showMessage("upgradeFacilityName: " + upgradeFacilityName);
+        showMessage("productionFacilityName: " + productionFacilityName);
+        showMessage("unitName: " + unitName);
     }
 }
 
