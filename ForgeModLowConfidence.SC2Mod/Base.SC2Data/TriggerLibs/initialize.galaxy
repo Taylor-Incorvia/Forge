@@ -131,9 +131,9 @@ void initializeStarportSlot1Pool() {
     int slot = 1;
     string facility = starport;
     addUnitToSlotPool(facility, slot, "CorsairMP"); 
-    // addUnitToSlotPool(facility, slot, "Phoenix");
-    // addUnitToSlotPool(facility, slot, "Wraith");
-    // addUnitToSlotPool(facility, slot, "VikingFighter");
+    addUnitToSlotPool(facility, slot, "Phoenix");
+    addUnitToSlotPool(facility, slot, "Wraith");
+    addUnitToSlotPool(facility, slot, "VikingFighter");
 }
 
 void initializeStarportSlot2Pool() {
@@ -149,8 +149,8 @@ void initializeStarportSlot3Pool() {
     string facility = starport;
     // addUnitToSlotPool(facility, slot, "ArbiterMP");
     addUnitToSlotPool(facility, slot, "Raven"); 
-    // addUnitToSlotPool(facility, slot, "Tempest"); // todo uncomment
-    // addUnitToSlotPool(facility, slot, "Viper");
+    addUnitToSlotPool(facility, slot, "Tempest"); 
+    addUnitToSlotPool(facility, slot, "Viper");
 
     // addUnitToSlotPool(facility, slot, "ScienceVessel"); // not using science vessel. Irradiate will be an upgrade
 }

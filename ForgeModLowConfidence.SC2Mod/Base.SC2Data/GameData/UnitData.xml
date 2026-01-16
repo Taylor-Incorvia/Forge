@@ -264,6 +264,9 @@
     </CUnit>
     <CUnit id="LurkerBurrowed">
         <FlagArray index="Cloaked" value="0"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="2" Face="LurkerBurrowUp"/>
+        </CardLayouts>
     </CUnit>
     <CUnit id="Marine">
         <AbilArray index="3" removed="1"/>

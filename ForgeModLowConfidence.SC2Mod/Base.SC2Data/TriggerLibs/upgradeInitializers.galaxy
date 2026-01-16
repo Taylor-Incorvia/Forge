@@ -26,7 +26,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Colossus");
     addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "ScienceVessel"); // couldn't turn towards target
 
-    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Raven"); // temp test, but may disable this for casters anyway. 
+    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Caster"); // I didn't like how this doesn't cost energy. 
 
     addBehaviorToUpgrade("Speed", "Speed"); 
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "caster");
