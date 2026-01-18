@@ -28,27 +28,22 @@
         <OperandArray value="CountUnitAlias_BarracksCompleteOnlyAtUnit"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3arbiterupgCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheat"/>
         <OperandArray value="GTECountUpgradestarport3arbiterupgCompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3ravenupgCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheat"/>
         <OperandArray value="GTECountUpgradestarport3ravenupgCompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3sciencevesselupgCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheat"/>
         <OperandArray value="GTECountUpgradestarport3sciencevesselupgCompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3tempestupgCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheat"/>
         <OperandArray value="GTECountUpgradestarport3tempestupgCompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3viperupgCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheat"/>
         <OperandArray value="GTECountUpgradestarport3viperupgCompleteOnly1"/>
     </CRequirementAnd>
@@ -60,17 +55,17 @@
         <OperandArray value="CountUpgradefactory3colossusCompleteOnly"/>
         <OperandArray value="NotCountUpgradeforgecolossussplashupgQueuedOrBetter"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndGTECountUpgradebarracks2hydraliskupgCompleteOnly1CountUnitGhostAcademyTotal">
+    <CRequirementAnd id="AndGTECountUpgradebarracks2hydraliskupgCompleteOnly1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="GTECountUpgradebarracks2hydraliskupgCompleteOnly1"/>
-        <OperandArray value="CountUnitGhostAcademyTotal"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndGTECountUpgradebarracks2stalkerupgCompleteOnly1CountUnitGhostAcademyCompleteOnly">
+    <CRequirementAnd id="AndGTECountUpgradebarracks2stalkerupgCompleteOnly1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="GTECountUpgradebarracks2stalkerupgCompleteOnly1"/>
-        <OperandArray value="CountUnitGhostAcademyCompleteOnly"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndGTECountUpgradebarracks2warpigupgCompleteOnly1CountUnitGhostAcademyTotal">
+    <CRequirementAnd id="AndGTECountUpgradebarracks2warpigupgCompleteOnly1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="GTECountUpgradebarracks2warpigupgCompleteOnly1"/>
-        <OperandArray value="CountUnitGhostAcademyTotal"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndGTECountUpgradebarracks3adeptupgCompleteOnly1CountUnitGhostAcademyTotal">
         <OperandArray value="GTECountUpgradebarracks3adeptupgCompleteOnly1"/>

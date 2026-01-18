@@ -4,17 +4,23 @@ Abil/EditorPrefix/F_Blink=Stalker -
 Abil/EditorPrefix/F_BuildAutoTurret=Raven -
 Abil/EditorPrefix/F_Charge=Zealot -
 Abil/EditorPrefix/F_D8Charge=Reaper -
+Abil/EditorPrefix/F_DefensiveMatrix=Battlecruiser -
 Abil/EditorPrefix/F_ForceField=Sentry -
 Abil/EditorPrefix/F_FungalGrowth=Infestor -
+Abil/EditorPrefix/F_Grapple=HERC -
 Abil/EditorPrefix/F_GuardianShield=Sentry -
+Abil/EditorPrefix/F_Hyperjump=Battlecruiser -
 Abil/EditorPrefix/F_Irradiate=Science Vessel -
 Abil/EditorPrefix/F_KD8Charge=Reaper -
+Abil/EditorPrefix/F_MissilePods=Battlecruiser -
 Abil/EditorPrefix/F_NeuralParasite=Infestor -
 Abil/EditorPrefix/F_ParasiticBomb=Viper -
 Abil/EditorPrefix/F_RavenScramblerMissile=Raven -
 Abil/EditorPrefix/F_SeekerMissile=Raven -
 Abil/EditorPrefix/F_Stimpack=Marine -
+Abil/EditorPrefix/F_TempestDisruptionBlast=Tempest -
 Abil/EditorPrefix/F_Transfusion=Queen -
+Abil/EditorPrefix/F_Yamato=Battlecruiser -
 Abil/EditorPrefix/F_Yoink=Viper -
 Abil/EditorPrefix/ParasiticBomb=Viper -
 Abil/EditorPrefix/marineBlink=Marine -
@@ -30,10 +36,13 @@ Button/EditorPrefix/F_BlindingCloud=Lair Viper -
 Button/EditorPrefix/F_CorsairMPDisruptionWeb=Corsair -
 Button/EditorPrefix/F_ForceField=Sentry -
 Button/EditorPrefix/F_FungalGrowth=Infestor -
+Button/EditorPrefix/F_Grapple=HERC -
 Button/EditorPrefix/F_HunterSeekerMissile=Raven -
+Button/EditorPrefix/F_Hyperjump=Battlecruiser -
 Button/EditorPrefix/F_Irradiate=Science Vessel -
 Button/EditorPrefix/F_NeuralParasite=Infestor -
 Button/EditorPrefix/F_RavenScramblerMissile=Raven -
+Button/EditorPrefix/F_TempestDisruptionBlast=Tempest -
 Button/EditorPrefix/F_Transfusion=Queen -
 Effect/EditorPrefix/Blink2=Stalker -
 Model/Name/BlinkOriginModel2=Blink Origin Model
@@ -103,9 +112,9 @@ RequirementNode/Name/AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283
 RequirementNode/Name/AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3viperupgCompleteOnly1=CountUnit(StarportTechReactor,CompleteOnlyAtUnit){Attached Starport Tech Lab}[TechTreeCheat] && CountUpgrade(starport3viperupg,CompleteOnly) >= 1
 RequirementNode/Name/AndCountUpgradebarracksZerglingCompleteOnlyNotCountUpgradeforgezerglingswarmlingupgQueuedOrBetter=CountUpgrade(barracksZergling,CompleteOnly) && !CountUpgrade(forgezerglingswarmlingupg,QueuedOrBetter)
 RequirementNode/Name/AndCountUpgradefactory3colossusCompleteOnlyNotCountUpgradeforgecolossussplashupgQueuedOrBetter=CountUpgrade(factory3colossus,CompleteOnly) && !CountUpgrade(forgecolossussplashupg,QueuedOrBetter)
-RequirementNode/Name/AndGTECountUpgradebarracks2hydraliskupgCompleteOnly1CountUnitGhostAcademyTotal=CountUpgrade(barracks2hydraliskupg,CompleteOnly) >= 1 && CountUnit(GhostAcademy,Total)
-RequirementNode/Name/AndGTECountUpgradebarracks2stalkerupgCompleteOnly1CountUnitGhostAcademyCompleteOnly=CountUpgrade(barracks2stalkerupg,CompleteOnly) >= 1 && CountUnit(GhostAcademy,CompleteOnly)
-RequirementNode/Name/AndGTECountUpgradebarracks2warpigupgCompleteOnly1CountUnitGhostAcademyTotal=CountUpgrade(barracks2warpigupg,CompleteOnly) >= 1 && CountUnit(GhostAcademy,Total)
+RequirementNode/Name/AndGTECountUpgradebarracks2hydraliskupgCompleteOnly1=CountUpgrade(barracks2hydraliskupg,CompleteOnly) >= 1 && ()
+RequirementNode/Name/AndGTECountUpgradebarracks2stalkerupgCompleteOnly1=CountUpgrade(barracks2stalkerupg,CompleteOnly) >= 1 && ()
+RequirementNode/Name/AndGTECountUpgradebarracks2warpigupgCompleteOnly1=CountUpgrade(barracks2warpigupg,CompleteOnly) >= 1 && ()
 RequirementNode/Name/AndGTECountUpgradebarracks3adeptupgCompleteOnly1CountUnitGhostAcademyTotal=CountUpgrade(barracks3adeptupg,CompleteOnly) >= 1 && CountUnit(GhostAcademy,Total)
 RequirementNode/Name/AndGTECountUpgradebarracks3firebatupgCompleteOnly1CountUnitGhostAcademyTotal=CountUpgrade(barracks3firebatupg,CompleteOnly) >= 1 && CountUnit(GhostAcademy,Total)
 RequirementNode/Name/AndGTECountUpgradebarracks3marauderCompleteOnly1CountUnitGhostAcademyTotal=CountUpgrade(barracks3marauder,CompleteOnly) >= 1 && CountUnit(GhostAcademy,Total)

@@ -17,7 +17,8 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", rax +"4");
     addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", factory +"3");
     addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", starport +"3");
-    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Vulture");
+    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Vulture");    
+    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Immortal"); // couldn't turn towards target
 
     addAbilityToUpgrade("D8Charge", "F_D8Charge"); // clusterbomb (campaign)
     addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", rax +"4");
@@ -25,6 +26,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", starport +"3");
     addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Colossus");
     addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "ScienceVessel"); // couldn't turn towards target
+    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Immortal"); // couldn't turn towards target
 
     addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Caster"); // I didn't like how this doesn't cost energy. 
 
@@ -118,11 +120,23 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("GuardianShield", logicType_NoneOf, "unitTag", rax +"4");
     addUpgradeRequirementTag("GuardianShield", logicType_NoneOf, "unitTag", "Sentry"); // Sentry already has this ability 
 
-    addAbilityToUpgrade("CorsairMPDisruptionWeb", "F_CorsairMPDisruptionWeb"); 
+    addAbilityToUpgrade("CorsairMPDisruptionWeb", "F_CorsairMPDisruptionWeb");
     addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_AllOf, "unitTag", "caster");
-    // addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", starport +"3"); // I don't really know how good this ability is. Might need to restrict slots. 
+    // addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", starport +"3"); // I don't really know how good this ability is. Might need to restrict slots.
     // addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", rax +"4");
     addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", "CorsairMP"); // Sentry already has this ability
+
+    addAbilityToUpgrade("TempestDisruptionBlast", "F_TempestDisruptionBlast");
+    addUpgradeRequirementTag("TempestDisruptionBlast", logicType_NoneOf, "unitTag", "caster");
+    addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", factory +"3");
+    addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", starport +"3");
+
+    // addAbilityToUpgrade("Grapple", "F_Grapple"); // I expected this to require a unit to jump to, but it is operating more like blink
+
+    addAbilityToUpgrade("Yamato", "F_Yamato");
+    addUpgradeRequirementTag("Yamato", logicType_NoneOf, "unitTag", "caster");
+    addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", factory +"3");
+    addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", starport +"3");
 
 }
 

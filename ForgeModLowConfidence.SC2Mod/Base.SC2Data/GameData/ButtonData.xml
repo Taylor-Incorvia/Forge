@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton id="F_DefensiveMatrix">
+        <Icon value="Assets\Textures\btn-ability-terran-defensivematrix.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-defensivematrix.dds"/>
+        <TintRacially value="1"/>
+    </CButton>
     <CButton id="F_ArbiterMPStasisField">
         <Icon value="Assets\Textures\btn-ability-protoss-forcefield-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-forcefield-color.dds"/>
@@ -105,6 +110,13 @@
         <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
+    <CButton id="F_Grapple">
+        <Icon value="Assets\Textures\btn-tips-terran-penetrator.dds"/>
+        <AlertIcon value="Assets\Textures\btn-tips-terran-penetrator.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
     <CButton id="HireKelmorianMiners">
         <HotkeyAlias value="Reaper"/>
     </CButton>
@@ -117,6 +129,10 @@
     </CButton>
     <CButton id="Hydralisk">
         <HotkeyAlias value="Reaper"/>
+    </CButton>
+    <CButton id="F_Hyperjump">
+        <Icon value="Assets\Textures\btn-ability-terran-warpjump.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-warpjump.dds"/>
     </CButton>
     <CButton id="Immortal">
         <HotkeyAlias value="WidowMine"/>
@@ -147,6 +163,11 @@
     </CButton>
     <CButton id="Medic">
         <HotkeyAlias value="Marauder"/>
+    </CButton>
+    <CButton id="F_MissilePods">
+        <Icon value="Assets\Textures\btn-ability-terran-hurricane.dds"/>
+        <Hotkey value="Button/Hotkey/MissilePods"/>
+        <TintRacially value="1"/>
     </CButton>
     <CButton id="Mutalisk">
         <HotkeyAlias value="Banshee"/>
@@ -527,6 +548,75 @@
         <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Column="3"/>
     </CButton>
+    <CButton id="ResearchTempestDisruptionBlast1">
+        <Icon value="Assets\Textures\btn-ability-protoss-disruptionblast.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-disruptionblast.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ResearchTempestDisruptionBlast2">
+        <Icon value="Assets\Textures\btn-ability-protoss-disruptionblast.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-disruptionblast.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchTempestDisruptionBlast3">
+        <Icon value="Assets\Textures\btn-ability-protoss-disruptionblast.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-disruptionblast.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchTempestDisruptionBlast4">
+        <Icon value="Assets\Textures\btn-ability-protoss-disruptionblast.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-disruptionblast.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchGrapple1">
+        <Icon value="Assets\Textures\btn-tips-terran-penetrator.dds"/>
+        <AlertIcon value="Assets\Textures\btn-tips-terran-penetrator.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ResearchGrapple2">
+        <Icon value="Assets\Textures\btn-tips-terran-penetrator.dds"/>
+        <AlertIcon value="Assets\Textures\btn-tips-terran-penetrator.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchGrapple3">
+        <Icon value="Assets\Textures\btn-tips-terran-penetrator.dds"/>
+        <AlertIcon value="Assets\Textures\btn-tips-terran-penetrator.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchGrapple4">
+        <Icon value="Assets\Textures\btn-tips-terran-penetrator.dds"/>
+        <AlertIcon value="Assets\Textures\btn-tips-terran-penetrator.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchYamato1">
+        <Icon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ResearchYamato2">
+        <Icon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchYamato3">
+        <Icon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchYamato4">
+        <Icon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
     <CButton id="ResearchKD8Charge1">
         <Icon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
@@ -718,6 +808,13 @@
         <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
+    <CButton id="F_TempestDisruptionBlast">
+        <Icon value="Assets\Textures\btn-ability-protoss-disruptionblast.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-disruptionblast.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
     <CButton id="Ultralisk">
         <HotkeyAlias value="Thor"/>
     </CButton>
@@ -736,7 +833,18 @@
     <CButton id="Wraith">
         <HotkeyAlias value="VikingFighter"/>
     </CButton>
-    <CButton id="YamatoGun">
+    <CButton id="YamatoGun2">
+        <Icon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <Universal value="1"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="F_Yamato">
+        <Icon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
     <CButton id="Yoink">

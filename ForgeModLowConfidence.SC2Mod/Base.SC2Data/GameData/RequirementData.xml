@@ -16,7 +16,7 @@
         <NodeArray index="Use" Link=""/>
     </CRequirement>
     <CRequirement id="barracks2warpigtreq">
-        <NodeArray index="Use" Link="AndGTECountUpgradebarracks2warpigupgCompleteOnly1CountUnitGhostAcademyTotal"/>
+        <NodeArray index="Use" Link="AndGTECountUpgradebarracks2warpigupgCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradebarracks2warpigupgCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="barracks3firebatreq">
@@ -35,7 +35,7 @@
         <NodeArray index="Use" Link="CountUnitFusionCoreCompleteOnlyTechTreeCheat"/>
     </CRequirement>
     <CRequirement id="barracks2hydralisktreq">
-        <NodeArray index="Use" Link="AndGTECountUpgradebarracks2hydraliskupgCompleteOnly1CountUnitGhostAcademyTotal"/>
+        <NodeArray index="Use" Link="AndGTECountUpgradebarracks2hydraliskupgCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradebarracks2hydraliskupgCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="UnknownRequirement2">
@@ -91,7 +91,7 @@
         <NodeArray index="Show" Link="GTECountUpgradebarracks3roachupgCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="barracks2stalkerreq">
-        <NodeArray index="Use" Link="AndGTECountUpgradebarracks2stalkerupgCompleteOnly1CountUnitGhostAcademyCompleteOnly"/>
+        <NodeArray index="Use" Link="AndGTECountUpgradebarracks2stalkerupgCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradebarracks2stalkerupgCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="barracks4archonreq">
