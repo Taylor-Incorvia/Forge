@@ -23,6 +23,7 @@ Abil/Name/F_DefensiveMatrix=F_Defensive Matrix
 Abil/Name/F_ForceField=F_Force Field
 Abil/Name/F_FungalGrowth=F_Fungal Growth
 Abil/Name/F_Grapple=F_Grapple
+Abil/Name/F_GravitonBeam=F_Graviton Beam
 Abil/Name/F_GuardianShield=F_Guardian Shield
 Abil/Name/F_Hyperjump=F_Tactical Jump
 Abil/Name/F_Irradiate=F_Irradiate
@@ -61,6 +62,7 @@ Button/Name/F_FaceEmbrace=F_Abduct
 Button/Name/F_ForceField=F_Force Field
 Button/Name/F_FungalGrowth=F_Fungal Growth
 Button/Name/F_Grapple=F_Grapple
+Button/Name/F_GravitonBeam=F_Graviton Beam
 Button/Name/F_GuardianShield=F_Guardian Shield
 Button/Name/F_HunterSeekerMissile=F_Seeker Missile
 Button/Name/F_Hyperjump=F_Tactical Jump
@@ -107,6 +109,7 @@ Button/Tooltip/F_FaceEmbrace=Pulls target unit to the location of the viper.
 Button/Tooltip/F_ForceField=Barrier that lasts <d time="15"/> and impedes movement of ground units. Massive units will shatter Force Fields on contact.
 Button/Tooltip/F_FungalGrowth=Target units take <d ref="(Behavior,FungalGrowth,Duration / Behavior,FungalGrowth,Period) * Effect,FungalGrowthDamage,Amount"/> damage over <d time="4"/> and have movement speed reduced by <d ref="(1-Behavior,FungalGrowthSlowMovement,Modification.MoveSpeedMultiplier)*100"/>%. Reveals cloaked and burrowed units. Affected units cannot Blink or load into transports or buildings.
 Button/Tooltip/F_Grapple=Pulls the HERC to the target ground unit's location.<n/><n/><c val="#ColorAttackInfo">Cannot target units at close range or air units.</c>
+Button/Tooltip/F_GravitonBeam=Makes the target unit float in the air, disabling its abilities. Effect lasts up to <d time="10"/>.<n/><n/><c val="#ColorAttackInfo">Massive units are immune.</c><n/><c val="ffff8a">Channeled ability</c>
 Button/Tooltip/F_GuardianShield=Creates a range <d ref="Effect,GuardianShieldSearch,AreaArray[0].Radius" precision="1"/> aura that reduces incoming ranged damage to friendly units by <d ref="Behavior,GuardianShield,DamageResponse.ModifyAmount * (-1)"/>. Lasts <d time="[d ref='(Effect,GuardianShieldPersistent,PeriodicPeriodArray[0] + 0.13) * Effect,GuardianShieldPersistent,PeriodCount'/]"/>.
 Button/Tooltip/F_HunterSeekerMissile=Deploys a Seeker Missile which activates after <d time="5"/> and pursues the target unit, dealing <d ref="Effect,SeekerMissileDamage,Amount"/> splash damage upon contact.
 Button/Tooltip/F_Hyperjump=After <d time="6"/>, warps to the target location. Battlecruiser is invulnerable while warping.<n/><n/><c val="#ColorAttackInfo">Does not require vision.</c>

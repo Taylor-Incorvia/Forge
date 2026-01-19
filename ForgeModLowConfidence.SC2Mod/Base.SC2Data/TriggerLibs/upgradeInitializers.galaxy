@@ -2,97 +2,19 @@ include "TriggerLibs/listHelpers"
 include "TriggerLibs/upgradeHelpers"
 
 void initializeUpgrades() {
-    // // Stimpack
-    addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "caster");
-    addAbilityToUpgrade("Stimpack", "F_Stimpack");
-    // // Blink
-    addAbilityToUpgrade("Blink", "F_Blink");
-    addUpgradeRequirementTag("Blink", logicType_NoneOf, "unitTag", "caster"); // casters with blink sounds underwhelming 90% of the time and completely abusive 10% of the time 
+    // ==================== CASTER UPGRADES (require caster tag) ====================
 
-    // //charge
-    addUpgradeRequirementTag("Charge", logicType_AllOf, "unitTag", "melee");
-    addAbilityToUpgrade("Charge", "F_Charge");
-    
-    addAbilityToUpgrade("KD8Charge", "F_KD8Charge"); // reaper grenade (multiplayer)
-    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", rax +"4");
-    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", factory +"3");
-    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", starport +"3");
-    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Vulture");    
-    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Immortal"); // couldn't turn towards target
-
-    addAbilityToUpgrade("D8Charge", "F_D8Charge"); // clusterbomb (campaign)
-    addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", rax +"4");
-    addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", factory +"3");
-    addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", starport +"3");
-    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Colossus");
-    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "ScienceVessel"); // couldn't turn towards target
-    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Immortal"); // couldn't turn towards target
-
-    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Caster"); // I didn't like how this doesn't cost energy. 
-
-    addBehaviorToUpgrade("Speed", "Speed"); 
-    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "caster");
-
-    addBehaviorToUpgrade("Range", "Range"); 
-    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "caster");
-    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Firebat");
-    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Lurker");
-    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Hellion");
-    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Liberator");
-
-    addAbilityToUpgrade("ArbiterMPRecall", "F_ArbiterMPRecall"); 
+    addAbilityToUpgrade("ArbiterMPRecall", "F_ArbiterMPRecall");
     addUpgradeRequirementTag("ArbiterMPRecall", logicType_AllOf, "unitTag", "caster");
     addUpgradeRequirementTag("ArbiterMPRecall", logicType_AnyOf, "unitTag", starport +"3");
     addUpgradeRequirementTag("ArbiterMPRecall", logicType_AnyOf, "unitTag", rax +"4");
 
-    addAbilityToUpgrade("Irradiate", "F_Irradiate"); 
-    addUpgradeRequirementTag("Irradiate", logicType_AllOf, "unitTag", "caster");
-    addUpgradeRequirementTag("Irradiate", logicType_AnyOf, "unitTag", starport +"3");
-    addUpgradeRequirementTag("Irradiate", logicType_AnyOf, "unitTag", rax +"4");
+    addAbilityToUpgrade("ArbiterMPStasisField", "F_ArbiterMPStasisField");  // todo consider making this available to slot 2?
+    addUpgradeRequirementTag("ArbiterMPStasisField", logicType_AllOf, "unitTag", "caster");
+    addUpgradeRequirementTag("ArbiterMPStasisField", logicType_AnyOf, "unitTag", starport +"3");
+    addUpgradeRequirementTag("ArbiterMPStasisField", logicType_AnyOf, "unitTag", rax +"4");
 
-    addAbilityToUpgrade("RavenScramblerMissile", "F_RavenScramblerMissile"); 
-    addUpgradeRequirementTag("RavenScramblerMissile", logicType_AllOf, "unitTag", "caster");
-    addUpgradeRequirementTag("RavenScramblerMissile", logicType_AnyOf, "unitTag", starport +"3");
-    addUpgradeRequirementTag("RavenScramblerMissile", logicType_AnyOf, "unitTag", rax +"4");
-    addUpgradeRequirementTag("RavenScramblerMissile", logicType_NoneOf, "unitTag", "Raven"); // raven already has this ability
-
-    addAbilityToUpgrade("NeuralParasite", "F_NeuralParasite"); 
-    addUpgradeRequirementTag("NeuralParasite", logicType_AllOf, "unitTag", "caster");
-    addUpgradeRequirementTag("NeuralParasite", logicType_AnyOf, "unitTag", starport +"3");
-    addUpgradeRequirementTag("NeuralParasite", logicType_AnyOf, "unitTag", rax +"4");
-    addUpgradeRequirementTag("NeuralParasite", logicType_NoneOf, "unitTag", "Infestor"); // Infestor already has this ability
-
-    addAbilityToUpgrade("Transfusion", "F_Transfusion"); 
-    addUpgradeRequirementTag("Transfusion", logicType_AllOf, "unitTag", "caster");
-    addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", starport +"3"); // this isn't exciting enough for slot 3
-    addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", rax +"4");
-    addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", "Queen"); // Queen already has this ability (queen not added yet)
-
-    addAbilityToUpgrade("ForceField", "F_ForceField"); 
-    addUpgradeRequirementTag("ForceField", logicType_AllOf, "unitTag", "caster");
-    addUpgradeRequirementTag("ForceField", logicType_NoneOf, "unitTag", starport +"3"); // this isn't exciting enough for slot 3/4
-    addUpgradeRequirementTag("ForceField", logicType_NoneOf, "unitTag", rax +"4");
-    addUpgradeRequirementTag("ForceField", logicType_NoneOf, "unitTag", "Sentry"); // Sentry already has this ability 
-
-    addAbilityToUpgrade("ParasiticBomb", "F_ParasiticBomb"); 
-    addUpgradeRequirementTag("ParasiticBomb", logicType_AllOf, "unitTag", "caster");
-    addUpgradeRequirementTag("ParasiticBomb", logicType_AnyOf, "unitTag", starport +"3");
-    addUpgradeRequirementTag("ParasiticBomb", logicType_AnyOf, "unitTag", rax +"4");
-    addUpgradeRequirementTag("ParasiticBomb", logicType_NoneOf, "unitTag", "Viper"); // Viper already has this ability
-
-    addAbilityToUpgrade("FungalGrowth", "F_FungalGrowth"); 
-    addUpgradeRequirementTag("FungalGrowth", logicType_AllOf, "unitTag", "caster");
-    addUpgradeRequirementTag("FungalGrowth", logicType_AnyOf, "unitTag", starport +"3");
-    addUpgradeRequirementTag("FungalGrowth", logicType_AnyOf, "unitTag", rax +"4");
-    addUpgradeRequirementTag("FungalGrowth", logicType_NoneOf, "unitTag", "Infestor"); // Viper already has this ability
-
-    addAbilityToUpgrade("Yoink", "F_Yoink"); 
-    addUpgradeRequirementTag("Yoink", logicType_AllOf, "unitTag", "caster");
-    addUpgradeRequirementTag("Yoink", logicType_AnyOf, "unitTag", starport +"3");
-    addUpgradeRequirementTag("Yoink", logicType_AnyOf, "unitTag", rax +"4");
-    addUpgradeRequirementTag("Yoink", logicType_NoneOf, "unitTag", "Viper"); // Viper already has this ability
-
-    addAbilityToUpgrade("BlindingCloud", "F_BlindingCloud"); 
+    addAbilityToUpgrade("BlindingCloud", "F_BlindingCloud");
     addUpgradeRequirementTag("BlindingCloud", logicType_AllOf, "unitTag", "caster");
     addUpgradeRequirementTag("BlindingCloud", logicType_AnyOf, "unitTag", starport +"3");
     addUpgradeRequirementTag("BlindingCloud", logicType_AnyOf, "unitTag", rax +"4");
@@ -104,39 +26,140 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("BuildAutoTurret", logicType_AnyOf, "unitTag", rax +"4");
     addUpgradeRequirementTag("BuildAutoTurret", logicType_NoneOf, "unitTag", "Raven"); // raven already has this ability
 
-    addAbilityToUpgrade("SeekerMissile", "F_SeekerMissile");  
-    addUpgradeRequirementTag("SeekerMissile", logicType_AllOf, "unitTag", "caster");
-    addUpgradeRequirementTag("SeekerMissile", logicType_AnyOf, "unitTag", starport +"3");
-    addUpgradeRequirementTag("SeekerMissile", logicType_AnyOf, "unitTag", rax +"4");
-
-    addAbilityToUpgrade("ArbiterMPStasisField", "F_ArbiterMPStasisField");  // todo consider making this available to slot 2?
-    addUpgradeRequirementTag("ArbiterMPStasisField", logicType_AllOf, "unitTag", "caster");
-    addUpgradeRequirementTag("ArbiterMPStasisField", logicType_AnyOf, "unitTag", starport +"3");
-    addUpgradeRequirementTag("ArbiterMPStasisField", logicType_AnyOf, "unitTag", rax +"4");
-
-    addAbilityToUpgrade("GuardianShield", "F_GuardianShield"); 
-    addUpgradeRequirementTag("GuardianShield", logicType_AllOf, "unitTag", "caster");
-    addUpgradeRequirementTag("GuardianShield", logicType_NoneOf, "unitTag", starport +"3"); // this isn't exciting enough for slot 3/4
-    addUpgradeRequirementTag("GuardianShield", logicType_NoneOf, "unitTag", rax +"4");
-    addUpgradeRequirementTag("GuardianShield", logicType_NoneOf, "unitTag", "Sentry"); // Sentry already has this ability 
-
     addAbilityToUpgrade("CorsairMPDisruptionWeb", "F_CorsairMPDisruptionWeb");
     addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_AllOf, "unitTag", "caster");
     // addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", starport +"3"); // I don't really know how good this ability is. Might need to restrict slots.
     // addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", rax +"4");
-    addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", "CorsairMP"); // Sentry already has this ability
+    addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", "CorsairMP"); // Corsair already has this ability
+
+    addAbilityToUpgrade("DefensiveMatrix", "F_DefensiveMatrix");
+    addUpgradeRequirementTag("DefensiveMatrix", logicType_AllOf, "unitTag", "caster");
+
+    addAbilityToUpgrade("ForceField", "F_ForceField");
+    addUpgradeRequirementTag("ForceField", logicType_AllOf, "unitTag", "caster");
+    addUpgradeRequirementTag("ForceField", logicType_NoneOf, "unitTag", starport +"3"); // this isn't exciting enough for slot 3/4
+    addUpgradeRequirementTag("ForceField", logicType_NoneOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("ForceField", logicType_NoneOf, "unitTag", "Sentry"); // Sentry already has this ability
+
+    addAbilityToUpgrade("FungalGrowth", "F_FungalGrowth");
+    addUpgradeRequirementTag("FungalGrowth", logicType_AllOf, "unitTag", "caster");
+    addUpgradeRequirementTag("FungalGrowth", logicType_AnyOf, "unitTag", starport +"3");
+    addUpgradeRequirementTag("FungalGrowth", logicType_AnyOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("FungalGrowth", logicType_NoneOf, "unitTag", "Infestor"); // Infestor already has this ability
+
+    addAbilityToUpgrade("GuardianShield", "F_GuardianShield");
+    addUpgradeRequirementTag("GuardianShield", logicType_AllOf, "unitTag", "caster");
+    addUpgradeRequirementTag("GuardianShield", logicType_NoneOf, "unitTag", starport +"3"); // this isn't exciting enough for slot 3/4
+    addUpgradeRequirementTag("GuardianShield", logicType_NoneOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("GuardianShield", logicType_NoneOf, "unitTag", "Sentry"); // Sentry already has this ability
+
+    addAbilityToUpgrade("GravitonBeam", "F_GravitonBeam");
+    addUpgradeRequirementTag("GuardianShield", logicType_AllOf, "unitTag", "caster");
+    addUpgradeRequirementTag("GuardianShield", logicType_AnyOf, "unitTag", rax +"1");
+    addUpgradeRequirementTag("GuardianShield", logicType_AnyOf, "unitTag", rax +"2");
+    addUpgradeRequirementTag("GuardianShield", logicType_AnyOf, "unitTag", rax +"3");
+    addUpgradeRequirementTag("GuardianShield", logicType_AnyOf, "unitTag", factory +"1");
+    addUpgradeRequirementTag("GuardianShield", logicType_AnyOf, "unitTag", starport +"1");
+
+    // todo add slot number. probably don't want this on slot 3/4
+
+    addAbilityToUpgrade("Irradiate", "F_Irradiate");
+    addUpgradeRequirementTag("Irradiate", logicType_AllOf, "unitTag", "caster");
+    addUpgradeRequirementTag("Irradiate", logicType_AnyOf, "unitTag", starport +"3");
+    addUpgradeRequirementTag("Irradiate", logicType_AnyOf, "unitTag", rax +"4");
+
+    addAbilityToUpgrade("MissilePods", "F_MissilePods");
+    addUpgradeRequirementTag("MissilePods", logicType_AllOf, "unitTag", "caster");
+
+    addAbilityToUpgrade("NeuralParasite", "F_NeuralParasite");
+    addUpgradeRequirementTag("NeuralParasite", logicType_AllOf, "unitTag", "caster");
+    addUpgradeRequirementTag("NeuralParasite", logicType_AnyOf, "unitTag", starport +"3");
+    addUpgradeRequirementTag("NeuralParasite", logicType_AnyOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("NeuralParasite", logicType_NoneOf, "unitTag", "Infestor"); // Infestor already has this ability
+
+    addAbilityToUpgrade("ParasiticBomb", "F_ParasiticBomb");
+    addUpgradeRequirementTag("ParasiticBomb", logicType_AllOf, "unitTag", "caster");
+    addUpgradeRequirementTag("ParasiticBomb", logicType_AnyOf, "unitTag", starport +"3");
+    addUpgradeRequirementTag("ParasiticBomb", logicType_AnyOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("ParasiticBomb", logicType_NoneOf, "unitTag", "Viper"); // Viper already has this ability
+
+    addAbilityToUpgrade("RavenScramblerMissile", "F_RavenScramblerMissile");
+    addUpgradeRequirementTag("RavenScramblerMissile", logicType_AllOf, "unitTag", "caster");
+    addUpgradeRequirementTag("RavenScramblerMissile", logicType_AnyOf, "unitTag", starport +"3");
+    addUpgradeRequirementTag("RavenScramblerMissile", logicType_AnyOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("RavenScramblerMissile", logicType_NoneOf, "unitTag", "Raven"); // raven already has this ability
+
+    addAbilityToUpgrade("SeekerMissile", "F_SeekerMissile");
+    addUpgradeRequirementTag("SeekerMissile", logicType_AllOf, "unitTag", "caster");
+    addUpgradeRequirementTag("SeekerMissile", logicType_AnyOf, "unitTag", starport +"3");
+    addUpgradeRequirementTag("SeekerMissile", logicType_AnyOf, "unitTag", rax +"4");
+
+    addAbilityToUpgrade("Transfusion", "F_Transfusion");
+    addUpgradeRequirementTag("Transfusion", logicType_AllOf, "unitTag", "caster");
+    addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", starport +"3"); // this isn't exciting enough for slot 3
+    addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", "Queen"); // Queen already has this ability (queen not added yet)
+
+    addAbilityToUpgrade("Yoink", "F_Yoink");
+    addUpgradeRequirementTag("Yoink", logicType_AllOf, "unitTag", "caster");
+    addUpgradeRequirementTag("Yoink", logicType_AnyOf, "unitTag", starport +"3");
+    addUpgradeRequirementTag("Yoink", logicType_AnyOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("Yoink", logicType_NoneOf, "unitTag", "Viper"); // Viper already has this ability
+
+    // ==================== NON-CASTER UPGRADES (require NOT caster) ====================
+
+    addAbilityToUpgrade("Blink", "F_Blink");
+    addUpgradeRequirementTag("Blink", logicType_NoneOf, "unitTag", "caster"); // casters with blink sounds underwhelming 90% of the time and completely abusive 10% of the time
+
+    addAbilityToUpgrade("D8Charge", "F_D8Charge"); // clusterbomb (campaign)
+    addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", factory +"3");
+    addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", starport +"3");
+    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Colossus");
+    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "ScienceVessel"); // couldn't turn towards target
+    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Immortal"); // couldn't turn towards target
+    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Caster"); // I didn't like how this doesn't cost energy.
+
+    addBehaviorToUpgrade("Range", "Range");
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "caster");
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Firebat");
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Lurker");
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Hellion");
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Liberator");
+
+    addBehaviorToUpgrade("Speed", "Speed");
+    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "caster");
+
+    addAbilityToUpgrade("Stimpack", "F_Stimpack");
+    addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "caster");
 
     addAbilityToUpgrade("TempestDisruptionBlast", "F_TempestDisruptionBlast");
     addUpgradeRequirementTag("TempestDisruptionBlast", logicType_NoneOf, "unitTag", "caster");
     addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", factory +"3");
     addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", starport +"3");
 
-    // addAbilityToUpgrade("Grapple", "F_Grapple"); // I expected this to require a unit to jump to, but it is operating more like blink
-
     addAbilityToUpgrade("Yamato", "F_Yamato");
     addUpgradeRequirementTag("Yamato", logicType_NoneOf, "unitTag", "caster");
-    addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", factory +"3");
-    addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", starport +"3");
+    addUpgradeRequirementTag("Yamato", logicType_AnyOf, "unitTag", factory +"3");
+    addUpgradeRequirementTag("Yamato", logicType_AnyOf, "unitTag", starport +"3");
+
+    addAbilityToUpgrade("KD8Charge", "F_KD8Charge"); // reaper grenade (multiplayer)
+    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", factory +"3");
+    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", starport +"3");
+    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Vulture");
+    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Immortal"); // couldn't turn towards target
+    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "caster");
+
+    // ==================== UNSPECIFIED CASTER (no caster requirement) ====================
+
+    addAbilityToUpgrade("Charge", "F_Charge");
+    addUpgradeRequirementTag("Charge", logicType_AllOf, "unitTag", "melee");
+
+    // addAbilityToUpgrade("Grapple", "F_Grapple"); // I expected this to require a unit to jump to, but it is operating more like blink
+
+    // addAbilityToUpgrade("Hyperjump", "F_Hyperjump"); // maybe this should be forge only
+
 
 }
 

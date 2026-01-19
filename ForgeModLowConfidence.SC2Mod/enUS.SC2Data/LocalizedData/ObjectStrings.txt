@@ -8,6 +8,7 @@ Abil/EditorPrefix/F_DefensiveMatrix=Battlecruiser -
 Abil/EditorPrefix/F_ForceField=Sentry -
 Abil/EditorPrefix/F_FungalGrowth=Infestor -
 Abil/EditorPrefix/F_Grapple=HERC -
+Abil/EditorPrefix/F_GravitonBeam=Phoenix -
 Abil/EditorPrefix/F_GuardianShield=Sentry -
 Abil/EditorPrefix/F_Hyperjump=Battlecruiser -
 Abil/EditorPrefix/F_Irradiate=Science Vessel -

@@ -11,6 +11,7 @@ Button/Hotkey/F_D8Charge=G
 Button/Hotkey/F_DefensiveMatrix=D
 Button/Hotkey/F_FaceEmbrace=G
 Button/Hotkey/F_Grapple=G
+Button/Hotkey/F_GravitonBeam=G
 Button/Hotkey/F_HunterSeekerMissile=R
 Button/Hotkey/F_Hyperjump=T
 Button/Hotkey/F_KD8Charge=G
