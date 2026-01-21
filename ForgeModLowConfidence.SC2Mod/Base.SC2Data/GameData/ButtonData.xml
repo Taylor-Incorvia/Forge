@@ -169,6 +169,13 @@
     <CButton id="Liberator">
         <HotkeyAlias value="Banshee"/>
     </CButton>
+    <CButton id="F_LightningBomb">
+        <Icon value="Assets\Textures\btn-ability-protoss-disintegration.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-disintegration.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
     <CButton id="LurkerFromHydraliskBurrowed">
         <HotkeyAlias value="Ghost"/>
     </CButton>
@@ -196,11 +203,25 @@
         <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
+    <CButton id="F_OdinBarrage">
+        <Icon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
     <CButton id="Phoenix">
         <HotkeyAlias value="VikingFighter"/>
     </CButton>
     <CButton id="Predator">
         <HotkeyAlias value="Hellion"/>
+    </CButton>
+    <CButton id="F_PsionicShockwave">
+        <Icon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
     <CButton id="Ravager">
         <HotkeyAlias value="WidowMine"/>
@@ -210,6 +231,13 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-interferencematrix.dds"/>
         <Hotkey value="G"/>
         <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="F_RavagerCorrosiveBile">
+        <Icon value="Assets\Textures\btn-ability-zerg-corrosivebile.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-corrosivebile.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
     <CButton id="Reactor">
@@ -742,6 +770,98 @@
         <Icon value="Assets\Textures\btn-ability-protoss-gravitonbeam-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-gravitonbeam-color.dds"/>
         <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchLightningBomb1">
+        <Icon value="Assets\Textures\btn-ability-protoss-disintegration.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-disintegration.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ResearchLightningBomb2">
+        <Icon value="Assets\Textures\btn-ability-protoss-disintegration.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-disintegration.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchLightningBomb3">
+        <Icon value="Assets\Textures\btn-ability-protoss-disintegration.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-disintegration.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchLightningBomb4">
+        <Icon value="Assets\Textures\btn-ability-protoss-disintegration.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-disintegration.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchOdinBarrage1">
+        <Icon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ResearchOdinBarrage2">
+        <Icon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchOdinBarrage3">
+        <Icon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchOdinBarrage4">
+        <Icon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchPsionicShockwave1">
+        <Icon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ResearchPsionicShockwave2">
+        <Icon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchPsionicShockwave3">
+        <Icon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchPsionicShockwave4">
+        <Icon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
+    <CButton id="ResearchRavagerCorrosiveBile1">
+        <Icon value="Assets\Textures\btn-ability-zerg-corrosivebile.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-corrosivebile.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="ResearchRavagerCorrosiveBile2">
+        <Icon value="Assets\Textures\btn-ability-zerg-corrosivebile.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-corrosivebile.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchRavagerCorrosiveBile3">
+        <Icon value="Assets\Textures\btn-ability-zerg-corrosivebile.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-corrosivebile.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchRavagerCorrosiveBile4">
+        <Icon value="Assets\Textures\btn-ability-zerg-corrosivebile.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-corrosivebile.dds"/>
+        <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Column="3"/>
     </CButton>
     <CButton id="ResearchKD8Charge1">

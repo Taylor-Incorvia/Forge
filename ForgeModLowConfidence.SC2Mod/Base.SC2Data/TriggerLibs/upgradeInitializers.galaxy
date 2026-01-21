@@ -28,7 +28,7 @@ void initializeUpgrades() {
 
     addAbilityToUpgrade("CorsairMPDisruptionWeb", "F_CorsairMPDisruptionWeb");
     addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_AllOf, "unitTag", "caster");
-    // addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", starport +"3"); // I don't really know how good this ability is. Might need to restrict slots.
+    // addUpgradeRequirementTag("CorsairMPDisruptionWeb",  logicType_NoneOf, "unitTag", starport +"3"); // I don't really know how good this ability is. Might need to restrict slots.
     // addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", rax +"4");
     addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", "CorsairMP"); // Corsair already has this ability
 
@@ -54,14 +54,14 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("GuardianShield", logicType_NoneOf, "unitTag", "Sentry"); // Sentry already has this ability
 
     addAbilityToUpgrade("GravitonBeam", "F_GravitonBeam");
-    addUpgradeRequirementTag("GuardianShield", logicType_AllOf, "unitTag", "caster");
-    addUpgradeRequirementTag("GuardianShield", logicType_AnyOf, "unitTag", rax +"1");
-    addUpgradeRequirementTag("GuardianShield", logicType_AnyOf, "unitTag", rax +"2");
-    addUpgradeRequirementTag("GuardianShield", logicType_AnyOf, "unitTag", rax +"3");
-    addUpgradeRequirementTag("GuardianShield", logicType_AnyOf, "unitTag", factory +"1");
-    addUpgradeRequirementTag("GuardianShield", logicType_AnyOf, "unitTag", starport +"1");
+    addUpgradeRequirementTag("GravitonBeam", logicType_AllOf, "unitTag", "caster");
+    addUpgradeRequirementTag("GravitonBeam", logicType_AnyOf, "unitTag", rax +"1");
+    addUpgradeRequirementTag("GravitonBeam", logicType_AnyOf, "unitTag", rax +"2");
+    addUpgradeRequirementTag("GravitonBeam", logicType_AnyOf, "unitTag", rax +"3");
+    addUpgradeRequirementTag("GravitonBeam", logicType_AnyOf, "unitTag", factory +"1"); 
+    addUpgradeRequirementTag("GravitonBeam", logicType_AnyOf, "unitTag", starport +"1");
+    addUpgradeRequirementTag("GravitonBeam", logicType_NoneOf, "unitTag", "Phoenix"); // Phoenix already has this ability
 
-    // todo add slot number. probably don't want this on slot 3/4
 
     addAbilityToUpgrade("Irradiate", "F_Irradiate");
     addUpgradeRequirementTag("Irradiate", logicType_AllOf, "unitTag", "caster");
@@ -151,15 +151,33 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Immortal"); // couldn't turn towards target
     addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "caster");
 
+    addAbilityToUpgrade("RavagerCorrosiveBile", "F_RavagerCorrosiveBile");
+    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "caster");
+    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", factory +"3");
+    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", starport +"3");
+    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "Ravager"); // ravager already has this
+
+     addAbilityToUpgrade("PsionicShockwave", "F_PsionicShockwave");
+     addUpgradeRequirementTag("PsionicShockwave", logicType_NoneOf, "unitTag", "caster");
+     addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", factory +"3");
+    addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", starport +"3");
+    addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", rax +"4");
+
     // ==================== UNSPECIFIED CASTER (no caster requirement) ====================
 
     addAbilityToUpgrade("Charge", "F_Charge");
     addUpgradeRequirementTag("Charge", logicType_AllOf, "unitTag", "melee");
 
+    // addAbilityToUpgrade("LightningBomb", "F_LightningBomb"); // I don't know about this one. Does a lot of damage over time. Might be lame. 
+
+    // addAbilityToUpgrade("OdinBarrage", "F_OdinBarrage"); this seems too generally good. 
+
+    
+
     // addAbilityToUpgrade("Grapple", "F_Grapple"); // I expected this to require a unit to jump to, but it is operating more like blink
 
     // addAbilityToUpgrade("Hyperjump", "F_Hyperjump"); // maybe this should be forge only
-
 
 }
 

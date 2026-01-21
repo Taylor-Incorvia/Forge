@@ -299,6 +299,9 @@
     </CUnit>
     <CUnit id="Ravager">
         <CardLayouts index="0">
+            <LayoutButtons index="5" Face="RavagerCorrosiveBile" AbilCmd="RavagerCorrosiveBile,Execute" Column="0"/>
+            <LayoutButtons index="6" removed="1"/>
+            <LayoutButtons index="7" removed="1"/>
             <LayoutButtons index="8" removed="1"/>
             <LayoutButtons index="9" removed="1"/>
             <LayoutButtons index="10" removed="1"/>
