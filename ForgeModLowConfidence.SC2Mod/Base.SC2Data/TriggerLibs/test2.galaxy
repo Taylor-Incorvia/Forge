@@ -2,9 +2,6 @@ include "TriggerLibs/listHelpers"
 include "TriggerLibs/nativeHelpers"
 include "TriggerLibs/upgradeHelpers"
 
-bool devMode = false;
-// bool devMode = true;
-
 // Function to enable testing cheats at game start
 // This gives all players resources and speeds up build times
 void enableTestingCheats() {

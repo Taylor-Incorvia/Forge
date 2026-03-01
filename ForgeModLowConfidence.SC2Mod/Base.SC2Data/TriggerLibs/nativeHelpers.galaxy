@@ -1,5 +1,8 @@
 include "TriggerLibs/NativeLib"
 
+bool devMode = false;
+// bool devMode = true;
+
 void grantUpgrade(int playerIndex, string upgradeId) {
     libNtve_gf_SetUpgradeLevelForPlayer(playerIndex, upgradeId, 1);
 }
@@ -18,9 +21,11 @@ string getSubString(string s, int start, int end){
 }
 
 void showMessage(string message){
-    UIDisplayMessage(
-        PlayerGroupAll(),
-        c_messageAreaSubtitle,
-        StringToText(message)
-    );
+    if(devMode) {
+        UIDisplayMessage(
+            PlayerGroupAll(),
+            c_messageAreaSubtitle,
+            StringToText(message)
+        );
+    }
 }
