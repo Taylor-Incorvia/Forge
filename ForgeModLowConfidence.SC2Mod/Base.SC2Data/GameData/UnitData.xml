@@ -371,8 +371,6 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="SCV">
-        <LifeStart value="60"/>
-        <LifeMax value="60"/>
         <CardLayouts index="1">
             <LayoutButtons index="4" Face="Bunker" AbilCmd="TerranBuild,Build7" Row="2" Column="0"/>
             <LayoutButtons index="5" Face="MissileTurret" AbilCmd="TerranBuild,Build6" Column="1"/>

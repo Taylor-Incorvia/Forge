@@ -153,6 +153,7 @@ void initializeUpgrades() {
 
     addAbilityToUpgrade("RavagerCorrosiveBile", "F_RavagerCorrosiveBile");
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "caster");
+    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", rax +"1");
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", factory +"3");
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", starport +"3");
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", rax +"4");
