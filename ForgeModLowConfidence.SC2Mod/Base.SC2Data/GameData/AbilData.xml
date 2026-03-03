@@ -122,7 +122,7 @@
         <InfoArray index="Train4">
             <Button Requirements="barracks3marauderreq"/>
         </InfoArray>
-        <InfoArray index="Train5" Time="9">
+        <InfoArray index="Train5" Time="5">
             <Button DefaultButtonFace="Zergling" State="Available" Requirements="barracksZergling"/>
             <Unit value="Zergling"/>
         </InfoArray>
@@ -175,7 +175,7 @@
             <Button DefaultButtonFace="LurkerFromHydraliskBurrowed" Requirements="barracks4lurkerreq"/>
             <Unit value="Lurker"/>
         </InfoArray>
-        <InfoArray index="Train18" Time="18">
+        <InfoArray index="Train18" Time="11">
             <Button DefaultButtonFace="HireKelmorianMiners" Requirements="barracks2warpigtreq"/>
             <Unit value="WarPig"/>
         </InfoArray>

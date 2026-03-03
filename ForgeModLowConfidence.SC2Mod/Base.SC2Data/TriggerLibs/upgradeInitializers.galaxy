@@ -118,7 +118,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Colossus");
     addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "ScienceVessel"); // couldn't turn towards target
     addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Immortal"); // couldn't turn towards target
-    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Caster"); // I didn't like how this doesn't cost energy.
+    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "caster"); // I didn't like how this doesn't cost energy.
 
     addBehaviorToUpgrade("Range", "Range");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "caster");
