@@ -44,6 +44,7 @@
             <LayoutButtons Face="HireKelmorianMiners" Type="AbilCmd" AbilCmd="BarracksTrain,Train18" Row="0" Column="1"/>
             <LayoutButtons Face="Stalker" Type="AbilCmd" AbilCmd="BarracksTrain,Train7" Row="0" Column="1"/>
             <LayoutButtons Face="HighTemplar" Type="AbilCmd" AbilCmd="BarracksTrain,Train10" Row="0" Column="3"/>
+            <LayoutButtons Face="Archon" Type="AbilCmd" AbilCmd="BarracksTrain,Train9" Row="0" Column="3"/>
             <LayoutButtons Face="Infestor" Type="AbilCmd" AbilCmd="BarracksTrain,Train11" Row="0" Column="3"/>
             <LayoutButtons Face="GhostAlternate" Type="AbilCmd" AbilCmd="BarracksTrain,Train3" Row="0" Column="3"/>
             <LayoutButtons Face="LurkerFromHydraliskBurrowed" Type="AbilCmd" AbilCmd="BarracksTrain,Train17" Row="0" Column="3"/>
@@ -67,6 +68,8 @@
             <LayoutButtons index="3" removed="1"/>
             <LayoutButtons index="4" removed="1"/>
         </CardLayouts>
+        <CostResource index="Minerals" value="100"/>
+        <CostResource index="Vespene" value="100"/>
     </CUnit>
     <!--                                                                                         -->
     <!--                                                                                         -->

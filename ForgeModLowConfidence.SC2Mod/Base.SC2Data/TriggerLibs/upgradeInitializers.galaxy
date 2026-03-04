@@ -182,9 +182,14 @@ void initializeUpgrades() {
 
 }
 
-void grantInitialUpgrades() {
+void grantInitialUpgrades(int player) {
     // some units need upgrades to not be terrible.
-    //  grantUpgrade()
+    showMessage("grant initial upgrades");
+    grantUpgrade(player, "ChitinousPlating");
+    grantUpgrade(player, "AnabolicSynthesis");
+    // increasing colossus range from 7 -> 9 doesn't seem completely essesntial, 
+    // but I am trying to buff splash damage to counter deathball comps.
+    grantUpgrade(player, "ExtendedThermalLance");
 }
 
 string getUpgradePoolListKey(int player, int slotIndex, string facilityId){
@@ -233,4 +238,6 @@ void initializeUpgradePoolsForPlayer(int player) {
     setUpgradeSlotsForFacility(rax, 4, player);
     setUpgradeSlotsForFacility(factory, 3, player);
     setUpgradeSlotsForFacility(starport, 3, player);
+
+    grantInitialUpgrades(player);
 }
