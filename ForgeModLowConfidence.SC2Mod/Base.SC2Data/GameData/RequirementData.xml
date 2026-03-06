@@ -98,6 +98,10 @@
         <NodeArray index="Use" Link="AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4archonupgCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradebarracks4archonupgCompleteOnly1"/>
     </CRequirement>
+    <CRequirement id="barracks4defilerreqreal">
+        <NodeArray index="Use" Link="AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4defilerupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks4defilerupgCompleteOnly1"/>
+    </CRequirement>
     <CRequirement id="barracks4lurkerreq">
         <NodeArray index="Use" Link="AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4lurkerupgCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradebarracks4lurkerupgCompleteOnly1"/>
@@ -192,5 +196,9 @@
     <CRequirement id="starport3sciencevesselreq">
         <NodeArray index="Use" Link="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3sciencevesselupgCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradestarport3sciencevesselupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="starport3battlecruiserreq2">
+        <NodeArray index="Use" Link="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3battlecruiserupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradestarport3battlecruiserupgCompleteOnly1"/>
     </CRequirement>
 </Catalog>

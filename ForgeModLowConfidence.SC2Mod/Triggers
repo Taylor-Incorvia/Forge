@@ -2,6 +2,7 @@
 <TriggerData>
     <Library Id="13DECF19">
         <Root>
+            <Item Type="Trigger" Library="13DECF19" Id="3B7B71A9"/>
             <Item Type="Trigger" Library="13DECF19" Id="5F4CC85B"/>
             <Item Type="Trigger" Library="13DECF19" Id="D832CB06"/>
             <Item Type="Trigger" Library="13DECF19" Id="2034D9FB"/>
@@ -10,6 +11,37 @@
             <Item Type="Trigger" Library="13DECF19" Id="94630347"/>
             <Item Type="Trigger" Library="13DECF19" Id="157E4740"/>
         </Root>
+        <Element Type="Trigger" Id="3B7B71A9">
+            <Identifier>onCcCompleted</Identifier>
+            <Event Type="FunctionCall" Library="13DECF19" Id="708BB84C"/>
+        </Element>
+        <Element Type="FunctionCall" Id="708BB84C">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="B0FA20B6"/>
+            <Parameter Type="Param" Library="13DECF19" Id="1A5D05E2"/>
+            <Parameter Type="Param" Library="13DECF19" Id="1A863A78"/>
+        </Element>
+        <Element Type="Param" Id="1A5D05E2">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="9B14445A"/>
+            <FunctionCall Type="FunctionCall" Library="13DECF19" Id="5232150B"/>
+        </Element>
+        <Element Type="FunctionCall" Id="5232150B">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="22669CAF"/>
+            <Parameter Type="Param" Library="13DECF19" Id="68B4B3EA"/>
+            <Parameter Type="Param" Library="13DECF19" Id="391139CE"/>
+        </Element>
+        <Element Type="Param" Id="68B4B3EA">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="CA0EBEF3"/>
+            <Preset Type="PresetValue" Library="Ntve" Id="F7FDF14F"/>
+        </Element>
+        <Element Type="Param" Id="391139CE">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="7109EA8B"/>
+            <Value>CommandCenter</Value>
+            <ValueType Type="string"/>
+        </Element>
+        <Element Type="Param" Id="1A863A78">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="5E741589"/>
+            <Preset Type="PresetValue" Library="Ntve" Id="00000060"/>
+        </Element>
         <Element Type="Trigger" Id="5F4CC85B">
             <Identifier>onUpgradeCompleted</Identifier>
             <Event Type="FunctionCall" Library="13DECF19" Id="03AB179E"/>

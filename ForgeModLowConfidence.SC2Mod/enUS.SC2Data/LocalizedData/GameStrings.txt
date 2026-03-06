@@ -104,7 +104,9 @@ Button/Name/ResearchStim1=Research Stim 1
 Button/Name/ResearchStim2=Research Stim 2
 Button/Name/ResearchStim3=Research Stim 3
 Button/Name/ResearchStim4=Research Stim 4
+Button/Name/Siphon=Morph Defiler
 Button/Name/YamatoGun2=Yamato Cannon
+Button/Tooltip/DefilerMPDarkSwarm=Allied units in the area of effect take 0 damage from ranged attacks.
 Button/Tooltip/F_ArbiterMPRecall=Teleports all friendly units in the target area to the location of the Arbiter.
 Button/Tooltip/F_ArbiterMPStasisField=Puts enemies in target area into stasis. Units in Stasis cannot move, attack, or be attacked or be affected by spells for <d ref="Behavior,ArbiterMPStasisField,Duration"/> seconds.
 Button/Tooltip/F_AutoTurret=Automated defensive turret. Times out after <d ref="Behavior,AutoTurretTimedLife,Duration"/> seconds.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
@@ -154,6 +156,7 @@ Button/Tooltip/ResearchStim1=Allows slot 1 units to use STIM pack to temporarily
 Button/Tooltip/ResearchStim2=Allows slot 2 units to use STIM pack to temporarily increase movement and attack speed at the cost of health
 Button/Tooltip/ResearchStim3=Allows slot 3 units to use STIM pack to temporarily increase movement and attack speed at the cost of health
 Button/Tooltip/ResearchStim4=Allows slot 4 units to use STIM pack to temporarily increase movement and attack speed at the cost of health
+Button/Tooltip/Siphon=Morph Defiler
 Button/Tooltip/Vulture=Fast skirmish unit. Can use the KD8 Charge ability(Reaper Grenade).<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/YamatoGun2=Blasts a target with a devastating plasma cannon, causing <d ref="Effect,YamatoU,Amount"/> damage.
 DocInfo/DescShort=Any
@@ -180,6 +183,7 @@ Upgrade/Name/barracks3medicupg=barracks 3 medic upg
 Upgrade/Name/barracks3roachupg=barracks 3 roach upg
 Upgrade/Name/barracks3sentryupg=barracks 3 sentry upg
 Upgrade/Name/barracks4archonupg=barracks 4 archon upg
+Upgrade/Name/barracks4defilerupg=barracks 4 defiler upg
 Upgrade/Name/barracks4ghostupg=barracks 4 ghost upg
 Upgrade/Name/barracks4hightemplarupg=barracks 4 high templar upg
 Upgrade/Name/barracks4infestorupg=barracks 4 infestor upg
@@ -207,6 +211,7 @@ Upgrade/Name/starport1wraithupg=starport 1 wraith upg
 Upgrade/Name/starport2bansheeupg=starport 2 banshee upg
 Upgrade/Name/starport2liberatorupg=starport 2 liberator upg
 Upgrade/Name/starport2mutaupg=starport 2 muta upg
+Upgrade/Name/starport3battlecruiserupg=starport 3 battlecruiser upg
 Upgrade/Name/starport3ravenupg=starport 3 raven upg
 Upgrade/Name/starport3sciencevesselupg=starport 3 science vessel upg
 Upgrade/Name/starport3tempestupg=starport 3 tempest upg

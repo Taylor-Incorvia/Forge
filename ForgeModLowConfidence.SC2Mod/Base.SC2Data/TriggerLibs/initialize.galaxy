@@ -26,6 +26,8 @@ void initializeUnitUnlockUpgradeMapping() {
     setUnitUnlockUpgrade("Ghost", "barracks4ghostupg");
     setUnitUnlockUpgrade("Lurker", "barracks4lurkerupg");
     setUnitUnlockUpgrade("Archon", "barracks4archonupg");
+    setUnitUnlockUpgrade("HighTemplar", "barracks4hightemplarupg");
+    setUnitUnlockUpgrade("DefilerMP", "barracks4defilerupg");
 
     // ############### FACTORY #############################
     // slot 1
@@ -63,12 +65,13 @@ void initializeUnitUnlockUpgradeMapping() {
     setUnitUnlockUpgrade("ScienceVessel", "starport3sciencevesselupg");
     setUnitUnlockUpgrade("Tempest", "starport3tempestupg");
     setUnitUnlockUpgrade("Viper", "starport3viperupg");
+    setUnitUnlockUpgrade("Battlecruiser", "starport3battlecruiserupg");
 }
 
 void initializeBarracksSlot1Pool() {
     int slot = 1;
     string facility = rax;
-    // addUnitToSlotPool(facility, slot, "Marine");
+    // addUnitToSlotPool(facility, slot, "Marine"); // don't include marines because they scale too well with upgrades and are super cheap
     addUnitToSlotPool(facility, slot, "Zergling");
     addUnitToSlotPool(facility, slot, "Zealot");
 }
@@ -86,21 +89,25 @@ void initializeBarracksSlot2Pool() {
 void initializeBarracksSlot3Pool() {
     int slot = 3;
     string facility = rax;
-    addUnitToSlotPool(facility, slot, "Firebat"); // range probably does not work
-    addUnitToSlotPool(facility, slot, "Marauder");
-    // addUnitToSlotPool(facility, slot, "Roach"); // roaches appear to be the strongest unit based on initial play test
+    addUnitToSlotPool(facility, slot, "Firebat");
+    addUnitToSlotPool(facility, slot, "Marauder"); 
     addUnitToSlotPool(facility, slot, "Sentry");
-    // addUnitToSlotPool(facility, slot, "Adept"); // adepts appear to suck based on initial play test
     addUnitToSlotPool(facility, slot, "Medic");
+
+    // deprecated
+    // addUnitToSlotPool(facility, slot, "Adept"); // adepts appear to suck based on initial play test
+    // addUnitToSlotPool(facility, slot, "Roach"); // roaches appear to be the strongest unit based on initial play test
 }
 
 void initializeBarracksSlot4Pool() {
     int slot = 4;
     string facility = rax;
-    addUnitToSlotPool(facility, slot, "Archon");
+    // addUnitToSlotPool(facility, slot, "Archon"); // lame
     // addUnitToSlotPool(facility, slot, "Ghost"); // I commented this out because it's lame to have a ghost that can't cloak and can't nuke and I hate both of those abilities
     addUnitToSlotPool(facility, slot, "Infestor"); 
-    // addUnitToSlotPool(facility, slot, "Lurker"); // I commented this out because it's lame to have a lurker that doesn't lurk. If adding it back, maybe give it range and the other upgrade
+    addUnitToSlotPool(facility, slot, "Lurker"); // 
+    addUnitToSlotPool(facility, slot, "HighTemplar");
+    addUnitToSlotPool(facility, slot, "DefilerMP"); // not sure if I will keep defilers. I made a lot of changes to it. I replaced consume with neural. I halved the dps and doubled the duration of plague. Increased starting energy from 50 to 75. 
 }
 
 void initializeFactorySlot1Pool() {
@@ -149,10 +156,11 @@ void initializeStarportSlot2Pool() {
 void initializeStarportSlot3Pool() {
     int slot = 3;
     string facility = starport;
-    // addUnitToSlotPool(facility, slot, "ArbiterMP");
+    addUnitToSlotPool(facility, slot, "ArbiterMP"); // maybe with the invis changes, I can add back the arbiter?
     addUnitToSlotPool(facility, slot, "Raven"); 
     addUnitToSlotPool(facility, slot, "Tempest"); 
-    addUnitToSlotPool(facility, slot, "Viper");
+    addUnitToSlotPool(facility, slot, "Viper"); 
+    addUnitToSlotPool(facility, slot, "Battlecruiser");
 
     // addUnitToSlotPool(facility, slot, "ScienceVessel"); // not using science vessel. Irradiate will be an upgrade
 }

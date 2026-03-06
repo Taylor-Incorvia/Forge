@@ -63,7 +63,7 @@ void addAbilityToUpgrade(string upgrade, string ability) {
 
 void addBehaviorToUpgrade(string upgrade, string behavior) {
     string upgradeBehaviorListKey = getUpgradeBehaviorListName(upgrade);
-    listStringRequire(upgradeBehaviorListKey);
+    listStringRequire(upgradeBehaviorListKey); 
     addToStringList(upgradeBehaviorListKey, behavior);
     registerToAllUpgradesList(upgrade);
 }

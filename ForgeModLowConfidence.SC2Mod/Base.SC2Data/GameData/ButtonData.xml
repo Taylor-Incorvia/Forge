@@ -1042,6 +1042,9 @@
     <CButton id="SiegeTank">
         <HotkeyAlias value="WidowMine"/>
     </CButton>
+    <CButton id="Siphon">
+        <HotkeyAlias value="Ghost"/>
+    </CButton>
     <CButton id="Stalker">
         <HotkeyAlias value="Reaper"/>
     </CButton>

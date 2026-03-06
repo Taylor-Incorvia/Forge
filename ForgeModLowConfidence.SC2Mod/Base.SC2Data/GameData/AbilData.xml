@@ -3,6 +3,17 @@
     <CAbilEffectTarget id="AmorphousArmorcloud">
         <CmdButtonArray index="Execute" Requirements=""/>
     </CAbilEffectTarget>
+    <CAbilTransport id="BunkerTransport">
+        <TargetFilters value="Visible;Ally,Neutral,Enemy,Air,Massive,Dead,Hidden,AirUnit"/>
+        <LoadValidatorArray index="0" value="NotWidowMineTarget"/>
+        <LoadValidatorArray index="1" value="IsNotHellionTank"/>
+        <LoadValidatorArray index="2" removed="1"/>
+    </CAbilTransport>
+    <CAbilEffectTarget id="DefilerMPPlague">
+        <Cost index="0">
+            <Vital index="Energy" value="100"/>
+        </Cost>
+    </CAbilEffectTarget>
     <CAbilEffectInstant id="F_DefensiveMatrix">
         <AbilSetId value="dmatrix"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
@@ -78,7 +89,7 @@
             <Charge Link=""/>
             <Cooldown Link=""/>
         </Cost>
-        <Range value="35"/>
+        <Range value="500"/>
         <Arc value="360"/>
         <CursorEffect value="ArbiterMPRecallSearch"/>
         <AINotifyEffect value=""/>
@@ -178,6 +189,10 @@
         <InfoArray index="Train18" Time="11">
             <Button DefaultButtonFace="HireKelmorianMiners" Requirements="barracks2warpigtreq"/>
             <Unit value="WarPig"/>
+        </InfoArray>
+        <InfoArray index="Train19" Time="40">
+            <Button DefaultButtonFace="Siphon" Requirements="barracks4defilerreqreal"/>
+            <Unit value="DefilerMP"/>
         </InfoArray>
     </CAbilTrain>
     <CAbilEffectTarget id="F_D8Charge">
@@ -392,6 +407,7 @@
         <CastOutroTime value="1.4"/>
         <FinishTime value="6"/>
         <ShowProgressArray index="Channel" value="1"/>
+        <ShowProgressArray index="Finish" value="1"/>
         <UninterruptibleArray index="Prep" value="1"/>
         <UninterruptibleArray index="Channel" value="1"/>
         <UninterruptibleArray index="Finish" value="1"/>
@@ -1090,7 +1106,7 @@
             </Button>
         </InfoArray>
     </CAbilResearch>
-    <CAbilResearch id="Charge42">
+    <CAbilResearch id="Charge4">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Activity value="UI/Training"/>
         <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="4">
@@ -1168,6 +1184,10 @@
         <InfoArray index="Train16" Time="20">
             <Button DefaultButtonFace="WarHound" Requirements="factory2warhound"/>
             <Unit value="WarHound"/>
+        </InfoArray>
+        <InfoArray index="Train17" Time="18">
+            <Button DefaultButtonFace="Observer"/>
+            <Unit value="Observer"/>
         </InfoArray>
     </CAbilTrain>
     <CAbilResearch id="GhostAcademyResearch">
@@ -1320,6 +1340,9 @@
         </InfoArray>
         <InfoArray index="Train3">
             <Button Requirements="UnknownRequirement10"/>
+        </InfoArray>
+        <InfoArray index="Train4">
+            <Button Requirements="starport3battlecruiserreq2"/>
         </InfoArray>
         <InfoArray index="Train5">
             <Button Requirements="UnknownRequirement7"/>
@@ -1756,6 +1779,26 @@
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
     </CAbilEffectTarget>
+    <CAbilMorph id="UpgradeToOrbital">
+        <CmdButtonArray index="Execute" Requirements=""/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="Interruptible" value="0"/>
+        <InfoArray index="0">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="0"/>
+            </SectionArray>
+        </InfoArray>
+        <AutoCastValidatorArray value="IsCasterCommandCenterOrPlanetaryFortress"/>
+        <AutoCastRange value="1000"/>
+        <AutoCastCountMax value="500"/>
+    </CAbilMorph>
     <CAbilResearch id="Yoink1">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Activity value="UI/Training"/>

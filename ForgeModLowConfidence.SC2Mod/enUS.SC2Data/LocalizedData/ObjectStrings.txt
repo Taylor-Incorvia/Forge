@@ -34,6 +34,8 @@ Actor/Name/BlinkOriginModel2=Blink Origin Model
 Actor/Name/BlinkStopModel2=Blink Stop Model
 Actor/Name/BlinkStopSound2=Blink Stop Sound
 Actor/Name/CombatVisibilityClearer2=Combat Visibility Clearer
+Behavior/EditorPrefix/HyperjumpindicatorTimedLife=Hyperjump indicator-
+Behavior/Name/HyperjumpindicatorTimedLife=Timed Life
 Behavior/Name/Range=Range
 Behavior/Name/Speed=Speed
 Button/EditorPrefix/F_ArbiterMPStasisField=Arbiter -
@@ -51,6 +53,7 @@ Button/EditorPrefix/F_RavagerCorrosiveBile=Ravager -
 Button/EditorPrefix/F_RavenScramblerMissile=Raven -
 Button/EditorPrefix/F_TempestDisruptionBlast=Tempest -
 Button/EditorPrefix/F_Transfusion=Queen -
+Button/EditorPrefix/Siphon=
 Effect/EditorPrefix/Blink2=Stalker -
 Model/Name/BlinkOriginModel2=Blink Origin Model
 Model/Name/BlinkStopModel2=Blink Stop Model
@@ -80,6 +83,7 @@ Requirement/Name/barracks3firebatreq=barracks 3 firebat req
 Requirement/Name/barracks3marauderreq=barracks 3 marauder req
 Requirement/Name/barracks3sentryreq=barracks 3 sentry req
 Requirement/Name/barracks4archonreq=barracks 4 archon req
+Requirement/Name/barracks4defilerreqreal=barracks 4 defiler req
 Requirement/Name/barracks4ghostreq=barracks 4 ghost req
 Requirement/Name/barracks4hightemplarreq=barracks 4 high templar req
 Requirement/Name/barracks4infesterreq=barracks 4 infester req
@@ -101,18 +105,21 @@ Requirement/Name/starport1corsairreq=starport 1 corsair req
 Requirement/Name/starport1phoenixreq=starport 1 phoenix req
 Requirement/Name/starport1wraithreq=starport 1 wraith req
 Requirement/Name/starport2bansheereq=starport 2 banshee req
+Requirement/Name/starport3battlecruiserreq2=starport 3 battlecruiser req
 Requirement/Name/starport3sciencevesselreq=starport 3 science vessel req
 Requirement/Name/starport3tempestreq=starport 3 tempest req
 Requirement/Name/starport3viperreq=starport 3 viper req
 RequirementNode/Name/110=1
 RequirementNode/Name/2=2
 RequirementNode/Name/AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4archonupgCompleteOnly1=CountUnit(BarracksTechLab,CompleteOnlyAtUnit){Attached Tech Lab}[TechTreeCheat] && CountUpgrade(barracks4archonupg,CompleteOnly) >= 1
+RequirementNode/Name/AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4defilerupgCompleteOnly1=CountUnit(BarracksTechLab,CompleteOnlyAtUnit){Attached Tech Lab}[TechTreeCheat] && CountUpgrade(barracks4defilerupg,CompleteOnly) >= 1
 RequirementNode/Name/AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4ghostupgCompleteOnly1=CountUnit(BarracksTechLab,CompleteOnlyAtUnit){Attached Tech Lab}[TechTreeCheat] && CountUpgrade(barracks4ghostupg,CompleteOnly) >= 1
 RequirementNode/Name/AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4hightemplarupgCompleteOnly1=CountUnit(BarracksTechLab,CompleteOnlyAtUnit){Attached Tech Lab}[TechTreeCheat] && CountUpgrade(barracks4hightemplarupg,CompleteOnly) >= 1
 RequirementNode/Name/AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4infestorupgCompleteOnly1=CountUnit(BarracksTechLab,CompleteOnlyAtUnit){Attached Tech Lab}[TechTreeCheat] && CountUpgrade(barracks4infestorupg,CompleteOnly) >= 1
 RequirementNode/Name/AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4lurkerupgCompleteOnly1=CountUnit(BarracksTechLab,CompleteOnlyAtUnit){Attached Tech Lab}[TechTreeCheat] && CountUpgrade(barracks4lurkerupg,CompleteOnly) >= 1
 RequirementNode/Name/AndCountUnitGhostAcademyCompleteOnlyCountUnitAlias_BarracksCompleteOnlyAtUnit=CountUnit(GhostAcademy,CompleteOnly) && CountUnit(Alias_Barracks,CompleteOnlyAtUnit)
 RequirementNode/Name/AndCountUnitGhostAcademyCompleteOnlyTechTreeCheat=CountUnit(GhostAcademy,CompleteOnly)[TechTreeCheat] && ()
+RequirementNode/Name/AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3battlecruiserupgCompleteOnly1=CountUnit(StarportTechReactor,CompleteOnlyAtUnit){Attached Starport Tech Lab}[TechTreeCheat] && CountUpgrade(starport3battlecruiserupg,CompleteOnly) >= 1
 RequirementNode/Name/AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3ravenupgCompleteOnly1=CountUnit(StarportTechReactor,CompleteOnlyAtUnit){Attached Starport Tech Lab}[TechTreeCheat] && CountUpgrade(starport3ravenupg,CompleteOnly) >= 1
 RequirementNode/Name/AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3sciencevesselupgCompleteOnly1=CountUnit(StarportTechReactor,CompleteOnlyAtUnit){Attached Starport Tech Lab}[TechTreeCheat] && CountUpgrade(starport3sciencevesselupg,CompleteOnly) >= 1
 RequirementNode/Name/AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3tempestupgCompleteOnly1=CountUnit(StarportTechReactor,CompleteOnlyAtUnit){Attached Starport Tech Lab}[TechTreeCheat] && CountUpgrade(starport3tempestupg,CompleteOnly) >= 1
@@ -157,6 +164,7 @@ RequirementNode/Name/CountUpgradebarracks3medicupgCompleteOnly=CountUpgrade(barr
 RequirementNode/Name/CountUpgradebarracks3roachupgCompleteOnly=CountUpgrade(barracks3roachupg,CompleteOnly)
 RequirementNode/Name/CountUpgradebarracks3sentryupgCompleteOnly=CountUpgrade(barracks3sentryupg,CompleteOnly)
 RequirementNode/Name/CountUpgradebarracks4archonupgCompleteOnly=CountUpgrade(barracks4archonupg,CompleteOnly)
+RequirementNode/Name/CountUpgradebarracks4defilerupgCompleteOnly=CountUpgrade(barracks4defilerupg,CompleteOnly)
 RequirementNode/Name/CountUpgradebarracks4ghostupgCompleteOnly=CountUpgrade(barracks4ghostupg,CompleteOnly)
 RequirementNode/Name/CountUpgradebarracks4hightemplarupgCompleteOnly=CountUpgrade(barracks4hightemplarupg,CompleteOnly)
 RequirementNode/Name/CountUpgradebarracks4infestorupgCompleteOnly=CountUpgrade(barracks4infestorupg,CompleteOnly)
@@ -185,6 +193,7 @@ RequirementNode/Name/CountUpgradestarport1wraithupgCompleteOnly=CountUpgrade(sta
 RequirementNode/Name/CountUpgradestarport2bansheeupgCompleteOnly=CountUpgrade(starport2bansheeupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport2liberatorupgCompleteOnly=CountUpgrade(starport2liberatorupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport2mutaupgCompleteOnly=CountUpgrade(starport2mutaupg,CompleteOnly)
+RequirementNode/Name/CountUpgradestarport3battlecruiserupgCompleteOnly=CountUpgrade(starport3battlecruiserupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport3ravenupgCompleteOnly=CountUpgrade(starport3ravenupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport3sciencevesselupgCompleteOnly=CountUpgrade(starport3sciencevesselupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport3tempestupgCompleteOnly=CountUpgrade(starport3tempestupg,CompleteOnly)
@@ -200,6 +209,7 @@ RequirementNode/Name/GTECountUpgradebarracks3medicupgCompleteOnly1=CountUpgrade(
 RequirementNode/Name/GTECountUpgradebarracks3roachupgCompleteOnly1=CountUpgrade(barracks3roachupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradebarracks3sentryupgCompleteOnly1=CountUpgrade(barracks3sentryupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradebarracks4archonupgCompleteOnly1=CountUpgrade(barracks4archonupg,CompleteOnly) >= 1
+RequirementNode/Name/GTECountUpgradebarracks4defilerupgCompleteOnly1=CountUpgrade(barracks4defilerupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradebarracks4ghostupgCompleteOnly1=CountUpgrade(barracks4ghostupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradebarracks4hightemplarupgCompleteOnly1=CountUpgrade(barracks4hightemplarupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradebarracks4infestorupgCompleteOnly1=CountUpgrade(barracks4infestorupg,CompleteOnly) >= 1
@@ -226,6 +236,7 @@ RequirementNode/Name/GTECountUpgradestarport1wraithupgCompleteOnly1=CountUpgrade
 RequirementNode/Name/GTECountUpgradestarport2bansheeupgCompleteOnly1=CountUpgrade(starport2bansheeupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport2liberatorupgCompleteOnly1=CountUpgrade(starport2liberatorupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport2mutaupgCompleteOnly1=CountUpgrade(starport2mutaupg,CompleteOnly) >= 1
+RequirementNode/Name/GTECountUpgradestarport3battlecruiserupgCompleteOnly1=CountUpgrade(starport3battlecruiserupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport3ravenupgCompleteOnly1=CountUpgrade(starport3ravenupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport3sciencevesselupgCompleteOnly1=CountUpgrade(starport3sciencevesselupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport3tempestupgCompleteOnly1=CountUpgrade(starport3tempestupg,CompleteOnly) >= 1

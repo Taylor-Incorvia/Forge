@@ -58,7 +58,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("GravitonBeam", logicType_AnyOf, "unitTag", rax +"1");
     addUpgradeRequirementTag("GravitonBeam", logicType_AnyOf, "unitTag", rax +"2");
     addUpgradeRequirementTag("GravitonBeam", logicType_AnyOf, "unitTag", rax +"3");
-    addUpgradeRequirementTag("GravitonBeam", logicType_AnyOf, "unitTag", factory +"1"); 
+    addUpgradeRequirementTag("GravitonBeam", logicType_AnyOf, "unitTag", factory +"1");
     addUpgradeRequirementTag("GravitonBeam", logicType_AnyOf, "unitTag", starport +"1");
     addUpgradeRequirementTag("GravitonBeam", logicType_NoneOf, "unitTag", "Phoenix"); // Phoenix already has this ability
 
@@ -76,6 +76,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("NeuralParasite", logicType_AnyOf, "unitTag", starport +"3");
     addUpgradeRequirementTag("NeuralParasite", logicType_AnyOf, "unitTag", rax +"4");
     addUpgradeRequirementTag("NeuralParasite", logicType_NoneOf, "unitTag", "Infestor"); // Infestor already has this ability
+    addUpgradeRequirementTag("NeuralParasite", logicType_NoneOf, "unitTag", "DefilerMP"); // DefilerMP already has this ability (I added it to replace consume )
 
     addAbilityToUpgrade("ParasiticBomb", "F_ParasiticBomb");
     addUpgradeRequirementTag("ParasiticBomb", logicType_AllOf, "unitTag", "caster");
@@ -170,26 +171,59 @@ void initializeUpgrades() {
     addAbilityToUpgrade("Charge", "F_Charge");
     addUpgradeRequirementTag("Charge", logicType_AllOf, "unitTag", "melee");
 
-    // addAbilityToUpgrade("LightningBomb", "F_LightningBomb"); // I don't know about this one. Does a lot of damage over time. Might be lame. 
+    // addAbilityToUpgrade("LightningBomb", "F_LightningBomb"); // I don't know about this one. Does a lot of damage over time. Might be lame.
 
-    // addAbilityToUpgrade("OdinBarrage", "F_OdinBarrage"); this seems too generally good. 
+    // addAbilityToUpgrade("OdinBarrage", "F_OdinBarrage"); this seems too generally good.
 
-    
+
 
     // addAbilityToUpgrade("Grapple", "F_Grapple"); // I expected this to require a unit to jump to, but it is operating more like blink
 
-    // addAbilityToUpgrade("Hyperjump", "F_Hyperjump"); // maybe this should be forge only
+    addAbilityToUpgrade("Hyperjump", "F_Hyperjump"); 
+    addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Tempest");
+    addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Mutalisk");
+    addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Banshee");
+    addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "VikingFighter");
+    addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Wraith");
+    addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "CorsairMP");
+    addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Colossus");
+    addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Phoenix");
+    addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Medic");
 
 }
 
 void grantInitialUpgrades(int player) {
     // some units need upgrades to not be terrible.
-    showMessage("grant initial upgrades");
+    // ultralisk
     grantUpgrade(player, "ChitinousPlating");
     grantUpgrade(player, "AnabolicSynthesis");
     // increasing colossus range from 7 -> 9 doesn't seem completely essesntial, 
     // but I am trying to buff splash damage to counter deathball comps.
     grantUpgrade(player, "ExtendedThermalLance");
+    // adepts are terrible. I removed them. If I bring them back, they certainly need this. 
+    grantUpgrade(player, "AdeptPiercingAttack");
+    // firebat
+    // grantUpgrade(player, "FirebatJuggernautPlating"); // if the firebats end up being bad, lets add this in. 
+    grantUpgrade(player, "BearclawNozzles");
+
+    // lurker
+    grantUpgrade(player, "LurkerRange");
+
+    //wraith -- I reduced the starting energy to 25. Hoping this won't be too annoying.
+    grantUpgrade(player, "WraithCloak");
+
+    //banshee --  I want to implement addUpgradeToUpgrade so that we can use the ClusterWarheads ability(AKA Shockwave missile battery)
+    grantUpgrade(player, "BansheeCloak");
+
+    // high templars -- I am giving them storm to start, which might be too much. 
+    //For right now I am trying to buff splash damage so the game doesn't become deathball wars
+    //I also removed the ability to merge into an archon so maybe that makes this not as insane
+    //Also a tech lab is required, and a tech lab costs 100/100 so the number of high templars you can produce is not as fast as
+    //standard starcraft where if you have enough gas, you can warp in a lot and start generating energy immediatly and energy recharge etc
+    // I also reduced the starting energy from 50 -> 40. 
+    grantUpgrade(player, "PsiStormTech");
+
+
 }
 
 string getUpgradePoolListKey(int player, int slotIndex, string facilityId){

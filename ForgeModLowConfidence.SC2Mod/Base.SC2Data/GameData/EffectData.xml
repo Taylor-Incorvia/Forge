@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectEnumArea id="ArbiterMPRecallSearch">
-        <AreaArray index="0" Radius="3"/>
-    </CEffectEnumArea>
     <CEffectTeleport id="Blink2">
         <ValidatorArray value="CasterNotFungalGrowthed"/>
         <EditorCategories value="Race:Protoss"/>
@@ -14,6 +11,9 @@
         <TargetLocation Value="TargetPoint"/>
         <TeleportFlags index="TestCliff" value="1"/>
     </CEffectTeleport>
+    <CEffectCreatePersistent id="DefilerMPDarkSwarmCreatePersistent">
+        <PeriodCount value="180"/>
+    </CEffectCreatePersistent>
     <CEffectModifyUnit id="UnknownEffect">
         <EditorCategories value=""/>
     </CEffectModifyUnit>

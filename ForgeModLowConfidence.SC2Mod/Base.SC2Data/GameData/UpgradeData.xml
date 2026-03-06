@@ -20,6 +20,7 @@
     <CUpgrade id="barracks3adeptupg"/>
     <CUpgrade id="barracks3medicupg"/>
     <CUpgrade id="barracks2stalkerupg"/>
+    <CUpgrade id="barracks4defilerupg"/>
     <CUpgrade id="barracks4lurkerupg"/>
     <CUpgrade id="barracks4ghostupg"/>
     <CUpgrade id="barracks2warpigupg"/>
@@ -62,4 +63,5 @@
     <CUpgrade id="starport3sciencevesselupg"/>
     <CUpgrade id="starport3tempestupg"/>
     <CUpgrade id="starport3viperupg"/>
+    <CUpgrade id="starport3battlecruiserupg"/>
 </Catalog>
