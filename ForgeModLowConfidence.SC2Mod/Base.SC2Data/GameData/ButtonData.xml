@@ -129,6 +129,9 @@
         <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
+    <CButton id="HighTemplar">
+        <HotkeyAlias value="Ghost"/>
+    </CButton>
     <CButton id="HireKelmorianMiners">
         <HotkeyAlias value="Reaper"/>
     </CButton>
