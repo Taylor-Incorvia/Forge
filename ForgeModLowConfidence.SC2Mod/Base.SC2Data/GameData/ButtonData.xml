@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton id="ChronoBoostEnergyCost">
+        <HotkeyAlias value="CalldownMULE"/>
+    </CButton>
     <CButton id="F_DefensiveMatrix">
         <Icon value="Assets\Textures\btn-ability-terran-defensivematrix.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-defensivematrix.dds"/>
