@@ -2,11 +2,6 @@ include "TriggerLibs/listHelpers"
 include "TriggerLibs/upgradeHelpers"
 
 void initializeUpgrades() {
-    addAbilityToUpgrade("Charge", "F_Charge");
-    addUpgradeRequirementTag("Charge", logicType_AllOf, "unitTag", "melee");
-}
-
-void initializeUpgrades2() {
     // ==================== CASTER UPGRADES (require caster tag) ====================
 
     addAbilityToUpgrade("ArbiterMPRecall", "F_ArbiterMPRecall");
