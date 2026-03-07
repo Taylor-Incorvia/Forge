@@ -160,11 +160,11 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", rax +"4");
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "Ravager"); // ravager already has this
 
-     addAbilityToUpgrade("PsionicShockwave", "F_PsionicShockwave");
-     addUpgradeRequirementTag("PsionicShockwave", logicType_NoneOf, "unitTag", "caster");
-     addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", factory +"3");
-    addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", starport +"3");
-    addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", rax +"4");
+    //  addAbilityToUpgrade("PsionicShockwave", "F_PsionicShockwave"); // removing this unitl I figure out how to make it not hit your own units. Might still be off. 
+    //  addUpgradeRequirementTag("PsionicShockwave", logicType_NoneOf, "unitTag", "caster");
+    //  addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", factory +"3");
+    // addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", starport +"3");
+    // addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", rax +"4");
 
     // ==================== UNSPECIFIED CASTER (no caster requirement) ====================
 
