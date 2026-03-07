@@ -2,6 +2,11 @@ include "TriggerLibs/listHelpers"
 include "TriggerLibs/upgradeHelpers"
 
 void initializeUpgrades() {
+    addAbilityToUpgrade("Charge", "F_Charge");
+    addUpgradeRequirementTag("Charge", logicType_AllOf, "unitTag", "melee");
+}
+
+void initializeUpgrades2() {
     // ==================== CASTER UPGRADES (require caster tag) ====================
 
     addAbilityToUpgrade("ArbiterMPRecall", "F_ArbiterMPRecall");
@@ -163,7 +168,7 @@ void initializeUpgrades() {
     //  addAbilityToUpgrade("PsionicShockwave", "F_PsionicShockwave"); // removing this unitl I figure out how to make it not hit your own units. Might still be off. 
     //  addUpgradeRequirementTag("PsionicShockwave", logicType_NoneOf, "unitTag", "caster");
     //  addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", factory +"3");
-    // addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", starport +"3");
+    // addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", starp ort +"3");
     // addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", rax +"4");
 
     // ==================== UNSPECIFIED CASTER (no caster requirement) ====================
@@ -222,6 +227,8 @@ void grantInitialUpgrades(int player) {
     //standard starcraft where if you have enough gas, you can warp in a lot and start generating energy immediatly and energy recharge etc
     // I also reduced the starting energy from 50 -> 40. 
     grantUpgrade(player, "PsiStormTech");
+
+    grantUpgrade(player, "ZealotSunderingImpactUpgraded");
 
 
 }

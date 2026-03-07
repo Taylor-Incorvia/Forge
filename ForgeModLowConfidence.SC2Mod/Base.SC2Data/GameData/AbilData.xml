@@ -222,7 +222,7 @@
         <Flags index="AutoCastOn" value="1"/>
         <AbilCmd value="attack,Execute"/>
         <Cost>
-            <Cooldown Link="ChargeCharge4ChargeF_Charge" Location="Unit" TimeUse="10"/>
+            <Cooldown Link="ChargeCharge4ChargeF_Charge" Location="Unit" TimeUse="5"/>
         </Cost>
         <Effect value="Charge"/>
         <AutoCastValidatorArray value="CasterNotHoldingPosition"/>
@@ -1057,6 +1057,9 @@
     </CAbilResearch>
     <CAbilAugment id="Charge">
         <CmdButtonArray index="Execute" Requirements=""/>
+        <Cost>
+            <Cooldown TimeUse="5"/>
+        </Cost>
     </CAbilAugment>
     <CAbilResearch id="Charge2">
         <EditorCategories value="AbilityorEffectType:Units"/>
