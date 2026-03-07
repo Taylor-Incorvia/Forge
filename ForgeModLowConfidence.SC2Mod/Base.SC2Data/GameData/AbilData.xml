@@ -133,15 +133,15 @@
         <InfoArray index="Train4">
             <Button Requirements="barracks3marauderreq"/>
         </InfoArray>
-        <InfoArray index="Train5" Time="5">
+        <InfoArray index="Train5" Time="11">
             <Button DefaultButtonFace="Zergling" State="Available" Requirements="barracksZergling"/>
             <Unit value="Zergling"/>
         </InfoArray>
-        <InfoArray index="Train6" Time="16">
+        <InfoArray index="Train6" Time="38">
             <Button DefaultButtonFace="Zealot" Requirements="barracksZealot"/>
             <Unit value="Zealot"/>
         </InfoArray>
-        <InfoArray index="Train7" Time="17">
+        <InfoArray index="Train7" Time="30">
             <Button DefaultButtonFace="Stalker" Requirements="barracks2stalkerreq"/>
             <Unit value="Stalker"/>
         </InfoArray>
@@ -161,36 +161,36 @@
             <Button DefaultButtonFace="Infestor" Requirements="barracks4infesterreq"/>
             <Unit value="Infestor"/>
         </InfoArray>
-        <InfoArray index="Train12" Time="23">
+        <InfoArray index="Train12" Time="30">
             <Button DefaultButtonFace="Firebat" Requirements="barracks3firebatreq"/>
             <Unit value="Firebat"/>
         </InfoArray>
-        <InfoArray index="Train13" Time="17">
+        <InfoArray index="Train13" Time="30">
             <Charge TimeStart="17"/>
             <Button DefaultButtonFace="Hydralisk" Requirements="barracks2hydralisktreq"/>
             <Unit value="Hydralisk"/>
         </InfoArray>
-        <InfoArray index="Train14" Time="15">
+        <InfoArray index="Train14" Time="25">
             <Button DefaultButtonFace="WarpInAdept" Requirements="barracks3adeptreq"/>
             <Unit value="Adept"/>
         </InfoArray>
-        <InfoArray index="Train15" Time="15">
+        <InfoArray index="Train15" Time="30">
             <Button DefaultButtonFace="Sentry" Requirements="barracks3sentryreq"/>
             <Unit value="Sentry"/>
         </InfoArray>
-        <InfoArray index="Train16" Time="15">
+        <InfoArray index="Train16" Time="30">
             <Button DefaultButtonFace="Medic" Requirements="barracks2medicreq"/>
             <Unit value="Medic"/>
         </InfoArray>
-        <InfoArray index="Train17" Time="30">
+        <InfoArray index="Train17" Time="45">
             <Button DefaultButtonFace="LurkerFromHydraliskBurrowed" Requirements="barracks4lurkerreq"/>
             <Unit value="Lurker"/>
         </InfoArray>
-        <InfoArray index="Train18" Time="11">
+        <InfoArray index="Train18" Time="28">
             <Button DefaultButtonFace="HireKelmorianMiners" Requirements="barracks2warpigtreq"/>
             <Unit value="WarPig"/>
         </InfoArray>
-        <InfoArray index="Train19" Time="40">
+        <InfoArray index="Train19" Time="45">
             <Button DefaultButtonFace="Siphon" Requirements="barracks4defilerreqreal"/>
             <Unit value="DefilerMP"/>
         </InfoArray>
@@ -1153,11 +1153,11 @@
         <InfoArray index="Train6">
             <Button Requirements="UnknownRequirement3"/>
         </InfoArray>
-        <InfoArray index="Train9" Time="20">
+        <InfoArray index="Train9" Time="30">
             <Button DefaultButtonFace="Vulture" Requirements="factory1vulture"/>
             <Unit value="Vulture"/>
         </InfoArray>
-        <InfoArray index="Train10" Time="25">
+        <InfoArray index="Train10" Time="35">
             <Button DefaultButtonFace="Predator" Requirements="UnknownRequirement2"/>
             <Unit value="Predator"/>
         </InfoArray>
@@ -1169,7 +1169,7 @@
             <Button DefaultButtonFace="Immortal" Requirements="UnknownRequirement4"/>
             <Unit value="Immortal"/>
         </InfoArray>
-        <InfoArray index="Train13" Time="59">
+        <InfoArray index="Train13" Time="75">
             <Button DefaultButtonFace="Colossus" Requirements="UnknownRequirement5"/>
             <Unit value="Colossus"/>
         </InfoArray>
@@ -1177,15 +1177,15 @@
             <Button DefaultButtonFace="Ultralisk" Requirements="UnknownRequirement6"/>
             <Unit value="Ultralisk"/>
         </InfoArray>
-        <InfoArray index="Train15" Time="25">
+        <InfoArray index="Train15" Time="38">
             <Button DefaultButtonFace="Diamondback" Requirements="factory2diamondback"/>
             <Unit value="Diamondback"/>
         </InfoArray>
-        <InfoArray index="Train16" Time="20">
+        <InfoArray index="Train16" Time="45">
             <Button DefaultButtonFace="WarHound" Requirements="factory2warhound"/>
             <Unit value="WarHound"/>
         </InfoArray>
-        <InfoArray index="Train17" Time="18">
+        <InfoArray index="Train17" Time="25">
             <Button DefaultButtonFace="Observer"/>
             <Unit value="Observer"/>
         </InfoArray>
@@ -1347,7 +1347,7 @@
         <InfoArray index="Train5">
             <Button Requirements="UnknownRequirement7"/>
         </InfoArray>
-        <InfoArray index="Train6" Time="25">
+        <InfoArray index="Train6" Time="35">
             <Button DefaultButtonFace="Phoenix" Requirements="starport1phoenixreq"/>
             <Unit value="Phoenix"/>
         </InfoArray>
@@ -1358,19 +1358,19 @@
             <Button DefaultButtonFace="Wraith" Requirements="starport1wraithreq"/>
             <Unit value="Wraith"/>
         </InfoArray>
-        <InfoArray index="Train9" Time="20">
+        <InfoArray index="Train9" Time="27">
             <Button DefaultButtonFace="Mutalisk" Requirements="UnknownRequirement8"/>
             <Unit value="Mutalisk"/>
         </InfoArray>
-        <InfoArray index="Train10" Time="45">
+        <InfoArray index="Train10" Time="60">
             <Button DefaultButtonFace="Tempest" Requirements="starport3tempestreq"/>
             <Unit value="Tempest"/>
         </InfoArray>
-        <InfoArray index="Train11" Time="45">
+        <InfoArray index="Train11" Time="55">
             <Button DefaultButtonFace="Viper" Requirements="starport3viperreq"/>
             <Unit value="Viper"/>
         </InfoArray>
-        <InfoArray index="Train12" Time="22">
+        <InfoArray index="Train12" Time="37">
             <Button DefaultButtonFace="Corsair" Requirements="starport1corsairreq"/>
             <Unit value="CorsairMP"/>
         </InfoArray>
@@ -1378,7 +1378,7 @@
             <Button DefaultButtonFace="BuildScienceVessel" Requirements="starport3sciencevesselreq"/>
             <Unit value="ScienceVessel"/>
         </InfoArray>
-        <InfoArray index="Train14" Time="45">
+        <InfoArray index="Train14" Time="55">
             <Button DefaultButtonFace="Arbiter" Requirements="starport3arbiterreq"/>
             <Unit value="ArbiterMP"/>
         </InfoArray>
