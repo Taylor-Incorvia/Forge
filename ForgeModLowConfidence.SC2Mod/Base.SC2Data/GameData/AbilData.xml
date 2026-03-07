@@ -161,7 +161,7 @@
             <Button DefaultButtonFace="Infestor" Requirements="barracks4infesterreq"/>
             <Unit value="Infestor"/>
         </InfoArray>
-        <InfoArray index="Train12" Time="20">
+        <InfoArray index="Train12" Time="23">
             <Button DefaultButtonFace="Firebat" Requirements="barracks3firebatreq"/>
             <Unit value="Firebat"/>
         </InfoArray>
