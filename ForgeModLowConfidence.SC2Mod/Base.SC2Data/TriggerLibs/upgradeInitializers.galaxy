@@ -222,10 +222,6 @@ void grantInitialUpgrades(int player) {
     //standard starcraft where if you have enough gas, you can warp in a lot and start generating energy immediatly and energy recharge etc
     // I also reduced the starting energy from 50 -> 40. 
     grantUpgrade(player, "PsiStormTech");
-
-    grantUpgrade(player, "ZealotSunderingImpactUpgraded");
-
-
 }
 
 string getUpgradePoolListKey(int player, int slotIndex, string facilityId){

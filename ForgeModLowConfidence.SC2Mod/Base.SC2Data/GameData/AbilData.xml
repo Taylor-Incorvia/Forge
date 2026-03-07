@@ -222,7 +222,7 @@
         <Flags index="AutoCastOn" value="1"/>
         <AbilCmd value="attack,Execute"/>
         <Cost>
-            <Cooldown Link="ChargeCharge4ChargeF_Charge" Location="Unit" TimeUse="5"/>
+            <Cooldown Link="ChargeCharge4ChargeF_Charge" Location="Unit" TimeUse="7.5"/>
         </Cost>
         <Effect value="Charge"/>
         <AutoCastValidatorArray value="CasterNotHoldingPosition"/>
