@@ -190,6 +190,8 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Phoenix");
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Medic");
 
+    
+
 }
 
 void grantInitialUpgrades(int player) {

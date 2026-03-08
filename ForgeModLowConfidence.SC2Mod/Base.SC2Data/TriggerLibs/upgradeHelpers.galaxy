@@ -42,6 +42,10 @@ string getUpgradeBehaviorListName(string upgrade) {
     return "upgrade." + upgrade + ".behaviorList";
 }
 
+string getUpgradeUpgradeListName(string upgrade) {
+    return "upgrade." + upgrade + ".upgradeList";
+}
+
 void registerToAllUpgradesList(string upgrade) {
     listStringRequire(allUpgradesListKey);
     // automatically add the upgrade to the list of all upgrades
@@ -73,8 +77,10 @@ void addBehaviorToUpgrade(string upgrade, string behavior) {
 //1) an ability that gets granted to all existing units that satisfy a condition and gets applied to units that satisfy that condition on unit creation
 //2) a behavior that gets granted to all existing units that satisfy a condition and gets applied to units that satisfy that condition on unit creation
 //3) a standard count upgrade that unlocks a requirement. 
-void addUpgradeToUpgrade(string upgrade, string ability) {
-    showMessage("todo implement addUpgradeToUpgrade");
+void addUpgradeToUpgrade(string upgrade, string countUpgrade) {
+    string upgradeUpgradeListKey = getUpgradeUpgradeListName(upgrade);
+    listStringRequire(upgradeUpgradeListKey);
+    addToStringList(upgradeUpgradeListKey, countUpgrade);
     registerToAllUpgradesList(upgrade);
 }
 
@@ -83,8 +89,11 @@ void grantGenericUpgrade(int player, string upgrade, string unitId) {
     int upgradeAbilityListSize = getStringListSize(upgradeAbilityListName);
     string upgradeBehaviorListName = getUpgradeBehaviorListName(upgrade);
     int upgradeBehaviorListSize = getStringListSize(upgradeBehaviorListName);
+    string upgradeUpgradeListName = getUpgradeUpgradeListName(upgrade);
+    int upgradeUpgradeListSize = getStringListSize(upgradeUpgradeListName);
     int index;
     string abilityToGrant;
+    string countUpgradeToGrant;
 
     for (index = 0; index < upgradeAbilityListSize; index+=1) {
         abilityToGrant = getStringAtIndex(upgradeAbilityListName, index);
@@ -98,9 +107,11 @@ void grantGenericUpgrade(int player, string upgrade, string unitId) {
         grantBehaviorToExistingUnitsOfTypeForPlayer(player, getStringAtIndex(upgradeBehaviorListName, index), unitId);
     }
 
-    // todo count upgrades.
-    
-    
+    for (index = 0; index < upgradeUpgradeListSize; index+=1) {
+        countUpgradeToGrant = getStringAtIndex(upgradeUpgradeListName, index);
+        showMessage("Granting count upgrade: " + countUpgradeToGrant + " for player: " + IntToString(player));
+        grantUpgrade(player, countUpgradeToGrant);
+    }
 }
 
 string getSlotSelectedUpgradeKey(int player, int slotIndex, string facilityId) {
@@ -117,6 +128,8 @@ void setSlotSelectedUpgrade(int player, int slotIndex, string facilityid, string
     int upgradAbilityListSize = getStringListSize(upgradeAbilityListName);
     string upgradeBehaviorListName = getUpgradeBehaviorListName(upgradeId);
     int upgradeBehaviorListSize = getStringListSize(upgradeBehaviorListName);
+    string upgradeUpgradeListName = getUpgradeUpgradeListName(upgradeId);
+    int upgradeUpgradeListSize = getStringListSize(upgradeUpgradeListName);
     int index;
     DataTableSetString(true, getSlotSelectedUpgradeKey(player, slotIndex, facilityid), upgradeId);
     
@@ -128,12 +141,17 @@ void setSlotSelectedUpgrade(int player, int slotIndex, string facilityid, string
 
     
     if(!upgradeBehaviorListSize == 0){
-        // this is bad code. It relies on the id for ability for researching a behavior upgrade having the name of the behavior followed by the slot id 
+        // this is bad code. It relies on the id for ability for researching a behavior upgrade having the name of the behavior followed by the slot id
         for(index = 0; index < upgradeBehaviorListSize; index+=1) {
             addToAbilityListForUnit(getStringAtIndex(upgradeBehaviorListName, index) + IntToString(slotIndex), upgradeFacilityId, player);
         }
     }
-    
+
+    if(!upgradeUpgradeListSize == 0){
+        for(index = 0; index < upgradeUpgradeListSize; index+=1) {
+            addToAbilityListForUnit(getStringAtIndex(upgradeUpgradeListName, index) + IntToString(slotIndex), upgradeFacilityId, player);
+        }
+    }
 }
 
 void onGenericUpgradeCompleted(){
