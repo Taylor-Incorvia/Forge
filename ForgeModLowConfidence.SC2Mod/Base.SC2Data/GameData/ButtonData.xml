@@ -252,6 +252,7 @@
     <CButton id="Ravager">
         <HotkeyAlias value="Hellion"/>
         <EditorCategories value="Race:Terran"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-ravager-mecha.dds"/>
     </CButton>
     <CButton id="F_RavenScramblerMissile">
         <Icon value="Assets\Textures\btn-upgrade-terran-interferencematrix.dds"/>

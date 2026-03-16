@@ -54,4 +54,8 @@
     <CActorSplat id="NexusSplat">
         <Scale value="0.660000"/>
     </CActorSplat>
+    <CActorUnit id="Ravager">
+        <Model value="Ravager_Mecha"/>
+        <PortraitModel value="Ravager_Mecha_Portrait"/>
+    </CActorUnit>
 </Catalog>

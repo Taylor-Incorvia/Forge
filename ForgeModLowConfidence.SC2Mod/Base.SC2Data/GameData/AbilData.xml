@@ -92,7 +92,7 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="ArbiterMPStasisFieldSearch"/>
         <Cost>
-            <Vital index="Energy" value="75"/>
+            <Vital index="Energy" value="100"/>
         </Cost>
         <Range value="9"/>
         <CursorEffect value="ArbiterMPStasisFieldSearch"/>
@@ -1212,7 +1212,7 @@
         <InfoArray index="Train6">
             <Button Requirements="UnknownRequirement3"/>
         </InfoArray>
-        <InfoArray index="Train9" Time="30">
+        <InfoArray index="Train9" Time="25">
             <Button DefaultButtonFace="Vulture" Requirements="factory1vulture"/>
             <Unit value="Vulture"/>
         </InfoArray>
@@ -1220,7 +1220,7 @@
             <Button DefaultButtonFace="Predator" Requirements="UnknownRequirement2"/>
             <Unit value="Predator"/>
         </InfoArray>
-        <InfoArray index="Train11" Time="30">
+        <InfoArray index="Train11" Time="45">
             <Button DefaultButtonFace="Ravager" Requirements="factory1ravager"/>
             <Unit value="Ravager"/>
         </InfoArray>
