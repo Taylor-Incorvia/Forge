@@ -134,9 +134,9 @@
         <NodeArray index="Use" Link="AndGTECountUpgradefactory2warhoundupgCompleteOnly1CountUnitArmoryCompleteOnly"/>
         <NodeArray index="Show" Link="GTECountUpgradefactory2warhoundupgCompleteOnly1"/>
     </CRequirement>
-    <CRequirement id="factory2ravager">
-        <NodeArray index="Use" Link="AndGTECountUpgradefactory2ravagerCompleteOnly1CountUnitArmoryCompleteOnly"/>
-        <NodeArray index="Show" Link="GTECountUpgradefactory2ravagerCompleteOnly1"/>
+    <CRequirement id="factory1ravager">
+        <NodeArray index="Use" Link="GTECountUpgradefactory1ravagerCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradefactory1ravagerCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="factory1vulture">
         <NodeArray index="Use" Link="GTECountUpgradefactory1vultureupgCompleteOnly1"/>
@@ -180,6 +180,10 @@
     <CRequirement id="starport2bansheereq">
         <NodeArray index="Use" Link="AndGTECountUpgradestarport2bansheeupgCompleteOnly1CountUnitFusionCoreCompleteOnly"/>
         <NodeArray index="Show" Link="GTECountUpgradestarport2bansheeupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="starport2duskwingreq">
+        <NodeArray index="Use" Link="AndGTECountUpgradestarport2duskwingupgCompleteOnly1CountUnitFusionCoreCompleteOnly"/>
+        <NodeArray index="Show" Link="GTECountUpgradestarport2duskwingupgCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="starport3arbiterreq">
         <NodeArray index="Use" Link="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3arbiterupgCompleteOnly1"/>

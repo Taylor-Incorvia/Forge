@@ -29,3 +29,11 @@ void showMessage(string message){
         );
     }
 }
+
+void showMessageToPlayer(int player, string message){
+    UIDisplayMessage(
+        PlayerGroupSingle(player),
+        c_messageAreaSubtitle,
+        StringToText(message)
+    );
+}

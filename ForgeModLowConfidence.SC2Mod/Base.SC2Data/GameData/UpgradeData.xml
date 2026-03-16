@@ -29,6 +29,7 @@
     <CUpgrade id="factory3ultralisk"/>
     <CUpgrade id="starport1vikingupg"/>
     <CUpgrade id="starport1corsairupg"/>
+    <CUpgrade id="starport2duskwingupg"/>
     <CUpgrade id="starport2mutaupg"/>
     <CUpgrade id="starport2liberatorupg"/>
     <CUpgrade id="starport1wraithupg"/>
@@ -51,7 +52,7 @@
         <EffectArray Reference="Effect,ThermalLancesEReverse,AreaArray[0].Radius" Value="5"/>
         <EffectArray Reference="Effect,ThermalLancesE,AreaArray[0].Radius" Value="5"/>
     </CUpgrade>
-    <CUpgrade id="factory2ravager"/>
+    <CUpgrade id="factory1ravager"/>
     <CUpgrade id="forgezerglingswarmlingupg">
         <EffectArray Operation="Multiply" Reference="Abil,BarracksTrain,InfoArray[Train5].Time" Value="0.500000"/>
         <EffectArray Operation="Multiply" Reference="Unit,Zergling,Food" Value="0.5"/>

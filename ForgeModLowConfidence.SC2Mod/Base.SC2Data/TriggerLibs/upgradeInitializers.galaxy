@@ -32,8 +32,8 @@ void initializeUpgrades() {
     // addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", rax +"4");
     addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", "CorsairMP"); // Corsair already has this ability
 
-    addAbilityToUpgrade("DefensiveMatrix", "F_DefensiveMatrix");
-    addUpgradeRequirementTag("DefensiveMatrix", logicType_AllOf, "unitTag", "caster");
+    // addAbilityToUpgrade("DefensiveMatrix", "F_DefensiveMatrix"); // super lame -- not obvious what is happening if you cast it at full HP. Also I don't want my spell casters to spend energy on surviving. Just cast your spells and die lol
+    // addUpgradeRequirementTag("DefensiveMatrix", logicType_AllOf, "unitTag", "caster");
 
     addAbilityToUpgrade("ForceField", "F_ForceField");
     addUpgradeRequirementTag("ForceField", logicType_AllOf, "unitTag", "caster");
@@ -61,6 +61,8 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("GravitonBeam", logicType_AnyOf, "unitTag", factory +"1");
     addUpgradeRequirementTag("GravitonBeam", logicType_AnyOf, "unitTag", starport +"1");
     addUpgradeRequirementTag("GravitonBeam", logicType_NoneOf, "unitTag", "Phoenix"); // Phoenix already has this ability
+    addUpgradeRequirementTag("GravitonBeam", logicType_NoneOf, "unitTag", "DuskWing"); // super useless on a banshee
+    addUpgradeRequirementTag("GravitonBeam", logicType_NoneOf, "unitTag", "Banshee");
 
 
     addAbilityToUpgrade("Irradiate", "F_Irradiate");
@@ -166,6 +168,21 @@ void initializeUpgrades() {
     // addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", starp ort +"3");
     // addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", rax +"4");
 
+    // ==================== COUNT UPGRADES (standard SC2 upgrades that unlock requirements) ====================
+
+    addUpgradeToUpgrade("HighCapacityBarrels", "HighCapacityBarrels");
+    addUpgradeRequirementTag("HighCapacityBarrels", logicType_AnyOf, "unitTag", "Hellion");
+
+    addUpgradeToUpgrade("ClusterWarheads", "ClusterWarheads");
+    addUpgradeRequirementTag("ClusterWarheads", logicType_AnyOf, "unitTag", "DuskWing");
+
+    addUpgradeToUpgrade("TwinLinkedFlameThrowers", "TwinLinkedFlameThrowers");
+    addUpgradeRequirementTag("TwinLinkedFlameThrowers", logicType_AnyOf, "unitTag", "Hellion");
+
+    // addBehaviorToUpgrade("ImmortalRevive", "VoidMPImmortalRevive"); // I couldn't get this to work. This upgrade makes the immortal literally immortal. Immune to death.
+    // addUpgradeToUpgrade("ImmortalRevive", "ImmortalRevive");
+    // addUpgradeRequirementTag("ImmortalRevive", logicType_AnyOf, "unitTag", "Immortal");
+
     // ==================== UNSPECIFIED CASTER (no caster requirement) ====================
 
     addAbilityToUpgrade("Charge", "F_Charge");
@@ -198,7 +215,7 @@ void grantInitialUpgrades(int player) {
     // some units need upgrades to not be terrible.
     // ultralisk
     grantUpgrade(player, "ChitinousPlating");
-    grantUpgrade(player, "AnabolicSynthesis");
+    // grantUpgrade(player, "AnabolicSynthesis"); // playtest on 3/9 -- ultralisks seemed really strong. Removing this upgrade. 
     // increasing colossus range from 7 -> 9 doesn't seem completely essesntial, 
     // but I am trying to buff splash damage to counter deathball comps.
     grantUpgrade(player, "ExtendedThermalLance");
@@ -214,7 +231,7 @@ void grantInitialUpgrades(int player) {
     //wraith -- I reduced the starting energy to 25. Hoping this won't be too annoying.
     grantUpgrade(player, "WraithCloak");
 
-    //banshee --  I want to implement addUpgradeToUpgrade so that we can use the ClusterWarheads ability(AKA Shockwave missile battery)
+    //DuskWing - just a buffed banshee
     grantUpgrade(player, "BansheeCloak");
 
     // high templars -- I am giving them storm to start, which might be too much. 

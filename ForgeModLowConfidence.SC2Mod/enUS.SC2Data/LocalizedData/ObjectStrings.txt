@@ -91,9 +91,9 @@ Requirement/Name/barracks4lurkerreq=barracks 4 lurker req
 Requirement/Name/barracksMarineReq=barracks 1 Marine Req
 Requirement/Name/barracksZealot=barracks 1 Zealot
 Requirement/Name/barracksZergling=barracks 1 Zergling
+Requirement/Name/factory1ravager=factory 1 ravager
 Requirement/Name/factory1vulture=factory 1 vulture
 Requirement/Name/factory2diamondback=factory 2 diamondback
-Requirement/Name/factory2ravager=factory 2 ravager
 Requirement/Name/factory2siegetank=factory 2 siege tank
 Requirement/Name/factory2warhound=factory 2 warhound
 Requirement/Name/factory3thor=factory 3 thor
@@ -105,6 +105,7 @@ Requirement/Name/starport1corsairreq=starport 1 corsair req
 Requirement/Name/starport1phoenixreq=starport 1 phoenix req
 Requirement/Name/starport1wraithreq=starport 1 wraith req
 Requirement/Name/starport2bansheereq=starport 2 banshee req
+Requirement/Name/starport2duskwingreq=starport 2 dusk wing req
 Requirement/Name/starport3battlecruiserreq2=starport 3 battlecruiser req
 Requirement/Name/starport3sciencevesselreq=starport 3 science vessel req
 Requirement/Name/starport3tempestreq=starport 3 tempest req
@@ -137,13 +138,13 @@ RequirementNode/Name/AndGTECountUpgradebarracks3roachupgCompleteOnly1CountUnitGh
 RequirementNode/Name/AndGTECountUpgradebarracks3sentryupgCompleteOnly1CountUnitGhostAcademyTotal=CountUpgrade(barracks3sentryupg,CompleteOnly) >= 1 && CountUnit(GhostAcademy,Total)
 RequirementNode/Name/AndGTECountUpgradefactory2diamondbackCompleteOnly1CountUnitArmoryCompleteOnly=CountUpgrade(factory2diamondback,CompleteOnly) >= 1 && CountUnit(Armory,CompleteOnly)
 RequirementNode/Name/AndGTECountUpgradefactory2immortalupgCompleteOnly1CountUnitArmoryCompleteOnly=CountUpgrade(factory2immortalupg,CompleteOnly) >= 1 && CountUnit(Armory,CompleteOnly)
-RequirementNode/Name/AndGTECountUpgradefactory2ravagerCompleteOnly1CountUnitArmoryCompleteOnly=CountUpgrade(factory2ravager,CompleteOnly) >= 1 && CountUnit(Armory,CompleteOnly)
 RequirementNode/Name/AndGTECountUpgradefactory2siegetankupgCompleteOnly1CountUnitArmoryCompleteOnly=CountUpgrade(factory2siegetankupg,CompleteOnly) >= 1 && CountUnit(Armory,CompleteOnly)
 RequirementNode/Name/AndGTECountUpgradefactory2warhoundupgCompleteOnly1CountUnitArmoryCompleteOnly=CountUpgrade(factory2warhoundupg,CompleteOnly) >= 1 && CountUnit(Armory,CompleteOnly)
 RequirementNode/Name/AndGTECountUpgradefactory3colossusCompleteOnly1CountUnitFactoryTechLabCompleteOnlyAtUnit=CountUpgrade(factory3colossus,CompleteOnly) >= 1 && CountUnit(FactoryTechLab,CompleteOnlyAtUnit)
 RequirementNode/Name/AndGTECountUpgradefactory3thorCompleteOnly1CountUnitFactoryTechLabCompleteOnlyAtUnit=CountUpgrade(factory3thor,CompleteOnly) >= 1 && CountUnit(FactoryTechLab,CompleteOnlyAtUnit)
 RequirementNode/Name/AndGTECountUpgradefactory3ultraliskCompleteOnly1CountUnitFactoryTechLabCompleteOnlyAtUnit=CountUpgrade(factory3ultralisk,CompleteOnly) >= 1 && CountUnit(FactoryTechLab,CompleteOnlyAtUnit)
 RequirementNode/Name/AndGTECountUpgradestarport2bansheeupgCompleteOnly1CountUnitFusionCoreCompleteOnly=CountUpgrade(starport2bansheeupg,CompleteOnly) >= 1 && CountUnit(FusionCore,CompleteOnly)
+RequirementNode/Name/AndGTECountUpgradestarport2duskwingupgCompleteOnly1CountUnitFusionCoreCompleteOnly=CountUpgrade(starport2duskwingupg,CompleteOnly) >= 1 && CountUnit(FusionCore,CompleteOnly)
 RequirementNode/Name/AndGTECountUpgradestarport2liberatorupgCompleteOnly1CountUnitFusionCoreCompleteOnly=CountUpgrade(starport2liberatorupg,CompleteOnly) >= 1 && CountUnit(FusionCore,CompleteOnly)
 RequirementNode/Name/AndGTECountUpgradestarport2mutaupgCompleteOnly1CountUnitFusionCoreCompleteOnly=CountUpgrade(starport2mutaupg,CompleteOnly) >= 1 && CountUnit(FusionCore,CompleteOnly)
 RequirementNode/Name/CountBehaviorblink_testCompleteOnlyAtUnit=CountBehavior(blink_test,CompleteOnlyAtUnit)
@@ -175,10 +176,10 @@ RequirementNode/Name/CountUpgradebarracksZealotUpgCompleteOnly=CountUpgrade(barr
 RequirementNode/Name/CountUpgradebarracksZerglingCompleteOnly=CountUpgrade(barracksZergling,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory1hellionCompleteOnly=CountUpgrade(factory1hellion,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory1predatorCompleteOnly=CountUpgrade(factory1predator,CompleteOnly)
+RequirementNode/Name/CountUpgradefactory1ravagerCompleteOnly=CountUpgrade(factory1ravager,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory1vultureupgCompleteOnly=CountUpgrade(factory1vultureupg,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory2diamondbackCompleteOnly=CountUpgrade(factory2diamondback,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory2immortalupgCompleteOnly=CountUpgrade(factory2immortalupg,CompleteOnly)
-RequirementNode/Name/CountUpgradefactory2ravagerCompleteOnly=CountUpgrade(factory2ravager,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory2siegetankupgCompleteOnly=CountUpgrade(factory2siegetankupg,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory2warhoundupgCompleteOnly=CountUpgrade(factory2warhoundupg,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory3colossusCompleteOnly=CountUpgrade(factory3colossus,CompleteOnly)
@@ -191,6 +192,7 @@ RequirementNode/Name/CountUpgradestarport1phoenixCompleteOnly=CountUpgrade(starp
 RequirementNode/Name/CountUpgradestarport1vikingupgCompleteOnly=CountUpgrade(starport1vikingupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport1wraithupgCompleteOnly=CountUpgrade(starport1wraithupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport2bansheeupgCompleteOnly=CountUpgrade(starport2bansheeupg,CompleteOnly)
+RequirementNode/Name/CountUpgradestarport2duskwingupgCompleteOnly=CountUpgrade(starport2duskwingupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport2liberatorupgCompleteOnly=CountUpgrade(starport2liberatorupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport2mutaupgCompleteOnly=CountUpgrade(starport2mutaupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport3battlecruiserupgCompleteOnly=CountUpgrade(starport3battlecruiserupg,CompleteOnly)
@@ -220,10 +222,10 @@ RequirementNode/Name/GTECountUpgradebarracksZealotUpgCompleteOnly1=CountUpgrade(
 RequirementNode/Name/GTECountUpgradebarracksZerglingCompleteOnly1=CountUpgrade(barracksZergling,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory1hellionCompleteOnly1=CountUpgrade(factory1hellion,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory1predatorCompleteOnly1=CountUpgrade(factory1predator,CompleteOnly) >= 1
+RequirementNode/Name/GTECountUpgradefactory1ravagerCompleteOnly1=CountUpgrade(factory1ravager,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory1vultureupgCompleteOnly1=CountUpgrade(factory1vultureupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory2diamondbackCompleteOnly1=CountUpgrade(factory2diamondback,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory2immortalupgCompleteOnly1=CountUpgrade(factory2immortalupg,CompleteOnly) >= 1
-RequirementNode/Name/GTECountUpgradefactory2ravagerCompleteOnly1=CountUpgrade(factory2ravager,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory2siegetankupgCompleteOnly1=CountUpgrade(factory2siegetankupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory2warhoundupgCompleteOnly1=CountUpgrade(factory2warhoundupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory3colossusCompleteOnly1=CountUpgrade(factory3colossus,CompleteOnly) >= 1
@@ -234,6 +236,7 @@ RequirementNode/Name/GTECountUpgradestarport1phoenixCompleteOnly1=CountUpgrade(s
 RequirementNode/Name/GTECountUpgradestarport1vikingupgCompleteOnly1=CountUpgrade(starport1vikingupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport1wraithupgCompleteOnly1=CountUpgrade(starport1wraithupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport2bansheeupgCompleteOnly1=CountUpgrade(starport2bansheeupg,CompleteOnly) >= 1
+RequirementNode/Name/GTECountUpgradestarport2duskwingupgCompleteOnly1=CountUpgrade(starport2duskwingupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport2liberatorupgCompleteOnly1=CountUpgrade(starport2liberatorupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport2mutaupgCompleteOnly1=CountUpgrade(starport2mutaupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport3battlecruiserupgCompleteOnly1=CountUpgrade(starport3battlecruiserupg,CompleteOnly) >= 1
@@ -247,6 +250,7 @@ RequirementNode/Name/OrCountUnitAlias_FactoryCompleteOnly96167438TechTreeCheatCo
 RequirementNode/Name/OrCountUnitArmoryCompleteOnlyCountUnitFusionCoreCompleteOnlyCountUnitGhostAcademyCompleteOnly=CountUnit(Armory,CompleteOnly) || CountUnit(FusionCore,CompleteOnly) || CountUnit(GhostAcademy,CompleteOnly)
 Sound/Name/Stalker_Blink2=Stalker_Blink
 Upgrade/EditorPrefix/BlinkTech2=Stalker -
+Upgrade/EditorPrefix/TwinLinkedFlameThrowers=Story Mode Tech - (Hellion)
 Weapon/EditorPrefix/90mmCannons=Siege Tank -
 Weapon/EditorPrefix/90mmCannonsFake=Siege Tank -
 Weapon/EditorPrefix/AcidSaliva=Roach -

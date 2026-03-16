@@ -3,6 +3,62 @@
     <CAbilEffectTarget id="AmorphousArmorcloud">
         <CmdButtonArray index="Execute" Requirements=""/>
     </CAbilEffectTarget>
+    <CAbilResearch id="HighCapacityBarrels1">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Activity value="UI/Training"/>
+        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="1">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="HighCapacityBarrels1">
+                <Flags index="UseDefaultButton" value="1"/>
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilEffectTarget id="MedivacHeal">
+        <TargetFilters index="0" value="Visible;Self,Enemy,Massive,Structure,Missile,Dead,Hidden,Invulnerable,AirUnit"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="ScannerSweep">
+        <Cost index="0">
+            <Vital index="Energy" value="75"/>
+        </Cost>
+    </CAbilEffectTarget>
+    <CAbilResearch id="VoidMPImmortalRevive1">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Activity value="UI/Training"/>
+        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="1">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="VoidMPImmortalRevive1">
+                <Flags index="UseDefaultButton" value="1"/>
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilResearch id="VoidMPImmortalRevive2">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Activity value="UI/Training"/>
+        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="2">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="VoidMPImmortalRevive2">
+                <Flags index="UseDefaultButton" value="1"/>
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilResearch id="VoidMPImmortalRevive3">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Activity value="UI/Training"/>
+        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="3">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="VoidMPImmortalRevive3">
+                <Flags index="UseDefaultButton" value="1"/>
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
     <CAbilTransport id="BunkerTransport">
         <TargetFilters value="Visible;Ally,Neutral,Enemy,Air,Massive,Dead,Hidden,AirUnit"/>
         <LoadValidatorArray index="0" value="NotWidowMineTarget"/>
@@ -36,7 +92,7 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="ArbiterMPStasisFieldSearch"/>
         <Cost>
-            <Vital index="Energy" value="100"/>
+            <Vital index="Energy" value="75"/>
         </Cost>
         <Range value="9"/>
         <CursorEffect value="ArbiterMPStasisFieldSearch"/>
@@ -50,7 +106,7 @@
         <Effect index="0" value="CorsairMPDisruptionWebCreatePersistent"/>
         <Flags index="NoDeceleration" value="1"/>
         <Cost>
-            <Vital index="Energy" value="100"/>
+            <Vital index="Energy" value="50"/>
         </Cost>
         <Range value="9"/>
         <CursorEffect value="CorsairMPDisruptionWebSearch"/>
@@ -65,7 +121,7 @@
         <Effect index="0" value="AutoTurretRelease"/>
         <Flags index="AllowMovement" value="1"/>
         <Cost>
-            <Vital index="Energy" value="50"/>
+            <Vital index="Energy" value="40"/>
             <Charge Link="Abil/AutoTurret"/>
             <Cooldown Link="Raven Build Link" Location="Unit"/>
         </Cost>
@@ -326,7 +382,7 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Effect index="0" value="ForceField"/>
         <Cost>
-            <Vital index="Energy" value="50"/>
+            <Vital index="Energy" value="40"/>
         </Cost>
         <Range value="9"/>
         <Marker>
@@ -347,7 +403,7 @@
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Effect index="0" value="FungalGrowthLaunchMissile"/>
         <Cost>
-            <Vital index="Energy" value="75"/>
+            <Vital index="Energy" value="50"/>
             <Cooldown Link="Abil/Leech" Location="Unit"/>
         </Cost>
         <Range value="10"/>
@@ -366,7 +422,7 @@
         <Flags index="NoDeceleration" value="1"/>
         <Flags index="Transient" value="1"/>
         <Cost>
-            <Vital index="Energy" value="75"/>
+            <Vital index="Energy" value="50"/>
             <Cooldown Link="GuardianShieldGuardianShield5GuardianShieldF_GuardianShield" TimeUse="18"/>
         </Cost>
         <AINotifyEffect value=""/>
@@ -427,7 +483,7 @@
         <Flags index="NoDeceleration" value="1"/>
         <Flags index="ReExecutable" value="1"/>
         <Cost>
-            <Vital index="Energy" value="50"/>
+            <Vital index="Energy" value="40"/>
         </Cost>
         <TargetFilters value="Ground,Visible;Self,Neutral,Massive,Structure,Destructible,Invulnerable"/>
         <Range value="4"/>
@@ -596,7 +652,7 @@
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Effect index="0" value="ParasiticBombLM"/>
         <Cost>
-            <Vital index="Energy" value="125"/>
+            <Vital index="Energy" value="100"/>
         </Cost>
         <TargetFilters value="Air,Visible;Self,Player,Ally,Neutral,Structure,Stasis,Invulnerable"/>
         <Range value="8"/>
@@ -610,7 +666,7 @@
         <Effect index="0" value="NeuralParasiteLaunchMissile"/>
         <Flags index="AbortOnAllianceChange" value="0"/>
         <Cost>
-            <Vital index="Energy" value="100"/>
+            <Vital index="Energy" value="75"/>
             <Cooldown Link="Abil/Leech" Location="Unit"/>
         </Cost>
         <TargetFilters value="Visible;Self,Player,Ally,Neutral,Structure,Heroic,Stasis,Invulnerable"/>
@@ -944,7 +1000,7 @@
         <Effect index="0" value="SeekerMissileLaunchMissile"/>
         <Flags index="AllowMovement" value="1"/>
         <Cost>
-            <Vital index="Energy" value="125"/>
+            <Vital index="Energy" value="100"/>
             <Charge Link="Abil/HunterF_SeekerMissile"/>
             <Cooldown Link="Abil/HunterF_SeekerMissile"/>
         </Cost>
@@ -1164,8 +1220,8 @@
             <Button DefaultButtonFace="Predator" Requirements="UnknownRequirement2"/>
             <Unit value="Predator"/>
         </InfoArray>
-        <InfoArray index="Train11" Time="20">
-            <Button DefaultButtonFace="Ravager" Requirements="factory2ravager"/>
+        <InfoArray index="Train11" Time="30">
+            <Button DefaultButtonFace="Ravager" Requirements="factory1ravager"/>
             <Unit value="Ravager"/>
         </InfoArray>
         <InfoArray index="Train12" Time="55">
@@ -1385,6 +1441,14 @@
             <Button DefaultButtonFace="Arbiter" Requirements="starport3arbiterreq"/>
             <Unit value="ArbiterMP"/>
         </InfoArray>
+        <InfoArray index="Train15" Time="35">
+            <Button DefaultButtonFace="HireDuskWing" Requirements="starport2duskwingreq"/>
+            <Unit value="DuskWing"/>
+        </InfoArray>
+        <InfoArray index="Train16" Time="35">
+            <Button DefaultButtonFace="MorphToOverseer"/>
+            <Unit value="Overseer"/>
+        </InfoArray>
     </CAbilTrain>
     <CAbilResearch id="Stimpack2">
         <EditorCategories value="AbilityorEffectType:Units"/>
@@ -1464,7 +1528,7 @@
         <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
     </CAbilEffectTarget>
     <CAbilBuild id="TerranBuild">
-        <InfoArray index="Build2" Time="10"/>
+        <InfoArray index="Build2" Time="29"/>
         <InfoArray index="Build6">
             <Button Requirements="HaveBarracks"/>
         </InfoArray>
@@ -1487,7 +1551,7 @@
         <Flags index="AllowMovement" value="1"/>
         <Flags index="NoDeceleration" value="1"/>
         <Cost>
-            <Vital index="Energy" value="50"/>
+            <Vital index="Energy" value="40"/>
             <Cooldown Link="TransfusionTransfusion5TransfusionF_Transfusion" TimeUse="1"/>
         </Cost>
         <TargetFilters value="Biological,Visible;Self,Neutral,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden,Invulnerable"/>
@@ -2528,7 +2592,7 @@
         <Flags index="AllowMovement" value="1"/>
         <Flags index="NoDeceleration" value="1"/>
         <Cost>
-            <Vital index="Energy" value="75"/>
+            <Vital index="Energy" value="50"/>
         </Cost>
         <TargetFilters value="-;Self,Neutral,Structure,Heroic,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="9"/>
@@ -2541,5 +2605,32 @@
             <Flags index="UseDefaultButton" value="1"/>
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
+    </CAbilEffectTarget>
+    <CAbilResearch id="TwinLinkedFlameThrowers1">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Activity value="UI/Training"/>
+        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="1">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="TwinLinkedFlameThrowers1">
+                <Flags index="UseDefaultButton" value="1"/>
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilResearch id="ClusterWarheads2">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Activity value="UI/Training"/>
+        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="2">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="ClusterWarheads2">
+                <Flags index="UseDefaultButton" value="1"/>
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilEffectTarget id="heal">
+        <TargetFilters index="0" value="Ground,Visible;Self,Enemy,Air,Massive,Structure,Missile,UnderConstruction,Dead,Hidden,Invulnerable"/>
     </CAbilEffectTarget>
 </Catalog>

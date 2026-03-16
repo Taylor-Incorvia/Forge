@@ -87,13 +87,11 @@ void setPlayerSlotUnit(string facilityId, int slotIndex, int playerIndex, string
     grantUpgrade(playerIndex, getUnitUnlockUpg(unitId));
 }
 
-void setRandomSlotUnitFromPoolForPlayer(string facilityId, int slotIndex, int playerIndex) {
+string setRandomSlotUnitFromPoolForPlayer(string facilityId, int slotIndex, int playerIndex) {
     string selectedUnitId = getRandomUnitIdFromSlotPool(facilityId, slotIndex);
-    if(playerIndex == 1) {
-        // showMessage(selectedUnitId);
-    }
-        
+
     setPlayerSlotUnit(facilityId, slotIndex, playerIndex, selectedUnitId);
+    return selectedUnitId;
 }
 
 string getPlayerSlotUnitId(string facilityId, int slotIndex, int playerIndex) {

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton id="Arbiter">
+        <HotkeyAlias value="Raven"/>
+    </CButton>
+    <CButton id="Archon">
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="Battlecruiser">
+        <HotkeyAlias value="Raven"/>
+    </CButton>
     <CButton id="ChronoBoostEnergyCost">
         <HotkeyAlias value="CalldownMULE"/>
     </CButton>
@@ -64,6 +73,7 @@
     </CButton>
     <CButton id="Colossus">
         <HotkeyAlias value="Thor"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="Corsair">
         <HotkeyAlias value="VikingFighter"/>
@@ -131,6 +141,10 @@
     </CButton>
     <CButton id="HighTemplar">
         <HotkeyAlias value="Ghost"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="HireDuskWing">
+        <HotkeyAlias value="Banshee"/>
     </CButton>
     <CButton id="HireKelmorianMiners">
         <HotkeyAlias value="Reaper"/>
@@ -144,6 +158,7 @@
     </CButton>
     <CButton id="Hydralisk">
         <HotkeyAlias value="Reaper"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="F_Hyperjump">
         <Icon value="Assets\Textures\btn-ability-terran-warpjump.dds"/>
@@ -153,9 +168,11 @@
     </CButton>
     <CButton id="Immortal">
         <HotkeyAlias value="WidowMine"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="Infestor">
         <HotkeyAlias value="Ghost"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="F_Irradiate">
         <Icon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
@@ -184,6 +201,7 @@
     </CButton>
     <CButton id="LurkerFromHydraliskBurrowed">
         <HotkeyAlias value="Ghost"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="Medic">
         <HotkeyAlias value="Marauder"/>
@@ -196,6 +214,7 @@
     </CButton>
     <CButton id="Mutalisk">
         <HotkeyAlias value="Banshee"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="F_NeuralParasite">
         <Icon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite-color.dds"/>
@@ -218,6 +237,7 @@
     </CButton>
     <CButton id="Phoenix">
         <HotkeyAlias value="VikingFighter"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="Predator">
         <HotkeyAlias value="Hellion"/>
@@ -230,7 +250,8 @@
         <DefaultButtonLayout Row="2" Column="3"/>
     </CButton>
     <CButton id="Ravager">
-        <HotkeyAlias value="WidowMine"/>
+        <HotkeyAlias value="Hellion"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="F_RavenScramblerMissile">
         <Icon value="Assets\Textures\btn-upgrade-terran-interferencematrix.dds"/>
@@ -251,6 +272,11 @@
     </CButton>
     <CButton id="ResearchArbiterMPRecall1">
         <Icon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="HighCapacityBarrels1">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infernalpreigniter.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
@@ -1041,9 +1067,11 @@
     </CButton>
     <CButton id="Roach">
         <HotkeyAlias value="Marauder"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="Sentry">
         <HotkeyAlias value="Marauder"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="SiegeTank">
         <HotkeyAlias value="WidowMine"/>
@@ -1053,6 +1081,7 @@
     </CButton>
     <CButton id="Stalker">
         <HotkeyAlias value="Reaper"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="Tempest">
         <HotkeyAlias value="Raven"/>
@@ -1073,9 +1102,31 @@
     </CButton>
     <CButton id="Ultralisk">
         <HotkeyAlias value="Thor"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="Viper">
         <HotkeyAlias value="Raven"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="VoidMPImmortalRevive">
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="VoidMPImmortalRevive1">
+        <Icon value="Assets\Textures\btn-techupgrade-terran-immortalityprotocol.dds"/>
+        <AlertIcon value="Assets\Textures\btn-techupgrade-terran-immortalityprotocol.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="VoidMPImmortalRevive2">
+        <Icon value="Assets\Textures\btn-techupgrade-terran-immortalityprotocol.dds"/>
+        <AlertIcon value="Assets\Textures\btn-techupgrade-terran-immortalityprotocol.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="VoidMPImmortalRevive3">
+        <Icon value="Assets\Textures\btn-techupgrade-terran-immortalityprotocol.dds"/>
+        <AlertIcon value="Assets\Textures\btn-techupgrade-terran-immortalityprotocol.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="2"/>
     </CButton>
     <CButton id="Vulture">
         <HotkeyAlias value="Hellion"/>
@@ -1114,8 +1165,21 @@
     </CButton>
     <CButton id="Zealot">
         <HotkeyAlias value="Marine"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="Zergling">
         <HotkeyAlias value="Marine"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="TwinLinkedFlameThrowers1">
+        <Icon value="Assets\Textures\btn-upgrade-terran-twin-linkedflamethrower.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-twin-linkedflamethrower.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ClusterWarheads2">
+        <Icon value="Assets\Textures\btn-upgrade-swann-pulsecannon.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-swann-pulsecannon.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="1"/>
     </CButton>
 </Catalog>

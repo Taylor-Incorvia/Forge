@@ -34,11 +34,12 @@ void initializeUnitUnlockUpgradeMapping() {
     setUnitUnlockUpgrade("Vulture", "factory1vultureupg");
     setUnitUnlockUpgrade("Hellion", "factory1hellion");
     setUnitUnlockUpgrade("Predator", "factory1predator");
+    setUnitUnlockUpgrade("Ravager", "factory1ravager");
 
     // slot 2
     setUnitUnlockUpgrade("Diamondback", "factory2diamondback");
     setUnitUnlockUpgrade("Immortal", "factory2immortalupg");
-    setUnitUnlockUpgrade("Ravager", "factory2ravager");
+    
     setUnitUnlockUpgrade("SiegeTank", "factory2siegetankupg"); // note that sieged tank is a different unit
     setUnitUnlockUpgrade("WarHound", "factory2warhoundupg");
 
@@ -58,6 +59,7 @@ void initializeUnitUnlockUpgradeMapping() {
     setUnitUnlockUpgrade("Banshee", "starport2bansheeupg");
     setUnitUnlockUpgrade("Liberator", "starport2liberatorupg"); 
     setUnitUnlockUpgrade("Mutalisk", "starport2mutaupg");
+    setUnitUnlockUpgrade("DuskWing", "starport2duskwingupg");
 
     // slot 3
     setUnitUnlockUpgrade("ArbiterMP", "starport3arbiterupg");
@@ -107,23 +109,23 @@ void initializeBarracksSlot4Pool() {
     addUnitToSlotPool(facility, slot, "Infestor"); 
     addUnitToSlotPool(facility, slot, "Lurker"); // 
     addUnitToSlotPool(facility, slot, "HighTemplar");
-    addUnitToSlotPool(facility, slot, "DefilerMP"); // not sure if I will keep defilers. I made a lot of changes to it. I replaced consume with neural. I halved the dps and doubled the duration of plague. Increased starting energy from 50 to 75. 
+    // addUnitToSlotPool(facility, slot, "DefilerMP"); // not sure if I will keep defilers. I made a lot of changes to it. I replaced consume with neural. Increased starting energy from 50 to 75. // update 2: if I add this back I will probably want to give it blinding cloud instead of dark swarm. Dark swarm is unclear what it is doing. 
 }
 
 void initializeFactorySlot1Pool() {
     int slot = 1;
     string facility = factory;
-    addUnitToSlotPool(facility, slot, "Vulture");
+    addUnitToSlotPool(facility, slot, "Vulture"); 
     addUnitToSlotPool(facility, slot, "Hellion"); 
-    addUnitToSlotPool(facility, slot, "Predator");
+    addUnitToSlotPool(facility, slot, "Ravager");
+    // addUnitToSlotPool(facility, slot, "Predator"); // predator is mad broken as a factory slot 1 unit and mad broken at 100/100 price. Increase price, move to slot 2 and then you can re-enable
 }
 
 void initializeFactorySlot2Pool() {
     int slot = 2;
     string facility = factory;
-    addUnitToSlotPool(facility, slot, "Diamondback");
+    // addUnitToSlotPool(facility, slot, "Diamondback"); // if I add this back it can be moved to slot 1 and nerfed. Just doesn't seem to be useful here. 
     addUnitToSlotPool(facility, slot, "Immortal");
-    addUnitToSlotPool(facility, slot, "Ravager");
     addUnitToSlotPool(facility, slot, "SiegeTank");
     addUnitToSlotPool(facility, slot, "WarHound");
 }
@@ -148,15 +150,16 @@ void initializeStarportSlot1Pool() {
 void initializeStarportSlot2Pool() {
     int slot = 2;
     string facility = starport;
-    addUnitToSlotPool(facility, slot, "Banshee");
+    // addUnitToSlotPool(facility, slot, "Banshee");
     addUnitToSlotPool(facility, slot, "Liberator");
-    addUnitToSlotPool(facility, slot, "Mutalisk"); 
+    addUnitToSlotPool(facility, slot, "Mutalisk");
+    addUnitToSlotPool(facility, slot, "DuskWing"); // duskwing is just buffed banshee
 }
 
 void initializeStarportSlot3Pool() {
     int slot = 3;
     string facility = starport;
-    addUnitToSlotPool(facility, slot, "ArbiterMP"); // maybe with the invis changes, I can add back the arbiter?
+    // addUnitToSlotPool(facility, slot, "ArbiterMP"); // maybe with the invis changes, I can add back the arbiter? // tried it, it seems like it would need a bit of a rework so removing it for now. 
     addUnitToSlotPool(facility, slot, "Raven"); 
     addUnitToSlotPool(facility, slot, "Tempest"); 
     addUnitToSlotPool(facility, slot, "Viper"); 
@@ -180,9 +183,15 @@ void initializePools() {
 
 void setSlotsForFacility(string facility, int facilitySlotCount, int playerIndex){
     int slotIndex;
+    string unitId;
+    string message;
+
+    message = facility + ": ";
     for (slotIndex = 1; slotIndex <= facilitySlotCount; slotIndex += 1) {
-        setRandomSlotUnitFromPoolForPlayer(facility, slotIndex, playerIndex);
+        unitId = setRandomSlotUnitFromPoolForPlayer(facility, slotIndex, playerIndex);
+        message = message + " " + unitId;
     }
+    showMessageToPlayer(playerIndex, message);
 }
 
 void setProductionSlotsForPlayer(int playerIndex) {

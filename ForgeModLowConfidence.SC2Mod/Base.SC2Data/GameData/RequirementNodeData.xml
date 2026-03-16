@@ -8,7 +8,6 @@
         <OperandArray value="GTECountUpgradebarracks4archonupgCompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4defilerupgCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheat"/>
         <OperandArray value="GTECountUpgradebarracks4defilerupgCompleteOnly1"/>
     </CRequirementAnd>
@@ -37,7 +36,6 @@
         <OperandArray value="GTECountUpgradestarport3arbiterupgCompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3battlecruiserupgCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheat"/>
         <OperandArray value="GTECountUpgradestarport3battlecruiserupgCompleteOnly1"/>
     </CRequirementAnd>
@@ -106,10 +104,6 @@
         <OperandArray value="GTECountUpgradefactory2immortalupgCompleteOnly1"/>
         <OperandArray value="CountUnitArmoryCompleteOnly"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndGTECountUpgradefactory2ravagerCompleteOnly1CountUnitArmoryCompleteOnly">
-        <OperandArray value="GTECountUpgradefactory2ravagerCompleteOnly1"/>
-        <OperandArray value="CountUnitArmoryCompleteOnly"/>
-    </CRequirementAnd>
     <CRequirementAnd id="AndGTECountUpgradefactory2siegetankupgCompleteOnly1CountUnitArmoryCompleteOnly">
         <OperandArray value="GTECountUpgradefactory2siegetankupgCompleteOnly1"/>
         <OperandArray value="CountUnitArmoryCompleteOnly"/>
@@ -132,6 +126,10 @@
     </CRequirementAnd>
     <CRequirementAnd id="AndGTECountUpgradestarport2bansheeupgCompleteOnly1CountUnitFusionCoreCompleteOnly">
         <OperandArray value="GTECountUpgradestarport2bansheeupgCompleteOnly1"/>
+        <OperandArray value="CountUnitFusionCoreCompleteOnly"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndGTECountUpgradestarport2duskwingupgCompleteOnly1CountUnitFusionCoreCompleteOnly">
+        <OperandArray value="GTECountUpgradestarport2duskwingupgCompleteOnly1"/>
         <OperandArray value="CountUnitFusionCoreCompleteOnly"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndGTECountUpgradestarport2liberatorupgCompleteOnly1CountUnitFusionCoreCompleteOnly">
@@ -251,6 +249,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="factory1predator" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradefactory1ravagerCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="factory1ravager" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradefactory1vultureupgCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="factory1vultureupg" State="CompleteOnly"/>
@@ -262,10 +265,6 @@
     <CRequirementCountUpgrade id="CountUpgradefactory2immortalupgCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="factory2immortalupg" State="CompleteOnly"/>
-    </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradefactory2ravagerCompleteOnly">
-        <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="factory2ravager" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradefactory2siegetankupgCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
@@ -315,6 +314,10 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="starport2bansheeupg" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradestarport2duskwingupgCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="starport2duskwingupg" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradestarport2liberatorupgCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="starport2liberatorupg" State="CompleteOnly"/>
@@ -329,7 +332,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradestarport3battlecruiserupgCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="starport3battlecruiserupg" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradestarport3ravenupgCompleteOnly">
@@ -393,7 +395,6 @@
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradebarracks4defilerupgCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradebarracks4defilerupgCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
@@ -437,6 +438,11 @@
         <OperandArray index="0" value="CountUpgradefactory1predatorCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
+    <CRequirementGTE id="GTECountUpgradefactory1ravagerCompleteOnly1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradefactory1ravagerCompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradefactory1vultureupgCompleteOnly1">
         <OperandArray index="0" value="CountUpgradefactory1vultureupgCompleteOnly"/>
         <OperandArray index="1" value="1"/>
@@ -447,10 +453,6 @@
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradefactory2immortalupgCompleteOnly1">
         <OperandArray index="0" value="CountUpgradefactory2immortalupgCompleteOnly"/>
-        <OperandArray index="1" value="1"/>
-    </CRequirementGTE>
-    <CRequirementGTE id="GTECountUpgradefactory2ravagerCompleteOnly1">
-        <OperandArray index="0" value="CountUpgradefactory2ravagerCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradefactory2siegetankupgCompleteOnly1">
@@ -493,6 +495,10 @@
         <OperandArray index="0" value="CountUpgradestarport2bansheeupgCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
+    <CRequirementGTE id="GTECountUpgradestarport2duskwingupgCompleteOnly1">
+        <OperandArray index="0" value="CountUpgradestarport2duskwingupgCompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradestarport2liberatorupgCompleteOnly1">
         <OperandArray index="0" value="CountUpgradestarport2liberatorupgCompleteOnly"/>
         <OperandArray index="1" value="1"/>
@@ -506,7 +512,6 @@
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradestarport3battlecruiserupgCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradestarport3battlecruiserupgCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>

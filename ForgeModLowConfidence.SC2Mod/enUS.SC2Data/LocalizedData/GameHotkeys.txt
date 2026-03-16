@@ -27,6 +27,7 @@ Button/Hotkey/KD8Charge=G
 Button/Hotkey/MissilePods=G
 Button/Hotkey/MissilePods2=E
 Button/Hotkey/PsionicShockwave2=V
+Button/Hotkey/Ravager=E
 Button/Hotkey/ResearchCharge1=C
 Button/Hotkey/ResearchCharge2=C
 Button/Hotkey/ResearchCharge3=C
