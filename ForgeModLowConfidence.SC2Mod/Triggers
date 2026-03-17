@@ -14,6 +14,7 @@
         <Element Type="Trigger" Id="3B7B71A9">
             <Identifier>onCcCompleted</Identifier>
             <Event Type="FunctionCall" Library="13DECF19" Id="708BB84C"/>
+            <Action Type="FunctionCall" Library="13DECF19" Id="1C9B56EA"/>
         </Element>
         <Element Type="FunctionCall" Id="708BB84C">
             <FunctionDef Type="FunctionDef" Library="Ntve" Id="B0FA20B6"/>
@@ -35,12 +36,18 @@
         </Element>
         <Element Type="Param" Id="391139CE">
             <ParameterDef Type="ParamDef" Library="Ntve" Id="7109EA8B"/>
-            <Value>CommandCenter</Value>
+            <Value>BarracksTechLab</Value>
             <ValueType Type="string"/>
         </Element>
         <Element Type="Param" Id="1A863A78">
             <ParameterDef Type="ParamDef" Library="Ntve" Id="5E741589"/>
             <Preset Type="PresetValue" Library="Ntve" Id="00000060"/>
+        </Element>
+        <Element Type="FunctionCall" Id="1C9B56EA">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000123"/>
+            <ScriptCode>
+                   
+            </ScriptCode>
         </Element>
         <Element Type="Trigger" Id="5F4CC85B">
             <Identifier>onUpgradeCompleted</Identifier>
@@ -234,6 +241,7 @@
             <ScriptCode>
                 applyBehaviorListToUnit(EventUnitCreatedUnit());
                 applyAbilityListToUnit(EventUnitCreatedUnit());
+                checkForNewAddons(EventUnitCreatedUnit());
             </ScriptCode>
         </Element>
         <Element Type="Trigger" Id="2034D9FB">

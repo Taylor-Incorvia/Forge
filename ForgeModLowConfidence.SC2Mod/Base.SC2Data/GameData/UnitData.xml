@@ -127,7 +127,7 @@
             <LayoutButtons index="12" Face="Immortal" AbilCmd="FactoryTrain,Train12"/>
             <LayoutButtons index="13" Face="Colossus" AbilCmd="FactoryTrain,Train13"/>
             <LayoutButtons index="14" Face="Predator" AbilCmd="FactoryTrain,Train10" Row="0" Column="0"/>
-            <LayoutButtons index="15" Face="Hellion" AbilCmd="FactoryTrain,Train6" Row="0" Column="0"/>
+            <LayoutButtons index="15" Face="Hellion" AbilCmd="FactoryTrain,Train6" Row="0"/>
             <LayoutButtons Face="Diamondback" Type="AbilCmd" AbilCmd="FactoryTrain,Train15" Row="0" Column="1"/>
             <LayoutButtons Face="WarHound" Type="AbilCmd" AbilCmd="FactoryTrain,Train16" Row="0" Column="1"/>
             <LayoutButtons Face="Roach" Type="AbilCmd" AbilCmd="FactoryTrain,Train18" Row="0" Column="0"/>
@@ -428,6 +428,7 @@
         <CostResource index="Minerals" value="110"/>
         <CostResource index="Vespene" value="0"/>
         <AbilArray Link="HydraliskFrenzy"/>
+        <LifeStart value="125"/>
     </CUnit>
     <CUnit id="SCV">
         <CardLayouts index="1">

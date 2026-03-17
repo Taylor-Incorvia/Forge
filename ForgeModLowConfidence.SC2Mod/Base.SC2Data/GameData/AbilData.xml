@@ -1247,7 +1247,7 @@
             <Button DefaultButtonFace="Observer"/>
             <Unit value="Observer"/>
         </InfoArray>
-        <InfoArray index="Train18" Time="33">
+        <InfoArray index="Train18" Time="34">
             <Button DefaultButtonFace="Roach" Requirements="barracks2roachreq"/>
             <Unit value="Roach"/>
         </InfoArray>

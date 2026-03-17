@@ -30,13 +30,19 @@ void lib13DECF19_InitCustomScript () {
 //--------------------------------------------------------------------------------------------------
 bool lib13DECF19_gt_onCcCompleted_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+       
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void lib13DECF19_gt_onCcCompleted_Init () {
     lib13DECF19_gt_onCcCompleted = TriggerCreate("lib13DECF19_gt_onCcCompleted_Func");
-    TriggerAddEventUnitConstructProgress(lib13DECF19_gt_onCcCompleted, UnitRefFromUnit(DataTableGetUnit(true, "CommandCenter")), c_unitProgressStageComplete);
+    TriggerAddEventUnitConstructProgress(lib13DECF19_gt_onCcCompleted, UnitRefFromUnit(DataTableGetUnit(true, "BarracksTechLab")), c_unitProgressStageComplete);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -85,6 +91,7 @@ bool lib13DECF19_gt_onUnitCreated_Func (bool testConds, bool runActions) {
 
     applyBehaviorListToUnit(EventUnitCreatedUnit());
     applyAbilityListToUnit(EventUnitCreatedUnit());
+    checkForNewAddons(EventUnitCreatedUnit());
     return true;
 }
 

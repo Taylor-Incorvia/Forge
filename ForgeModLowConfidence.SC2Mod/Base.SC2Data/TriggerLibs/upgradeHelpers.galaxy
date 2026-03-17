@@ -10,7 +10,10 @@ string allUpgradesListKey = "allUpgrades";
 string upgradeTagType_unitTag = "unitTag";
 
 
-
+void checkForNewAddons(unit u){
+    string unitName = UnitGetType(u);
+    int player = UnitGetOwner(u);
+}
 
 string getUpgradeTagsListName(string upgrade, string logicType, string tagType) {
     // e.g. Stimpack, noneOf, unitTag → "upgrade.Stimpack.logicType.noneOf.tagType.unitTag"
