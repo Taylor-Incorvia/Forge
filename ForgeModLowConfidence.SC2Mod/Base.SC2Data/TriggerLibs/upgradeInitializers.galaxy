@@ -129,6 +129,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Lurker");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Hellion");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Liberator");
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Zealot"); // for some reason the zealot would not deal damage if the enemy was at the tip of the range. Didn't see the same behaviuro with zergling
 
     addBehaviorToUpgrade("Speed", "Speed");
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "caster");
@@ -138,6 +139,8 @@ void initializeUpgrades() {
 
     addAbilityToUpgrade("TempestDisruptionBlast", "F_TempestDisruptionBlast");
     addUpgradeRequirementTag("TempestDisruptionBlast", logicType_NoneOf, "unitTag", "caster");
+    addUpgradeRequirementTag("TempestDisruptionBlast", logicType_NoneOf, "unitTag", "Colossus"); // can't turn towards target
+    addUpgradeRequirementTag("TempestDisruptionBlast", logicType_NoneOf, "unitTag", "Immortal"); // couldn't turn towards target
     addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", factory +"3");
     addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", starport +"3");
 

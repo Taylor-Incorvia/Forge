@@ -58,4 +58,9 @@
         <Model value="Ravager_Mecha"/>
         <PortraitModel value="Ravager_Mecha_Portrait"/>
     </CActorUnit>
+    <CActorUnit id="Roach">
+        <Model value="Roach_Mecha"/>
+        <PortraitModel value="Roach_Mecha_Portrait"/>
+        <UnitIcon value="Assets\Textures\btn-unit-collection-roach-mecha.dds"/>
+    </CActorUnit>
 </Catalog>

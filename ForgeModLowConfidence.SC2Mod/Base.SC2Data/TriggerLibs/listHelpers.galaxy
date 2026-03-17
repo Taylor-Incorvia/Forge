@@ -38,6 +38,15 @@ string getStringAtIndex(string listName, int index) {
     return libA201917C_gf_ListGetString(listName, index);
 }
 
+void removeFromStringList(string listName, string value) {
+    int index;
+
+    index = libA201917C_gf_ListIndexOfString(listName, value);
+    if (index >= 0) {
+        libA201917C_gf_ListRemoveAt(listName, libA201917C_ge_ListValueTypes_String, index);
+    }
+}
+
 string getRandomStringFromList(string listName) {
     int len = getStringListSize(listName);
     int idx;

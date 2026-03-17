@@ -1067,8 +1067,10 @@
         <DefaultButtonLayout Column="3"/>
     </CButton>
     <CButton id="Roach">
-        <HotkeyAlias value="Marauder"/>
+        <HotkeyAlias value="Hellion"/>
         <EditorCategories value="Race:Terran"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-roach-mecha.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-roach-mecha.dds"/>
     </CButton>
     <CButton id="Sentry">
         <HotkeyAlias value="Marauder"/>

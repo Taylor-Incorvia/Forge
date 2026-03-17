@@ -158,10 +158,10 @@ void onGenericUpgradeCompleted(){
     unit upgradeFacillity = EventUnit();
     string completedUpgrade = EventUnitProgressObjectType();
     string realCompletedUpgradeFromSlot;
-    int player = EventPlayer();  
+    int player = EventPlayer();
     int slot;
     string upgradeFacilityName = UnitGetType(upgradeFacillity);
-    string productionFacilityName = getProductionFacilityFromUpgradeFacility(upgradeFacilityName);    
+    string productionFacilityName = getProductionFacilityFromUpgradeFacility(upgradeFacilityName);
     string unitName;
 
 
@@ -171,6 +171,10 @@ void onGenericUpgradeCompleted(){
         unitName = getPlayerSlotUnitId(productionFacilityName, slot, player);
         realCompletedUpgradeFromSlot = getSlotSelectedUpgrade(player, slot, productionFacilityName);
         grantGenericUpgrade(player, realCompletedUpgradeFromSlot, unitName);
+        // TODO: hide completed research buttons on existing buildings.
+        // UnitAbilityRemove repacks the command card and shifts buttons.
+        // UnitAbilityShow doesn't work on dynamically-added abilities.
+        // A requirement-based XML approach would work but is tedious to set up per slot.
 
 
         showMessage("playerId" + IntToString(player));

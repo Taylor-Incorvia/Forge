@@ -1,7 +1,7 @@
 include "TriggerLibs/NativeLib"
 
-bool devMode = false;
-// bool devMode = true;
+// bool devMode = false; // todo uncomment
+bool devMode = true;
 
 void grantUpgrade(int playerIndex, string upgradeId) {
     libNtve_gf_SetUpgradeLevelForPlayer(playerIndex, upgradeId, 1);

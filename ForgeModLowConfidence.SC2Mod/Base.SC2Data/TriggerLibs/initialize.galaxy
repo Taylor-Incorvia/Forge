@@ -16,7 +16,7 @@ void initializeUnitUnlockUpgradeMapping() {
     //slot 3
     setUnitUnlockUpgrade("Firebat", "barracks3firebatupg");
     setUnitUnlockUpgrade("Marauder", "barracks3marauder");
-    setUnitUnlockUpgrade("Roach", "barracks3roachupg");
+    
     setUnitUnlockUpgrade("Sentry", "barracks3sentryupg");
     setUnitUnlockUpgrade("Adept", "barracks3adeptupg");
     setUnitUnlockUpgrade("Medic", "barracks3medicupg");
@@ -35,6 +35,7 @@ void initializeUnitUnlockUpgradeMapping() {
     setUnitUnlockUpgrade("Hellion", "factory1hellion");
     setUnitUnlockUpgrade("Predator", "factory1predator");
     setUnitUnlockUpgrade("Ravager", "factory1ravager");
+    setUnitUnlockUpgrade("Roach", "factory1roachupg");
 
     // slot 2
     setUnitUnlockUpgrade("Diamondback", "factory2diamondback");
@@ -98,7 +99,7 @@ void initializeBarracksSlot3Pool() {
 
     // deprecated
     // addUnitToSlotPool(facility, slot, "Adept"); // adepts appear to suck based on initial play test
-    // addUnitToSlotPool(facility, slot, "Roach"); // roaches appear to be the strongest unit based on initial play test
+    // addUnitToSlotPool(facility, slot, "Roach"); // roaches appear to be the strongest unit based on initial play test // moved to factory slot 1
 }
 
 void initializeBarracksSlot4Pool() {
@@ -115,9 +116,10 @@ void initializeBarracksSlot4Pool() {
 void initializeFactorySlot1Pool() {
     int slot = 1;
     string facility = factory;
-    addUnitToSlotPool(facility, slot, "Vulture"); 
+    addUnitToSlotPool(facility, slot, "Vulture"); //todo uncomment
     addUnitToSlotPool(facility, slot, "Hellion"); 
-    addUnitToSlotPool(facility, slot, "Ravager");
+    addUnitToSlotPool(facility, slot, "Roach");//todo uncomment
+    // addUnitToSlotPool(facility, slot, "Ravager"); // made this a mecha ravager. Probably want to buff it a little and send it to slot 2. 
     // addUnitToSlotPool(facility, slot, "Predator"); // predator is mad broken as a factory slot 1 unit and mad broken at 100/100 price. Increase price, move to slot 2 and then you can re-enable
 }
 

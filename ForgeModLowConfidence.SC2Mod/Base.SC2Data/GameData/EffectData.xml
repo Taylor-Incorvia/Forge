@@ -14,6 +14,9 @@
     <CEffectCreatePersistent id="DefilerMPDarkSwarmCreatePersistent">
         <PeriodCount value="180"/>
     </CEffectCreatePersistent>
+    <CEffectDamage id="KD8ChargeExplodeDamage">
+        <Amount value="12"/>
+    </CEffectDamage>
     <CEffectModifyUnit id="UnknownEffect">
         <EditorCategories value=""/>
     </CEffectModifyUnit>

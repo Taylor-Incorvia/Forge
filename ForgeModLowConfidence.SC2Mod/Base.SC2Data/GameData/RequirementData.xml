@@ -87,8 +87,8 @@
         <NodeArray index="Show" Link="GTECountUpgradebarracks3marauderCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="barracks2roachreq">
-        <NodeArray index="Use" Link="AndGTECountUpgradebarracks3roachupgCompleteOnly1CountUnitGhostAcademyCompleteOnly"/>
-        <NodeArray index="Show" Link="GTECountUpgradebarracks3roachupgCompleteOnly1"/>
+        <NodeArray index="Use" Link="GTECountUpgradefactory1roachupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradefactory1roachupgCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="barracks2stalkerreq">
         <NodeArray index="Use" Link="AndGTECountUpgradebarracks2stalkerupgCompleteOnly1"/>

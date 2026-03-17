@@ -88,10 +88,6 @@
         <OperandArray value="GTECountUpgradebarracks3medicupgCompleteOnly1"/>
         <OperandArray value="CountUnitGhostAcademyTotal"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndGTECountUpgradebarracks3roachupgCompleteOnly1CountUnitGhostAcademyCompleteOnly">
-        <OperandArray value="GTECountUpgradebarracks3roachupgCompleteOnly1"/>
-        <OperandArray value="CountUnitGhostAcademyCompleteOnly"/>
-    </CRequirementAnd>
     <CRequirementAnd id="AndGTECountUpgradebarracks3sentryupgCompleteOnly1CountUnitGhostAcademyTotal">
         <OperandArray value="GTECountUpgradebarracks3sentryupgCompleteOnly1"/>
         <OperandArray value="CountUnitGhostAcademyTotal"/>
@@ -193,10 +189,6 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="barracks3medicupg" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradebarracks3roachupgCompleteOnly">
-        <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="barracks3roachupg" State="CompleteOnly"/>
-    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradebarracks3sentryupgCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="barracks3sentryupg" State="CompleteOnly"/>
@@ -251,8 +243,12 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradefactory1ravagerCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="factory1ravager" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradefactory1roachupgCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="factory1roachupg" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradefactory1vultureupgCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
@@ -382,10 +378,6 @@
         <OperandArray index="0" value="CountUpgradebarracks3medicupgCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
-    <CRequirementGTE id="GTECountUpgradebarracks3roachupgCompleteOnly1">
-        <OperandArray index="0" value="CountUpgradebarracks3roachupgCompleteOnly"/>
-        <OperandArray index="1" value="1"/>
-    </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradebarracks3sentryupgCompleteOnly1">
         <OperandArray index="0" value="CountUpgradebarracks3sentryupgCompleteOnly"/>
         <OperandArray index="1" value="1"/>
@@ -439,8 +431,12 @@
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradefactory1ravagerCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradefactory1ravagerCompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountUpgradefactory1roachupgCompleteOnly1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradefactory1roachupgCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradefactory1vultureupgCompleteOnly1">

@@ -15,6 +15,9 @@
             </Button>
         </InfoArray>
     </CAbilResearch>
+    <CAbilEffectInstant id="HydraliskFrenzy">
+        <CmdButtonArray index="Execute" Requirements=""/>
+    </CAbilEffectInstant>
     <CAbilEffectTarget id="MedivacHeal">
         <TargetFilters index="0" value="Visible;Self,Enemy,Massive,Structure,Missile,Dead,Hidden,Invulnerable,AirUnit"/>
     </CAbilEffectTarget>
@@ -200,10 +203,6 @@
         <InfoArray index="Train7" Time="30">
             <Button DefaultButtonFace="Stalker" Requirements="barracks2stalkerreq"/>
             <Unit value="Stalker"/>
-        </InfoArray>
-        <InfoArray index="Train8" Time="15">
-            <Button DefaultButtonFace="Roach" Requirements="barracks2roachreq"/>
-            <Unit value="Roach"/>
         </InfoArray>
         <InfoArray index="Train9" Time="45">
             <Button DefaultButtonFace="Archon" Requirements="barracks4archonreq"/>
@@ -1247,6 +1246,10 @@
         <InfoArray index="Train17" Time="25">
             <Button DefaultButtonFace="Observer"/>
             <Unit value="Observer"/>
+        </InfoArray>
+        <InfoArray index="Train18" Time="33">
+            <Button DefaultButtonFace="Roach" Requirements="barracks2roachreq"/>
+            <Unit value="Roach"/>
         </InfoArray>
     </CAbilTrain>
     <CAbilResearch id="GhostAcademyResearch">

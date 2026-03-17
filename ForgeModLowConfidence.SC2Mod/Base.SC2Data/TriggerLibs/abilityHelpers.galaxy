@@ -15,6 +15,15 @@ void addToAbilityListForUnit(string ability, string unitName, int player){
     addToStringList(key, ability);
 }
 
+void removeFromAbilityListForUnit(string ability, string unitName, int player){
+    string key = getUnitAbilityListKey(unitName, player);
+
+    if(!stringListExists(key)) {
+        return;
+    }
+    removeFromStringList(key, ability);
+}
+
 void applyAbilityListToUnit(unit u){
     string unitName = UnitGetType(u);
     int player = UnitGetOwner(u);
@@ -42,3 +51,4 @@ void grantAbilityToExistingUnitsOfTypeForPlayer(int playerIndex, string ability,
         applyToLivingUnitsOfTypeForPlayer(playerIndex, altFormUnitName, c_applyKindAbility, ability);
     }
 }
+
