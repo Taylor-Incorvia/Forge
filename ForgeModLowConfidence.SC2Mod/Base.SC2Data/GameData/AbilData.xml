@@ -192,15 +192,15 @@
         <InfoArray index="Train4">
             <Button Requirements="barracks3marauderreq"/>
         </InfoArray>
-        <InfoArray index="Train5" Time="11">
+        <InfoArray index="Train5" Time="10">
             <Button DefaultButtonFace="Zergling" State="Available" Requirements="barracksZergling"/>
             <Unit value="Zergling"/>
         </InfoArray>
-        <InfoArray index="Train6" Time="38">
+        <InfoArray index="Train6" Time="35">
             <Button DefaultButtonFace="Zealot" Requirements="barracksZealot"/>
             <Unit value="Zealot"/>
         </InfoArray>
-        <InfoArray index="Train7" Time="30">
+        <InfoArray index="Train7" Time="38">
             <Button DefaultButtonFace="Stalker" Requirements="barracks2stalkerreq"/>
             <Unit value="Stalker"/>
         </InfoArray>
@@ -220,7 +220,7 @@
             <Button DefaultButtonFace="Firebat" Requirements="barracks3firebatreq"/>
             <Unit value="Firebat"/>
         </InfoArray>
-        <InfoArray index="Train13" Time="30">
+        <InfoArray index="Train13" Time="38">
             <Charge TimeStart="17"/>
             <Button DefaultButtonFace="Hydralisk" Requirements="barracks2hydralisktreq"/>
             <Unit value="Hydralisk"/>
@@ -241,7 +241,7 @@
             <Button DefaultButtonFace="LurkerFromHydraliskBurrowed" Requirements="barracks4lurkerreq"/>
             <Unit value="Lurker"/>
         </InfoArray>
-        <InfoArray index="Train18" Time="28">
+        <InfoArray index="Train18" Time="24">
             <Button DefaultButtonFace="HireKelmorianMiners" Requirements="barracks2warpigtreq"/>
             <Unit value="WarPig"/>
         </InfoArray>
@@ -691,7 +691,7 @@
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Effect index="0" value="HurricaneMissile"/>
         <Cost>
-            <Vital index="Energy" value="125"/>
+            <Vital index="Energy" value="75"/>
             <Cooldown TimeUse="0.8332"/>
         </Cost>
         <Range value="7"/>
@@ -1211,7 +1211,7 @@
         <InfoArray index="Train6">
             <Button Requirements="UnknownRequirement3"/>
         </InfoArray>
-        <InfoArray index="Train9" Time="25">
+        <InfoArray index="Train9" Time="29">
             <Button DefaultButtonFace="Vulture" Requirements="factory1vulture"/>
             <Unit value="Vulture"/>
         </InfoArray>

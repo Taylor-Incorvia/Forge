@@ -24,6 +24,8 @@
         <AlertIcon value="Assets\Textures\btn-ability-protoss-forcefield-color.dds"/>
         <Hotkey value="G"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/ArbiterMPStasisField"/>
+        <AlertName value="Button/Name/ArbiterMPStasisField"/>
     </CButton>
     <CButton id="F_AutoTurret">
         <Icon value="Assets\Textures\btn-building-terran-autoturret.dds"/>
@@ -31,6 +33,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/AutoTurret"/>
+        <AlertName value="Button/Name/AutoTurret"/>
     </CButton>
     <CButton id="F_BlindingCloud">
         <Icon value="Assets\Textures\btn-ability-zerg-blindingcloud.dds"/>
@@ -38,6 +42,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/BlindingCloud"/>
+        <AlertName value="Button/Name/BlindingCloud"/>
     </CButton>
     <CButton id="F_D8Charge">
         <Icon value="Assets\Textures\BTN-Ability-Terran-D8Charge.dds"/>
@@ -46,6 +52,8 @@
         <EditorCategories value="Race:Terran"/>
         <TintRacially value="1"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/D8Charge"/>
+        <AlertName value="Button/Name/D8Charge"/>
     </CButton>
     <CButton id="F_Charge">
         <Icon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
@@ -53,6 +61,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/Charge"/>
+        <AlertName value="Button/Name/Charge"/>
     </CButton>
     <CButton id="F_Blink">
         <Icon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
@@ -60,6 +70,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/Blink"/>
+        <AlertName value="Button/Name/Blink"/>
     </CButton>
     <CButton id="F_ArbiterMPRecall">
         <Icon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
@@ -67,6 +79,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/ArbiterMPRecall"/>
+        <AlertName value="Button/Name/ArbiterMPRecall"/>
     </CButton>
     <CButton id="Blink">
         <HotkeyAlias value="Ghost"/>
@@ -83,6 +97,8 @@
         <AlertIcon value="Assets\Textures\btn-ability-protoss-disruptionweb.dds"/>
         <Hotkey value="G"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/CorsairMPDisruptionWeb"/>
+        <AlertName value="Button/Name/CorsairMPDisruptionWeb"/>
     </CButton>
     <CButton id="Diamondback">
         <HotkeyAlias value="WidowMine"/>
@@ -93,6 +109,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/FaceEmbrace"/>
+        <AlertName value="Button/Name/FaceEmbrace"/>
     </CButton>
     <CButton id="F_Stim">
         <Icon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
@@ -100,6 +118,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/Stim"/>
+        <AlertName value="Button/Name/Stim"/>
     </CButton>
     <CButton id="Firebat">
         <HotkeyAlias value="Marauder"/>
@@ -110,6 +130,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/ForceField"/>
+        <AlertName value="Button/Name/ForceField"/>
     </CButton>
     <CButton id="F_FungalGrowth">
         <Icon value="Assets\Textures\btn-ability-zerg-fungalgrowth-color.dds"/>
@@ -117,6 +139,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/FungalGrowth"/>
+        <AlertName value="Button/Name/FungalGrowth"/>
     </CButton>
     <CButton id="F_GuardianShield">
         <Icon value="Assets\Textures\btn-ability-protoss-shieldbattery-color.dds"/>
@@ -124,6 +148,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/GuardianShield"/>
+        <AlertName value="Button/Name/GuardianShield"/>
     </CButton>
     <CButton id="F_Grapple">
         <Icon value="Assets\Textures\btn-tips-terran-penetrator.dds"/>
@@ -138,6 +164,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/GravitonBeam"/>
+        <AlertName value="Button/Name/GravitonBeam"/>
     </CButton>
     <CButton id="HighTemplar">
         <HotkeyAlias value="Ghost"/>
@@ -155,6 +183,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/HunterSeekerMissile"/>
+        <AlertName value="Button/Name/HunterSeekerMissile"/>
     </CButton>
     <CButton id="Hydralisk">
         <HotkeyAlias value="Reaper"/>
@@ -165,6 +195,8 @@
         <AlertIcon value="Assets\Textures\btn-ability-terran-warpjump.dds"/>
         <Hotkey value="G"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/Hyperjump"/>
+        <AlertName value="Button/Name/Hyperjump"/>
     </CButton>
     <CButton id="Immortal">
         <HotkeyAlias value="WidowMine"/>
@@ -181,6 +213,8 @@
         <EditorCategories value="Race:Terran"/>
         <TintRacially value="1"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/Irradiate"/>
+        <AlertName value="Button/Name/Irradiate"/>
     </CButton>
     <CButton id="F_KD8Charge">
         <Icon value="Assets\Textures\btn-upgrade-terran-kd8chargeex3.dds"/>
@@ -188,6 +222,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/KD8Charge"/>
+        <AlertName value="Button/Name/KD8Charge"/>
     </CButton>
     <CButton id="Liberator">
         <HotkeyAlias value="Banshee"/>
@@ -198,6 +234,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/LightningBomb"/>
+        <AlertName value="Button/Name/LightningBomb"/>
     </CButton>
     <CButton id="LurkerFromHydraliskBurrowed">
         <HotkeyAlias value="Ghost"/>
@@ -211,6 +249,8 @@
         <Hotkey value="G"/>
         <TintRacially value="1"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/MissilePods"/>
+        <AlertName value="Button/Name/MissilePods"/>
     </CButton>
     <CButton id="Mutalisk">
         <HotkeyAlias value="Banshee"/>
@@ -221,12 +261,16 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/NeuralParasite"/>
+        <AlertName value="Button/Name/NeuralParasite"/>
     </CButton>
     <CButton id="F_ParasiticBomb">
         <Icon value="Assets\Textures\btn-ability-zerg-parasiticbomb.dds"/>
         <Hotkey value="G"/>
         <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/ParasiticBomb"/>
+        <AlertName value="Button/Name/ParasiticBomb"/>
     </CButton>
     <CButton id="F_OdinBarrage">
         <Icon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
@@ -260,6 +304,9 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/RavenScramblerMissile"/>
+        <AlertName value="Button/Name/RavenScramblerMissile"/>
+        <HotkeyAlias value="RavenScramblerMissile"/>
     </CButton>
     <CButton id="F_RavagerCorrosiveBile">
         <Icon value="Assets\Textures\btn-ability-zerg-corrosivebile.dds"/>
@@ -267,6 +314,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/RavagerCorrosiveBile"/>
+        <AlertName value="Button/Name/RavagerCorrosiveBile"/>
     </CButton>
     <CButton id="Reactor">
         <HotkeyAlias value="TechLabFactory"/>
@@ -1095,6 +1144,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/Transfusion"/>
+        <AlertName value="Button/Name/Transfusion"/>
     </CButton>
     <CButton id="F_TempestDisruptionBlast">
         <Icon value="Assets\Textures\btn-ability-protoss-disruptionblast.dds"/>
@@ -1102,6 +1153,8 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/TempestDisruptionBlast"/>
+        <AlertName value="Button/Name/TempestDisruptionBlast"/>
     </CButton>
     <CButton id="Ultralisk">
         <HotkeyAlias value="Thor"/>
@@ -1156,6 +1209,7 @@
         <Hotkey value="G"/>
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Row="2" Column="3"/>
+        <Name value="Button/Name/Yamato"/>
     </CButton>
     <CButton id="Yoink">
         <AlertIcon value="Assets\Textures\btn-ability-zerg-abduct.dds"/>

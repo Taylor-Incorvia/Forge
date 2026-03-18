@@ -14,10 +14,17 @@
     <CEffectCreatePersistent id="DefilerMPDarkSwarmCreatePersistent">
         <PeriodCount value="180"/>
     </CEffectCreatePersistent>
+    <CEffectDamage id="HurricaneMissileDamage">
+        <AttributeBonus index="Light" value="3"/>
+        <Amount value="6"/>
+    </CEffectDamage>
     <CEffectDamage id="KD8ChargeExplodeDamage">
         <Amount value="12"/>
     </CEffectDamage>
     <CEffectModifyUnit id="UnknownEffect">
         <EditorCategories value=""/>
     </CEffectModifyUnit>
+    <CEffectDamage id="VultureU">
+        <AttributeBonus index="Light" value="13"/>
+    </CEffectDamage>
 </Catalog>
