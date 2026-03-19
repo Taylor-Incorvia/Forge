@@ -119,6 +119,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", factory +"3");
     addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", starport +"3");
     addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Colossus");
+    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Ultralisk"); // underwhelming for ultralisk. 
     addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "ScienceVessel"); // couldn't turn towards target
     addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Immortal"); // couldn't turn towards target
     addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "caster"); // I didn't like how this doesn't cost energy.
@@ -156,6 +157,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Vulture");
     addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Immortal"); // couldn't turn towards target
     addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "caster");
+    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Zergling"); // I buffed the spell so it does more damage. If it wasn't already crazy on a zergling, now it is. 
 
     addAbilityToUpgrade("RavagerCorrosiveBile", "F_RavagerCorrosiveBile");
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "caster");
@@ -202,11 +204,12 @@ void initializeUpgrades() {
     addAbilityToUpgrade("Hyperjump", "F_Hyperjump"); 
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Tempest");
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Mutalisk");
-    addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Banshee");
+    // addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Banshee");
+    // addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "DuskWing"); // I think the DuskWing is actually really strong. this might be overkill
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "VikingFighter");
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Wraith");
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "CorsairMP");
-    addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Colossus");
+    // addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Colossus"); // COULDNT TURN TOWARDS TARGET :(
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Phoenix");
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Medic");
 
@@ -226,7 +229,7 @@ void grantInitialUpgrades(int player) {
     grantUpgrade(player, "AdeptPiercingAttack");
     // firebat
     // grantUpgrade(player, "FirebatJuggernautPlating"); // if the firebats end up being bad, lets add this in. 
-    grantUpgrade(player, "BearclawNozzles");
+    grantUpgrade(player, "BearclawNozzles"); // this did make the firebats OP, so I had to increase the price on the firebat
 
     // lurker
     grantUpgrade(player, "LurkerRange");

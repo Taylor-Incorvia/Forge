@@ -79,7 +79,6 @@ Button/Name/KD8Charge=KD8 Charge
 Button/Name/LightningBomb=Disintegration
 Button/Name/MissilePods=Missile Pods
 Button/Name/NeuralParasite=Neural Parasite
-Button/Name/ParasiticBomb=Parasitic Bomb
 Button/Name/PsionicShockwave2=F_Psionic Shockwave
 Button/Name/RavagerCorrosiveBile=Corrosive Bile
 Button/Name/RavenScramblerMissile=Interference Matrix
@@ -273,8 +272,9 @@ Button/Tooltip/Siphon=Morph Defiler
 Button/Tooltip/TwinLinkedFlameThrowers1=Upgrades the Hellion's flamethrower to a twin-linked configuration, increasing its attack damage.
 Button/Tooltip/Vulture=Fast skirmish unit. Can use the KD8 Charge ability(Reaper Grenade - but with 12 damage instead of 5).<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c> 
 Button/Tooltip/YamatoGun2=Blasts a target with a devastating plasma cannon, causing <d ref="Effect,YamatoU,Amount"/> damage.
-DocInfo/DescShort=Any
-DocInfo/Name=Just Another StarCraft II Mod
+DocInfo/DescLong=PICK TERRAN (P/Z don’t work) – Barracks/Factory/Starport produce semi-random units from all races at each tech level. Build Ghost Academy/Armory/Fusion Core to unlock upgrades and add-ons that let you tech up. (Re-researching upgrades gives no bonus.)
+DocInfo/DescShort=1v1/2v2/3v3/4v4
+DocInfo/Name=Wildcard Arena - (Terran Only)
 Effect/Name/Blink2=Blink (Teleport)
 Effect/Name/UnknownEffect=Unknown Effect
 RequirementNode/Tooltip/CountUnitAlias_FactoryCompleteOnly96167438TechTreeCheat=Factory

@@ -3,6 +3,7 @@ Button/Hotkey/BlindingCloud=G
 Button/Hotkey/Blink=G
 Button/Hotkey/BuildAutoTurret=G
 Button/Hotkey/Charge=G
+Button/Hotkey/ChronoBoostEnergyCost=E
 Button/Hotkey/DefilerMPPlague=C
 Button/Hotkey/F_Blink=G
 Button/Hotkey/F_Charge=G

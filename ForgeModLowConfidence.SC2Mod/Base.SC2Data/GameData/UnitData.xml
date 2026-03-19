@@ -544,7 +544,7 @@
     </CUnit>
     <CUnit id="Viper">
         <CardLayouts index="0">
-            <LayoutButtons index="9" Row="1"/>
+            <LayoutButtons index="9" Column="4"/>
         </CardLayouts>
         <EnergyStart value="150"/>
     </CUnit>

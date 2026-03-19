@@ -11,6 +11,7 @@
     </CButton>
     <CButton id="ChronoBoostEnergyCost">
         <HotkeyAlias value="CalldownMULE"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="F_DefensiveMatrix">
         <Icon value="Assets\Textures\btn-ability-terran-defensivematrix.dds"/>
