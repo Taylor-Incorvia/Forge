@@ -435,7 +435,7 @@
             <LayoutButtons index="4" Face="Bunker" AbilCmd="TerranBuild,Build7" Row="2" Column="0"/>
             <LayoutButtons index="5" Face="MissileTurret" AbilCmd="TerranBuild,Build6" Column="1"/>
             <LayoutButtons index="6" Face="Cancel" Type="CancelSubmenu" AbilCmd="" Column="4"/>
-            <LayoutButtons index="7" removed="1"/>
+            <LayoutButtons index="7" Face="GhostAcademy2" AbilCmd="TerranBuild,Build10" Row="1" Column="1"/>
             <LayoutButtons index="8" removed="1"/>
         </CardLayouts>
     </CUnit>

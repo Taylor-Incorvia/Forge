@@ -168,6 +168,12 @@
         <Name value="Button/Name/GravitonBeam"/>
         <AlertName value="Button/Name/GravitonBeam"/>
     </CButton>
+    <CButton id="GhostAcademy2">
+        <Icon value="Assets\Textures\btn-building-terran-ghostacademy.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-ghostacademy.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="EngineeringBay"/>
+    </CButton>
     <CButton id="HighTemplar">
         <HotkeyAlias value="Ghost"/>
         <EditorCategories value="Race:Terran"/>

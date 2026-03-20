@@ -1557,7 +1557,7 @@
             <Vital index="Energy" value="40"/>
             <Cooldown Link="TransfusionTransfusion5TransfusionF_Transfusion" TimeUse="1"/>
         </Cost>
-        <TargetFilters value="Biological,Visible;Self,Neutral,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden,Invulnerable"/>
+        <TargetFilters value="Visible;Self,Neutral,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden,Invulnerable"/>
         <Range value="7"/>
         <CastIntroTime value="0.2"/>
         <FinishTime value="0.8"/>
