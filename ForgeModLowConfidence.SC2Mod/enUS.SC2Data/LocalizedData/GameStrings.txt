@@ -274,6 +274,15 @@ Button/Tooltip/Vulture=Fast skirmish unit. Can use the KD8 Charge ability(Reaper
 Button/Tooltip/YamatoGun2=Blasts a target with a devastating plasma cannon, causing <d ref="Effect,YamatoU,Amount"/> damage.
 DocInfo/DescLong=PICK TERRAN (P/Z don’t work) – Barracks/Factory/Starport produce semi-random units from all races at each tech level. Build Ghost Academy/Armory/Fusion Core to unlock upgrades and add-ons that let you tech up. (Re-researching upgrades gives no bonus.)
 DocInfo/DescShort=1v1/2v2/3v3/4v4
+DocInfo/HowToPlayAdvanced00=Barracks/Factory/Starport use a slot system – Lower tech units are in Slot 1, higher tech units appear in later slots (up to Slot 4).
+DocInfo/HowToPlayAdvanced01=Ghost Academy/Armory/Fusion Core use the same slot system. Slot 1 ability on the GA will produce an upgrade that applies to barracks slot 1
+DocInfo/HowToPlayAdvanced02=Addons unlock the highest tech level units - Addons do not allow double production
+DocInfo/HowToPlayAdvanced03=To build an addon on a production facility, you must have the corresponding upgrade facility completed. 
+DocInfo/HowToPlayAdvanced04=Upgrades don’t stack - Researching the same upgrade twice has no additional effect 
+DocInfo/HowToPlayBasic00=Pick Terran – All players must choose Terran. Terran buildings will produce units from all races randomized each game.
+DocInfo/HowToPlayBasic01=Units that can be produced by Barracks/Factory/Starport at each tech level are semi-randomized at the start of the game. 
+DocInfo/HowToPlayBasic02=Ghost Academy, Armory and Fusion core will have upgrades that apply to units from the corresponding production structure
+DocInfo/HowToPlayWinning00=Standard melee win conditions. 
 DocInfo/Name=Wildcard Arena - (Terran Only)
 Effect/Name/Blink2=Blink (Teleport)
 Effect/Name/UnknownEffect=Unknown Effect

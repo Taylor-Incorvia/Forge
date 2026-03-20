@@ -95,7 +95,7 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="ArbiterMPStasisFieldSearch"/>
         <Cost>
-            <Vital index="Energy" value="100"/>
+            <Vital index="Energy" value="125"/>
         </Cost>
         <Range value="9"/>
         <CursorEffect value="ArbiterMPStasisFieldSearch"/>
@@ -144,7 +144,7 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Effect index="0" value="ArbiterMPRecallSearch"/>
         <Cost>
-            <Vital index="Energy" value="100"/>
+            <Vital index="Energy" value="125"/>
             <Charge Link=""/>
             <Cooldown Link=""/>
         </Cost>
@@ -1576,6 +1576,9 @@
             <Flags index="UseDefaultButton" value="1"/>
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
+        <Cost index="0">
+            <Vital index="Energy" value="125"/>
+        </Cost>
     </CAbilEffectTarget>
     <CAbilResearch id="Transfusion1">
         <EditorCategories value="AbilityorEffectType:Units"/>
