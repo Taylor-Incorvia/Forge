@@ -113,6 +113,8 @@ void initializeUpgrades() {
 
     addAbilityToUpgrade("Blink", "F_Blink");
     addUpgradeRequirementTag("Blink", logicType_NoneOf, "unitTag", "caster"); // casters with blink sounds underwhelming 90% of the time and completely abusive 10% of the time
+    addAltFormBannedAbility("LurkerBurrowed", "F_Blink"); // burrowed lurkers shouldn't blink
+    addAltFormBannedAbility("SiegeTankSieged", "F_Blink"); // sieged tanks shouldn't blink
 
     addAbilityToUpgrade("D8Charge", "F_D8Charge"); // clusterbomb (campaign)
     addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", rax +"4");

@@ -3,7 +3,19 @@ include "TriggerLibs/nativeHelpers"
 include "TriggerLibs/stringHelpers"
 include "TriggerLibs/forgeUnitHelpers"
 
+string altFormBannedAbilitiesListKey = "altFormBannedAbilities";
 
+void addAltFormBannedAbility(string unitId, string ability) {
+    listStringRequire(altFormBannedAbilitiesListKey);
+    addToStringList(altFormBannedAbilitiesListKey, unitId + ":" + ability);
+}
+
+bool isAltFormBannedAbility(string unitId, string ability) {
+    if (!stringListExists(altFormBannedAbilitiesListKey)) {
+        return false;
+    }
+    return stringListContains(altFormBannedAbilitiesListKey, unitId + ":" + ability);
+}
 
 string getUnitAbilityListKey(string unitName, int player){
     return "player." + IntToString(player) + "." + unitName + "." + "abilityList";
@@ -38,7 +50,9 @@ void applyAbilityListToUnit(unit u){
 
     for(index = 0; index < getStringListSize(key); index+= 1){
         // showMessage("abilityList for " + unitName + " at index " + IntToString(index) + ": " + getStringAtIndex(key, index));
-        UnitAbilityAdd(u, getStringAtIndex(key, index));
+        if (!isAltFormBannedAbility(unitName, getStringAtIndex(key, index))) {
+            UnitAbilityAdd(u, getStringAtIndex(key, index));
+        }
     }
 }
 
@@ -47,7 +61,7 @@ void grantAbilityToExistingUnitsOfTypeForPlayer(int playerIndex, string ability,
 
     applyToLivingUnitsOfTypeForPlayer(playerIndex, unitName, c_applyKindAbility, ability);
 
-    if (altFormUnitName != "") {
+    if (altFormUnitName != "" && !isAltFormBannedAbility(altFormUnitName, ability)) {
         applyToLivingUnitsOfTypeForPlayer(playerIndex, altFormUnitName, c_applyKindAbility, ability);
     }
 }

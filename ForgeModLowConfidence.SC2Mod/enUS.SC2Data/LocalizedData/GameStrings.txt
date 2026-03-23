@@ -113,7 +113,7 @@ Button/Name/TwinLinkedFlameThrowers1=Twin-Linked Flamethrowers
 Button/Name/VoidMPImmortalRevive2=Immortal Revive
 Button/Name/Yamato=Yamato
 Button/Name/YamatoGun2=Yamato Cannon
-Button/Tooltip/Armory=Contains randomized upgrades that each apply to a single factory unit slot.<n/>Enables Factory slot 2 units to be built from the Factory. <n/>Enables add on to be built from the factory.
+Button/Tooltip/Armory=Contains randomized upgrades that each apply to a single factory unit slot.<n/>Enables Factory slot 2 units to be built from the Factory. <n/>Enables add on to be built from the factory. <n/> Upgrades remain available after research so players can easily track which randomized upgrades were rolled this game. Re-researching an upgrade has no effect. 
 Button/Tooltip/ClusterWarheads2=Increases the splash damage area of the Dusk Wing's attack.
 Button/Tooltip/DefilerMPDarkSwarm=Allied units in the area of effect take 0 damage from ranged attacks.
 Button/Tooltip/F_ArbiterMPRecall=Teleports all friendly units in the target area to the location of the Arbiter.
@@ -143,11 +143,12 @@ Button/Tooltip/F_RavagerCorrosiveBile=Launch a missile at the target location, d
 Button/Tooltip/F_RavenScramblerMissile=Disables a target unit rendering it unable to attack or use abilities for <d ref="Behavior,RavenScramblerMissile,Duration"/> seconds. Reveals Cloaked units.<n/><n/><c val="#ColorAttackInfo">Can target mechanical and psionic units.</c>
 Button/Tooltip/F_TempestDisruptionBlast=Charges up for <d ref="Abil,TempestDisruptionBlast,CastIntroTime[0]"/> seconds, and then stuns enemy ground units and ground structures in the target area for <d ref="Behavior,TempestDisruptionBlastStunBehavior,Duration"/> seconds.
 Button/Tooltip/F_Transfusion=Instantly heals target biological unit or structure for <d ref="Effect,Transfusion,VitalArray[Life].Change"/> life. An additional <d ref="Behavior,Transfusion,Duration/Behavior,Transfusion,Period*Effect,TransfusionHealTick,VitalArray[Life].Change"  precision="3"/> life regenerates over <d ref="Behavior,Transfusion,Duration"/> seconds.
-Button/Tooltip/FusionCore=Contains randomized upgrades that each apply to a single Starport unit slot.<n/>Enables Starport slot 2 units to be built from the Starport. <n/>Enables add on to be built from the Starport. 
-Button/Tooltip/GhostAcademy=Contains randomized upgrades that each apply to a single barracks unit slot.<n/>Enables barracks slot 3 units to be built from the Barracks. <n/>Enables add on to be built from the Barracks.  <n/>Requirements for building a starport are Engineering Academy or Factory. 
-Button/Tooltip/GhostAcademy2=Contains randomized upgrades that each apply to a single barracks unit slot.<n/>Enables barracks slot 3 units to be built from the Barracks. <n/>Enables add on to be built from the Barracks.  <n/>Requirements for building a starport are Engineering Academy or Factory. 
+Button/Tooltip/FusionCore=Contains randomized upgrades that each apply to a single Starport unit slot.<n/>Enables Starport slot 2 units to be built from the Starport. <n/>Enables add on to be built from the Starport. <n/> Upgrades remain available after research so players can easily track which randomized upgrades were rolled this game. Re-researching an upgrade has no effect. 
+Button/Tooltip/GhostAcademy=Contains randomized upgrades that each apply to a single barracks unit slot.<n/>Enables barracks slot 3 units to be built from the Barracks. <n/>Enables add on to be built from the Barracks.  <n/>Requirements for building a starport are Engineering Academy or Factory. <n/> Upgrades remain available after research so players can easily track which randomized upgrades were rolled this game. Re-researching an upgrade has no effect. 
+Button/Tooltip/GhostAcademy2=Contains randomized upgrades that each apply to a single barracks unit slot.<n/>Enables barracks slot 3 units to be built from the Barracks. <n/>Enables add on to be built from the Barracks.  <n/>Requirements for building a starport are Engineering Academy or Factory. <n/> Upgrades remain available after research so players can easily track which randomized upgrades were rolled this game. Re-researching an upgrade has no effect. 
 Button/Tooltip/HighCapacityBarrels1=Increases the hellion's attack damage by +5 (to +11) vs light units and the hellbat's attack damage by +12 vs light units. The flame changes to a blue color.
 Button/Tooltip/PsionicShockwave2=Releases a burst of psionic energy radiating outward from the Hybrid, knocking away all units and stunning them momentarily.
+Button/Tooltip/Reactor=Allows Factory slot 3 units to be produced. Does NOT allow double unit production. 
 Button/Tooltip/ResearchArbiterMPRecall1=Grants the Recall ability to the slot 1 unit. Teleports all allied units in the area of effect to the caster.
 Button/Tooltip/ResearchArbiterMPRecall2=Grants the Recall ability to the slot 2 unit. Teleports all allied units in the area of effect to the caster.
 Button/Tooltip/ResearchArbiterMPRecall3=Grants the Recall ability to the slot 3 unit. Teleports all allied units in the area of effect to the caster.
@@ -275,10 +276,11 @@ Button/Tooltip/ResearchYoink4=Grants the Abduct ability to the slot 4 unit. Pull
 Button/Tooltip/Roach=Cheaply built mechanized zerg assault unit. Less health than a standard roach. Can use lunge ability. 
 Button/Tooltip/Siphon=Morph Defiler
 Button/Tooltip/Starport=Air-unit production facility. Requires FACTORY or ENGINEERING ACADEMY to construct. 
+Button/Tooltip/TechReactor=Enables starport slot 3 construction. Does NOT allow double production. 
 Button/Tooltip/TwinLinkedFlameThrowers1=Upgrades the Hellion's flamethrower to a twin-linked configuration, increasing its attack damage.
 Button/Tooltip/Vulture=Fast skirmish unit. Can use the KD8 Charge ability(Reaper Grenade - but with 12 damage instead of 5).<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c> 
 Button/Tooltip/YamatoGun2=Blasts a target with a devastating plasma cannon, causing <d ref="Effect,YamatoU,Amount"/> damage.
-DocInfo/DescLong=PICK TERRAN (P/Z don’t work) – Barracks/Factory/Starport produce semi-random units from all races at each tech level. Build Engineering Academy/Armory/Fusion Core to unlock upgrades and add-ons that let you tech up. (Re-researching upgrades gives no bonus.)
+DocInfo/DescLong=PICK TERRAN (P/Z don’t work) – Barracks/Factory/Starport produce semi-random units from all races at each tech level. Build Engineering Academy/Armory/Fusion Core to unlock upgrades and add-ons that let you tech up. (Re-researching upgrades gives no bonus.) https://discord.gg/hdT6FCyM
 DocInfo/DescShort=1v1/2v2/3v3/4v4
 DocInfo/HowToPlayAdvanced00=Barracks/Factory/Starport use a slot system – Lower tech units are in Slot 1, higher tech units appear in later slots (up to Slot 4).
 DocInfo/HowToPlayAdvanced01=Eng Academy/Armory/Fusion Core use the same slot system. Slot 1 ability on the Armory will produce an upgrade that applies to Factory slot 1
@@ -290,6 +292,7 @@ DocInfo/HowToPlayBasic01=Units that can be produced by Barracks/Factory/Starport
 DocInfo/HowToPlayBasic02=Engineering Academy, Armory and Fusion core will have upgrades that apply to units from the corresponding production structure
 DocInfo/HowToPlayWinning00=Standard melee win conditions. 
 DocInfo/Name=Wildcard Arena - (Terran Only)
+DocInfo/Website=https://discord.gg/hdT6FCyM
 Effect/Name/Blink2=Blink (Teleport)
 Effect/Name/UnknownEffect=Unknown Effect
 RequirementNode/Tooltip/CountUnitAlias_FactoryCompleteOnly96167438TechTreeCheat=Factory

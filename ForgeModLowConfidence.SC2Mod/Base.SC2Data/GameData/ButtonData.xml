@@ -206,7 +206,7 @@
         <AlertName value="Button/Name/Hyperjump"/>
     </CButton>
     <CButton id="Immortal">
-        <HotkeyAlias value="WidowMine"/>
+        <HotkeyAlias value="SiegeTank"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="Infestor">
@@ -1132,9 +1132,6 @@
         <HotkeyAlias value="Marauder"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
-    <CButton id="SiegeTank">
-        <HotkeyAlias value="WidowMine"/>
-    </CButton>
     <CButton id="Siphon">
         <HotkeyAlias value="Ghost"/>
     </CButton>
@@ -1195,7 +1192,7 @@
         <HotkeyAlias value="Hellion"/>
     </CButton>
     <CButton id="WarHound">
-        <HotkeyAlias value="WidowMine"/>
+        <HotkeyAlias value="SiegeTank"/>
     </CButton>
     <CButton id="WarpInAdept">
         <HotkeyAlias value="Marauder"/>
