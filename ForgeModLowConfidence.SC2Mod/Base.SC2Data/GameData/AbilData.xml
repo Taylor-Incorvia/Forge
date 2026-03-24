@@ -164,7 +164,7 @@
         </CmdButtonArray>
     </CAbilEffectTarget>
     <CAbilBuild id="BarracksAddOns">
-        <InfoArray index="Build1" Time="84">
+        <InfoArray index="Build1" Time="56">
             <Button Requirements="ShowIfHaveBarrAddOnParent2"/>
         </InfoArray>
     </CAbilBuild>
@@ -195,18 +195,18 @@
         <InfoArray index="Train3">
             <Button Requirements="barracks4ghostreq"/>
         </InfoArray>
-        <InfoArray index="Train4">
+        <InfoArray index="Train4" Time="28">
             <Button Requirements="barracks3marauderreq"/>
         </InfoArray>
-        <InfoArray index="Train5" Time="10">
+        <InfoArray index="Train5" Time="5.6">
             <Button DefaultButtonFace="Zergling" State="Available" Requirements="barracksZergling"/>
             <Unit value="Zergling"/>
         </InfoArray>
-        <InfoArray index="Train6" Time="35">
+        <InfoArray index="Train6" Time="21">
             <Button DefaultButtonFace="Zealot" Requirements="barracksZealot"/>
             <Unit value="Zealot"/>
         </InfoArray>
-        <InfoArray index="Train7" Time="38">
+        <InfoArray index="Train7" Time="25.2">
             <Button DefaultButtonFace="Stalker" Requirements="barracks2stalkerreq"/>
             <Unit value="Stalker"/>
         </InfoArray>
@@ -214,19 +214,19 @@
             <Button DefaultButtonFace="Archon" Requirements="barracks4archonreq"/>
             <Unit value="Archon"/>
         </InfoArray>
-        <InfoArray index="Train10" Time="50">
+        <InfoArray index="Train10" Time="42">
             <Button DefaultButtonFace="HighTemplar" Requirements="barracks4hightemplarreq"/>
             <Unit value="HighTemplar"/>
         </InfoArray>
-        <InfoArray index="Train11" Time="45">
+        <InfoArray index="Train11" Time="37.8">
             <Button DefaultButtonFace="Infestor" Requirements="barracks4infesterreq"/>
             <Unit value="Infestor"/>
         </InfoArray>
-        <InfoArray index="Train12" Time="30">
+        <InfoArray index="Train12" Time="21">
             <Button DefaultButtonFace="Firebat" Requirements="barracks3firebatreq"/>
             <Unit value="Firebat"/>
         </InfoArray>
-        <InfoArray index="Train13" Time="38">
+        <InfoArray index="Train13" Time="28">
             <Charge TimeStart="17"/>
             <Button DefaultButtonFace="Hydralisk" Requirements="barracks2hydralisktreq"/>
             <Unit value="Hydralisk"/>
@@ -235,19 +235,19 @@
             <Button DefaultButtonFace="WarpInAdept" Requirements="barracks3adeptreq"/>
             <Unit value="Adept"/>
         </InfoArray>
-        <InfoArray index="Train15" Time="30">
+        <InfoArray index="Train15" Time="21">
             <Button DefaultButtonFace="Sentry" Requirements="barracks3sentryreq"/>
             <Unit value="Sentry"/>
         </InfoArray>
-        <InfoArray index="Train16" Time="30">
+        <InfoArray index="Train16" Time="26.6">
             <Button DefaultButtonFace="Medic" Requirements="barracks2medicreq"/>
             <Unit value="Medic"/>
         </InfoArray>
-        <InfoArray index="Train17" Time="45">
+        <InfoArray index="Train17" Time="37.8">
             <Button DefaultButtonFace="LurkerFromHydraliskBurrowed" Requirements="barracks4lurkerreq"/>
             <Unit value="Lurker"/>
         </InfoArray>
-        <InfoArray index="Train18" Time="24">
+        <InfoArray index="Train18" Time="21">
             <Button DefaultButtonFace="HireKelmorianMiners" Requirements="barracks2warpigtreq"/>
             <Unit value="WarPig"/>
         </InfoArray>
@@ -491,7 +491,7 @@
             <Vital index="Energy" value="40"/>
         </Cost>
         <TargetFilters value="Ground,Visible;Self,Neutral,Massive,Structure,Destructible,Invulnerable"/>
-        <Range value="4"/>
+        <Range value="6"/>
         <RangeSlop value="4"/>
         <CancelableArray index="Channel" value="1"/>
         <UninterruptibleArray index="Channel" value="1"/>
@@ -1202,23 +1202,23 @@
         </InfoArray>
     </CAbilResearch>
     <CAbilBuild id="FactoryAddOns">
-        <InfoArray index="Build1" Unit="FactoryReactor" Time="112">
+        <InfoArray index="Build1" Unit="FactoryReactor" Time="56">
             <Button DefaultButtonFace="Reactor" Requirements="HaveArmory"/>
         </InfoArray>
-        <InfoArray index="Build2" Time="112"/>
+        <InfoArray index="Build2" Time="56"/>
     </CAbilBuild>
     <CAbilTrain id="FactoryTrain">
         <InfoArray index="Train2">
             <Button Requirements="factory2siegetank"/>
         </InfoArray>
-        <InfoArray index="Train5" Time="68">
+        <InfoArray index="Train5" Time="67.2">
             <Button Requirements="factory3thor"/>
             <Unit index="0" value="ThorAP"/>
         </InfoArray>
-        <InfoArray index="Train6">
+        <InfoArray index="Train6" Time="21">
             <Button Requirements="UnknownRequirement3"/>
         </InfoArray>
-        <InfoArray index="Train9" Time="29">
+        <InfoArray index="Train9" Time="21">
             <Button DefaultButtonFace="Vulture" Requirements="factory1vulture"/>
             <Unit value="Vulture"/>
         </InfoArray>
@@ -1230,15 +1230,15 @@
             <Button DefaultButtonFace="Ravager" Requirements="factory1ravager"/>
             <Unit value="Ravager"/>
         </InfoArray>
-        <InfoArray index="Train12" Time="77">
+        <InfoArray index="Train12" Time="72.8">
             <Button DefaultButtonFace="Immortal" Requirements="UnknownRequirement4"/>
             <Unit value="Immortal"/>
         </InfoArray>
-        <InfoArray index="Train13" Time="75">
+        <InfoArray index="Train13" Time="67.2">
             <Button DefaultButtonFace="Colossus" Requirements="UnknownRequirement5"/>
             <Unit value="Colossus"/>
         </InfoArray>
-        <InfoArray index="Train14" Time="68">
+        <InfoArray index="Train14" Time="67.2">
             <Button DefaultButtonFace="Ultralisk" Requirements="UnknownRequirement6"/>
             <Unit value="Ultralisk"/>
         </InfoArray>
@@ -1246,7 +1246,7 @@
             <Button DefaultButtonFace="Diamondback" Requirements="factory2diamondback"/>
             <Unit value="Diamondback"/>
         </InfoArray>
-        <InfoArray index="Train16" Time="60">
+        <InfoArray index="Train16" Time="72.8">
             <Button DefaultButtonFace="WarHound" Requirements="factory2warhound"/>
             <Unit value="WarHound"/>
         </InfoArray>
@@ -1254,7 +1254,7 @@
             <Button DefaultButtonFace="Observer"/>
             <Unit value="Observer"/>
         </InfoArray>
-        <InfoArray index="Train18" Time="34">
+        <InfoArray index="Train18" Time="25.2">
             <Button DefaultButtonFace="Roach" Requirements="barracks2roachreq"/>
             <Unit value="Roach"/>
         </InfoArray>
@@ -1396,7 +1396,7 @@
         <InfoArray index="Build1">
             <Button Requirements="UnknownRequirement12"/>
         </InfoArray>
-        <InfoArray index="Build3" Unit="StarportTechReactor" Time="112">
+        <InfoArray index="Build3" Unit="StarportTechReactor" Time="67.2">
             <Button DefaultButtonFace="TechReactor" Requirements="UnknownRequirement12"/>
         </InfoArray>
     </CAbilBuild>
@@ -1407,39 +1407,40 @@
         <InfoArray index="Train2">
             <Button Requirements="starport2bansheereq"/>
         </InfoArray>
-        <InfoArray index="Train3" Time="54">
+        <InfoArray index="Train3" Time="37.8">
             <Button Requirements="UnknownRequirement10"/>
         </InfoArray>
-        <InfoArray index="Train4" Time="83">
+        <InfoArray index="Train4" Time="70">
+            <Cooldown TimeStart="70"/>
             <Button Requirements="starport3battlecruiserreq2"/>
         </InfoArray>
-        <InfoArray index="Train5">
+        <InfoArray index="Train5" Time="30.8">
             <Button Requirements="UnknownRequirement7"/>
         </InfoArray>
-        <InfoArray index="Train6" Time="35">
+        <InfoArray index="Train6" Time="30.8">
             <Button DefaultButtonFace="Phoenix" Requirements="starport1phoenixreq"/>
             <Unit value="Phoenix"/>
         </InfoArray>
-        <InfoArray index="Train7" Time="52">
+        <InfoArray index="Train7" Time="49">
             <Button Requirements="UnknownRequirement9"/>
         </InfoArray>
-        <InfoArray index="Train8" Time="35">
+        <InfoArray index="Train8" Time="30.8">
             <Button DefaultButtonFace="Wraith" Requirements="starport1wraithreq"/>
             <Unit value="Wraith"/>
         </InfoArray>
-        <InfoArray index="Train9" Time="28">
+        <InfoArray index="Train9" Time="20">
             <Button DefaultButtonFace="Mutalisk" Requirements="UnknownRequirement8"/>
             <Unit value="Mutalisk"/>
         </InfoArray>
-        <InfoArray index="Train10" Time="60">
+        <InfoArray index="Train10" Time="58.8">
             <Button DefaultButtonFace="Tempest" Requirements="starport3tempestreq"/>
             <Unit value="Tempest"/>
         </InfoArray>
-        <InfoArray index="Train11" Time="55">
+        <InfoArray index="Train11" Time="39.2">
             <Button DefaultButtonFace="Viper" Requirements="starport3viperreq"/>
             <Unit value="Viper"/>
         </InfoArray>
-        <InfoArray index="Train12" Time="37">
+        <InfoArray index="Train12" Time="30.8">
             <Button DefaultButtonFace="Corsair" Requirements="starport1corsairreq"/>
             <Unit value="CorsairMP"/>
         </InfoArray>
@@ -1451,7 +1452,7 @@
             <Button DefaultButtonFace="Arbiter" Requirements="starport3arbiterreq"/>
             <Unit value="ArbiterMP"/>
         </InfoArray>
-        <InfoArray index="Train15" Time="42">
+        <InfoArray index="Train15" Time="39.2">
             <Button DefaultButtonFace="HireDuskWing" Requirements="starport2duskwingreq"/>
             <Unit value="DuskWing"/>
         </InfoArray>
@@ -1525,7 +1526,7 @@
             <Cooldown TimeUse="60"/>
         </CancelCost>
         <Range value="10"/>
-        <CastIntroTime value="6"/>
+        <CastIntroTime value="1.75"/>
         <ShowProgressArray index="Cast" value="1"/>
         <CancelableArray index="Cast" value="1"/>
         <UninterruptibleArray index="Cast" value="1"/>
@@ -1542,17 +1543,20 @@
         <InfoArray index="Build6">
             <Button Requirements="HaveBarracks"/>
         </InfoArray>
+        <InfoArray index="Build10" Time="43.4"/>
         <InfoArray index="Build12">
             <Button Requirements="havefavtoryorghostacademy"/>
         </InfoArray>
         <InfoArray index="Build13" Unit="Nexus" Time="70">
             <Button DefaultButtonFace="Nexus" Requirements="ghostacademyarmoryorfusioncore"/>
         </InfoArray>
+        <InfoArray index="Build14" Time="56"/>
         <InfoArray index="Build15" Unit="Forge" Time="65">
             <Resource index="Minerals" value="200"/>
             <Resource index="Vespene" value="200"/>
             <Button DefaultButtonFace="Forge" Requirements="HaveNexus"/>
         </InfoArray>
+        <InfoArray index="Build16" Time="56"/>
     </CAbilBuild>
     <CAbilEffectTarget id="F_Transfusion">
         <Alignment value="Positive"/>
