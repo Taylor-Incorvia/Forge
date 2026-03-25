@@ -21,6 +21,9 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Modification WeaponRange="2.5"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="TempestDisruptionBlastStunBehavior">
+        <Duration value="4.2"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="blink_test">
         <EditorCategories value="AbilityorEffectType:Units"/>
     </CBehaviorBuff>

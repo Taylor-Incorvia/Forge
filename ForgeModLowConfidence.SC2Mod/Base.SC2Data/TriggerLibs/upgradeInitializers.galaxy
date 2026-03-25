@@ -136,6 +136,7 @@ void initializeUpgrades() {
 
     addBehaviorToUpgrade("Speed", "Speed");
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "caster");
+    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Tempest"); // Tempests become insanely opressive. unbeatable. no counter play. 
 
     addAbilityToUpgrade("Stimpack", "F_Stimpack");
     addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "caster");

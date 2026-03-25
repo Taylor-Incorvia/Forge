@@ -1526,7 +1526,7 @@
             <Cooldown TimeUse="60"/>
         </CancelCost>
         <Range value="10"/>
-        <CastIntroTime value="1.75"/>
+        <CastIntroTime value="2.45"/>
         <ShowProgressArray index="Cast" value="1"/>
         <CancelableArray index="Cast" value="1"/>
         <UninterruptibleArray index="Cast" value="1"/>
