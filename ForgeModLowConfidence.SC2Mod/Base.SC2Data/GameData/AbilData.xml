@@ -1539,7 +1539,7 @@
         <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
     </CAbilEffectTarget>
     <CAbilBuild id="TerranBuild">
-        <InfoArray index="Build2" Time="29"/>
+        <InfoArray index="Build2" Time="24"/>
         <InfoArray index="Build6">
             <Button Requirements="HaveBarracks"/>
         </InfoArray>
