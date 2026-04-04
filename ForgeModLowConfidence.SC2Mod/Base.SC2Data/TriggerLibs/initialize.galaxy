@@ -136,7 +136,7 @@ void initializeFactorySlot3Pool() {
     int slot = 3;
     string facility = factory;
     addUnitToSlotPool(facility, slot, "ThorAP");
-    addUnitToSlotPool(facility, slot, "Ultralisk"); 
+    addUnitToSlotPool(facility, slot, "Ultralisk");  
     addUnitToSlotPool(facility, slot, "Colossus");
 }
 // ---------------------------------------------------

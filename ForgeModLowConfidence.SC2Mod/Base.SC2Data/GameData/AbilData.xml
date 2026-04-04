@@ -25,7 +25,7 @@
         <CmdButtonArray index="Execute" Requirements=""/>
     </CAbilEffectInstant>
     <CAbilEffectTarget id="MedivacHeal">
-        <TargetFilters index="0" value="Visible;Self,Enemy,Massive,Structure,Missile,Dead,Hidden,Invulnerable,AirUnit"/>
+        <TargetFilters index="0" value="Visible;Self,Enemy,Structure,Missile,Dead,Hidden,Invulnerable,AirUnit"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="ScannerSweep">
         <Cost index="0">
@@ -479,6 +479,7 @@
             <Flags index="UseDefaultButton" value="1"/>
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
+        <Arc value="360"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="F_GravitonBeam">
         <AbilSetId value="Graviton"/>
@@ -1537,6 +1538,7 @@
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
         <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
+        <Arc value="360"/>
     </CAbilEffectTarget>
     <CAbilBuild id="TerranBuild">
         <InfoArray index="Build2" Time="24"/>
@@ -1853,6 +1855,7 @@
             <Flags index="UseDefaultButton" value="1"/>
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
+        <Arc value="360"/>
     </CAbilEffectTarget>
     <CAbilMorph id="UpgradeToOrbital">
         <CmdButtonArray index="Execute" Requirements=""/>
@@ -2639,6 +2642,6 @@
         </InfoArray>
     </CAbilResearch>
     <CAbilEffectTarget id="heal">
-        <TargetFilters index="0" value="Ground,Visible;Self,Enemy,Air,Massive,Structure,Missile,UnderConstruction,Dead,Hidden,Invulnerable"/>
+        <TargetFilters index="0" value="Ground,Visible;Self,Enemy,Air,Structure,Missile,UnderConstruction,Dead,Hidden,Invulnerable"/>
     </CAbilEffectTarget>
 </Catalog>

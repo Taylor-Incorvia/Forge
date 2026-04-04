@@ -120,10 +120,10 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", rax +"4");
     addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", factory +"3");
     addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", starport +"3");
-    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Colossus");
+    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Colossus"); // lame
     addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Ultralisk"); // underwhelming for ultralisk. 
     addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "ScienceVessel"); // couldn't turn towards target
-    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Immortal"); // couldn't turn towards target
+    addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "Immortal"); // lame
     addUpgradeRequirementTag("D8Charge", logicType_NoneOf, "unitTag", "caster"); // I didn't like how this doesn't cost energy.
 
     addBehaviorToUpgrade("Range", "Range");
@@ -132,7 +132,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Lurker");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Hellion");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Liberator");
-    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Zealot"); // for some reason the zealot would not deal damage if the enemy was at the tip of the range. Didn't see the same behaviuro with zergling
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Zealot"); // FIXED: by effect validator range increase -- original:: for some reason the zealot would not deal damage if the enemy was at the tip of the range. Didn't see the same behaviuro with zergling
 
     addBehaviorToUpgrade("Speed", "Speed");
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "caster");
@@ -143,8 +143,6 @@ void initializeUpgrades() {
 
     addAbilityToUpgrade("TempestDisruptionBlast", "F_TempestDisruptionBlast");
     addUpgradeRequirementTag("TempestDisruptionBlast", logicType_NoneOf, "unitTag", "caster");
-    addUpgradeRequirementTag("TempestDisruptionBlast", logicType_NoneOf, "unitTag", "Colossus"); // can't turn towards target
-    addUpgradeRequirementTag("TempestDisruptionBlast", logicType_NoneOf, "unitTag", "Immortal"); // couldn't turn towards target
     addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", factory +"3");
     addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", starport +"3");
 
@@ -155,10 +153,10 @@ void initializeUpgrades() {
 
     addAbilityToUpgrade("KD8Charge", "F_KD8Charge"); // reaper grenade (multiplayer)
     addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", factory +"2");
     addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", factory +"3");
     addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", starport +"3");
     addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Vulture");
-    addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Immortal"); // couldn't turn towards target
     addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "caster");
     addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Zergling"); // I buffed the spell so it does more damage. If it wasn't already crazy on a zergling, now it is. 
 
@@ -212,7 +210,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "VikingFighter");
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Wraith");
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "CorsairMP");
-    // addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Colossus"); // COULDNT TURN TOWARDS TARGET :(
+    addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Colossus"); // COULDNT TURN TOWARDS TARGET issue was fixed by increasing arc to 360
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Phoenix");
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Medic");
 

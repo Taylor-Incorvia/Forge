@@ -3,4 +3,7 @@
     <CValidatorLocationCompareRange id="ChargeMaxDistance">
         <Range value="6"/>
     </CValidatorLocationCompareRange>
+    <CValidatorLocationCompareRange id="ZealotAttackDamageMaxRange">
+        <Range value="4"/>
+    </CValidatorLocationCompareRange>
 </Catalog>
