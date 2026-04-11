@@ -78,7 +78,31 @@ Multiple symptoms:
 - The editor crashed at one point, requiring file integrity verification
 - "Close and reopen the document" was the only reliable way to make external edits land — and even that was inconsistent
 
-**Recommendation for next attempt:** verify file state on disk before AND after every test, and prefer making structural changes via the SC2 Editor data UI (not external file edits) to keep the editor's in-memory state in sync.
+### 5. **CRITICAL: SC2 Editor destroys sparse indexed arrays in `CUnit`**
+
+This is the actual root cause of most of the bizarre symptoms we chased all day. We didn't discover it until the very end of the session by inspecting the disk state of `Zealot` and `GhostAcademy` directly.
+
+**The editor normalizes `CUnit.AbilArray` and `CUnit.CardLayouts.LayoutButtons` into dense arrays.** When you save or even open a unit that has sparse indexed entries (e.g. `<AbilArray index="10" Link="F_Blink"/>` with no entries at indices 6–9), the editor:
+- Fills the gaps with empty placeholder entries (`<AbilArray/>`, `<LayoutButtons Row="0" Column="0"/>`)
+- **Strips the `index` attribute from your high-index entries**, so they end up appended at the end of the array with no explicit index
+- Converts `removed="1"` entries to `Link=""` (similar but possibly different semantics)
+- For LayoutButtons, replaces specific `index="N"` markers with `Type="Undefined" AbilCmd=""` and dumps your real entry at the end without an index
+
+Once this normalization happens, your custom entries no longer render correctly. The LayoutButtons reference to `F_Blink`/`Blink` button is still in the file but stripped of its index attribute, and the renderer doesn't place it where you intended.
+
+We confirmed this on both Zealot and GhostAcademy at the end of the session. Both units had:
+- `AbilArray index="N" Link="..."` → expanded to dense `index="2"`, `index="3"`, then 6 empty `<AbilArray/>` placeholders, then our entry with no index
+- `LayoutButtons index="6" removed="1"` → became `<LayoutButtons index="6" Face="" Type="Undefined" AbilCmd="" Row="0"/>` followed by 23 empty `<LayoutButtons Row="0" Column="0"/>` placeholders, then our entry with no index attribute
+
+**Why we didn't catch this earlier:** every time we made an external edit and tested, we (or the user via the editor's data UI) eventually opened Zealot or GhostAcademy in the editor, which triggered the normalization. The next test would see the destroyed state. Our edits were correct on disk between tests; they just got wiped on the next editor open.
+
+**Recommendations for next attempt:**
+1. **Never edit `CUnit.AbilArray` or `CUnit.CardLayouts.LayoutButtons` via the SC2 Editor's data UI** for units with custom static-declared abilities. Make all edits to these structures via external XML editors only.
+2. **If you must use the editor data UI for these units, verify the disk state immediately after.** If the editor normalized your entries, restore them via external edit before testing.
+3. **Use sequential dense indices, not sparse high ones.** Our use of `index="10"`, `index="30"`, `index="50"` was specifically to avoid colliding with vanilla indices, but it backfired because the editor "normalized" the gaps. The next attempt should figure out the highest-used vanilla index per unit and append sequentially. (E.g. if vanilla Zealot uses AbilArray indices 0–4, our entries should be at indices 5, 6, 7... not 10, 20, 50.)
+4. **Strongly consider not opening these CUnit entries in the editor at all between sessions.** Treat the XML edits as the source of truth and never let the editor "save" the unit.
+
+This finding alone is worth the entire investigation — without it, the next attempt would have hit the same wall.
 
 ## Files modified in this attempt
 
