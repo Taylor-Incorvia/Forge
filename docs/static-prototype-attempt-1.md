@@ -1,0 +1,137 @@
+# Static Pre-Declaration Prototype — Attempt 1
+
+## Goal
+
+Convert the Blink × Zealot × Rax slot 1 path from `UnitAbilityAdd` (dynamic) to fully static pre-declaration in XML, gated by per-player `CUpgrade` requirements. This was Phase 0 of the broader Option A plan in `~/.claude/plans/snappy-hopping-boole.md`.
+
+End-state we wanted:
+- A `GhostAcademy` whose Rax slot 1 randomly rolled `Blink` shows a Blink research button at column 0
+- Queueing the research hides the button on all of that player's GhostAcademies until cancel/complete
+- Completing it permanently hides the research button AND grants every existing/future Zealot a Blink button
+- Zealot Blink button uses the player-profile-respecting hotkey for vanilla Blink (default = B)
+- No `UnitAbilityAdd` calls in the data path
+
+## What worked
+
+1. **Static `AbilArray` + `CardLayouts/LayoutButtons` declaration on units.** Adding `<AbilArray index="N" Link="..."/>` to a unit works as a way to give the unit a new ability statically. Adding a matching `<LayoutButtons index="N" Face="..." AbilCmd="...,Execute"/>` puts a button on the command card at the specified Row/Column.
+2. **`CmdButtonArray.Requirements` gating.** Setting `Requirements="Forge_Granted_BlinkReq"` on `F_Blink`'s `CmdButtonArray index="Execute"` correctly hides the button until the upgrade count is granted. Using the same requirement on `LayoutButtons.Requirements` also works.
+3. **`CAbilResearch.InfoArray.Button.Requirements` works** — research button on GhostAcademy correctly hid/showed based on `Forge_Rax1_BlinkResearchReq`. Approach 7's claim in `completed-research-button-attempts.md` that `InfoArray.Requirements` is silently ignored was wrong: that field IS read when placed on the `<Button>` sub-node (matching the existing pattern at the user's `Blink4` line 1285).
+4. **Per-facility per-slot research ability (`Forge_Rax1_Blink`) with `Upgrade="Forge_Granted_Blink"`** — SC2 natively grants the linked CUpgrade by 1 when the research level completes. This means Galaxy code is technically optional for the upgrade-grant; SC2 handles it.
+5. **The full requirement chain** — `CRequirementCountUpgrade` → `CRequirementGTE` → `CRequirementAnd` / `CRequirementNot` → `CRequirement` with `NodeArray index="Show"` and `index="Use"` — produces a working show/use gate when wired correctly.
+6. **Galaxy early-return pattern for Blink** in `grantGenericUpgrade` and `setSlotSelectedUpgrade` correctly skipped the dynamic `UnitAbilityAdd` path for Blink while keeping the per-player upgrade count flowing.
+7. **Test hacks for forcing rolls** — modifying `setRandomSlotUnitFromPoolForPlayer` (force Zealot in Rax slot 1) and `assignRandomUpgradeFromPoolToPlayerSlot` (force Blink in Rax slot 1) both worked cleanly.
+8. **`CUnit.AbilArray` max index = 32** (valid indices 0–31). Confirmed via probe entries: indices 16/20/24/28 worked, 32/36/40/44/48 produced `Unable to use index: N` warnings. Standard SC2 ceiling. With ~9 vanilla slots typical and ~22 needed at the worst-case caster (HighTemplar), we have margin for the full Phase 1 rollout.
+9. **End-to-end flow with F_Blink** (the original prototype state). Visibility worked: Blink button on GhostAcademy showed when slot 1 rolled Blink, hid when researching, returned when cancelled, hid permanently when completed. Then F_Blink button appeared on Zealots only after research completion. The user confirmed the flow worked structurally.
+
+## What didn't work / unresolved mysteries
+
+### 1. Hotkey resolution for F_ ability buttons is broken in ways we couldn't pin down
+
+We tried, in roughly this order:
+- Removing `<Hotkey value="G"/>` from F_Blink CButton + adding `Button/Hotkey/F_Blink=B` to GameHotkeys.txt → showed G
+- Adding `<HotkeyAlias value="Blink"/>` to F_Blink CButton, removing the F_Blink GameHotkeys entry → showed G
+- Removing the existing `<CButton id="Blink"><HotkeyAlias value="Ghost"/></CButton>` block (which was the source of G via the alias chain F_Blink → Blink → Ghost) → showed G
+- Removing the empty `Button/Hotkey/Blink=` line that the editor had auto-written → showed G
+- Removing `G=G` fallback line + hardcoding `<Hotkey value="B"/>` on F_Blink + `Button/Hotkey/F_Blink=B` in GameHotkeys → showed **nothing** (no hotkey at all)
+- Removing `<Hotkey value="B"/>`, leaving only `Button/Hotkey/F_Blink=B` → showed **G**
+- Setting `Button/Hotkey/F_Blink=K` (unique diagnostic letter) → user reported F_Blink showing as "unbound" in the in-game customize hotkeys UI
+- Switching `LayoutButtons Face="F_Blink"` → `Face="Blink"` (vanilla button face) and back, with various ability/button-face combinations → either G or nothing
+
+The pattern that **does** work in this mod is the one used by `ResearchStalkerTeleport1`: a `CButton` with **no `<Hotkey>` field** and a direct `Button/Hotkey/<id>=<letter>` entry in GameHotkeys.txt. We replicated that exact pattern for F_Blink and it didn't work — we don't know why. The research button at the GhostAcademy correctly displayed B the entire time using this pattern.
+
+**Possible explanations we never confirmed:**
+- F_Blink might be cached as "unbound" in the user's local SC2 hotkey profile (`Documents/StarCraft II/Accounts/.../*.SC2Hotkeys`), and the profile takes precedence over mod data. The user found F_Blink showing as unbound in the in-game customize UI, which is consistent with this. If true, the fix is to clear the profile entry, not change the mod data.
+- The SC2 Editor's data cache may not be reading our changes consistently. Multiple times we got results that contradicted what was on disk; sometimes the user observed the editor writing back stale data on save.
+- `HotkeyAlias` for ability buttons (vs unit/production buttons) may not propagate hotkey-letter resolution the way it does for unit-tab grouping. Confirmation evidence: the existing `Phoenix → VikingFighter`, `Mutalisk → Banshee` aliases in the mod are clearly for unit-tab grouping, not hotkey inheritance, but we're not 100% sure which use case `HotkeyAlias` actually supports for ability buttons.
+
+### 2. Vanilla Blink ability, statically declared on Zealot, doesn't render its button
+
+When we switched Zealot from F_Blink to vanilla `Blink` (both AbilArray and LayoutButtons), the button stopped rendering entirely. The Forge research completed, the upgrade was granted, the requirement was satisfied — but no button.
+
+**Suspected cause:** the existing override at `AbilData.xml:325` is incomplete:
+```xml
+<CAbilEffectTarget id="Blink">
+    <CmdButtonArray index="Execute" Requirements=""/>
+</CAbilEffectTarget>
+```
+SC2 mod XML overrides for `CmdButtonArray` entries appear to **replace** the entire entry (specifically the indexed `Execute` slot), not merge field-by-field. So this override left vanilla Blink with no `DefaultButtonFace` and no flags inherited from base game data, which broke the button render path.
+
+**Attempted fix:** add `DefaultButtonFace="Blink"` to the override:
+```xml
+<CAbilEffectTarget id="Blink">
+    <CmdButtonArray index="Execute" DefaultButtonFace="Blink" Requirements=""/>
+</CAbilEffectTarget>
+```
+We applied this but the button still didn't show in the next test. Whether the user wanted to add `UseDefaultButton`/`CreateDefaultButton` flags became contentious — the user (correctly) noted those flags are dynamic-add machinery and shouldn't be needed for static declaration. We never got definitive confirmation of whether this fix was sufficient because the editor crashed and the user decided to revert.
+
+### 3. The `G=G` line in GameHotkeys.txt was load-bearing for SOMETHING
+
+Removing it changed the F_Blink test result from "shows G" to "shows nothing." That tells us `G=G` was the actual source of the G fallback all along, not any specific button hotkey config. With it removed, dynamically-added abilities and other unconfigured F_ buttons would have no hotkey at all — meaning the line should be re-added if any of the mod's still-dynamic F_ ability paths are expected to keep working.
+
+**Recommendation:** keep `G=G` until the entire Phase 1 migration off `UnitAbilityAdd` is done. Then it can be safely removed.
+
+### 4. SC2 Editor cache and crashes made debugging unreliable
+
+Multiple symptoms:
+- The editor sometimes wrote back its in-memory representation of files (containing old or different data) when saving, overwriting external edits
+- The editor wrote `<Hotkey value="Button/Hotkey/Blink"/>` (a reference syntax) into F_Blink CButton when the user manipulated it via the editor UI — we cleaned this up later
+- The editor crashed at one point, requiring file integrity verification
+- "Close and reopen the document" was the only reliable way to make external edits land — and even that was inconsistent
+
+**Recommendation for next attempt:** verify file state on disk before AND after every test, and prefer making structural changes via the SC2 Editor data UI (not external file edits) to keep the editor's in-memory state in sync.
+
+## Files modified in this attempt
+
+All under `ForgeModLowConfidence.SC2Mod\`.
+
+### Data XML (`Base.SC2Data\GameData\`)
+- **`UpgradeData.xml`** — added `<CUpgrade id="Forge_Granted_Blink">` and `<CUpgrade id="Forge_Selected_Rax1_Blink">`, both `MaxLevel=1`
+- **`RequirementNodeData.xml`** — added 7 nodes:
+  - `CountUpgradeForge_Selected_Rax1_BlinkCompleteOnly`
+  - `GTECountUpgradeForge_Selected_Rax1_BlinkCompleteOnly1`
+  - `CountUpgradeForge_Granted_BlinkCompleteOnly`
+  - `GTECountUpgradeForge_Granted_BlinkCompleteOnly1`
+  - `CountUpgradeForge_Granted_BlinkQueuedOrBetter`
+  - `GTECountUpgradeForge_Granted_BlinkQueuedOrBetter1`
+  - `NotGTECountUpgradeForge_Granted_BlinkQueuedOrBetter1`
+  - `AndForge_Rax1_BlinkResearchAvailable`
+- **`RequirementData.xml`** — added `Forge_Rax1_BlinkResearchReq` and `Forge_Granted_BlinkReq`
+- **`AbilData.xml`** — added `<CAbilResearch id="Forge_Rax1_Blink">` (modeled on Blink1, with `Upgrade="Forge_Granted_Blink"`); added `Requirements="Forge_Granted_BlinkReq"` to `F_Blink`'s `CmdButtonArray`; modified the existing vanilla `Blink` override at line 325 to add `DefaultButtonFace="Blink"`
+- **`UnitData.xml`** — added `AbilArray index="10" Link="Forge_Rax1_Blink"` and `LayoutButtons index="30"` to GhostAcademy; added `AbilArray index="10" Link="Blink"` (last state — was `F_Blink` earlier) and `LayoutButtons index="30"` to Zealot
+- **`ButtonData.xml`** — removed the `<CButton id="Blink"><HotkeyAlias value="Ghost"/></CButton>` block; modified `F_Blink` CButton extensively across the debugging session (removed `<Hotkey value="G"/>`, tried `HotkeyAlias`, tried hardcoded `<Hotkey value="B"/>`, etc.). Final state: clean, no Hotkey, no HotkeyAlias
+
+### Localized (`enUS.SC2Data\LocalizedData\`)
+- **`GameHotkeys.txt`** — removed `Button/Hotkey/Blink=G`; removed `Button/Hotkey/F_Blink=G` (added `=B`, then `=K` for diagnostic, then removed entirely); **removed `G=G` fallback line**
+
+### Galaxy (`Base.SC2Data\TriggerLibs\`)
+- **`upgradeHelpers.galaxy`**:
+  - `setSlotSelectedUpgrade`: special-cased `Blink && rax && slot==1` → calls `grantUpgrade(player, "Forge_Selected_Rax1_Blink")` then `return` to skip the dynamic `addToAbilityListForUnit` path for Blink only
+  - `grantGenericUpgrade`: special-cased `upgrade == "Blink"` → calls `grantUpgrade(player, "Forge_Granted_Blink")` then `return` to skip the dynamic ability-add path for Blink
+- **`upgradeInitializers.galaxy`** — `assignRandomUpgradeFromPoolToPlayerSlot` test hack: forces "Blink" for Rax slot 1 regardless of pool roll
+- **`forgeProductionFacilityHeplers.galaxy`** — `setRandomSlotUnitFromPoolForPlayer` test hack: forces "Zealot" for Rax slot 1 regardless of pool roll
+
+### Plan file (outside the mod)
+- **`~/.claude/plans/snappy-hopping-boole.md`** — the original plan for the prototype, still valid for the next attempt
+
+## Key architectural insight (worth keeping)
+
+The original purpose of the `F_` ability prefix system was to work around `UnitAbilityAdd`'s hotkey flattening — when an ability was dynamically added to a unit at runtime, the hotkey was forced to G regardless of any config, AND it would also affect units that already had the underlying ability. The `F_` versions were parallel buttons that could be set to G safely without affecting vanilla casters.
+
+**With static pre-declaration, that whole problem evaporates.** Each unit's static command card is independent. Adding vanilla Blink to Zealot's AbilArray gives Zealot blink with the vanilla button (and vanilla hotkey). Stalker's command card is untouched.
+
+**`F_` buttons remain useful only for genuine hotkey collision cases** — e.g., if HighTemplar gains NeuralParasite as an upgrade but the player wants HighTemplar's NeuralParasite hotkey to be different from Infestor's. Then a parallel `F_NeuralParasite` button with a different hotkey makes sense.
+
+For all non-collision cases (the vast majority), static declaration of vanilla abilities is the right move. This is the design we should commit to in the next attempt.
+
+## Recommendations for the next attempt
+
+1. **Start fresh from main**, not from the current state. The current state has too many half-applied changes to reason about.
+2. **Check the user's local SC2 hotkey profile before assuming mod data is wrong.** The path is `Documents/StarCraft II/Accounts/<account_id>/<player_id>/Hotkeys/*.SC2Hotkeys`. If F_Blink is listed there with an unexpected binding, the profile is the source of truth and no amount of mod data tweaking will override it. Clear stale entries before testing.
+3. **Use vanilla buttons by default, F_ only for collisions.** This means: add vanilla `Blink` to Zealot's AbilArray, use `Face="Blink"` in LayoutButtons. The hotkey naturally inherits from vanilla → player profile.
+4. **Before relying on the existing vanilla Blink override**, verify it actually works for Stalker in the current mod. If Stalker can't blink either (because the override stripped DefaultButtonFace), the override needs to be either reverted or made structurally complete. Consider testing both with and without the override.
+5. **Keep `G=G` in GameHotkeys.txt** until the entire dynamic-add path is migrated. It's load-bearing for the F_ buttons that haven't been moved yet.
+6. **Avoid making structural data edits via external tools while the SC2 Editor has the document open.** The editor's in-memory cache will fight you. Either work entirely in the editor's data UI, or close the document before external edits.
+7. **For the prototype slice, prefer one full slice working end-to-end** (research button + ability button + correct hotkey + visibility gating + research lifecycle) before generalizing. We had the visibility/lifecycle working but kept getting derailed by the hotkey rabbit hole. Decoupling them next time would help — get visibility working with a known-acceptable hotkey first, then tune the hotkey separately.
+8. **Document `CUnit.AbilArray` max = 32** in CLAUDE.md or similar — this is reusable knowledge for the broader Phase 1 rollout.
+9. **The Forge_Rax1_Blink research ability with `Upgrade="Forge_Granted_Blink"` is sound** — SC2 natively grants the linked CUpgrade on research completion, so the Galaxy code path is technically optional for prototyping. Keep this pattern in the next attempt.
+10. **Avoid adding `UseDefaultButton`/`CreateDefaultButton` flags to ability CmdButtonArrays for static declarations.** Those flags are for the dynamic `UnitAbilityAdd` path. Static declaration via LayoutButtons does not require them — the user's instinct on this was correct.
