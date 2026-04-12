@@ -1545,20 +1545,26 @@
         <InfoArray index="Build6">
             <Button Requirements="HaveBarracks"/>
         </InfoArray>
-        <InfoArray index="Build10" Time="43.4"/>
+        <InfoArray index="Build10" Time="43.4">
+            <Button Requirements="MothershipRequirements2"/>
+        </InfoArray>
         <InfoArray index="Build12">
             <Button Requirements="havefavtoryorghostacademy"/>
         </InfoArray>
         <InfoArray index="Build13" Unit="Nexus" Time="70">
             <Button DefaultButtonFace="Nexus" Requirements="ghostacademyarmoryorfusioncore"/>
         </InfoArray>
-        <InfoArray index="Build14" Time="56"/>
+        <InfoArray index="Build14" Time="56">
+            <Button Requirements="Armoryrequirements2"/>
+        </InfoArray>
         <InfoArray index="Build15" Unit="Forge" Time="65">
             <Resource index="Minerals" value="200"/>
             <Resource index="Vespene" value="200"/>
             <Button DefaultButtonFace="Forge" Requirements="HaveNexus"/>
         </InfoArray>
-        <InfoArray index="Build16" Time="56"/>
+        <InfoArray index="Build16" Time="56">
+            <Button Requirements="Fusioncorerequirements2"/>
+        </InfoArray>
     </CAbilBuild>
     <CAbilEffectTarget id="F_Transfusion">
         <Alignment value="Positive"/>

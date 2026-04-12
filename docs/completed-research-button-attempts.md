@@ -37,7 +37,7 @@ When a research ability completes on an upgrade facility (Ghost Academy/Armory/F
 
 ## Approach 6: CatalogFieldValueSet (Modify ability data at runtime)
 **What:** Use `CatalogFieldValueSet` to change the research ability's cost/requirements per-player at runtime. No add/remove needed.
-
+ 
 **Why rejected (before testing):**
 - Research abilities are **shared across facility types**. "Blink1" can appear on both Ghost Academy and Fusion Core. Modifying "Blink1" via CatalogFieldValueSet would affect ALL facilities for that player, not just the one that completed the research.
 

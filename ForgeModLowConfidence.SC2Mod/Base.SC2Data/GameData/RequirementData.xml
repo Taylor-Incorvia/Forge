@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CRequirement id="Fusioncorerequirements2">
+        <EditorCategories value="Race:Protoss,TechType:Unit"/>
+        <NodeArray index="Use" Link="AndCountUnitStarportCompleteOnlyTechTreeCheatEq1921971722CountUnitFusionCoreQueuedOrBetter0"/>
+    </CRequirement>
     <CRequirement id="HaveGhostAcademy">
         <EditorCategories value="TechType:Unit"/>
         <NodeArray index="Use" Link="CountUnitGhostAcademyCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="MothershipRequirements2">
+        <EditorCategories value="Race:Protoss,TechType:Unit"/>
+        <NodeArray index="Use" Link="AndCountUnitBarracksCompleteOnlyTechTreeCheatEq1688680196CountUnitGhostAcademyQueuedOrBetter0"/>
+    </CRequirement>
+    <CRequirement id="Armoryrequirements2">
+        <EditorCategories value="Race:Protoss,TechType:Unit"/>
+        <NodeArray index="Use" Link="AndCountUnitFactoryCompleteOnlyTechTreeCheatEq1909066809CountUnitArmoryQueuedOrBetter0"/>
     </CRequirement>
     <CRequirement id="ShowIfHaveBarrAddOnParent2">
         <EditorCategories value="Race:Terran,TechType:Unit"/>
@@ -129,6 +141,9 @@
     <CRequirement id="barracksZergling">
         <NodeArray index="Use" Link="GTE2590769371CountUpgradebarracksZerglingCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradebarracksZerglingCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="canbuildghostacademy">
+        <NodeArray index="Use" Link="AndCountUnitBarracksCompleteOnlyNotCountUnitGhostAcademyQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="factory2warhound">
         <NodeArray index="Use" Link="AndGTECountUpgradefactory2warhoundupgCompleteOnly1CountUnitArmoryCompleteOnly"/>

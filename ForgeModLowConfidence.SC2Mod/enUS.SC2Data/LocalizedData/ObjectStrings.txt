@@ -60,7 +60,10 @@ Model/Name/BlinkStopModel2=Blink Stop Model
 Mover/Name/Fly2=Fly
 Mover/Name/Ground2=Ground
 Mover/Name/Ground3=Ground
+Requirement/Name/Armoryrequirements2=Armory requirements2
+Requirement/Name/Fusioncorerequirements2=Fusion core requirements2
 Requirement/Name/HaveGhostAcademy=Have Ghost Academy
+Requirement/Name/MothershipRequirements2=GA requirements2
 Requirement/Name/ShowIfHaveBarrAddOnParent2=can build tech lab
 Requirement/Name/UnknownRequirement10=starport 3 raven req
 Requirement/Name/UnknownRequirement11=forge can upgrade zergling swarm
@@ -91,6 +94,7 @@ Requirement/Name/barracks4lurkerreq=barracks 4 lurker req
 Requirement/Name/barracksMarineReq=barracks 1 Marine Req
 Requirement/Name/barracksZealot=barracks 1 Zealot
 Requirement/Name/barracksZergling=barracks 1 Zergling
+Requirement/Name/canbuildghostacademy=can build ghost academy
 Requirement/Name/factory1ravager=factory 1 ravager
 Requirement/Name/factory1vulture=factory 1 vulture
 Requirement/Name/factory2diamondback=factory 2 diamondback
@@ -112,14 +116,18 @@ Requirement/Name/starport3tempestreq=starport 3 tempest req
 Requirement/Name/starport3viperreq=starport 3 viper req
 RequirementNode/Name/110=1
 RequirementNode/Name/2=2
+RequirementNode/Name/AndCountUnitBarracksCompleteOnlyNotCountUnitGhostAcademyQueuedOrBetter=CountUnit(Barracks,CompleteOnly) && !CountUnit(GhostAcademy,QueuedOrBetter)
+RequirementNode/Name/AndCountUnitBarracksCompleteOnlyTechTreeCheatEq1688680196CountUnitGhostAcademyQueuedOrBetter0=CountUnit(Barracks,CompleteOnly)[TechTreeCheat] && CountUnit(GhostAcademy,QueuedOrBetter) == {No Engineering Academy}0
 RequirementNode/Name/AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4archonupgCompleteOnly1=CountUnit(BarracksTechLab,CompleteOnlyAtUnit){Attached Tech Lab}[TechTreeCheat] && CountUpgrade(barracks4archonupg,CompleteOnly) >= 1
 RequirementNode/Name/AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4defilerupgCompleteOnly1=CountUnit(BarracksTechLab,CompleteOnlyAtUnit){Attached Tech Lab}[TechTreeCheat] && CountUpgrade(barracks4defilerupg,CompleteOnly) >= 1
 RequirementNode/Name/AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4ghostupgCompleteOnly1=CountUnit(BarracksTechLab,CompleteOnlyAtUnit){Attached Tech Lab}[TechTreeCheat] && CountUpgrade(barracks4ghostupg,CompleteOnly) >= 1
 RequirementNode/Name/AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4hightemplarupgCompleteOnly1=CountUnit(BarracksTechLab,CompleteOnlyAtUnit){Attached Tech Lab}[TechTreeCheat] && CountUpgrade(barracks4hightemplarupg,CompleteOnly) >= 1
 RequirementNode/Name/AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4infestorupgCompleteOnly1=CountUnit(BarracksTechLab,CompleteOnlyAtUnit){Attached Tech Lab}[TechTreeCheat] && CountUpgrade(barracks4infestorupg,CompleteOnly) >= 1
 RequirementNode/Name/AndCountUnitBarracksTechLabCompleteOnlyAtUnit2589852481TechTreeCheatGTECountUpgradebarracks4lurkerupgCompleteOnly1=CountUnit(BarracksTechLab,CompleteOnlyAtUnit){Attached Tech Lab}[TechTreeCheat] && CountUpgrade(barracks4lurkerupg,CompleteOnly) >= 1
+RequirementNode/Name/AndCountUnitFactoryCompleteOnlyTechTreeCheatEq1909066809CountUnitArmoryQueuedOrBetter0=CountUnit(Factory,CompleteOnly)[TechTreeCheat] && CountUnit(Armory,QueuedOrBetter) == {No Armory}0
 RequirementNode/Name/AndCountUnitGhostAcademyCompleteOnlyCountUnitAlias_BarracksCompleteOnlyAtUnit=CountUnit(GhostAcademy,CompleteOnly) && CountUnit(Alias_Barracks,CompleteOnlyAtUnit)
 RequirementNode/Name/AndCountUnitGhostAcademyCompleteOnlyTechTreeCheat=CountUnit(GhostAcademy,CompleteOnly)[TechTreeCheat] && ()
+RequirementNode/Name/AndCountUnitStarportCompleteOnlyTechTreeCheatEq1921971722CountUnitFusionCoreQueuedOrBetter0=CountUnit(Starport,CompleteOnly)[TechTreeCheat] && CountUnit(FusionCore,QueuedOrBetter) == {No Fusion Core}0
 RequirementNode/Name/AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3battlecruiserupgCompleteOnly1=CountUnit(StarportTechReactor,CompleteOnlyAtUnit){Attached Starport Tech Lab}[TechTreeCheat] && CountUpgrade(starport3battlecruiserupg,CompleteOnly) >= 1
 RequirementNode/Name/AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3ravenupgCompleteOnly1=CountUnit(StarportTechReactor,CompleteOnlyAtUnit){Attached Starport Tech Lab}[TechTreeCheat] && CountUpgrade(starport3ravenupg,CompleteOnly) >= 1
 RequirementNode/Name/AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3sciencevesselupgCompleteOnly1=CountUnit(StarportTechReactor,CompleteOnlyAtUnit){Attached Starport Tech Lab}[TechTreeCheat] && CountUpgrade(starport3sciencevesselupg,CompleteOnly) >= 1
@@ -147,9 +155,16 @@ RequirementNode/Name/AndGTECountUpgradestarport2duskwingupgCompleteOnly1CountUni
 RequirementNode/Name/AndGTECountUpgradestarport2liberatorupgCompleteOnly1CountUnitFusionCoreCompleteOnly=CountUpgrade(starport2liberatorupg,CompleteOnly) >= 1 && CountUnit(FusionCore,CompleteOnly)
 RequirementNode/Name/AndGTECountUpgradestarport2mutaupgCompleteOnly1CountUnitFusionCoreCompleteOnly=CountUpgrade(starport2mutaupg,CompleteOnly) >= 1 && CountUnit(FusionCore,CompleteOnly)
 RequirementNode/Name/CountBehaviorblink_testCompleteOnlyAtUnit=CountBehavior(blink_test,CompleteOnlyAtUnit)
+RequirementNode/Name/CountUnitArmoryQueuedOrBetter=CountUnit(Armory,QueuedOrBetter)
+RequirementNode/Name/CountUnitBarracksCompleteOnly=CountUnit(Barracks,CompleteOnly)
+RequirementNode/Name/CountUnitBarracksCompleteOnlyTechTreeCheat=CountUnit(Barracks,CompleteOnly)[TechTreeCheat]
+RequirementNode/Name/CountUnitFactoryCompleteOnlyTechTreeCheat=CountUnit(Factory,CompleteOnly)[TechTreeCheat]
 RequirementNode/Name/CountUnitFactoryTechLabCompleteOnlyAtUnit=CountUnit(FactoryTechLab,CompleteOnlyAtUnit)
+RequirementNode/Name/CountUnitFusionCoreQueuedOrBetter=CountUnit(FusionCore,QueuedOrBetter)
 RequirementNode/Name/CountUnitGhostAcademyCompleteOnly96167438TechTreeCheat=CountUnit(GhostAcademy,CompleteOnly){Factory}[TechTreeCheat]
+RequirementNode/Name/CountUnitGhostAcademyQueuedOrBetter=CountUnit(GhostAcademy,QueuedOrBetter)
 RequirementNode/Name/CountUnitGhostAcademyTotal=CountUnit(GhostAcademy,Total)
+RequirementNode/Name/CountUnitStarportCompleteOnlyTechTreeCheat=CountUnit(Starport,CompleteOnly)[TechTreeCheat]
 RequirementNode/Name/CountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheat=CountUnit(StarportTechReactor,CompleteOnlyAtUnit){Attached Starport Tech Lab}[TechTreeCheat]
 RequirementNode/Name/CountUpgradePhoenixRangeUpgradeInProgressOrBetter=CountUpgrade(PhoenixRangeUpgrade,InProgressOrBetter)
 RequirementNode/Name/CountUpgradeUnknownUpgrade16CompleteOnly=CountUpgrade(UnknownUpgrade16,CompleteOnly)
@@ -199,6 +214,9 @@ RequirementNode/Name/CountUpgradestarport3ravenupgCompleteOnly=CountUpgrade(star
 RequirementNode/Name/CountUpgradestarport3sciencevesselupgCompleteOnly=CountUpgrade(starport3sciencevesselupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport3tempestupgCompleteOnly=CountUpgrade(starport3tempestupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport3viperupgCompleteOnly=CountUpgrade(starport3viperupg,CompleteOnly)
+RequirementNode/Name/Eq1688680196CountUnitGhostAcademyQueuedOrBetter0=CountUnit(GhostAcademy,QueuedOrBetter) == {No Engineering Academy}0
+RequirementNode/Name/Eq1909066809CountUnitArmoryQueuedOrBetter0=CountUnit(Armory,QueuedOrBetter) == {No Armory}0
+RequirementNode/Name/Eq1921971722CountUnitFusionCoreQueuedOrBetter0=CountUnit(FusionCore,QueuedOrBetter) == {No Fusion Core}0
 RequirementNode/Name/GTE2590769371CountUpgradebarracksZerglingCompleteOnly1=CountUpgrade(barracksZergling,CompleteOnly) >= {Test}1
 RequirementNode/Name/GTECountUpgradebarracks2hydraliskupgCompleteOnly1=CountUpgrade(barracks2hydraliskupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradebarracks2stalkerupgCompleteOnly1=CountUpgrade(barracks2stalkerupg,CompleteOnly) >= 1
@@ -243,6 +261,7 @@ RequirementNode/Name/GTECountUpgradestarport3ravenupgCompleteOnly1=CountUpgrade(
 RequirementNode/Name/GTECountUpgradestarport3sciencevesselupgCompleteOnly1=CountUpgrade(starport3sciencevesselupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport3tempestupgCompleteOnly1=CountUpgrade(starport3tempestupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport3viperupgCompleteOnly1=CountUpgrade(starport3viperupg,CompleteOnly) >= 1
+RequirementNode/Name/NotCountUnitGhostAcademyQueuedOrBetter=!CountUnit(GhostAcademy,QueuedOrBetter)
 RequirementNode/Name/NotCountUpgradeforgecolossussplashupgQueuedOrBetter=!CountUpgrade(forgecolossussplashupg,QueuedOrBetter)
 RequirementNode/Name/NotCountUpgradeforgezerglingswarmlingupgQueuedOrBetter=!CountUpgrade(forgezerglingswarmlingupg,QueuedOrBetter)
 RequirementNode/Name/OrCountUnitAlias_FactoryCompleteOnly96167438TechTreeCheatCountUnitGhostAcademyCompleteOnly96167438TechTreeCheat=CountUnit(Alias_Factory,CompleteOnly){Factory}[TechTreeCheat] || CountUnit(GhostAcademy,CompleteOnly){Factory}[TechTreeCheat]

@@ -166,19 +166,17 @@ void onGenericUpgradeCompleted(){
     string upgradeFacilityName = UnitGetType(upgradeFacillity);
     string productionFacilityName = getProductionFacilityFromUpgradeFacility(upgradeFacilityName);
     string unitName;
-
-
+    string researchAbilityName;
 
     if(completedUpgrade == "1" || completedUpgrade == "2" || completedUpgrade == "3" || completedUpgrade == "4") {
         slot = StringToInt(completedUpgrade);
         unitName = getPlayerSlotUnitId(productionFacilityName, slot, player);
         realCompletedUpgradeFromSlot = getSlotSelectedUpgrade(player, slot, productionFacilityName);
         grantGenericUpgrade(player, realCompletedUpgradeFromSlot, unitName);
-        // TODO: hide completed research buttons on existing buildings.
-        // UnitAbilityRemove repacks the command card and shifts buttons.
-        // UnitAbilityShow doesn't work on dynamically-added abilities.
-        // A requirement-based XML approach would work but is tedious to set up per slot.
 
+        researchAbilityName = realCompletedUpgradeFromSlot + IntToString(slot);
+        CatalogFieldValueSet(c_gameCatalogAbil, researchAbilityName, "InfoArray[Research1].Resource[Minerals]", player, "999999");
+        CatalogFieldValueSet(c_gameCatalogAbil, researchAbilityName, "InfoArray[Research1].Resource[Vespene]", player, "999999");
 
         showMessage("playerId" + IntToString(player));
         showMessage("slot" + IntToString(slot));

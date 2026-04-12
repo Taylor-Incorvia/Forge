@@ -1,5 +1,48 @@
 # Static Pre-Declaration Prototype — Attempt 1
 
+## ⚠️ READ THIS FIRST: DO NOT FUCK WITH HOTKEYS AGAIN ⚠️
+
+**Future Taylor: do not, under any circumstances, attempt to fix the Forge mod's hotkey resolution. It is a bottomless pit. You will lose an entire day to it and emerge with nothing but rage.**
+
+We spent multiple full sessions trying to make the Zealot's statically-declared Blink button show hotkey `B` instead of `G`. Every approach failed in a different and increasingly bizarre way:
+
+- Removing `<Hotkey value="G"/>` from F_Blink CButton → still G
+- Adding `<HotkeyAlias value="Blink"/>` → still G
+- Removing the `<CButton id="Blink"><HotkeyAlias value="Ghost"/></CButton>` block → still G
+- Hardcoding `<Hotkey value="B"/>` on F_Blink → **nothing** (no hotkey at all)
+- Removing the hardcode and only using GameHotkeys.txt `Button/Hotkey/F_Blink=B` → **G**
+- Removing `G=G` fallback → **nothing**
+- Using `Face="Blink"` (vanilla button) on Zealot's LayoutButtons → **G** with Standard, **nothing** with Classic
+- Adding diagnostic `<CButton id="Blink"><Hotkey value="Z"/></CButton>` → **nothing** (not Z, not G)
+- Clearing GameHotkeys.txt entirely and switching between Standard and Classic profiles → **G** in Standard, **nothing** in Classic, neither matched any explicit setting
+
+The pattern: **whenever we set an explicit hotkey value via mod data, the result was nothing instead of that letter; whenever we relied on inheritance, the result was G regardless of profile.** None of it made sense, none of it was reproducible, and none of the conventional SC2 modding patterns (CButton.Hotkey, GameHotkeys.txt entries, HotkeyAlias chains) worked the way the documentation says they should.
+
+### The hypothesis we landed on but never confirmed
+
+The button id `Blink` in vanilla SC2 is **probably a generic placeholder/template button, not the actual Stalker blink button.** The cooldown link `BlinkBlink5BlinkF_Blink` on F_Blink suggests vanilla SC2 has both a `Blink` ability AND a `Blink5` ability, where `Blink5` is the actual Stalker level-5 blink (post-research) and `Blink` is a leftover/template. The Standard SC2 profile binds `Blink5` to B but `Blink` (the template) has no proper binding, which is why it falls through to G in Standard and to nothing in Classic.
+
+**This was never tested.** We came up with the theory at the very end of the session and the user reverted before trying `Face="Blink5"`. If the next attempt wants to test this hypothesis (which it probably should), the change is to use `Face="Blink5"` instead of `Face="Blink"` in the LayoutButtons entry on Zealot. But **for the love of fuck do not turn it into another full-day debugging session.** Try it once. If it doesn't immediately work, give up on hotkeys for the day and move on with whatever G fallback the engine gives you.
+
+### Other things that made the day fucking miserable
+
+- **The SC2 Editor destroys sparse indexed arrays in `CUnit.AbilArray` and `CUnit.CardLayouts.LayoutButtons`** every time you save a unit through the data UI. See section 5 below. This caused hours of "the button is gone — wait no it's there — wait no it's gone again" confusion.
+- **The SC2 Editor sometimes writes back stale in-memory data when saving**, undoing external edits silently. Hitting Ctrl+S in the editor is a hostile action toward your work.
+- **The SC2 Editor crashed at least once during the session.**
+- **The SC2 Editor's data UI introduced its own broken syntax** (like `<Hotkey value="Button/Hotkey/Blink"/>`, a reference-syntax leftover) into F_Blink CButton when the user manipulated it.
+
+### Practical rules for next time
+
+1. **If the mod's Blink hotkey is showing G, accept G. Move on.** Your time is more valuable than the difference between B and G on one ability button.
+2. **The Vulture pattern works for visibility** — `Type="AbilCmd"` + explicit `index` on AbilArray + explicit `Requirements=""` (even if empty) on LayoutButtons. Stick to that recipe for static declarations and DO NOT improvise.
+3. **Get visibility working first, completely separately from hotkeys.** Test that the button appears, that the requirement gates it correctly, that the research lifecycle works — all with whatever hotkey the engine happens to give you. Only after the entire visibility flow is locked in should you even consider touching hotkeys.
+4. **Never edit `CUnit.AbilArray` or `CUnit.CardLayouts.LayoutButtons` via the SC2 Editor's data UI.** XML edits only. The editor will normalize sparse arrays and destroy your work.
+5. **Never hit Ctrl+S in the SC2 Editor between external edits.** The editor will overwrite your disk state with its in-memory copy.
+6. **Hotkeys for ability buttons in this mod are cursed and the Blink button id situation is fucked.** This is not your fault, it's not Claude's fault, it's the result of years of dynamic-add workarounds layered on top of vanilla SC2 button id ambiguity. The only path forward is the static pre-declaration approach with vanilla buttons, accepting whatever hotkey the engine produces, and only investigating hotkey overrides as a final cleanup pass long after everything else works.
+7. **If a hotkey investigation has consumed more than 30 minutes, stop. Document the symptom in this file. Do not continue.** Each round of "one more diagnostic" added another hour to a day that should have been spent on more productive work.
+
+---
+
 ## Goal
 
 Convert the Blink × Zealot × Rax slot 1 path from `UnitAbilityAdd` (dynamic) to fully static pre-declaration in XML, gated by per-player `CUpgrade` requirements. This was Phase 0 of the broader Option A plan in `~/.claude/plans/snappy-hopping-boole.md`.
