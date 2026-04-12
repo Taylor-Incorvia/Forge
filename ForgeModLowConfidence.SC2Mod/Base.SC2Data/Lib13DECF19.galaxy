@@ -89,6 +89,7 @@ bool lib13DECF19_gt_onUnitCreated_Func (bool testConds, bool runActions) {
         return true;
     }
 
+    convertNonTerranUnit(EventUnitCreatedUnit());
     applyBehaviorListToUnit(EventUnitCreatedUnit());
     applyAbilityListToUnit(EventUnitCreatedUnit());
     checkForNewAddons(EventUnitCreatedUnit());
@@ -166,6 +167,7 @@ bool lib13DECF19_gt_ModInit_Func (bool testConds, bool runActions) {
         auto144187F5_var = PlayerGroupNextPlayer(auto144187F5_g, auto144187F5_var);
         if (auto144187F5_var < 0) { break; }
         lv_currentPlayer = auto144187F5_var;
+        PlayerSetRace(lv_currentPlayer, "Terr");
         setProductionSlotsForPlayer(lv_currentPlayer);
         initializeUpgradePoolsForPlayer(lv_currentPlayer);
     }

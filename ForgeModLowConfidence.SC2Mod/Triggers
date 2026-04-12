@@ -239,6 +239,7 @@
         <Element Type="FunctionCall" Id="E421B55B">
             <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000123"/>
             <ScriptCode>
+                convertNonTerranUnit(EventUnitCreatedUnit());
                 applyBehaviorListToUnit(EventUnitCreatedUnit());
                 applyAbilityListToUnit(EventUnitCreatedUnit());
                 checkForNewAddons(EventUnitCreatedUnit());
@@ -525,6 +526,7 @@
             <FunctionDef Type="FunctionDef" Library="Ntve" Id="5084725D"/>
             <Parameter Type="Param" Library="13DECF19" Id="3CF0D083"/>
             <FunctionCall Type="FunctionCall" Library="13DECF19" Id="909C653E"/>
+            <FunctionCall Type="FunctionCall" Library="13DECF19" Id="991CA794"/>
             <FunctionCall Type="FunctionCall" Library="13DECF19" Id="D4546DBC"/>
         </Element>
         <Element Type="Param" Id="3CF0D083">
@@ -550,6 +552,22 @@
         </Element>
         <Element Type="FunctionCall" Id="01D6A81C">
             <FunctionDef Type="FunctionDef" Library="Ntve" Id="8570CA61"/>
+        </Element>
+        <Element Type="FunctionCall" Id="991CA794">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="63385694"/>
+            <SubFunctionType Type="SubFuncType" Library="Ntve" Id="DEA91B62"/>
+            <Parameter Type="Param" Library="13DECF19" Id="62CFEA46"/>
+            <Parameter Type="Param" Library="13DECF19" Id="1C933FB8"/>
+        </Element>
+        <Element Type="Param" Id="62CFEA46">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="A66AF510"/>
+            <Variable Type="Variable" Library="13DECF19" Id="8D41B4BB"/>
+        </Element>
+        <Element Type="Param" Id="1C933FB8">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="3ADD60A0"/>
+            <Value>Terr</Value>
+            <ValueType Type="gamelink"/>
+            <ValueGameType Type="Race"/>
         </Element>
         <Element Type="FunctionCall" Id="D4546DBC">
             <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000123"/>

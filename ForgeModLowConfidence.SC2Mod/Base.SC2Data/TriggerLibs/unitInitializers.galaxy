@@ -53,3 +53,31 @@ void initializeAlternateForms() { // if a lurker is burrowed when an upgrade com
     setUnitAltForm("Hellion", "HellionTank");
     setUnitAltForm("Liberator", "LiberatorAG");
 }
+
+// Converts non-Terran starting units to their Terran equivalents.
+// Call this at the TOP of the onUnitCreated trigger, before applyBehaviorListToUnit etc.
+// When a unit is replaced, the original is removed and a new Terran unit is created,
+// which fires onUnitCreated again (processing the new unit normally).
+void convertNonTerranUnit(unit u) {
+    string unitType;
+    int owner;
+    point pos;
+
+    unitType = UnitGetType(u);
+
+    if (unitType == "Hatchery" || unitType == "Nexus") {
+        owner = UnitGetOwner(u);
+        pos = UnitGetPosition(u);
+        UnitRemove(u);
+        UnitCreate(1, "CommandCenter", 0, owner, pos, 270.0);
+    }
+    else if (unitType == "Drone" || unitType == "Probe") {
+        owner = UnitGetOwner(u);
+        pos = UnitGetPosition(u);
+        UnitRemove(u);
+        UnitCreate(1, "SCV", 0, owner, pos, 270.0);
+    }
+    else if (unitType == "Overlord" || unitType == "Larva") {
+        UnitRemove(u);
+    }
+}
