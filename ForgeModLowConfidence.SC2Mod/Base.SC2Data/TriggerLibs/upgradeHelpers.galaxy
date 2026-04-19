@@ -125,6 +125,21 @@ string getSlotSelectedUpgrade(int player, int slotIndex, string facilityid) {
     return DataTableGetString(true, getSlotSelectedUpgradeKey(player, slotIndex, facilityid));
 }
 
+bool isUpgradeAlreadyAssignedToSlot(int player, int slotIndex, string upgradeId) {
+    string assigned;
+
+    assigned = getSlotSelectedUpgrade(player, slotIndex, rax);
+    if (assigned == upgradeId) { return true; }
+
+    assigned = getSlotSelectedUpgrade(player, slotIndex, factory);
+    if (assigned == upgradeId) { return true; }
+
+    assigned = getSlotSelectedUpgrade(player, slotIndex, starport);
+    if (assigned == upgradeId) { return true; }
+
+    return false;
+}
+
 void setSlotSelectedUpgrade(int player, int slotIndex, string facilityid, string upgradeId) {
     string upgradeFacilityId = getUpgradeFacilityFromProductionFacility(facilityid);
     string upgradeAbilityListName = getUpgradeAbilityListName(upgradeId);

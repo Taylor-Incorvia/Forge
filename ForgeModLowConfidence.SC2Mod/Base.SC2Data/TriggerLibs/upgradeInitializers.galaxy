@@ -273,7 +273,10 @@ void initializeUpgradePoolForPlayerSlot(int player, int slotIndex, string facili
         satisfies_AllOf_UnitTagRequirement = satisfiesUnitTagUpgradePoolRequirement(currentUpgradeId, logicType_AllOf, unitId);
         satisfies_AnyOf_UnitTagRequirement = satisfiesUnitTagUpgradePoolRequirement(currentUpgradeId, logicType_AnyOf, unitId);
 
-        if(satisfies_NoneOf_UnitTagRequirement && satisfies_AllOf_UnitTagRequirement && satisfies_AnyOf_UnitTagRequirement) {
+        // isUpgradeAlreadyAssignedToSlot prevents the same upgrade from being rolled in the same slot number across different facilities.
+        // Without this, e.g. Speed in slot 1 of both GhostAcademy and Armory would share the same "Speed1" research ability,
+        // and completing one would set the other's cost to 999999, blocking it.
+        if(satisfies_NoneOf_UnitTagRequirement && satisfies_AllOf_UnitTagRequirement && satisfies_AnyOf_UnitTagRequirement && !isUpgradeAlreadyAssignedToSlot(player, slotIndex, currentUpgradeId)) {
             addToUpgradePool(player, slotIndex, facilityId, currentUpgradeId);
         }
     }
