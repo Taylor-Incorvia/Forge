@@ -6,4 +6,15 @@
     <CValidatorLocationCompareRange id="ZealotAttackDamageMaxRange">
         <Range value="4"/>
     </CValidatorLocationCompareRange>
+    <CValidatorUnitOrderQueue id="CasterNotHoldingPosition2">
+        <AbilLink value="move"/>
+        <AbilCmdIndex value="2"/>
+        <Find value="0"/>
+    </CValidatorUnitOrderQueue>
+    <CValidatorLocationCompareRange id="HotSRaptorChargeMaxDistance2">
+        <ResultFailed value="TargetIsOutOfRange"/>
+        <WhichLocation Value="TargetUnit"/>
+        <Compare value="LT"/>
+        <Range value="4"/>
+    </CValidatorLocationCompareRange>
 </Catalog>

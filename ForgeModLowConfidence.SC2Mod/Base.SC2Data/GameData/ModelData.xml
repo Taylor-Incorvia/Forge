@@ -8,4 +8,28 @@
         <EditorCategories value="Race:Protoss"/>
         <RadiusLoose value="1.200000"/>
     </CModel>
+    <CModel id="HotSRaptor2" parent="Unit" Race="Zerg">
+        <Model value="Assets\Units\Zerg\ZerglingEx1A\ZerglingEx1A.m3"/>
+        <RequiredAnims value="Assets\Units\Zerg\Zergling_SwarmAnims\Zergling_SwarmAnims.m3a"/>
+        <AttachProps Id="Ref_Weapon Left">
+            <Keys index="Weapon" value="1"/>
+            <Keys index="Work" value="0"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon Right">
+            <Keys index="Weapon" value="1"/>
+        </AttachProps>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraMid05"/>
+        <Radius value="0.300000"/>
+        <ScaleMax value="0.770000,0.770000,0.770000"/>
+        <ScaleMin value="0.770000,0.770000,0.770000"/>
+        <SelectionRadius value="0.441400"/>
+        <ShadowRadius value="0.441400"/>
+        <SquibTypeDefault value="Flesh"/>
+        <TechPurchaseCamera value="Star2CameraMid05"/>
+        <Tipability value="0.750000"/>
+        <TipabilityLength value="0.400000"/>
+        <TipabilityWidth value="0.400000"/>
+        <UnitGlossaryCamera value="Star2CameraMid05"/>
+    </CModel>
 </Catalog>

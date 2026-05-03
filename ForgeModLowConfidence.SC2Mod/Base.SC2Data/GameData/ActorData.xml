@@ -63,4 +63,8 @@
         <PortraitModel value="Roach_Mecha_Portrait"/>
         <UnitIcon value="Assets\Textures\btn-unit-collection-roach-mecha.dds"/>
     </CActorUnit>
+    <CActorMissile id="HotSRaptorChargeMissile2" parent="GenericAttackMissile" unitName="HotSRaptorChargeMissile2">
+        <On Terms="ActorCreation" Send="AnimPlay Attack Attack"/>
+        <Model value="HotSRaptor2"/>
+    </CActorMissile>
 </Catalog>

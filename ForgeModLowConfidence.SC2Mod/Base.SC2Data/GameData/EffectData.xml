@@ -33,4 +33,90 @@
     <CEffectDamage id="VultureU">
         <AttributeBonus index="Light" value="10"/>
     </CEffectDamage>
+    <CEffectApplyBehavior id="HotSRaptorChargeApplyBehavior2">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="HotSRaptorCharging2"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="HotSRaptorChargeDamage2" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <AreaArray Radius="1" Fraction="1"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CEffectDamage>
+    <CEffectSet id="HotSRaptorChargeImpactSet2">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="HotSRaptorChargeDamage2"/>
+        <EffectArray value="HotSRaptorChargeRemoveBehavior2"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="HotSRaptorChargeLM2">
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="OriginPoint"/>
+        <ImpactLocation Value="CasterUnitOrPoint"/>
+        <ImpactEffect value="HotSRaptorChargeImpactSet2"/>
+        <AmmoUnit value="HotSRaptorChargeMissile2"/>
+    </CEffectLaunchMissile>
+    <CEffectRemoveBehavior id="HotSRaptorChargeRemoveBehavior2">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="HotSRaptorCharging2"/>
+        <Count value="1"/>
+    </CEffectRemoveBehavior>
+    <CEffectSet id="HotSRaptorChargeSet2">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="HotSRaptorChargeApplyBehavior2"/>
+        <EffectArray value="HotSRaptorChargeTeleport2"/>
+        <EffectArray value="HotSRaptorChargeLM2"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CEffectTeleport id="HotSRaptorChargeTeleport2">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichUnit Value="Caster"/>
+        <ClearQueuedOrders value="0"/>
+        <PlacementAround Value="CasterUnit"/>
+        <PlacementRange value="6"/>
+        <Range value="6"/>
+        <TargetLocation Value="TargetPoint"/>
+        <TeleportFlags index="TestCliff" value="1"/>
+    </CEffectTeleport>
+    <CEffectCreateUnit id="HotSRaptorLeap2">
+        <ValidatorArray value="ChargeMinTriggerDistance"/>
+        <ValidatorArray value="HasVision"/>
+        <ValidatorArray value="HotSRaptorChargeMaxDistance2"/>
+        <EditorCategories value="Race:Zerg"/>
+        <CreateFlags index="UseFood" value="0"/>
+        <SpawnEffect value="HotSRaptorLeapSet2"/>
+        <SpawnUnit value="Zergling"/>
+        <SpawnRange value="1"/>
+        <SpawnOffset value="0,-1"/>
+    </CEffectCreateUnit>
+    <CEffectLaunchMissile id="HotSRaptorLeapLM2">
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <FinishEffect value="HotSRaptorLeapRemove2"/>
+        <Movers Link="HotSRaptorChargeMissile2"/>
+        <DeathType value="Unknown"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="HotSRaptorLeapRemove2">
+        <ImpactLocation Value="TargetUnit"/>
+        <Flags index="Kill" value="1"/>
+        <Death value="Remove"/>
+    </CEffectDamage>
+    <CEffectSet id="HotSRaptorLeapSet2">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="HotSRaptorLeapSwitch2"/>
+        <EffectArray value="MakePrecursor2"/>
+        <EffectArray value="TempTimeout2"/>
+    </CEffectSet>
+    <CEffectSwitch id="HotSRaptorLeapSwitch2">
+        <EditorCategories value="Race:Zerg"/>
+        <CaseArray Validator="TargetIsPathable" Effect="HotSRaptorLeapLM2"/>
+        <CaseDefault value="HotSRaptorLeapRemove2"/>
+        <TargetLocationType value="UnitOrPoint"/>
+    </CEffectSwitch>
+    <CEffectDamage id="SuicideRemove2">
+        <ImpactLocation Value="SourceUnit"/>
+        <Flags index="Kill" value="1"/>
+        <Death value="Remove"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="TempTimeout2"/>
 </Catalog>

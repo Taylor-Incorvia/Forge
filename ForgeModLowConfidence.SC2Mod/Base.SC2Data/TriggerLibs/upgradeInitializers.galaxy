@@ -2,6 +2,21 @@ include "TriggerLibs/listHelpers"
 include "TriggerLibs/upgradeHelpers"
 
 void initializeUpgrades() {
+    addBehaviorToUpgrade("Speed", "Speed");
+    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Zergling");
+    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Zealot");
+    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Ultralisk");
+    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Firebat");
+
+    addAbilityToUpgrade("HotSRaptorCharge2", "HotSRaptorCharge2");
+    addUpgradeRequirementTag("HotSRaptorCharge2", logicType_AnyOf, "unitTag", "Zergling");
+    addUpgradeRequirementTag("HotSRaptorCharge2", logicType_AnyOf, "unitTag", "Zealot");
+    addUpgradeRequirementTag("HotSRaptorCharge2", logicType_AnyOf, "unitTag", "Ultralisk");
+    addUpgradeRequirementTag("HotSRaptorCharge2", logicType_AnyOf, "unitTag", "Firebat");
+
+}
+
+void initializeUpgrades2() {
     // ==================== CASTER UPGRADES (require caster tag) ====================
 
     addAbilityToUpgrade("ArbiterMPRecall", "F_ArbiterMPRecall");
@@ -184,6 +199,12 @@ void initializeUpgrades() {
 
     addUpgradeToUpgrade("TwinLinkedFlameThrowers", "TwinLinkedFlameThrowers");
     addUpgradeRequirementTag("TwinLinkedFlameThrowers", logicType_AnyOf, "unitTag", "Hellion");
+
+    addAbilityToUpgrade("HotSRaptorCharge2", "HotSRaptorCharge2");
+    addUpgradeRequirementTag("HotSRaptorCharge2", logicType_AnyOf, "unitTag", "Zergling");
+    addUpgradeRequirementTag("HotSRaptorCharge2", logicType_AnyOf, "unitTag", "Zealot");
+    addUpgradeRequirementTag("HotSRaptorCharge2", logicType_AnyOf, "unitTag", "Ultralisk");
+    addUpgradeRequirementTag("HotSRaptorCharge2", logicType_AnyOf, "unitTag", "Firebat");
 
     // addBehaviorToUpgrade("ImmortalRevive", "VoidMPImmortalRevive"); // I couldn't get this to work. This upgrade makes the immortal literally immortal. Immune to death.
     // addUpgradeToUpgrade("ImmortalRevive", "ImmortalRevive");

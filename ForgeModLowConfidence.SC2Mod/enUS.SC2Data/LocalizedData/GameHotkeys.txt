@@ -62,3 +62,4 @@ Button/Hotkey/WarHound=S
 Button/Hotkey/YamatoGun2=G
 Button/Hotkey/Yoink=G
 G=G
+Button/Hotkey/HotSRaptorCharge2=G

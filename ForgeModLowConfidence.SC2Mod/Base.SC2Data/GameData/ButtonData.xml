@@ -1242,4 +1242,34 @@
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Column="1"/>
     </CButton>
+    <CButton id="HotSRaptorCharge2">
+        <Icon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
+        <Hotkey value="G"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="ResearchHotSRaptorCharge21">
+        <Icon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="ResearchHotSRaptorCharge22">
+        <Icon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ResearchHotSRaptorCharge23">
+        <Icon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ResearchHotSRaptorCharge24">
+        <Icon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-cliffjump-zergling.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
 </Catalog>

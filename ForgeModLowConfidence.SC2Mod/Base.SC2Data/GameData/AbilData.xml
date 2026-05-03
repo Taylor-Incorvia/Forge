@@ -2650,4 +2650,68 @@
     <CAbilEffectTarget id="heal">
         <TargetFilters index="0" value="Ground,Visible;Self,Enemy,Air,Structure,Missile,UnderConstruction,Dead,Hidden,Invulnerable"/>
     </CAbilEffectTarget>
+    <CAbilAugment id="HotSRaptorCharge2">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HotSRaptorCharge2">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <AbilCmd value="attack,Execute"/>
+        <TargetType value="UnitOrPoint"/>
+        <Cost>
+            <Cooldown Link="HotSRaptorChargeHotSRaptorCharge2" Location="Unit" TimeUse="2"/>
+        </Cost>
+        <Effect value="HotSRaptorLeap2"/>
+        <AutoCastValidatorArray value="CasterNotHoldingPosition2"/>
+    </CAbilAugment>
+    <CAbilResearch id="HotSRaptorCharge21">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Activity value="UI/Training"/>
+        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="1">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="ResearchHotSRaptorCharge21">
+                <Flags index="UseDefaultButton" value="1"/>
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilResearch id="HotSRaptorCharge22">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Activity value="UI/Training"/>
+        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="2">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="ResearchHotSRaptorCharge22">
+                <Flags index="UseDefaultButton" value="1"/>
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilResearch id="HotSRaptorCharge23">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Activity value="UI/Training"/>
+        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="3">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="ResearchHotSRaptorCharge23">
+                <Flags index="UseDefaultButton" value="1"/>
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilResearch id="HotSRaptorCharge24">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Activity value="UI/Training"/>
+        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="4">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="ResearchHotSRaptorCharge24">
+                <Flags index="UseDefaultButton" value="1"/>
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
 </Catalog>
