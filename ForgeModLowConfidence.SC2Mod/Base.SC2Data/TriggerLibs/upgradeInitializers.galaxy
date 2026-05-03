@@ -9,10 +9,10 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("ArbiterMPRecall", logicType_AnyOf, "unitTag", starport +"3");
     addUpgradeRequirementTag("ArbiterMPRecall", logicType_AnyOf, "unitTag", rax +"4");
 
-    addAbilityToUpgrade("ArbiterMPStasisField", "F_ArbiterMPStasisField");  // todo consider making this available to slot 2?
-    addUpgradeRequirementTag("ArbiterMPStasisField", logicType_AllOf, "unitTag", "caster");
-    addUpgradeRequirementTag("ArbiterMPStasisField", logicType_AnyOf, "unitTag", starport +"3");
-    addUpgradeRequirementTag("ArbiterMPStasisField", logicType_AnyOf, "unitTag", rax +"4");
+    // addAbilityToUpgrade("ArbiterMPStasisField", "F_ArbiterMPStasisField");  // This felt cheap and lame -- opponent doesn't know it is coming
+    // addUpgradeRequirementTag("ArbiterMPStasisField", logicType_AllOf, "unitTag", "caster");
+    // addUpgradeRequirementTag("ArbiterMPStasisField", logicType_AnyOf, "unitTag", starport +"3");
+    // addUpgradeRequirementTag("ArbiterMPStasisField", logicType_AnyOf, "unitTag", rax +"4");
 
     addAbilityToUpgrade("BlindingCloud", "F_BlindingCloud");
     addUpgradeRequirementTag("BlindingCloud", logicType_AllOf, "unitTag", "caster");

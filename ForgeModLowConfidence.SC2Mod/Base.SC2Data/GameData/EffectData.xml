@@ -31,6 +31,6 @@
         <EditorCategories value=""/>
     </CEffectModifyUnit>
     <CEffectDamage id="VultureU">
-        <AttributeBonus index="Light" value="13"/>
+        <AttributeBonus index="Light" value="10"/>
     </CEffectDamage>
 </Catalog>
