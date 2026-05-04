@@ -85,7 +85,7 @@
         <EditorCategories value="Race:Zerg"/>
         <CreateFlags index="UseFood" value="0"/>
         <SpawnEffect value="HotSRaptorLeapSet2"/>
-        <SpawnUnit value="Zergling"/>
+        <SpawnUnit value="InvisibleTargetGround"/>
         <SpawnRange value="1"/>
         <SpawnOffset value="0,-1"/>
     </CEffectCreateUnit>

@@ -65,6 +65,6 @@
     </CActorUnit>
     <CActorMissile id="HotSRaptorChargeMissile2" parent="GenericAttackMissile" unitName="HotSRaptorChargeMissile2">
         <On Terms="ActorCreation" Send="AnimPlay Attack Attack"/>
-        <Model value="HotSRaptor2"/>
+        <Model value="Invisible"/>
     </CActorMissile>
 </Catalog>
