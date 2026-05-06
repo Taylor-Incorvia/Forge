@@ -104,7 +104,7 @@
     <CEffectSet id="HotSRaptorLeapSet2">
         <EditorCategories value="Race:Zerg"/>
         <EffectArray value="HotSRaptorLeapSwitch2"/>
-        <EffectArray value="MakePrecursor2"/>
+        <EffectArray value="MakePrecursor"/>
         <EffectArray value="TempTimeout2"/>
     </CEffectSet>
     <CEffectSwitch id="HotSRaptorLeapSwitch2">

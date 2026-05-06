@@ -21,6 +21,18 @@
             </Button>
         </InfoArray>
     </CAbilResearch>
+    <CAbilResearch id="ZerglingAttackSpeed1">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Activity value="UI/Training"/>
+        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="1">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="ZerglingAttackSpeed1">
+                <Flags index="UseDefaultButton" value="1"/>
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
     <CAbilEffectInstant id="HydraliskFrenzy">
         <CmdButtonArray index="Execute" Requirements=""/>
     </CAbilEffectInstant>
@@ -283,7 +295,7 @@
         <Flags index="AutoCastOn" value="1"/>
         <AbilCmd value="attack,Execute"/>
         <Cost>
-            <Cooldown Link="ChargeCharge4ChargeF_Charge" Location="Unit" TimeUse="7.5"/>
+            <Cooldown Link="ChargeCharge4ChargeF_Charge" Location="Unit" TimeUse="10"/>
         </Cost>
         <Effect value="Charge"/>
         <AutoCastValidatorArray value="CasterNotHoldingPosition"/>
@@ -1119,9 +1131,6 @@
     </CAbilResearch>
     <CAbilAugment id="Charge">
         <CmdButtonArray index="Execute" Requirements=""/>
-        <Cost>
-            <Cooldown TimeUse="5"/>
-        </Cost>
     </CAbilAugment>
     <CAbilResearch id="Charge2">
         <EditorCategories value="AbilityorEffectType:Units"/>

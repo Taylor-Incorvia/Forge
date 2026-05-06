@@ -26,6 +26,7 @@
     <!-- Balance test 6/30 (combine Air/Ground mech armor upgrades)-->
     <CUnit id="Barracks">
         <CardLayouts index="0">
+            <LayoutButtons index="0" Column="1"/>
             <LayoutButtons index="3" Face="Rally" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
             <LayoutButtons index="4" Face="Lift" AbilCmd="BarracksLiftOff,Execute" Row="2" Column="3"/>
             <LayoutButtons index="5" Face="Halt" AbilCmd="BuildInProgress,Halt"/>
