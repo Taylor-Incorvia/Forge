@@ -5,6 +5,7 @@
     </CButton>
     <CButton id="Archon">
         <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="WidowMine"/>
     </CButton>
     <CButton id="Battlecruiser">
         <HotkeyAlias value="Raven"/>

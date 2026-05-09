@@ -25,7 +25,6 @@ void initializeUnitUnlockUpgradeMapping() {
     setUnitUnlockUpgrade("Infestor", "barracks4infestorupg");
     setUnitUnlockUpgrade("Ghost", "barracks4ghostupg");
     setUnitUnlockUpgrade("Lurker", "barracks4lurkerupg");
-    setUnitUnlockUpgrade("Archon", "barracks4archonupg");
     setUnitUnlockUpgrade("HighTemplar", "barracks4hightemplarupg");
     setUnitUnlockUpgrade("DefilerMP", "barracks4defilerupg");
 
@@ -43,6 +42,7 @@ void initializeUnitUnlockUpgradeMapping() {
     
     setUnitUnlockUpgrade("SiegeTank", "factory2siegetankupg"); // note that sieged tank is a different unit
     setUnitUnlockUpgrade("WarHound", "factory2warhoundupg");
+    setUnitUnlockUpgrade("Archon", "Factory2archonupg");
 
     // slot 3
     setUnitUnlockUpgrade("ThorAP", "factory3thor"); // thor in AA mode is a different unit
@@ -132,6 +132,7 @@ void initializeFactorySlot2Pool() {
     addUnitToSlotPool(facility, slot, "Immortal");
     addUnitToSlotPool(facility, slot, "SiegeTank");
     addUnitToSlotPool(facility, slot, "WarHound");
+    addUnitToSlotPool(facility, slot, "Archon");
 }
 
 void initializeFactorySlot3Pool() {

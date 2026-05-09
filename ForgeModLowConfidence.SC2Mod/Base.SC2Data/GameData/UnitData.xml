@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CUnit id="Archon">
+        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Vespene" value="250"/>
+    </CUnit>
     <!-- Balance change for balance patch of Nov 11th 2013 (combined Air/Ground vehicle upgrades)-->
     <!-- Balance test 3/12 (separate Air/Ground vehicle upgrades)-->
     <!-- Balance test 6/30 (combine Air/Ground mech armor upgrades)-->
@@ -130,6 +134,7 @@
             <LayoutButtons index="13" Face="Colossus" AbilCmd="FactoryTrain,Train13"/>
             <LayoutButtons index="14" Face="Predator" AbilCmd="FactoryTrain,Train10" Row="0" Column="0"/>
             <LayoutButtons index="15" Face="Hellion" AbilCmd="FactoryTrain,Train6" Row="0"/>
+            <LayoutButtons Face="Archon" Type="AbilCmd" AbilCmd="FactoryTrain,Train19" Row="0" Column="1"/>
             <LayoutButtons Face="Diamondback" Type="AbilCmd" AbilCmd="FactoryTrain,Train15" Row="0" Column="1"/>
             <LayoutButtons Face="WarHound" Type="AbilCmd" AbilCmd="FactoryTrain,Train16" Row="0" Column="1"/>
             <LayoutButtons Face="Roach" Type="AbilCmd" AbilCmd="FactoryTrain,Train18" Row="0" Column="0"/>

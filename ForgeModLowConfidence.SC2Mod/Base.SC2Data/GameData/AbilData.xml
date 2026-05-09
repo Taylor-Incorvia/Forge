@@ -1272,6 +1272,10 @@
             <Button DefaultButtonFace="Roach" Requirements="barracks2roachreq"/>
             <Unit value="Roach"/>
         </InfoArray>
+        <InfoArray index="Train19" Time="70">
+            <Button DefaultButtonFace="Archon" Requirements="factory2archon"/>
+            <Unit value="Archon"/>
+        </InfoArray>
     </CAbilTrain>
     <CAbilResearch id="GhostAcademyResearch">
         <InfoArray index="Research2" Time="150" Alert="UpgradeComplete_Prot" Upgrade="1">

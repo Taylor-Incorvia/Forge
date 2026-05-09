@@ -79,6 +79,11 @@
         <OperandArray value="CountUpgradefactory3colossusCompleteOnly"/>
         <OperandArray value="NotCountUpgradeforgecolossussplashupgQueuedOrBetter"/>
     </CRequirementAnd>
+    <CRequirementAnd id="AndGTECountUpgradeFactory2archonupgCompleteOnly1CountUnitArmoryCompleteOnly">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="GTECountUpgradeFactory2archonupgCompleteOnly1"/>
+        <OperandArray value="CountUnitArmoryCompleteOnly"/>
+    </CRequirementAnd>
     <CRequirementAnd id="AndGTECountUpgradebarracks2hydraliskupgCompleteOnly1">
         <OperandArray value="GTECountUpgradebarracks2hydraliskupgCompleteOnly1"/>
     </CRequirementAnd>
@@ -153,7 +158,6 @@
         <OperandArray value="CountUnitFusionCoreCompleteOnly"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndGTECountUpgradestarport2voidrayupgCompleteOnly1CountUnitFusionCoreCompleteOnly">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="GTECountUpgradestarport2voidrayupgCompleteOnly1"/>
         <OperandArray value="CountUnitFusionCoreCompleteOnly"/>
     </CRequirementAnd>
@@ -212,9 +216,13 @@
     <CRequirementCountUnit id="CountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheat">
         <Count Link="StarportTechReactor" State="CompleteOnlyAtUnit"/>
     </CRequirementCountUnit>
-    <CRequirementCountUpgrade id="CountUpgradebarracks2MarineUpgCompleteOnly">
+    <CRequirementCountUpgrade id="CountUpgradeFactory2archonupgCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="Factory2archonupg" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradebarracks2MarineUpgCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
         <Count Link="barracks2MarineUpg" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradebarracks2hydraliskupgCompleteOnly">
@@ -387,7 +395,6 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradestarport2voidrayupgCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="starport2voidrayupg" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradestarport3arbiterupgCompleteOnly">
@@ -430,8 +437,12 @@
         <OperandArray index="0" value="CountUpgradebarracksZerglingCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
-    <CRequirementGTE id="GTECountUpgradebarracks2MarineUpgCompleteOnly1">
+    <CRequirementGTE id="GTECountUpgradeFactory2archonupgCompleteOnly1">
         <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeFactory2archonupgCompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountUpgradebarracks2MarineUpgCompleteOnly1">
         <OperandArray index="0" value="CountUpgradebarracks2MarineUpgCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
@@ -588,7 +599,6 @@
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradestarport2voidrayupgCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradestarport2voidrayupgCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>

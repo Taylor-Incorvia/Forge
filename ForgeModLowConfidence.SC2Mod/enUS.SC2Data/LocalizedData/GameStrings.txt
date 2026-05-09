@@ -312,6 +312,7 @@ Upgrade/Name/1=GU Slot 1
 Upgrade/Name/2=GU Slot 2
 Upgrade/Name/3=GU Slot 3
 Upgrade/Name/4=GU Slot 4
+Upgrade/Name/Factory2archonupg=Factory 2 archon upg
 Upgrade/Name/GA1BehaviorIndex=1SlotBehaviorIndex
 Upgrade/Name/Starport1speedupg=Starport 1 speed upg
 Upgrade/Name/barracks2MarineUpg=barracks 2 Marine Upg
