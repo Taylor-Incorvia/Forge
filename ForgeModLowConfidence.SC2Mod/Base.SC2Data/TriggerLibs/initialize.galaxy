@@ -128,7 +128,7 @@ void initializeFactorySlot1Pool() {
 void initializeFactorySlot2Pool() {
     int slot = 2;
     string facility = factory;
-    // addUnitToSlotPool(facility, slot, "Diamondback"); // if I add this back it can be moved to slot 1 and nerfed. Just doesn't seem to be useful here. 
+    addUnitToSlotPool(facility, slot, "Diamondback"); // if I add this back it can be moved to slot 1 and nerfed. Just doesn't seem to be useful here. 
     addUnitToSlotPool(facility, slot, "Immortal");
     addUnitToSlotPool(facility, slot, "SiegeTank");
     addUnitToSlotPool(facility, slot, "WarHound");
