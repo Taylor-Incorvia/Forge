@@ -242,7 +242,7 @@
         <AlertName value="Button/Name/LightningBomb"/>
     </CButton>
     <CButton id="LurkerFromHydraliskBurrowed">
-        <HotkeyAlias value="Ghost"/>
+        <HotkeyAlias value="WidowMine"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="Marine2">

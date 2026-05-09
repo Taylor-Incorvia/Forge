@@ -100,6 +100,7 @@ Requirement/Name/factory1ravager=factory 1 ravager
 Requirement/Name/factory1vulture=factory 1 vulture
 Requirement/Name/factory2archon=factory 2 archon
 Requirement/Name/factory2diamondback=factory 2 diamondback
+Requirement/Name/factory2lurker=factory 2 lurker
 Requirement/Name/factory2siegetank=factory 2 siege tank
 Requirement/Name/factory2warhound=factory 2 warhound
 Requirement/Name/factory3thor=factory 3 thor
@@ -139,6 +140,7 @@ RequirementNode/Name/AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283
 RequirementNode/Name/AndCountUpgradebarracksZerglingCompleteOnlyNotCountUpgradeforgezerglingswarmlingupgQueuedOrBetter=CountUpgrade(barracksZergling,CompleteOnly) && !CountUpgrade(forgezerglingswarmlingupg,QueuedOrBetter)
 RequirementNode/Name/AndCountUpgradefactory3colossusCompleteOnlyNotCountUpgradeforgecolossussplashupgQueuedOrBetter=CountUpgrade(factory3colossus,CompleteOnly) && !CountUpgrade(forgecolossussplashupg,QueuedOrBetter)
 RequirementNode/Name/AndGTECountUpgradeFactory2archonupgCompleteOnly1CountUnitArmoryCompleteOnly=CountUpgrade(Factory2archonupg,CompleteOnly) >= 1 && CountUnit(Armory,CompleteOnly)
+RequirementNode/Name/AndGTECountUpgradeFactory2lurkerupgCompleteOnly1CountUnitArmoryCompleteOnly=CountUpgrade(Factory2lurkerupg,CompleteOnly) >= 1 && CountUnit(Armory,CompleteOnly)
 RequirementNode/Name/AndGTECountUpgradebarracks2hydraliskupgCompleteOnly1=CountUpgrade(barracks2hydraliskupg,CompleteOnly) >= 1 && ()
 RequirementNode/Name/AndGTECountUpgradebarracks2stalkerupgCompleteOnly1=CountUpgrade(barracks2stalkerupg,CompleteOnly) >= 1 && ()
 RequirementNode/Name/AndGTECountUpgradebarracks2warpigupgCompleteOnly1=CountUpgrade(barracks2warpigupg,CompleteOnly) >= 1 && ()
@@ -172,6 +174,7 @@ RequirementNode/Name/CountUnitGhostAcademyTotal=CountUnit(GhostAcademy,Total)
 RequirementNode/Name/CountUnitStarportCompleteOnlyTechTreeCheat=CountUnit(Starport,CompleteOnly)[TechTreeCheat]
 RequirementNode/Name/CountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheat=CountUnit(StarportTechReactor,CompleteOnlyAtUnit){Attached Starport Tech Lab}[TechTreeCheat]
 RequirementNode/Name/CountUpgradeFactory2archonupgCompleteOnly=CountUpgrade(Factory2archonupg,CompleteOnly)
+RequirementNode/Name/CountUpgradeFactory2lurkerupgCompleteOnly=CountUpgrade(Factory2lurkerupg,CompleteOnly)
 RequirementNode/Name/CountUpgradePhoenixRangeUpgradeInProgressOrBetter=CountUpgrade(PhoenixRangeUpgrade,InProgressOrBetter)
 RequirementNode/Name/CountUpgradeUnknownUpgrade16CompleteOnly=CountUpgrade(UnknownUpgrade16,CompleteOnly)
 RequirementNode/Name/CountUpgradeUnknownUpgrade16InProgressOrBetter=CountUpgrade(UnknownUpgrade16,InProgressOrBetter)
@@ -229,6 +232,7 @@ RequirementNode/Name/Eq1909066809CountUnitArmoryQueuedOrBetter0=CountUnit(Armory
 RequirementNode/Name/Eq1921971722CountUnitFusionCoreQueuedOrBetter0=CountUnit(FusionCore,QueuedOrBetter) == {No Fusion Core}0
 RequirementNode/Name/GTE2590769371CountUpgradebarracksZerglingCompleteOnly1=CountUpgrade(barracksZergling,CompleteOnly) >= {Test}1
 RequirementNode/Name/GTECountUpgradeFactory2archonupgCompleteOnly1=CountUpgrade(Factory2archonupg,CompleteOnly) >= 1
+RequirementNode/Name/GTECountUpgradeFactory2lurkerupgCompleteOnly1=CountUpgrade(Factory2lurkerupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradebarracks2MarineUpgCompleteOnly1=CountUpgrade(barracks2MarineUpg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradebarracks2hydraliskupgCompleteOnly1=CountUpgrade(barracks2hydraliskupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradebarracks2stalkerupgCompleteOnly1=CountUpgrade(barracks2stalkerupg,CompleteOnly) >= 1

@@ -26,6 +26,7 @@
     <CUpgrade id="barracks4ghostupg"/>
     <CUpgrade id="barracks2warpigupg"/>
     <CUpgrade id="barracks2MarineUpg"/>
+    <CUpgrade id="Factory2lurkerupg"/>
     <CUpgrade id="factory2diamondback"/>
     <CUpgrade id="factory2warhoundupg"/>
     <CUpgrade id="factory3ultralisk"/>

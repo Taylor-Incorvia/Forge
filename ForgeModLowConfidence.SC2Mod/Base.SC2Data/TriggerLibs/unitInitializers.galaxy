@@ -18,7 +18,7 @@ void initializeTags() {
     // slot 4
     addUnitTag("Infestor", "caster");
     addUnitTag("Ghost", "fighter-caster");
-    addUnitTag("Lurker", "stationary-attacker");
+    addUnitTag("LurkerMP", "stationary-attacker");
     addUnitTag("DefilerMP", "caster");
     addUnitTag("HighTemplar", "caster");
 
@@ -46,7 +46,7 @@ void initializeTags() {
 }
 
 void initializeAlternateForms() { // if a lurker is burrowed when an upgrade completes, it doesn't get the upgrade because it is a different unit. 
-    setUnitAltForm("Lurker", "LurkerBurrowed");
+    setUnitAltForm("LurkerMP", "LurkerMPBurrowed");
     setUnitAltForm("SiegeTank", "SiegeTankSieged");
     setUnitAltForm("ThorAP", "Thor");
     setUnitAltForm("VikingFighter", "VikingAssault");

@@ -157,6 +157,10 @@
     <CRequirement id="canbuildghostacademy">
         <NodeArray index="Use" Link="AndCountUnitBarracksCompleteOnlyNotCountUnitGhostAcademyQueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="factory2lurker">
+        <NodeArray index="Use" Link="AndGTECountUpgradeFactory2lurkerupgCompleteOnly1CountUnitArmoryCompleteOnly"/>
+        <NodeArray index="Show" Link="GTECountUpgradeFactory2lurkerupgCompleteOnly1"/>
+    </CRequirement>
     <CRequirement id="factory2warhound">
         <NodeArray index="Use" Link="AndGTECountUpgradefactory2warhoundupgCompleteOnly1CountUnitArmoryCompleteOnly"/>
         <NodeArray index="Show" Link="GTECountUpgradefactory2warhoundupgCompleteOnly1"/>

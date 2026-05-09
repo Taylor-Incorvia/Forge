@@ -24,7 +24,7 @@ void initializeUnitUnlockUpgradeMapping() {
     // slot 4 
     setUnitUnlockUpgrade("Infestor", "barracks4infestorupg");
     setUnitUnlockUpgrade("Ghost", "barracks4ghostupg");
-    setUnitUnlockUpgrade("Lurker", "barracks4lurkerupg");
+    // setUnitUnlockUpgrade("Lurker", "barracks4lurkerupg");
     setUnitUnlockUpgrade("HighTemplar", "barracks4hightemplarupg");
     setUnitUnlockUpgrade("DefilerMP", "barracks4defilerupg");
 
@@ -42,7 +42,8 @@ void initializeUnitUnlockUpgradeMapping() {
     
     setUnitUnlockUpgrade("SiegeTank", "factory2siegetankupg"); // note that sieged tank is a different unit
     setUnitUnlockUpgrade("WarHound", "factory2warhoundupg");
-    setUnitUnlockUpgrade("Archon", "Factory2archonupg");
+    setUnitUnlockUpgrade("Archon", "Factory2archonupg"); // addUnitToSlotPool(facility, slot, "Lurker");
+    setUnitUnlockUpgrade("LurkerMP", "Factory2lurkerupg");
 
     // slot 3
     setUnitUnlockUpgrade("ThorAP", "factory3thor"); // thor in AA mode is a different unit
@@ -119,8 +120,8 @@ void initializeFactorySlot1Pool() {
     int slot = 1;
     string facility = factory;
     addUnitToSlotPool(facility, slot, "Vulture"); 
-    addUnitToSlotPool(facility, slot, "Hellion"); 
-    addUnitToSlotPool(facility, slot, "Roach");
+    // addUnitToSlotPool(facility, slot, "Hellion"); 
+    // addUnitToSlotPool(facility, slot, "Roach"); // todo add stalker
     // addUnitToSlotPool(facility, slot, "Ravager"); // made this a mecha ravager. Probably want to buff it a little and send it to slot 2. 
     // addUnitToSlotPool(facility, slot, "Predator"); // predator is mad broken as a factory slot 1 unit and mad broken at 100/100 price. Increase price, move to slot 2 and then you can re-enable
 }
@@ -128,11 +129,12 @@ void initializeFactorySlot1Pool() {
 void initializeFactorySlot2Pool() {
     int slot = 2;
     string facility = factory;
-    addUnitToSlotPool(facility, slot, "Diamondback"); // if I add this back it can be moved to slot 1 and nerfed. Just doesn't seem to be useful here. 
-    addUnitToSlotPool(facility, slot, "Immortal");
-    addUnitToSlotPool(facility, slot, "SiegeTank");
-    addUnitToSlotPool(facility, slot, "WarHound");
-    addUnitToSlotPool(facility, slot, "Archon");
+    // addUnitToSlotPool(facility, slot, "Diamondback"); // if I add this back it can be moved to slot 1 and nerfed. Just doesn't seem to be useful here. 
+    // addUnitToSlotPool(facility, slot, "Immortal");
+    // addUnitToSlotPool(facility, slot, "SiegeTank");
+    // addUnitToSlotPool(facility, slot, "WarHound");
+    // addUnitToSlotPool(facility, slot, "Archon");
+    addUnitToSlotPool(facility, slot, "LurkerMP");
 }
 
 void initializeFactorySlot3Pool() {
