@@ -34,12 +34,10 @@ Actor/Name/BlinkOriginModel2=Blink Origin Model
 Actor/Name/BlinkStopModel2=Blink Stop Model
 Actor/Name/BlinkStopSound2=Blink Stop Sound
 Actor/Name/CombatVisibilityClearer2=Combat Visibility Clearer
-Actor/Name/HotSRaptorChargeMissile2=Hot SRaptor Charge Missile _T
 Behavior/EditorPrefix/HyperjumpindicatorTimedLife=Hyperjump indicator-
 Behavior/Name/HyperjumpindicatorTimedLife=Timed Life
 Behavior/Name/Range=Range
 Behavior/Name/Speed=Speed
-Behavior/Name/TempTimeout2=Temp Timeout _T
 Button/EditorPrefix/F_ArbiterMPStasisField=Arbiter -
 Button/EditorPrefix/F_BlindingCloud=Lair Viper -
 Button/EditorPrefix/F_CorsairMPDisruptionWeb=Corsair -
@@ -59,11 +57,9 @@ Button/EditorPrefix/Siphon=
 Effect/EditorPrefix/Blink2=Stalker -
 Model/Name/BlinkOriginModel2=Blink Origin Model
 Model/Name/BlinkStopModel2=Blink Stop Model
-Model/Name/HotSRaptor2=Hot SRaptor _T
 Mover/Name/Fly2=Fly
 Mover/Name/Ground2=Ground
 Mover/Name/Ground3=Ground
-Mover/Name/HotSRaptorChargeMissile2=Hot SRaptor Charge Missile _T
 Requirement/Name/Armoryrequirements2=Armory requirements2
 Requirement/Name/Fusioncorerequirements2=Fusion core requirements2
 Requirement/Name/HaveGhostAcademy=Have Ghost Academy
@@ -80,6 +76,7 @@ Requirement/Name/UnknownRequirement6=factory 3 ultralisk
 Requirement/Name/UnknownRequirement7=starport 1 viking req
 Requirement/Name/UnknownRequirement8=starport 2 mutalisk req
 Requirement/Name/UnknownRequirement9=starport 2 liberator req
+Requirement/Name/barracks2MarineReq=barracks 2 Marine Req
 Requirement/Name/barracks2hydralisktreq=barracks 2 hydralisk req
 Requirement/Name/barracks2medicreq=barracks 3 medic req
 Requirement/Name/barracks2roachreq=barracks 3 roach req
@@ -95,7 +92,7 @@ Requirement/Name/barracks4ghostreq=barracks 4 ghost req
 Requirement/Name/barracks4hightemplarreq=barracks 4 high templar req
 Requirement/Name/barracks4infesterreq=barracks 4 infester req
 Requirement/Name/barracks4lurkerreq=barracks 4 lurker req
-Requirement/Name/barracksMarineReq=barracks 2 Marine Req
+Requirement/Name/barracksMarineReq=barracks 1 Marine Req
 Requirement/Name/barracksZealot=barracks 1 Zealot
 Requirement/Name/barracksZergling=barracks 1 Zergling
 Requirement/Name/canbuildghostacademy=can build ghost academy
@@ -114,6 +111,7 @@ Requirement/Name/starport1phoenixreq=starport 1 phoenix req
 Requirement/Name/starport1wraithreq=starport 1 wraith req
 Requirement/Name/starport2bansheereq=starport 2 banshee req
 Requirement/Name/starport2duskwingreq=starport 2 dusk wing req
+Requirement/Name/starport2voidrayreq=starport 2 void ray req
 Requirement/Name/starport3battlecruiserreq2=starport 3 battlecruiser req
 Requirement/Name/starport3sciencevesselreq=starport 3 science vessel req
 Requirement/Name/starport3tempestreq=starport 3 tempest req
@@ -158,7 +156,7 @@ RequirementNode/Name/AndGTECountUpgradestarport2bansheeupgCompleteOnly1CountUnit
 RequirementNode/Name/AndGTECountUpgradestarport2duskwingupgCompleteOnly1CountUnitFusionCoreCompleteOnly=CountUpgrade(starport2duskwingupg,CompleteOnly) >= 1 && CountUnit(FusionCore,CompleteOnly)
 RequirementNode/Name/AndGTECountUpgradestarport2liberatorupgCompleteOnly1CountUnitFusionCoreCompleteOnly=CountUpgrade(starport2liberatorupg,CompleteOnly) >= 1 && CountUnit(FusionCore,CompleteOnly)
 RequirementNode/Name/AndGTECountUpgradestarport2mutaupgCompleteOnly1CountUnitFusionCoreCompleteOnly=CountUpgrade(starport2mutaupg,CompleteOnly) >= 1 && CountUnit(FusionCore,CompleteOnly)
-RequirementNode/Name/AndOr96167438CountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOnly1718561093TechTreeCheatCountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOn839427818=(CountUnit(Factory,CompleteOnly){Factory}[TechTreeCheat] || {Factory}CountUnit(FactoryFlying,CompleteOnly){Flying Factory}[TechTreeCheat] || {Factory}CountUnit(Factory,CompleteOnly){Factory}[TechTreeCheat] || {Factory}CountUnit(FactoryFlying,CompleteOnly){Flying Factory}[TechTreeCheat]) && !{No Nuke in this Ghost Academy}CountUnit(Nuke,QueuedOrBetterAtUnit) && CountUpgrade(barracks4ghostupg,CompleteOnly)
+RequirementNode/Name/AndGTECountUpgradestarport2voidrayupgCompleteOnly1CountUnitFusionCoreCompleteOnly=CountUpgrade(starport2voidrayupg,CompleteOnly) >= 1 && CountUnit(FusionCore,CompleteOnly)
 RequirementNode/Name/CountBehaviorblink_testCompleteOnlyAtUnit=CountBehavior(blink_test,CompleteOnlyAtUnit)
 RequirementNode/Name/CountUnitArmoryQueuedOrBetter=CountUnit(Armory,QueuedOrBetter)
 RequirementNode/Name/CountUnitBarracksCompleteOnly=CountUnit(Barracks,CompleteOnly)
@@ -174,6 +172,7 @@ RequirementNode/Name/CountUnitStarportTechReactorCompleteOnlyAtUnit3842314283Tec
 RequirementNode/Name/CountUpgradePhoenixRangeUpgradeInProgressOrBetter=CountUpgrade(PhoenixRangeUpgrade,InProgressOrBetter)
 RequirementNode/Name/CountUpgradeUnknownUpgrade16CompleteOnly=CountUpgrade(UnknownUpgrade16,CompleteOnly)
 RequirementNode/Name/CountUpgradeUnknownUpgrade16InProgressOrBetter=CountUpgrade(UnknownUpgrade16,InProgressOrBetter)
+RequirementNode/Name/CountUpgradebarracks2MarineUpgCompleteOnly=CountUpgrade(barracks2MarineUpg,CompleteOnly)
 RequirementNode/Name/CountUpgradebarracks2hydraliskupgCompleteOnly=CountUpgrade(barracks2hydraliskupg,CompleteOnly)
 RequirementNode/Name/CountUpgradebarracks2stalkerupgCompleteOnly=CountUpgrade(barracks2stalkerupg,CompleteOnly)
 RequirementNode/Name/CountUpgradebarracks2warpigupgCompleteOnly=CountUpgrade(barracks2warpigupg,CompleteOnly)
@@ -190,6 +189,8 @@ RequirementNode/Name/CountUpgradebarracks4infestorupgCompleteOnly=CountUpgrade(b
 RequirementNode/Name/CountUpgradebarracks4lurkerupgCompleteOnly=CountUpgrade(barracks4lurkerupg,CompleteOnly)
 RequirementNode/Name/CountUpgradebarracksMarineUpgCompleteOnly=CountUpgrade(barracksMarineUpg,CompleteOnly)
 RequirementNode/Name/CountUpgradebarracksMarineUpgCompleteOnly2=CountUpgrade(barracksMarineUpg,CompleteOnly)
+RequirementNode/Name/CountUpgradebarracksMarineUpgCompleteOnly22=CountUpgrade(barracksMarineUpg,CompleteOnly)
+RequirementNode/Name/CountUpgradebarracksMarineUpgCompleteOnly3=CountUpgrade(barracksMarineUpg,CompleteOnly)
 RequirementNode/Name/CountUpgradebarracksZealotUpgCompleteOnly=CountUpgrade(barracksZealotUpg,CompleteOnly)
 RequirementNode/Name/CountUpgradebarracksZerglingCompleteOnly=CountUpgrade(barracksZergling,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory1hellionCompleteOnly=CountUpgrade(factory1hellion,CompleteOnly)
@@ -214,6 +215,7 @@ RequirementNode/Name/CountUpgradestarport2bansheeupgCompleteOnly=CountUpgrade(st
 RequirementNode/Name/CountUpgradestarport2duskwingupgCompleteOnly=CountUpgrade(starport2duskwingupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport2liberatorupgCompleteOnly=CountUpgrade(starport2liberatorupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport2mutaupgCompleteOnly=CountUpgrade(starport2mutaupg,CompleteOnly)
+RequirementNode/Name/CountUpgradestarport2voidrayupgCompleteOnly=CountUpgrade(starport2voidrayupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport3battlecruiserupgCompleteOnly=CountUpgrade(starport3battlecruiserupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport3ravenupgCompleteOnly=CountUpgrade(starport3ravenupg,CompleteOnly)
 RequirementNode/Name/CountUpgradestarport3sciencevesselupgCompleteOnly=CountUpgrade(starport3sciencevesselupg,CompleteOnly)
@@ -223,6 +225,7 @@ RequirementNode/Name/Eq1688680196CountUnitGhostAcademyQueuedOrBetter0=CountUnit(
 RequirementNode/Name/Eq1909066809CountUnitArmoryQueuedOrBetter0=CountUnit(Armory,QueuedOrBetter) == {No Armory}0
 RequirementNode/Name/Eq1921971722CountUnitFusionCoreQueuedOrBetter0=CountUnit(FusionCore,QueuedOrBetter) == {No Fusion Core}0
 RequirementNode/Name/GTE2590769371CountUpgradebarracksZerglingCompleteOnly1=CountUpgrade(barracksZergling,CompleteOnly) >= {Test}1
+RequirementNode/Name/GTECountUpgradebarracks2MarineUpgCompleteOnly1=CountUpgrade(barracks2MarineUpg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradebarracks2hydraliskupgCompleteOnly1=CountUpgrade(barracks2hydraliskupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradebarracks2stalkerupgCompleteOnly1=CountUpgrade(barracks2stalkerupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradebarracks2warpigupgCompleteOnly1=CountUpgrade(barracks2warpigupg,CompleteOnly) >= 1
@@ -261,6 +264,7 @@ RequirementNode/Name/GTECountUpgradestarport2bansheeupgCompleteOnly1=CountUpgrad
 RequirementNode/Name/GTECountUpgradestarport2duskwingupgCompleteOnly1=CountUpgrade(starport2duskwingupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport2liberatorupgCompleteOnly1=CountUpgrade(starport2liberatorupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport2mutaupgCompleteOnly1=CountUpgrade(starport2mutaupg,CompleteOnly) >= 1
+RequirementNode/Name/GTECountUpgradestarport2voidrayupgCompleteOnly1=CountUpgrade(starport2voidrayupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport3battlecruiserupgCompleteOnly1=CountUpgrade(starport3battlecruiserupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport3ravenupgCompleteOnly1=CountUpgrade(starport3ravenupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradestarport3sciencevesselupgCompleteOnly1=CountUpgrade(starport3sciencevesselupg,CompleteOnly) >= 1
@@ -269,14 +273,11 @@ RequirementNode/Name/GTECountUpgradestarport3viperupgCompleteOnly1=CountUpgrade(
 RequirementNode/Name/NotCountUnitGhostAcademyQueuedOrBetter=!CountUnit(GhostAcademy,QueuedOrBetter)
 RequirementNode/Name/NotCountUpgradeforgecolossussplashupgQueuedOrBetter=!CountUpgrade(forgecolossussplashupg,QueuedOrBetter)
 RequirementNode/Name/NotCountUpgradeforgezerglingswarmlingupgQueuedOrBetter=!CountUpgrade(forgezerglingswarmlingupg,QueuedOrBetter)
-RequirementNode/Name/Or96167438CountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOnly1718561093TechTreeCheatCountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOnly1718561093TechTreeCheat=CountUnit(Factory,CompleteOnly){Factory}[TechTreeCheat] || {Factory}CountUnit(FactoryFlying,CompleteOnly){Flying Factory}[TechTreeCheat] || {Factory}CountUnit(Factory,CompleteOnly){Factory}[TechTreeCheat] || {Factory}CountUnit(FactoryFlying,CompleteOnly){Flying Factory}[TechTreeCheat]
 RequirementNode/Name/OrCountUnitAlias_FactoryCompleteOnly96167438TechTreeCheatCountUnitGhostAcademyCompleteOnly96167438TechTreeCheat=CountUnit(Alias_Factory,CompleteOnly){Factory}[TechTreeCheat] || CountUnit(GhostAcademy,CompleteOnly){Factory}[TechTreeCheat]
 RequirementNode/Name/OrCountUnitArmoryCompleteOnlyCountUnitFusionCoreCompleteOnlyCountUnitGhostAcademyCompleteOnly=CountUnit(Armory,CompleteOnly) || CountUnit(FusionCore,CompleteOnly) || CountUnit(GhostAcademy,CompleteOnly)
 Sound/Name/Stalker_Blink2=Stalker_Blink
 Upgrade/EditorPrefix/BlinkTech2=Stalker -
 Upgrade/EditorPrefix/TwinLinkedFlameThrowers=Story Mode Tech - (Hellion)
-Validator/Name/CasterNotHoldingPosition2=Caster Not Holding Position
-Validator/Name/HotSRaptorChargeMaxDistance2=Hot SRaptor Charge Max Distance _T
 Weapon/EditorPrefix/90mmCannons=Siege Tank -
 Weapon/EditorPrefix/90mmCannonsFake=Siege Tank -
 Weapon/EditorPrefix/AcidSaliva=Roach -

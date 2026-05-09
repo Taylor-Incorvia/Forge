@@ -238,7 +238,7 @@
             <Button DefaultButtonFace="Firebat" Requirements="barracks3firebatreq"/>
             <Unit value="Firebat"/>
         </InfoArray>
-        <InfoArray index="Train13" Time="28">
+        <InfoArray index="Train13" Time="26">
             <Charge TimeStart="17"/>
             <Button DefaultButtonFace="Hydralisk" Requirements="barracks2hydralisktreq"/>
             <Unit value="Hydralisk"/>
@@ -266,6 +266,10 @@
         <InfoArray index="Train19" Time="45">
             <Button DefaultButtonFace="Siphon" Requirements="barracks4defilerreqreal"/>
             <Unit value="DefilerMP"/>
+        </InfoArray>
+        <InfoArray index="Train20" Time="17">
+            <Button DefaultButtonFace="Marine2" Requirements="barracks2MarineReq"/>
+            <Unit value="Marine"/>
         </InfoArray>
     </CAbilTrain>
     <CAbilEffectTarget id="F_D8Charge">
@@ -1469,6 +1473,10 @@
         <InfoArray index="Train16" Time="35">
             <Button DefaultButtonFace="MorphToOverseer"/>
             <Unit value="Overseer"/>
+        </InfoArray>
+        <InfoArray index="Train17" Time="49">
+            <Button DefaultButtonFace="VoidRay" Requirements="starport2voidrayreq"/>
+            <Unit value="VoidRay"/>
         </InfoArray>
     </CAbilTrain>
     <CAbilResearch id="Stimpack2">

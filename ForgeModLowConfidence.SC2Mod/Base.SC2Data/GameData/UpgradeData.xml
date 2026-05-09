@@ -24,11 +24,13 @@
     <CUpgrade id="barracks4lurkerupg"/>
     <CUpgrade id="barracks4ghostupg"/>
     <CUpgrade id="barracks2warpigupg"/>
+    <CUpgrade id="barracks2MarineUpg"/>
     <CUpgrade id="factory2diamondback"/>
     <CUpgrade id="factory2warhoundupg"/>
     <CUpgrade id="factory3ultralisk"/>
     <CUpgrade id="starport1vikingupg"/>
     <CUpgrade id="starport1corsairupg"/>
+    <CUpgrade id="starport2voidrayupg"/>
     <CUpgrade id="starport2duskwingupg"/>
     <CUpgrade id="starport2mutaupg"/>
     <CUpgrade id="starport2liberatorupg"/>

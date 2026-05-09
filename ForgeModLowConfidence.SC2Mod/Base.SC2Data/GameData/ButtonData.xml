@@ -244,6 +244,12 @@
         <HotkeyAlias value="Ghost"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
+    <CButton id="Marine2">
+        <Icon value="Assets\Textures\btn-unit-terran-marine.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-marine.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="Reaper"/>
+    </CButton>
     <CButton id="Medic">
         <HotkeyAlias value="Marauder"/>
     </CButton>
@@ -332,6 +338,9 @@
         <Icon value="Assets\Textures\btn-upgrade-terran-infernalpreigniter.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
         <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="VoidRay">
+        <HotkeyAlias value="Banshee"/>
     </CButton>
     <CButton id="zerglingattackspeed1">
         <Icon value="Assets\Textures\btn-upgrade-zerg-adrenalglands.dds"/>

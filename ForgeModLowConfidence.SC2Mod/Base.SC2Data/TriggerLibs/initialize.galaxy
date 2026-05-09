@@ -11,7 +11,7 @@ void initializeUnitUnlockUpgradeMapping() {
     setUnitUnlockUpgrade("Stalker", "barracks2stalkerupg");
     setUnitUnlockUpgrade("Hydralisk", "barracks2hydraliskupg");
     setUnitUnlockUpgrade("WarPig", "barracks2warpigupg");
-    setUnitUnlockUpgrade("Marine", "barracksMarineUpg");
+    setUnitUnlockUpgrade("Marine", "barracks2MarineUpg");
 
     //slot 3
     setUnitUnlockUpgrade("Firebat", "barracks3firebatupg");
@@ -60,7 +60,8 @@ void initializeUnitUnlockUpgradeMapping() {
     setUnitUnlockUpgrade("Banshee", "starport2bansheeupg");
     setUnitUnlockUpgrade("Liberator", "starport2liberatorupg"); 
     setUnitUnlockUpgrade("Mutalisk", "starport2mutaupg");
-    setUnitUnlockUpgrade("DuskWing", "starport2duskwingupg");
+    setUnitUnlockUpgrade("DuskWing", "starport2duskwingupg"); // starport2voidrayupg
+    setUnitUnlockUpgrade("VoidRay", "starport2voidrayupg");
 
     // slot 3
     setUnitUnlockUpgrade("ArbiterMP", "starport3arbiterupg");
@@ -82,10 +83,10 @@ void initializeBarracksSlot1Pool() {
 void initializeBarracksSlot2Pool() {
     int slot = 2;
     string facility = rax;
-    addUnitToSlotPool(facility, slot, "Stalker"); 
-    addUnitToSlotPool(facility, slot, "Hydralisk");
-    addUnitToSlotPool(facility, slot, "WarPig");
-    // addUnitToSlotPool(facility, slot, "Marine");
+    // addUnitToSlotPool(facility, slot, "Stalker"); 
+    // addUnitToSlotPool(facility, slot, "Hydralisk");
+    // addUnitToSlotPool(facility, slot, "WarPig");
+    addUnitToSlotPool(facility, slot, "Marine");
 }
 
 // slot 3 pool was previously known as slot 2b. 
@@ -154,9 +155,12 @@ void initializeStarportSlot2Pool() {
     int slot = 2;
     string facility = starport;
     // addUnitToSlotPool(facility, slot, "Banshee");
-    addUnitToSlotPool(facility, slot, "Liberator");
+
+    addUnitToSlotPool(facility, slot, "Liberator"); // todo revert
     addUnitToSlotPool(facility, slot, "Mutalisk");
     addUnitToSlotPool(facility, slot, "DuskWing"); // duskwing is just buffed banshee
+
+    addUnitToSlotPool(facility, slot, "VoidRay"); 
 }
 
 void initializeStarportSlot3Pool() {

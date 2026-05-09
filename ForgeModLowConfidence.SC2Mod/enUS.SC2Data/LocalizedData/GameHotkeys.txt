@@ -28,6 +28,7 @@ Button/Hotkey/GuardianShield=V
 Button/Hotkey/HireKelmorianMiners=A
 Button/Hotkey/Irradiate=G
 Button/Hotkey/KD8Charge=D
+Button/Hotkey/Marine2=A
 Button/Hotkey/MissilePods=G
 Button/Hotkey/MissilePods2=E
 Button/Hotkey/PsionicShockwave2=V
@@ -61,6 +62,4 @@ Button/Hotkey/Viper=R
 Button/Hotkey/WarHound=S
 Button/Hotkey/YamatoGun2=G
 Button/Hotkey/Yoink=G
-Button/Hotkey/HotSRaptorCharge2=G
 G=G
-

@@ -138,6 +138,10 @@
         <NodeArray index="Use" Link="GTECountUpgradebarracksMarineUpgCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradebarracksMarineUpgCompleteOnly1"/>
     </CRequirement>
+    <CRequirement id="barracks2MarineReq">
+        <NodeArray index="Use" Link="GTECountUpgradebarracks2MarineUpgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks2MarineUpgCompleteOnly1"/>
+    </CRequirement>
     <CRequirement id="barracksZealot">
         <NodeArray index="Use" Link="GTECountUpgradebarracksZealotUpgCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradebarracksZealotUpgCompleteOnly1"/>
@@ -199,6 +203,10 @@
     <CRequirement id="starport2bansheereq">
         <NodeArray index="Use" Link="AndGTECountUpgradestarport2bansheeupgCompleteOnly1CountUnitFusionCoreCompleteOnly"/>
         <NodeArray index="Show" Link="GTECountUpgradestarport2bansheeupgCompleteOnly1"/>
+    </CRequirement>
+    <CRequirement id="starport2voidrayreq">
+        <NodeArray index="Use" Link="AndGTECountUpgradestarport2voidrayupgCompleteOnly1CountUnitFusionCoreCompleteOnly"/>
+        <NodeArray index="Show" Link="GTECountUpgradestarport2voidrayupgCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="starport2duskwingreq">
         <NodeArray index="Use" Link="AndGTECountUpgradestarport2duskwingupgCompleteOnly1CountUnitFusionCoreCompleteOnly"/>

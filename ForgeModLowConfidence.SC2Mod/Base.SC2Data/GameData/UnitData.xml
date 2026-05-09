@@ -42,6 +42,7 @@
             <LayoutButtons Face="Hydralisk" Type="AbilCmd" AbilCmd="BarracksTrain,Train13" Row="0" Column="1"/>
             <LayoutButtons Face="HireKelmorianMiners" Type="AbilCmd" AbilCmd="BarracksTrain,Train18" Row="0" Column="1"/>
             <LayoutButtons Face="Stalker" Type="AbilCmd" AbilCmd="BarracksTrain,Train7" Row="0" Column="1"/>
+            <LayoutButtons Face="Marine2" Type="AbilCmd" AbilCmd="BarracksTrain,Train20" Row="0" Column="1"/>
             <LayoutButtons Face="HighTemplar" Type="AbilCmd" AbilCmd="BarracksTrain,Train10" Row="0" Column="3"/>
             <LayoutButtons Face="Siphon" Type="AbilCmd" AbilCmd="BarracksTrain,Train19" Row="0" Column="3"/>
             <LayoutButtons Face="Archon" Type="AbilCmd" AbilCmd="BarracksTrain,Train9" Row="0" Column="3"/>
@@ -227,7 +228,6 @@
             <LayoutButtons index="8" Face="Feedback" AbilCmd="Feedback,Execute" Column="0"/>
             <LayoutButtons index="9" removed="1"/>
         </CardLayouts>
-        <EnergyStart value="40"/>
     </CUnit>
     <CUnit id="Hydralisk">
         <CardLayouts index="0">
@@ -257,6 +257,8 @@
             <LayoutButtons index="28" removed="1"/>
             <LayoutButtons index="29" removed="1"/>
         </CardLayouts>
+        <CostResource index="Minerals" value="80"/>
+        <CostResource index="Vespene" value="30"/>
     </CUnit>
     <CUnit id="Infestor">
         <CardLayouts index="0">
@@ -312,6 +314,7 @@
         <CardLayouts index="0">
             <LayoutButtons index="5" removed="1"/>
         </CardLayouts>
+        <CostResource index="Vespene" value="10"/>
     </CUnit>
     <CUnit id="Medic">
         <Collide index="ForceField" value="1"/>
@@ -481,6 +484,7 @@
             <LayoutButtons Face="Arbiter" Type="AbilCmd" AbilCmd="StarportTrain,Train14" Row="0" Column="2"/>
             <LayoutButtons Face="BuildScienceVessel" Type="AbilCmd" AbilCmd="StarportTrain,Train13" Row="0" Column="2"/>
             <LayoutButtons Face="Tempest" Type="AbilCmd" AbilCmd="StarportTrain,Train10" Row="0" Column="2"/>
+            <LayoutButtons Face="VoidRay" Type="AbilCmd" AbilCmd="StarportTrain,Train17" Row="0" Column="1"/>
             <LayoutButtons Face="HireDuskWing" Type="AbilCmd" AbilCmd="StarportTrain,Train15" Row="0" Column="1"/>
             <LayoutButtons Face="Mutalisk" Type="AbilCmd" AbilCmd="StarportTrain,Train9" Row="0" Column="1"/>
             <LayoutButtons Face="MorphToOverseer" Type="AbilCmd" AbilCmd="StarportTrain,Train16" Row="1" Column="1"/>

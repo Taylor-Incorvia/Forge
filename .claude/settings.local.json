@@ -10,7 +10,8 @@
       "WebSearch",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "WebFetch(domain:liquipedia.net)"
+      "WebFetch(domain:liquipedia.net)",
+      "WebFetch(domain:s2editor-guides.readthedocs.io)"
     ]
   }
 }
