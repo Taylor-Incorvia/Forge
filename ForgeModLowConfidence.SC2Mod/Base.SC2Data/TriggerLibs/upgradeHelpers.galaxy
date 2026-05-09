@@ -87,6 +87,12 @@ void addUpgradeToUpgrade(string upgrade, string countUpgrade) {
     registerToAllUpgradesList(upgrade);
 }
 
+void applyUpgradeCatalogOverrides(int player, string upgrade, string unitId) {
+    if (upgrade == "HotSRaptorCharge2") {
+        CatalogFieldValueSet(c_gameCatalogUnit, unitId, "Mover", player, "CliffJumper");
+    }
+}
+
 void grantGenericUpgrade(int player, string upgrade, string unitId) {
     string upgradeAbilityListName = getUpgradeAbilityListName(upgrade);
     int upgradeAbilityListSize = getStringListSize(upgradeAbilityListName);
@@ -115,6 +121,8 @@ void grantGenericUpgrade(int player, string upgrade, string unitId) {
         showMessage("Granting count upgrade: " + countUpgradeToGrant + " for player: " + IntToString(player));
         grantUpgrade(player, countUpgradeToGrant);
     }
+
+    applyUpgradeCatalogOverrides(player, upgrade, unitId);
 }
 
 string getSlotSelectedUpgradeKey(int player, int slotIndex, string facilityId) {

@@ -4,12 +4,10 @@
         <Value value="1"/>
     </CRequirementConst>
     <CRequirementAnd id="AndCountUnitBarracksCompleteOnlyNotCountUnitGhostAcademyQueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitBarracksCompleteOnly"/>
         <OperandArray value="NotCountUnitGhostAcademyQueuedOrBetter"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitBarracksCompleteOnlyTechTreeCheatEq1688680196CountUnitGhostAcademyQueuedOrBetter0">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitBarracksCompleteOnlyTechTreeCheat"/>
         <OperandArray value="Eq1688680196CountUnitGhostAcademyQueuedOrBetter0"/>
     </CRequirementAnd>
@@ -38,7 +36,6 @@
         <OperandArray value="GTECountUpgradebarracks4lurkerupgCompleteOnly1"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitFactoryCompleteOnlyTechTreeCheatEq1909066809CountUnitArmoryQueuedOrBetter0">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitFactoryCompleteOnlyTechTreeCheat"/>
         <OperandArray value="Eq1909066809CountUnitArmoryQueuedOrBetter0"/>
     </CRequirementAnd>
@@ -47,7 +44,6 @@
         <OperandArray value="CountUnitAlias_BarracksCompleteOnlyAtUnit"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndCountUnitStarportCompleteOnlyTechTreeCheatEq1921971722CountUnitFusionCoreQueuedOrBetter0">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitStarportCompleteOnlyTechTreeCheat"/>
         <OperandArray value="Eq1921971722CountUnitFusionCoreQueuedOrBetter0"/>
     </CRequirementAnd>
@@ -156,6 +152,12 @@
         <OperandArray value="GTECountUpgradestarport2mutaupgCompleteOnly1"/>
         <OperandArray value="CountUnitFusionCoreCompleteOnly"/>
     </CRequirementAnd>
+    <CRequirementAnd id="AndOr96167438CountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOnly1718561093TechTreeCheatCountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOn839427818">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="Or96167438CountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOnly1718561093TechTreeCheatCountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOnly1718561093TechTreeCheat"/>
+        <OperandArray value="Not866976074CountUnitNukeQueuedOrBetterAtUnit"/>
+        <OperandArray value="CountUpgradebarracks4ghostupgCompleteOnly"/>
+    </CRequirementAnd>
     <CRequirementCountBehavior id="CountBehaviorblink_testCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="blink_test" State="CompleteOnlyAtUnit"/>
@@ -165,20 +167,16 @@
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitArmoryQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="Armory" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitBarracksCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="Barracks" State="CompleteOnly"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitBarracksCompleteOnlyTechTreeCheat">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="Barracks" State="CompleteOnly"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitFactoryCompleteOnlyTechTreeCheat">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="Factory" State="CompleteOnly"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitFactoryReactorCompleteOnlyAtUnit">
@@ -187,7 +185,6 @@
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitFusionCoreQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="FusionCore" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitGhostAcademyCompleteOnly">
@@ -199,7 +196,6 @@
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitGhostAcademyQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="GhostAcademy" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitGhostAcademyTotal">
@@ -207,7 +203,6 @@
         <Count Link="GhostAcademy" State="Total"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitStarportCompleteOnlyTechTreeCheat">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="Starport" State="CompleteOnly"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheat">
@@ -590,7 +585,6 @@
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementNot id="NotCountUnitGhostAcademyQueuedOrBetter">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUnitGhostAcademyQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeforgecolossussplashupgQueuedOrBetter">
@@ -636,6 +630,12 @@
     <CRequirementNot id="NotCountUpgradeFC4InProgressCompleteOnly">
         <OperandArray index="0" value="CountUpgradeFC4InProgressCompleteOnly"/>
     </CRequirementNot>
+    <CRequirementOr id="Or96167438CountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOnly1718561093TechTreeCheatCountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOnly1718561093TechTreeCheat">
+        <OperandArray value="CountUnitFactoryCompleteOnly96167438TechTreeCheat"/>
+        <OperandArray value="CountUnitFactoryFlyingCompleteOnly1718561093TechTreeCheat"/>
+        <OperandArray value="CountUnitFactoryCompleteOnly96167438TechTreeCheat"/>
+        <OperandArray value="CountUnitFactoryFlyingCompleteOnly1718561093TechTreeCheat"/>
+    </CRequirementOr>
     <CRequirementOr id="OrCountUnitAlias_FactoryCompleteOnly96167438TechTreeCheatCountUnitGhostAcademyCompleteOnly96167438TechTreeCheat">
         <OperandArray value="CountUnitAlias_FactoryCompleteOnly96167438TechTreeCheat"/>
         <OperandArray value="CountUnitGhostAcademyCompleteOnly96167438TechTreeCheat"/>

@@ -158,6 +158,7 @@ RequirementNode/Name/AndGTECountUpgradestarport2bansheeupgCompleteOnly1CountUnit
 RequirementNode/Name/AndGTECountUpgradestarport2duskwingupgCompleteOnly1CountUnitFusionCoreCompleteOnly=CountUpgrade(starport2duskwingupg,CompleteOnly) >= 1 && CountUnit(FusionCore,CompleteOnly)
 RequirementNode/Name/AndGTECountUpgradestarport2liberatorupgCompleteOnly1CountUnitFusionCoreCompleteOnly=CountUpgrade(starport2liberatorupg,CompleteOnly) >= 1 && CountUnit(FusionCore,CompleteOnly)
 RequirementNode/Name/AndGTECountUpgradestarport2mutaupgCompleteOnly1CountUnitFusionCoreCompleteOnly=CountUpgrade(starport2mutaupg,CompleteOnly) >= 1 && CountUnit(FusionCore,CompleteOnly)
+RequirementNode/Name/AndOr96167438CountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOnly1718561093TechTreeCheatCountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOn839427818=(CountUnit(Factory,CompleteOnly){Factory}[TechTreeCheat] || {Factory}CountUnit(FactoryFlying,CompleteOnly){Flying Factory}[TechTreeCheat] || {Factory}CountUnit(Factory,CompleteOnly){Factory}[TechTreeCheat] || {Factory}CountUnit(FactoryFlying,CompleteOnly){Flying Factory}[TechTreeCheat]) && !{No Nuke in this Ghost Academy}CountUnit(Nuke,QueuedOrBetterAtUnit) && CountUpgrade(barracks4ghostupg,CompleteOnly)
 RequirementNode/Name/CountBehaviorblink_testCompleteOnlyAtUnit=CountBehavior(blink_test,CompleteOnlyAtUnit)
 RequirementNode/Name/CountUnitArmoryQueuedOrBetter=CountUnit(Armory,QueuedOrBetter)
 RequirementNode/Name/CountUnitBarracksCompleteOnly=CountUnit(Barracks,CompleteOnly)
@@ -268,6 +269,7 @@ RequirementNode/Name/GTECountUpgradestarport3viperupgCompleteOnly1=CountUpgrade(
 RequirementNode/Name/NotCountUnitGhostAcademyQueuedOrBetter=!CountUnit(GhostAcademy,QueuedOrBetter)
 RequirementNode/Name/NotCountUpgradeforgecolossussplashupgQueuedOrBetter=!CountUpgrade(forgecolossussplashupg,QueuedOrBetter)
 RequirementNode/Name/NotCountUpgradeforgezerglingswarmlingupgQueuedOrBetter=!CountUpgrade(forgezerglingswarmlingupg,QueuedOrBetter)
+RequirementNode/Name/Or96167438CountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOnly1718561093TechTreeCheatCountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOnly1718561093TechTreeCheat=CountUnit(Factory,CompleteOnly){Factory}[TechTreeCheat] || {Factory}CountUnit(FactoryFlying,CompleteOnly){Flying Factory}[TechTreeCheat] || {Factory}CountUnit(Factory,CompleteOnly){Factory}[TechTreeCheat] || {Factory}CountUnit(FactoryFlying,CompleteOnly){Flying Factory}[TechTreeCheat]
 RequirementNode/Name/OrCountUnitAlias_FactoryCompleteOnly96167438TechTreeCheatCountUnitGhostAcademyCompleteOnly96167438TechTreeCheat=CountUnit(Alias_Factory,CompleteOnly){Factory}[TechTreeCheat] || CountUnit(GhostAcademy,CompleteOnly){Factory}[TechTreeCheat]
 RequirementNode/Name/OrCountUnitArmoryCompleteOnlyCountUnitFusionCoreCompleteOnlyCountUnitGhostAcademyCompleteOnly=CountUnit(Armory,CompleteOnly) || CountUnit(FusionCore,CompleteOnly) || CountUnit(GhostAcademy,CompleteOnly)
 Sound/Name/Stalker_Blink2=Stalker_Blink

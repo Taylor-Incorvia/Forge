@@ -109,7 +109,7 @@ void initializeBarracksSlot4Pool() {
     // addUnitToSlotPool(facility, slot, "Archon"); // lame
     // addUnitToSlotPool(facility, slot, "Ghost"); // I commented this out because it's lame to have a ghost that can't cloak and can't nuke and I hate both of those abilities
     addUnitToSlotPool(facility, slot, "Infestor"); 
-    addUnitToSlotPool(facility, slot, "Lurker"); // 
+    // addUnitToSlotPool(facility, slot, "Lurker"); // todo move this to factory slot 2
     addUnitToSlotPool(facility, slot, "HighTemplar");
     // addUnitToSlotPool(facility, slot, "DefilerMP"); // not sure if I will keep defilers. I made a lot of changes to it. I replaced consume with neural. Increased starting energy from 50 to 75. // update 2: if I add this back I will probably want to give it blinding cloud instead of dark swarm. Dark swarm is unclear what it is doing. 
 }

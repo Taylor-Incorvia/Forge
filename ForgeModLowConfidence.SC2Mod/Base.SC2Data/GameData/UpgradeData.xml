@@ -66,10 +66,8 @@
     <CUpgrade id="starport3viperupg"/>
     <CUpgrade id="starport3battlecruiserupg"/>
     <CUpgrade id="zerglingattackspeed">
-        <EffectArray index="0" Value="0.15"/>
-        <!--It's extra 20% attack speed based on Liberty! So it's 40%-->
-        <EffectArray index="1" Value="0.15"/>
-        <EffectArray Reference="Weapon,PsiBlades,RateMultiplier" Value="0.15"/>
-        <EffectArray Reference="Weapon,PsiBlades,RateMultiplier" Value="0.15"/>
+        <EffectArray Reference="Weapon,PsiBlades,RateMultiplier" Value="0.2"/>
+        <EffectArray Reference="Weapon,PsiBlades,RateMultiplier" Value="0.2"/>
+        <AffectedUnitArray value="Zealot"/>
     </CUpgrade>
 </Catalog>

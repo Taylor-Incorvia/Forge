@@ -117,6 +117,8 @@ void initializeUpgrades() {
     addAltFormBannedAbility("SiegeTankSieged", "F_Blink"); // sieged tanks shouldn't blink // I am not  under the impression that addAltFormBannedAbility works at all
 
     addAbilityToUpgrade("HotSRaptorCharge2", "HotSRaptorCharge2");
+    addBehaviorToUpgrade("HotSRaptorCharge2", "ReaperJump");
+    // NOTE: also sets unit Mover to "CliffJumper" via CatalogFieldValueSet in upgradeHelpers.galaxy:applyUpgradeCatalogOverrides
     addUpgradeRequirementTag("HotSRaptorCharge2", logicType_AnyOf, "unitTag", "Zergling");
     addUpgradeRequirementTag("HotSRaptorCharge2", logicType_AnyOf, "unitTag", "Zealot");
     addUpgradeRequirementTag("HotSRaptorCharge2", logicType_AnyOf, "unitTag", "Ultralisk");
@@ -187,9 +189,9 @@ void initializeUpgrades() {
     addUpgradeToUpgrade("HighCapacityBarrels", "HighCapacityBarrels");
     addUpgradeRequirementTag("HighCapacityBarrels", logicType_AnyOf, "unitTag", "Hellion");
 
-    addUpgradeToUpgrade("ZerglingAttackSpeed", "ZerglingAttackSpeed");
-    addUpgradeRequirementTag("ZerglingAttackSpeed", logicType_AnyOf, "unitTag", "Zergling");
-    addUpgradeRequirementTag("ZerglingAttackSpeed", logicType_AnyOf, "unitTag", "Zealot");
+    addUpgradeToUpgrade("zerglingattackspeed", "zerglingattackspeed");
+    addUpgradeRequirementTag("zerglingattackspeed", logicType_AnyOf, "unitTag", "Zergling");
+    addUpgradeRequirementTag("zerglingattackspeed", logicType_AnyOf, "unitTag", "Zealot");
 
     addUpgradeToUpgrade("ClusterWarheads", "ClusterWarheads");
     addUpgradeRequirementTag("ClusterWarheads", logicType_AnyOf, "unitTag", "DuskWing");

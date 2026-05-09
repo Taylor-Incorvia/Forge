@@ -21,6 +21,10 @@
         <NodeArray index="Use" Link="AndCountUnitGhostAcademyCompleteOnlyCountUnitAlias_BarracksCompleteOnlyAtUnit"/>
         <NodeArray index="Show" Link="CountUnitAlias_BarracksCompleteOnlyAtUnit"/>
     </CRequirement>
+    <CRequirement id="TrainNuke">
+        <NodeArray index="Use" Link="AndOr96167438CountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOnly1718561093TechTreeCheatCountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOn839427818"/>
+        <NodeArray index="Show" Link="CountUpgradebarracks4ghostupgCompleteOnly"/>
+    </CRequirement>
     <CRequirement id="UseBlink">
         <NodeArray index="Use" Link="CountBehaviorblink_testCompleteOnlyAtUnit"/>
     </CRequirement>

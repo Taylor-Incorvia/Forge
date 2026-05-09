@@ -26,7 +26,6 @@
     <!-- Balance test 6/30 (combine Air/Ground mech armor upgrades)-->
     <CUnit id="Barracks">
         <CardLayouts index="0">
-            <LayoutButtons index="0" Column="1"/>
             <LayoutButtons index="3" Face="Rally" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
             <LayoutButtons index="4" Face="Lift" AbilCmd="BarracksLiftOff,Execute" Row="2" Column="3"/>
             <LayoutButtons index="5" Face="Halt" AbilCmd="BuildInProgress,Halt"/>
@@ -185,7 +184,6 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="GhostAcademy">
-        <AbilArray index="2" removed="1"/>
         <AbilArray index="3" removed="1"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" removed="1"/>
@@ -623,5 +621,8 @@
     <CUnit id="HotSRaptorChargeMissile2" parent="MISSILE_INVULNERABLE">
         <Race value="Zerg"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
+    </CUnit>
+    <CUnit id="ZerglingBurrowed">
+        <BehaviorArray Link="ReaperJump"/>
     </CUnit>
 </Catalog>

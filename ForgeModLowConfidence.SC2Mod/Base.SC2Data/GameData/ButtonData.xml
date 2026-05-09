@@ -333,7 +333,7 @@
         <AlertIcon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
-    <CButton id="ZerglingAttackSpeed1">
+    <CButton id="zerglingattackspeed1">
         <Icon value="Assets\Textures\btn-upgrade-zerg-adrenalglands.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-adrenalglands.dds"/>
         <EditorCategories value="Race:Zerg"/>
