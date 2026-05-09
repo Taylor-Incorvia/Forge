@@ -151,10 +151,10 @@ void initializeUpgrades() {
     addAbilityToUpgrade("Stimpack", "F_Stimpack");
     addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "caster");
 
-    addAbilityToUpgrade("TempestDisruptionBlast", "F_TempestDisruptionBlast");
-    addUpgradeRequirementTag("TempestDisruptionBlast", logicType_NoneOf, "unitTag", "caster");
-    addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", factory +"3");
-    addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", starport +"3");
+    // addAbilityToUpgrade("TempestDisruptionBlast", "F_TempestDisruptionBlast"); // this still doesn't work -- the channel time of 4 seconds makes it suck. tried to reduce it but it didn't work. 
+    // addUpgradeRequirementTag("TempestDisruptionBlast", logicType_NoneOf, "unitTag", "caster");
+    // addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", factory +"3");
+    // addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", starport +"3");
 
     addAbilityToUpgrade("Yamato", "F_Yamato");
     addUpgradeRequirementTag("Yamato", logicType_NoneOf, "unitTag", "caster");
