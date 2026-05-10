@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CUpgrade id="DiggingClaws">
+        <EffectArray Operation="Multiply" Reference="Unit,LurkerMP,Speed" Value="1.500000"/>
+        <EffectArray Operation="Multiply" Reference="Abil,SiegeMode,InfoArray[0].SectionArray[Stats].DurationArray[Duration]" Value="0.400000"/>
+        <EffectArray Operation="Set" Reference="Abil,SiegeMode,InfoArray[0].RandomDelayMax" Value="0.125000"/>
+        <EffectArray Operation="Set" Reference="Abil,Unsiege,InfoArray[0].RandomDelayMax" Value="0.125000"/>
+        <EffectArray Operation="Multiply" Reference="Abil,Unsiege,InfoArray[0].SectionArray[Stats].DurationArray[Duration]" Value="0.400000"/>
+        <EffectArray Operation="Multiply" Reference="Unit,SiegeTank,Speed" Value="1.500000"/>
+        <EffectArray Operation="Multiply" Reference="Abil,SiegeMode,InfoArray[0].SectionArray[Actor].DurationArray[Duration]" Value="0.400000"/>
+        <EffectArray Operation="Multiply" Reference="Abil,Unsiege,InfoArray[0].SectionArray[Actor].DurationArray[Duration]" Value="0.400000"/>
+        <AffectedUnitArray index="0" value="SiegeTankSkinPreview"/>
+        <AffectedUnitArray value="SiegeTankSieged"/>
+        <AffectedUnitArray value="SiegeTank"/>
+    </CUpgrade>
     <CUpgrade id="GA1BehaviorIndex">
         <MaxLevel value="200"/>
     </CUpgrade>
@@ -29,6 +42,7 @@
     <CUpgrade id="Factory2lurkerupg"/>
     <CUpgrade id="factory2diamondback"/>
     <CUpgrade id="factory2warhoundupg"/>
+    <CUpgrade id="factory2goliathupg"/>
     <CUpgrade id="factory3ultralisk"/>
     <CUpgrade id="starport1vikingupg"/>
     <CUpgrade id="starport1corsairupg"/>

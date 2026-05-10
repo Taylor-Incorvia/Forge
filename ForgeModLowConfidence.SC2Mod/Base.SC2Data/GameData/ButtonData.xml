@@ -346,6 +346,12 @@
         <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Column="1"/>
     </CButton>
+    <CButton id="DiggingClaws2">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-adaptivetalons.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-adaptivetalons.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
     <CButton id="VoidRay">
         <HotkeyAlias value="Banshee"/>
     </CButton>
