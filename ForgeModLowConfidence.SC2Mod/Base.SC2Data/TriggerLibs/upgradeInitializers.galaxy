@@ -308,12 +308,6 @@ void initializeUpgradePoolForPlayerSlot(int player, int slotIndex, string facili
 }
 
 void assignRandomUpgradeFromPoolToPlayerSlot(int player, int slotIndex, string facilityId) {
-    // TEST OVERRIDE: rax slot 1 always rolls zerglingmovementspeed. Remove when done testing.
-    if (facilityId == rax && slotIndex == 1) {
-        setSlotSelectedUpgrade(player, slotIndex, facilityId, "zerglingmovementspeed");
-        return;
-    }
-
     setSlotSelectedUpgrade(player, slotIndex, facilityId, getRandomStringFromList(getUpgradePoolListKey(player, slotIndex, facilityId)));
 }
 
