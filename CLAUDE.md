@@ -155,3 +155,67 @@ The user will add the ability to `upgradeInitializers.galaxy` using:
 - [ ] AbilData.xml: Ensure ability has `CmdButtonArray` with `UseDefaultButton` and `CreateDefaultButton` flags
 - [ ] AbilData.xml: Add 4 research abilities with `Upgrade="1"` through `Upgrade="4"`
 - [ ] GameHotkeys.txt: Add `Button/Hotkey/AbilityName=G`
+
+## Adding a New Count Upgrade (stock SC2 upgrade unlocked via research)
+
+For upgrades that grant a stock SC2 upgrade (like `HighCapacityBarrels`, `LurkerRange`, `ClusterWarheads`, `TwinLinkedFlameThrowers`), use `addUpgradeToUpgrade`. Unlike researchable abilities, you only define the research entry for the **single slot** the unit lives in.
+
+### 1. Galaxy (upgradeInitializers.galaxy)
+
+```galaxy
+addUpgradeToUpgrade("UpgradeName", "UpgradeName");
+addUpgradeRequirementTag("UpgradeName", logicType_AnyOf, "unitTag", "UnitName");
+```
+- Both args of `addUpgradeToUpgrade` must be the same. The first is the upgrade key the system uses internally; the second is the stock SC2 upgrade ID passed to `grantUpgrade`. The cost-bumping logic in `onGenericUpgradeCompleted` looks up `<firstArg><slot>` as the research ability ID, so they must match.
+- Do NOT use `addBehaviorToUpgrade` for these. The button will still appear (because `setSlotSelectedUpgrade` checks all three lists), but on research completion, `grantGenericUpgrade` will try to apply it as a behavior and the upgrade will silently fail.
+
+### 2. AbilData.xml
+
+Add **one** CAbilResearch with id `<UpgradeName><slot>`:
+
+```xml
+<CAbilResearch id="UpgradeNameN">
+    <EditorCategories value="AbilityorEffectType:Units"/>
+    <Activity value="UI/Training"/>
+    <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="N">
+        <Resource index="Minerals" value="150"/>
+        <Resource index="Vespene" value="150"/>
+        <Button DefaultButtonFace="UpgradeNameN">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </Button>
+    </InfoArray>
+</CAbilResearch>
+```
+
+### 3. ButtonData.xml
+
+Add **one** CButton with id `<UpgradeName><slot>`. **The slot-to-column rule applies — if the slot is not 1, you must add `<DefaultButtonLayout Column="N-1"/>` or the button will not appear on the upgrade facility's card:**
+
+```xml
+<CButton id="UpgradeNameN">
+    <Icon value="Assets\Textures\your-icon.dds"/>
+    <AlertIcon value="Assets\Textures\your-icon.dds"/>
+    <EditorCategories value="Race:Zerg"/>
+    <DefaultButtonLayout Column="N-1"/>  <!-- omit entirely for slot 1 -->
+</CButton>
+```
+- Slot 1: omit `DefaultButtonLayout` (defaults to Column 0)
+- Slot 2: `<DefaultButtonLayout Column="1"/>`
+- Slot 3: `<DefaultButtonLayout Column="2"/>`
+- Slot 4: `<DefaultButtonLayout Column="3"/>`
+
+### 4. GameStrings.txt
+
+```
+Abil/Name/UpgradeNameN=UpgradeNameN
+Button/Name/UpgradeNameN=Display Name
+Button/Tooltip/UpgradeNameN=What the upgrade does.
+```
+
+### Summary Checklist
+
+- [ ] upgradeInitializers.galaxy: `addUpgradeToUpgrade("UpgradeName", "UpgradeName")` + requirement tag (NOT `addBehaviorToUpgrade`)
+- [ ] AbilData.xml: One `CAbilResearch` with id `UpgradeNameN` and `Upgrade="N"`
+- [ ] ButtonData.xml: One `CButton` with id `UpgradeNameN` AND `<DefaultButtonLayout Column="N-1"/>` (omit for slot 1)
+- [ ] GameStrings.txt: Abil/Name, Button/Name, Button/Tooltip entries

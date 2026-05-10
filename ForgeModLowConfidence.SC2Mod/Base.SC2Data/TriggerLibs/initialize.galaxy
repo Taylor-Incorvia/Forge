@@ -85,7 +85,7 @@ void initializeBarracksSlot2Pool() {
     int slot = 2;
     string facility = rax;
     // addUnitToSlotPool(facility, slot, "Stalker"); 
-    // addUnitToSlotPool(facility, slot, "Hydralisk");
+    addUnitToSlotPool(facility, slot, "Hydralisk");
     // addUnitToSlotPool(facility, slot, "WarPig");
     addUnitToSlotPool(facility, slot, "Marine");
 }
@@ -109,9 +109,8 @@ void initializeBarracksSlot4Pool() {
     int slot = 4;
     string facility = rax;
     // addUnitToSlotPool(facility, slot, "Archon"); // lame
-    // addUnitToSlotPool(facility, slot, "Ghost"); // I commented this out because it's lame to have a ghost that can't cloak and can't nuke and I hate both of those abilities
+    addUnitToSlotPool(facility, slot, "Ghost"); // I commented this out because it's lame to have a ghost that can't cloak and can't nuke and I hate both of those abilities
     addUnitToSlotPool(facility, slot, "Infestor"); 
-    // addUnitToSlotPool(facility, slot, "Lurker"); // todo move this to factory slot 2
     addUnitToSlotPool(facility, slot, "HighTemplar");
     // addUnitToSlotPool(facility, slot, "DefilerMP"); // not sure if I will keep defilers. I made a lot of changes to it. I replaced consume with neural. Increased starting energy from 50 to 75. // update 2: if I add this back I will probably want to give it blinding cloud instead of dark swarm. Dark swarm is unclear what it is doing. 
 }
@@ -120,7 +119,7 @@ void initializeFactorySlot1Pool() {
     int slot = 1;
     string facility = factory;
     addUnitToSlotPool(facility, slot, "Vulture"); 
-    // addUnitToSlotPool(facility, slot, "Hellion"); 
+    addUnitToSlotPool(facility, slot, "Hellion"); 
     // addUnitToSlotPool(facility, slot, "Roach"); // todo add stalker
     // addUnitToSlotPool(facility, slot, "Ravager"); // made this a mecha ravager. Probably want to buff it a little and send it to slot 2. 
     // addUnitToSlotPool(facility, slot, "Predator"); // predator is mad broken as a factory slot 1 unit and mad broken at 100/100 price. Increase price, move to slot 2 and then you can re-enable
@@ -129,11 +128,11 @@ void initializeFactorySlot1Pool() {
 void initializeFactorySlot2Pool() {
     int slot = 2;
     string facility = factory;
-    // addUnitToSlotPool(facility, slot, "Diamondback"); // if I add this back it can be moved to slot 1 and nerfed. Just doesn't seem to be useful here. 
-    // addUnitToSlotPool(facility, slot, "Immortal");
-    // addUnitToSlotPool(facility, slot, "SiegeTank");
-    // addUnitToSlotPool(facility, slot, "WarHound");
-    // addUnitToSlotPool(facility, slot, "Archon");
+    addUnitToSlotPool(facility, slot, "Diamondback"); // if I add this back it can be moved to slot 1 and nerfed. Just doesn't seem to be useful here. 
+    addUnitToSlotPool(facility, slot, "Immortal");
+    addUnitToSlotPool(facility, slot, "SiegeTank");
+    addUnitToSlotPool(facility, slot, "WarHound");
+    addUnitToSlotPool(facility, slot, "Archon");
     addUnitToSlotPool(facility, slot, "LurkerMP");
 }
 

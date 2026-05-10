@@ -138,6 +138,9 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Zergling"); 
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Zealot"); 
 
+    addUpgradeToUpgrade("LurkerRange", "LurkerRange");
+    addUpgradeRequirementTag("LurkerRange", logicType_AllOf, "unitTag", "LurkerMP");
+
     addBehaviorToUpgrade("Speed", "Speed");
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "caster");
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Tempest"); // Tempests become insanely opressive. unbeatable. no counter play. 
@@ -244,9 +247,6 @@ void grantInitialUpgrades(int player) {
     // grantUpgrade(player, "FirebatJuggernautPlating"); // if the firebats end up being bad, lets add this in. 
     grantUpgrade(player, "BearclawNozzles"); // this did make the firebats OP, so I had to increase the price on the firebat
 
-    // lurker
-    grantUpgrade(player, "LurkerRange");
-
     //wraith -- I reduced the starting energy to 25. Hoping this won't be too annoying.
     grantUpgrade(player, "WraithCloak");
 
@@ -295,6 +295,12 @@ void initializeUpgradePoolForPlayerSlot(int player, int slotIndex, string facili
 }
 
 void assignRandomUpgradeFromPoolToPlayerSlot(int player, int slotIndex, string facilityId) {
+    // TEST OVERRIDE: factory slot 2 always rolls LurkerRange. Remove when done testing.
+    if (facilityId == factory && slotIndex == 2) {
+        setSlotSelectedUpgrade(player, slotIndex, facilityId, "LurkerRange");
+        return;
+    }
+
     setSlotSelectedUpgrade(player, slotIndex, facilityId, getRandomStringFromList(getUpgradePoolListKey(player, slotIndex, facilityId)));
 }
 
