@@ -33,6 +33,18 @@
             </Button>
         </InfoArray>
     </CAbilResearch>
+    <CAbilResearch id="zerglingmovementspeed1">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Activity value="UI/Training"/>
+        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="1">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="zerglingmovementspeed1">
+                <Flags index="UseDefaultButton" value="1"/>
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
     <CAbilResearch id="LurkerRange2">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Activity value="UI/Training"/>

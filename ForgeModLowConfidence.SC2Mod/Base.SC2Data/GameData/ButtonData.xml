@@ -360,6 +360,11 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-adrenalglands.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
+    <CButton id="zerglingmovementspeed1">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
     <CButton id="ResearchArbiterMPRecall2">
         <Icon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>

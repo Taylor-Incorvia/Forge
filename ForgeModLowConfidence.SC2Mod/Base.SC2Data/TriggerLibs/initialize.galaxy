@@ -78,7 +78,7 @@ void initializeBarracksSlot1Pool() {
     string facility = rax;
     // addUnitToSlotPool(facility, slot, "Marine"); // don't include marines because they scale too well with upgrades and are super cheap
     addUnitToSlotPool(facility, slot, "Zergling");
-    addUnitToSlotPool(facility, slot, "Zealot");
+    // addUnitToSlotPool(facility, slot, "Zealot");
 }
 
 void initializeBarracksSlot2Pool() {
@@ -128,12 +128,12 @@ void initializeFactorySlot1Pool() {
 void initializeFactorySlot2Pool() {
     int slot = 2;
     string facility = factory;
-    // addUnitToSlotPool(facility, slot, "Diamondback"); // if I add this back it can be moved to slot 1 and nerfed. Just doesn't seem to be useful here. -- update, I am trying this again in slot 2. 40 damage to armored sounds strong? 
-    // addUnitToSlotPool(facility, slot, "Immortal");
-    // addUnitToSlotPool(facility, slot, "SiegeTank");
-    // addUnitToSlotPool(facility, slot, "WarHound");
-    // addUnitToSlotPool(facility, slot, "Archon");
-    // addUnitToSlotPool(facility, slot, "LurkerMP");
+    addUnitToSlotPool(facility, slot, "Diamondback"); // if I add this back it can be moved to slot 1 and nerfed. Just doesn't seem to be useful here. -- update, I am trying this again in slot 2. 40 damage to armored sounds strong? 
+    addUnitToSlotPool(facility, slot, "Immortal");
+    addUnitToSlotPool(facility, slot, "SiegeTank");
+    addUnitToSlotPool(facility, slot, "WarHound");
+    addUnitToSlotPool(facility, slot, "Archon");
+    addUnitToSlotPool(facility, slot, "LurkerMP");
     addUnitToSlotPool(facility, slot, "Goliath");
 }
 

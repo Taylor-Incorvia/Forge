@@ -149,8 +149,10 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "caster");
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Tempest"); // Tempests become insanely opressive. unbeatable. no counter play. 
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "melee"); // charge gives melee units speed and the charge ability. No need for this to be in the pool too for melee. 
-    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "LurkerMP"); // lurkers and tanks have their own speed upgrade that also improves transform speed. 
+    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "LurkerMP"); // lurkers, tanks, zerglings, zealots have their own speed upgrade that also improves transform speed. 
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "SiegeTank");
+    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Zergling");
+    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Zealot");
 
 
     addAbilityToUpgrade("Charge", "F_Charge");
@@ -201,6 +203,10 @@ void initializeUpgrades() {
     addUpgradeToUpgrade("zerglingattackspeed", "zerglingattackspeed");
     addUpgradeRequirementTag("zerglingattackspeed", logicType_AnyOf, "unitTag", "Zergling");
     addUpgradeRequirementTag("zerglingattackspeed", logicType_AnyOf, "unitTag", "Zealot");
+
+    addUpgradeToUpgrade("zerglingmovementspeed", "zerglingmovementspeed");
+    addUpgradeRequirementTag("zerglingmovementspeed", logicType_AnyOf, "unitTag", "Zergling");
+    // addUpgradeRequirementTag("zerglingmovementspeed", logicType_AnyOf, "unitTag", "Zealot");
 
     addUpgradeToUpgrade("ClusterWarheads", "ClusterWarheads");
     addUpgradeRequirementTag("ClusterWarheads", logicType_AnyOf, "unitTag", "DuskWing");
@@ -301,6 +307,12 @@ void initializeUpgradePoolForPlayerSlot(int player, int slotIndex, string facili
 }
 
 void assignRandomUpgradeFromPoolToPlayerSlot(int player, int slotIndex, string facilityId) {
+    // TEST OVERRIDE: rax slot 1 always rolls zerglingmovementspeed. Remove when done testing.
+    if (facilityId == rax && slotIndex == 1) {
+        setSlotSelectedUpgrade(player, slotIndex, facilityId, "zerglingmovementspeed");
+        return;
+    }
+
     setSlotSelectedUpgrade(player, slotIndex, facilityId, getRandomStringFromList(getUpgradePoolListKey(player, slotIndex, facilityId)));
 }
 

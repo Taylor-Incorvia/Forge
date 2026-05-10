@@ -53,6 +53,7 @@ Abil/Name/Stimpack2=Stimpack2
 Abil/Name/Stimpack3=Stimpack3
 Abil/Name/Stimpack4=Stimpack4
 Abil/Name/marineBlink=Blink
+Abil/Name/zerglingmovementspeed1=zerglingmovementspeed1
 Behavior/Name/blink_test=blink_test
 Button/Name/ArbiterMPRecall=Recall
 Button/Name/ArbiterMPStasisField=Stasis Field
@@ -117,7 +118,8 @@ Button/Name/TwinLinkedFlameThrowers1=Twin-Linked Flamethrowers
 Button/Name/VoidMPImmortalRevive2=Immortal Revive
 Button/Name/Yamato=Yamato
 Button/Name/YamatoGun2=Yamato Cannon
-Button/Tooltip/Armory=Contains randomized upgrades that each apply to a single factory unit slot.<n/>Enables Factory slot 2 units to be built from the Factory. <n/>Enables add on to be built from the factory. <n/> Upgrades remain available after research so players can easily track which randomized upgrades were rolled this game. Re-researching an upgrade has no effect. 
+Button/Name/zerglingmovementspeed1=Metabolic Boost
+Button/Tooltip/Armory=Contains randomized upgrades that each apply to a single factory unit slot.<n/>Enables Factory slot 2 units to be built from the Factory. <n/>Enables add on to be built from the factory. <n/> Upgrades remain available after research so players can easily track which randomized upgrades were rolled this game. Re-researching an upgrade has no effect.
 Button/Tooltip/Cancel=WARNING:: If this hotkey is unbound, go to your hotkey profile, select any unit, you will see that cancel is unbound and set it to your desired hotkey (probably escape) hotkey. SC2 hotkeys are nonsense. 
 Button/Tooltip/ClusterWarheads2=Increases the splash damage area of the Dusk Wing's attack.
 Button/Tooltip/DefilerMPDarkSwarm=Allied units in the area of effect take 0 damage from ranged attacks.
@@ -288,6 +290,7 @@ Button/Tooltip/TechReactor=Enables starport slot 3 construction. Does NOT allow 
 Button/Tooltip/TwinLinkedFlameThrowers1=Upgrades the Hellion's flamethrower to a twin-linked configuration, increasing its attack damage.
 Button/Tooltip/Vulture=Fast skirmish unit. Can use the KD8 Charge ability(Reaper Grenade - but with 12 damage instead of 5).<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c> 
 Button/Tooltip/YamatoGun2=Blasts a target with a devastating plasma cannon, causing <d ref="Effect,YamatoU,Amount"/> damage.
+Button/Tooltip/zerglingmovementspeed1=Increases Zergling movement speed.
 DocInfo/DescLong=PICK TERRAN (P/Z don’t work) – Barracks/Factory/Starport produce semi-random units from all races at each tech level. Build Engineering Academy/Armory/Fusion Core to unlock upgrades and add-ons that let you tech up. (Re-researching upgrades gives no bonus.) https://discord.gg/hdT6FCyM
 DocInfo/DescShort=1v1/2v2/3v3/4v4
 DocInfo/HowToPlayAdvanced00=Barracks/Factory/Starport use a slot system – Lower tech units are in Slot 1, higher tech units appear in later slots (up to Slot 4).
