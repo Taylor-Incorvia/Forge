@@ -158,6 +158,7 @@ void initializeUpgrades() {
     addAbilityToUpgrade("Charge", "F_Charge");
     addBehaviorToUpgrade("Charge", "Speed");
     addUpgradeRequirementTag("Charge", logicType_AllOf, "unitTag", "melee"); // keep an eye on this. Might make ultras a little insane
+    addUpgradeRequirementTag("Charge", logicType_NoneOf, "unitTag", "Zergling"); // zerglings get default speed, which gives them more than 50% speed and charge at it's core is a movement speed boost that doesn't affect micro that much more than regular speed. 
 
     addAbilityToUpgrade("Stimpack", "F_Stimpack");
     addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "caster");
