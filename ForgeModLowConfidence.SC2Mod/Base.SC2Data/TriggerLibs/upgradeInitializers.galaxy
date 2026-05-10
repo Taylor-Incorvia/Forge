@@ -301,12 +301,6 @@ void initializeUpgradePoolForPlayerSlot(int player, int slotIndex, string facili
 }
 
 void assignRandomUpgradeFromPoolToPlayerSlot(int player, int slotIndex, string facilityId) {
-    // TEST OVERRIDE: factory slot 2 always rolls DiggingClaws. Remove when done testing.
-    if (facilityId == factory && slotIndex == 2) {
-        setSlotSelectedUpgrade(player, slotIndex, facilityId, "DiggingClaws");
-        return;
-    }
-
     setSlotSelectedUpgrade(player, slotIndex, facilityId, getRandomStringFromList(getUpgradePoolListKey(player, slotIndex, facilityId)));
 }
 

@@ -80,12 +80,10 @@
         <OperandArray value="NotCountUpgradeforgecolossussplashupgQueuedOrBetter"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndGTECountUpgradeFactory2archonupgCompleteOnly1CountUnitArmoryCompleteOnly">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="GTECountUpgradeFactory2archonupgCompleteOnly1"/>
         <OperandArray value="CountUnitArmoryCompleteOnly"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndGTECountUpgradeFactory2lurkerupgCompleteOnly1CountUnitArmoryCompleteOnly">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="GTECountUpgradeFactory2lurkerupgCompleteOnly1"/>
         <OperandArray value="CountUnitArmoryCompleteOnly"/>
     </CRequirementAnd>
@@ -120,6 +118,11 @@
     </CRequirementAnd>
     <CRequirementAnd id="AndGTECountUpgradefactory2diamondbackCompleteOnly1CountUnitArmoryCompleteOnly">
         <OperandArray value="GTECountUpgradefactory2diamondbackCompleteOnly1"/>
+        <OperandArray value="CountUnitArmoryCompleteOnly"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndGTECountUpgradefactory2goliathupgCompleteOnly1CountUnitArmoryCompleteOnly">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="GTECountUpgradefactory2goliathupgCompleteOnly1"/>
         <OperandArray value="CountUnitArmoryCompleteOnly"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndGTECountUpgradefactory2immortalupgCompleteOnly1CountUnitArmoryCompleteOnly">
@@ -223,12 +226,10 @@
     </CRequirementCountUnit>
     <CRequirementCountUpgrade id="CountUpgradeFactory2archonupgCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="Factory2archonupg" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeFactory2lurkerupgCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="Factory2lurkerupg" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradebarracks2MarineUpgCompleteOnly">
@@ -339,6 +340,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="factory2diamondback" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradefactory2goliathupgCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="factory2goliathupg" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradefactory2immortalupgCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="factory2immortalupg" State="CompleteOnly"/>
@@ -448,12 +454,10 @@
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradeFactory2archonupgCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeFactory2archonupgCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradeFactory2lurkerupgCompleteOnly1">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountUpgradeFactory2lurkerupgCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
@@ -555,6 +559,11 @@
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradefactory2diamondbackCompleteOnly1">
         <OperandArray index="0" value="CountUpgradefactory2diamondbackCompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountUpgradefactory2goliathupgCompleteOnly1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradefactory2goliathupgCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradefactory2immortalupgCompleteOnly1">

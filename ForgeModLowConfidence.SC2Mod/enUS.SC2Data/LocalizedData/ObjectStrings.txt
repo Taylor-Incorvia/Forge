@@ -100,6 +100,7 @@ Requirement/Name/factory1ravager=factory 1 ravager
 Requirement/Name/factory1vulture=factory 1 vulture
 Requirement/Name/factory2archon=factory 2 archon
 Requirement/Name/factory2diamondback=factory 2 diamondback
+Requirement/Name/factory2goliath=factory 2 goliath
 Requirement/Name/factory2lurker=factory 2 lurker
 Requirement/Name/factory2siegetank=factory 2 siege tank
 Requirement/Name/factory2warhound=factory 2 warhound
@@ -150,6 +151,7 @@ RequirementNode/Name/AndGTECountUpgradebarracks3marauderCompleteOnly1CountUnitGh
 RequirementNode/Name/AndGTECountUpgradebarracks3medicupgCompleteOnly1CountUnitGhostAcademyTotal=CountUpgrade(barracks3medicupg,CompleteOnly) >= 1 && CountUnit(GhostAcademy,Total)
 RequirementNode/Name/AndGTECountUpgradebarracks3sentryupgCompleteOnly1CountUnitGhostAcademyTotal=CountUpgrade(barracks3sentryupg,CompleteOnly) >= 1 && CountUnit(GhostAcademy,Total)
 RequirementNode/Name/AndGTECountUpgradefactory2diamondbackCompleteOnly1CountUnitArmoryCompleteOnly=CountUpgrade(factory2diamondback,CompleteOnly) >= 1 && CountUnit(Armory,CompleteOnly)
+RequirementNode/Name/AndGTECountUpgradefactory2goliathupgCompleteOnly1CountUnitArmoryCompleteOnly=CountUpgrade(factory2goliathupg,CompleteOnly) >= 1 && CountUnit(Armory,CompleteOnly)
 RequirementNode/Name/AndGTECountUpgradefactory2immortalupgCompleteOnly1CountUnitArmoryCompleteOnly=CountUpgrade(factory2immortalupg,CompleteOnly) >= 1 && CountUnit(Armory,CompleteOnly)
 RequirementNode/Name/AndGTECountUpgradefactory2siegetankupgCompleteOnly1CountUnitArmoryCompleteOnly=CountUpgrade(factory2siegetankupg,CompleteOnly) >= 1 && CountUnit(Armory,CompleteOnly)
 RequirementNode/Name/AndGTECountUpgradefactory2warhoundupgCompleteOnly1CountUnitArmoryCompleteOnly=CountUpgrade(factory2warhoundupg,CompleteOnly) >= 1 && CountUnit(Armory,CompleteOnly)
@@ -205,6 +207,7 @@ RequirementNode/Name/CountUpgradefactory1ravagerCompleteOnly=CountUpgrade(factor
 RequirementNode/Name/CountUpgradefactory1roachupgCompleteOnly=CountUpgrade(factory1roachupg,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory1vultureupgCompleteOnly=CountUpgrade(factory1vultureupg,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory2diamondbackCompleteOnly=CountUpgrade(factory2diamondback,CompleteOnly)
+RequirementNode/Name/CountUpgradefactory2goliathupgCompleteOnly=CountUpgrade(factory2goliathupg,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory2immortalupgCompleteOnly=CountUpgrade(factory2immortalupg,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory2siegetankupgCompleteOnly=CountUpgrade(factory2siegetankupg,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory2warhoundupgCompleteOnly=CountUpgrade(factory2warhoundupg,CompleteOnly)
@@ -258,6 +261,7 @@ RequirementNode/Name/GTECountUpgradefactory1ravagerCompleteOnly1=CountUpgrade(fa
 RequirementNode/Name/GTECountUpgradefactory1roachupgCompleteOnly1=CountUpgrade(factory1roachupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory1vultureupgCompleteOnly1=CountUpgrade(factory1vultureupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory2diamondbackCompleteOnly1=CountUpgrade(factory2diamondback,CompleteOnly) >= 1
+RequirementNode/Name/GTECountUpgradefactory2goliathupgCompleteOnly1=CountUpgrade(factory2goliathupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory2immortalupgCompleteOnly1=CountUpgrade(factory2immortalupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory2siegetankupgCompleteOnly1=CountUpgrade(factory2siegetankupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory2warhoundupgCompleteOnly1=CountUpgrade(factory2warhoundupg,CompleteOnly) >= 1

@@ -1304,6 +1304,10 @@
             <Button DefaultButtonFace="LurkerFromHydraliskBurrowed" Requirements="factory2lurker"/>
             <Unit value="LurkerMP"/>
         </InfoArray>
+        <InfoArray index="Train21" Time="43">
+            <Button DefaultButtonFace="Goliath" Requirements="factory2goliath"/>
+            <Unit value="Goliath"/>
+        </InfoArray>
     </CAbilTrain>
     <CAbilResearch id="GhostAcademyResearch">
         <InfoArray index="Research2" Time="150" Alert="UpgradeComplete_Prot" Upgrade="1">
