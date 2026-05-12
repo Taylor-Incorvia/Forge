@@ -271,8 +271,8 @@
             <LayoutButtons index="28" removed="1"/>
             <LayoutButtons index="29" removed="1"/>
         </CardLayouts>
-        <CostResource index="Minerals" value="80"/>
-        <CostResource index="Vespene" value="30"/>
+        <CostResource index="Minerals" value="90"/>
+        <CostResource index="Vespene" value="35"/>
     </CUnit>
     <CUnit id="Infestor">
         <CardLayouts index="0">
