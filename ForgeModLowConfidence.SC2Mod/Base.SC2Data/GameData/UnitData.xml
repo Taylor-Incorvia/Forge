@@ -112,6 +112,9 @@
             <LayoutButtons index="9" removed="1"/>
         </CardLayouts>
     </CUnit>
+    <CUnit id="Diamondback">
+        <Collide index="ForceField" value="1"/>
+    </CUnit>
     <CUnit id="DuskWing">
         <CostResource index="Minerals" value="200"/>
         <CostResource index="Vespene" value="150"/>
@@ -139,6 +142,7 @@
             <LayoutButtons Face="Archon" Type="AbilCmd" AbilCmd="FactoryTrain,Train19" Row="0" Column="1"/>
             <LayoutButtons Face="Diamondback" Type="AbilCmd" AbilCmd="FactoryTrain,Train15" Row="0" Column="1"/>
             <LayoutButtons Face="WarHound" Type="AbilCmd" AbilCmd="FactoryTrain,Train16" Row="0" Column="1"/>
+            <LayoutButtons Face="Stalker" Type="AbilCmd" AbilCmd="FactoryTrain,Train22" Row="0" Column="0"/>
             <LayoutButtons Face="Roach" Type="AbilCmd" AbilCmd="FactoryTrain,Train18" Row="0" Column="0"/>
             <LayoutButtons Face="Ultralisk" Type="AbilCmd" AbilCmd="FactoryTrain,Train14" Row="0" Column="2"/>
             <LayoutButtons Face="Observer" Type="AbilCmd" AbilCmd="FactoryTrain,Train17" Row="1" Column="0"/>
@@ -217,6 +221,9 @@
             <LayoutButtons index="12" Face="ChannelSnipe" AbilCmd="ChannelSnipe,Execute" Column="0"/>
             <LayoutButtons index="13" removed="1"/>
         </CardLayouts>
+    </CUnit>
+    <CUnit id="Goliath">
+        <Collide index="ForceField" value="1"/>
     </CUnit>
     <CUnit id="Hatchery">
         <BehaviorArray index="0" Link="ZergBuildingDies9"/>
@@ -463,12 +470,7 @@
             <LayoutButtons index="8" removed="1"/>
         </CardLayouts>
     </CUnit>
-    <CUnit id="Stalker">
-        <AbilArray index="5" removed="1"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="6" removed="1"/>
-        </CardLayouts>
-    </CUnit>
+    <CUnit id="Stalker"/>
     <CUnit id="Starport">
         <CardLayouts index="0">
             <LayoutButtons index="1" Row="1" Column="0"/>
@@ -577,6 +579,7 @@
             <LayoutButtons index="8" removed="1"/>
         </CardLayouts>
         <Collide index="ForceField" value="1"/>
+        <CostResource index="Minerals" value="100"/>
     </CUnit>
     <CUnit id="WarHound">
         <CostResource index="Minerals" value="175"/>

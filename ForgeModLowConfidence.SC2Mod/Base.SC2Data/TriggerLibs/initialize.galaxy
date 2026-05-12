@@ -8,7 +8,6 @@ void initializeUnitUnlockUpgradeMapping() {
     setUnitUnlockUpgrade("Zealot", "barracksZealotUpg");
 
     // slot 2
-    setUnitUnlockUpgrade("Stalker", "barracks2stalkerupg");
     setUnitUnlockUpgrade("Hydralisk", "barracks2hydraliskupg");
     setUnitUnlockUpgrade("WarPig", "barracks2warpigupg");
     setUnitUnlockUpgrade("Marine", "barracks2MarineUpg");
@@ -35,6 +34,7 @@ void initializeUnitUnlockUpgradeMapping() {
     setUnitUnlockUpgrade("Predator", "factory1predator");
     setUnitUnlockUpgrade("Ravager", "factory1ravager");
     setUnitUnlockUpgrade("Roach", "factory1roachupg");
+    setUnitUnlockUpgrade("Stalker", "factory1stalker");
 
     // slot 2
     setUnitUnlockUpgrade("Diamondback", "factory2diamondback");
@@ -78,13 +78,13 @@ void initializeBarracksSlot1Pool() {
     string facility = rax;
     // addUnitToSlotPool(facility, slot, "Marine"); // don't include marines because they scale too well with upgrades and are super cheap
     addUnitToSlotPool(facility, slot, "Zergling");
-    // addUnitToSlotPool(facility, slot, "Zealot");
+    addUnitToSlotPool(facility, slot, "Zealot");
 }
 
 void initializeBarracksSlot2Pool() {
     int slot = 2;
     string facility = rax;
-    // addUnitToSlotPool(facility, slot, "Stalker"); 
+    // addUnitToSlotPool(facility, slot, "Stalker"); // stalker moved to factory slot 1
     addUnitToSlotPool(facility, slot, "Hydralisk");
     // addUnitToSlotPool(facility, slot, "WarPig");
     addUnitToSlotPool(facility, slot, "Marine");
@@ -120,7 +120,8 @@ void initializeFactorySlot1Pool() {
     string facility = factory;
     addUnitToSlotPool(facility, slot, "Vulture"); 
     addUnitToSlotPool(facility, slot, "Hellion"); 
-    // addUnitToSlotPool(facility, slot, "Roach"); // todo add stalker
+    addUnitToSlotPool(facility, slot, "Stalker"); 
+    // addUnitToSlotPool(facility, slot, "Roach"); 
     // addUnitToSlotPool(facility, slot, "Ravager"); // made this a mecha ravager. Probably want to buff it a little and send it to slot 2. 
     // addUnitToSlotPool(facility, slot, "Predator"); // predator is mad broken as a factory slot 1 unit and mad broken at 100/100 price. Increase price, move to slot 2 and then you can re-enable
 }

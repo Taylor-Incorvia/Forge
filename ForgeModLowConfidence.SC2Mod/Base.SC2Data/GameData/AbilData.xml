@@ -45,6 +45,30 @@
             </Button>
         </InfoArray>
     </CAbilResearch>
+    <CAbilResearch id="stalkerblinkrange1">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Activity value="UI/Training"/>
+        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="1">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="stalkerblinkrange1">
+                <Flags index="UseDefaultButton" value="1"/>
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilResearch id="stalkerblinkcooldown1">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Activity value="UI/Training"/>
+        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="1">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="stalkerblinkcooldown1">
+                <Flags index="UseDefaultButton" value="1"/>
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+    </CAbilResearch>
     <CAbilResearch id="LurkerRange2">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Activity value="UI/Training"/>
@@ -373,9 +397,6 @@
             <Flags index="UseDefaultButton" value="1"/>
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
-    </CAbilEffectTarget>
-    <CAbilEffectTarget id="Blink">
-        <CmdButtonArray index="Execute" Requirements=""/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="D8Charge">
         <CmdButtonArray index="Execute" Requirements=""/>
@@ -1319,6 +1340,10 @@
         <InfoArray index="Train21" Time="43">
             <Button DefaultButtonFace="Goliath" Requirements="factory2goliath"/>
             <Unit value="Goliath"/>
+        </InfoArray>
+        <InfoArray index="Train22" Time="25">
+            <Button DefaultButtonFace="Stalker" Requirements="factory1stalker"/>
+            <Unit value="Stalker"/>
         </InfoArray>
     </CAbilTrain>
     <CAbilResearch id="GhostAcademyResearch">

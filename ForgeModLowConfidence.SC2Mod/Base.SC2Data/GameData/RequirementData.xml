@@ -25,12 +25,13 @@
         <NodeArray index="Use" Link="AndOr96167438CountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOnly1718561093TechTreeCheatCountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOn839427818"/>
         <NodeArray index="Show" Link="CountUpgradebarracks4ghostupgCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="factory1stalker">
+        <NodeArray index="Use" Link="GTECountUpgradefactory1stalkerCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradefactory1stalkerCompleteOnly1"/>
+    </CRequirement>
     <CRequirement id="factory2archon">
         <NodeArray index="Use" Link="AndGTECountUpgradeFactory2archonupgCompleteOnly1CountUnitArmoryCompleteOnly"/>
         <NodeArray index="Show" Link="GTECountUpgradeFactory2archonupgCompleteOnly1"/>
-    </CRequirement>
-    <CRequirement id="UseBlink">
-        <NodeArray index="Use" Link="CountBehaviorblink_testCompleteOnlyAtUnit"/>
     </CRequirement>
     <CRequirement id="UseFrenzy">
         <NodeArray index="Use" Link=""/>

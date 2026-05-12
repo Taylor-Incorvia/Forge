@@ -80,9 +80,6 @@
         <Name value="Button/Name/ArbiterMPRecall"/>
         <AlertName value="Button/Name/ArbiterMPRecall"/>
     </CButton>
-    <CButton id="Blink">
-        <HotkeyAlias value="Ghost"/>
-    </CButton>
     <CButton id="Colossus">
         <HotkeyAlias value="Thor"/>
         <EditorCategories value="Race:Terran"/>
@@ -170,6 +167,9 @@
         <AlertIcon value="Assets\Textures\btn-building-terran-ghostacademy.dds"/>
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="EngineeringBay"/>
+    </CButton>
+    <CButton id="Goliath">
+        <HotkeyAlias value="WidowMine"/>
     </CButton>
     <CButton id="HighTemplar">
         <HotkeyAlias value="Ghost"/>
@@ -364,6 +364,16 @@
         <Icon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
         <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="stalkerblinkrange1">
+        <Icon value="Assets\Textures\btn-ability-zeratul-darktemplar-blink.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zeratul-darktemplar-blink.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="stalkerblinkcooldown1">
+        <Icon value="Assets\Textures\btn-ability-zeratul-topbar-voidblink.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zeratul-topbar-voidblink.dds"/>
+        <EditorCategories value="Race:Protoss"/>
     </CButton>
     <CButton id="ResearchArbiterMPRecall2">
         <Icon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
@@ -1167,7 +1177,7 @@
         <HotkeyAlias value="Ghost"/>
     </CButton>
     <CButton id="Stalker">
-        <HotkeyAlias value="Reaper"/>
+        <HotkeyAlias value="Hellion"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="Tempest">

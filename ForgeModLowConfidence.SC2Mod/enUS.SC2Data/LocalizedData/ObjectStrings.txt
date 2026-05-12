@@ -97,6 +97,7 @@ Requirement/Name/barracksZealot=barracks 1 Zealot
 Requirement/Name/barracksZergling=barracks 1 Zergling
 Requirement/Name/canbuildghostacademy=can build ghost academy
 Requirement/Name/factory1ravager=factory 1 ravager
+Requirement/Name/factory1stalker=factory 1 stalker
 Requirement/Name/factory1vulture=factory 1 vulture
 Requirement/Name/factory2archon=factory 2 archon
 Requirement/Name/factory2diamondback=factory 2 diamondback
@@ -205,6 +206,7 @@ RequirementNode/Name/CountUpgradefactory1hellionCompleteOnly=CountUpgrade(factor
 RequirementNode/Name/CountUpgradefactory1predatorCompleteOnly=CountUpgrade(factory1predator,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory1ravagerCompleteOnly=CountUpgrade(factory1ravager,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory1roachupgCompleteOnly=CountUpgrade(factory1roachupg,CompleteOnly)
+RequirementNode/Name/CountUpgradefactory1stalkerCompleteOnly=CountUpgrade(factory1stalker,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory1vultureupgCompleteOnly=CountUpgrade(factory1vultureupg,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory2diamondbackCompleteOnly=CountUpgrade(factory2diamondback,CompleteOnly)
 RequirementNode/Name/CountUpgradefactory2goliathupgCompleteOnly=CountUpgrade(factory2goliathupg,CompleteOnly)
@@ -259,6 +261,7 @@ RequirementNode/Name/GTECountUpgradefactory1hellionCompleteOnly1=CountUpgrade(fa
 RequirementNode/Name/GTECountUpgradefactory1predatorCompleteOnly1=CountUpgrade(factory1predator,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory1ravagerCompleteOnly1=CountUpgrade(factory1ravager,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory1roachupgCompleteOnly1=CountUpgrade(factory1roachupg,CompleteOnly) >= 1
+RequirementNode/Name/GTECountUpgradefactory1stalkerCompleteOnly1=CountUpgrade(factory1stalker,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory1vultureupgCompleteOnly1=CountUpgrade(factory1vultureupg,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory2diamondbackCompleteOnly1=CountUpgrade(factory2diamondback,CompleteOnly) >= 1
 RequirementNode/Name/GTECountUpgradefactory2goliathupgCompleteOnly1=CountUpgrade(factory2goliathupg,CompleteOnly) >= 1
@@ -290,6 +293,8 @@ RequirementNode/Name/OrCountUnitArmoryCompleteOnlyCountUnitFusionCoreCompleteOnl
 Sound/Name/Stalker_Blink2=Stalker_Blink
 Upgrade/EditorPrefix/BlinkTech2=Stalker -
 Upgrade/EditorPrefix/TwinLinkedFlameThrowers=Story Mode Tech - (Hellion)
+Upgrade/EditorPrefix/stalkerblinkcooldown=stalker
+Upgrade/EditorPrefix/stalkerblinkrange=stalker
 Weapon/EditorPrefix/90mmCannons=Siege Tank -
 Weapon/EditorPrefix/90mmCannonsFake=Siege Tank -
 Weapon/EditorPrefix/AcidSaliva=Roach -

@@ -1,6 +1,5 @@
 ﻿Button/Hotkey/ArbiterMPRecall2=R
 Button/Hotkey/BlindingCloud=G
-Button/Hotkey/Blink=G
 Button/Hotkey/BuildAutoTurret=G
 Button/Hotkey/Charge=G
 Button/Hotkey/DefilerMPPlague=C

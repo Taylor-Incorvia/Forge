@@ -162,6 +162,8 @@ void initializeUpgrades() {
 
     addAbilityToUpgrade("Stimpack", "F_Stimpack");
     addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "caster");
+    addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "VoidRay");
+    addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "Archon");
 
     // addAbilityToUpgrade("TempestDisruptionBlast", "F_TempestDisruptionBlast"); // this still doesn't work -- the channel time of 4 seconds makes it suck. tried to reduce it but it didn't work. 
     // addUpgradeRequirementTag("TempestDisruptionBlast", logicType_NoneOf, "unitTag", "caster");
@@ -215,6 +217,12 @@ void initializeUpgrades() {
     addUpgradeToUpgrade("TwinLinkedFlameThrowers", "TwinLinkedFlameThrowers");
     addUpgradeRequirementTag("TwinLinkedFlameThrowers", logicType_AnyOf, "unitTag", "Hellion");
 
+    // addUpgradeToUpgrade("stalkerblinkrange", "stalkerblinkrange"); // don't know why this doesn't work but I can't test it because of editor bullshit. 
+    // addUpgradeRequirementTag("stalkerblinkrange", logicType_AnyOf, "unitTag", "Stalker");
+
+    addUpgradeToUpgrade("stalkerblinkcooldown", "stalkerblinkcooldown");
+    addUpgradeRequirementTag("stalkerblinkcooldown", logicType_AnyOf, "unitTag", "Stalker");
+
     // addBehaviorToUpgrade("ImmortalRevive", "VoidMPImmortalRevive"); // I couldn't get this to work. This upgrade makes the immortal literally immortal. Immune to death.
     // addUpgradeToUpgrade("ImmortalRevive", "ImmortalRevive");
     // addUpgradeRequirementTag("ImmortalRevive", logicType_AnyOf, "unitTag", "Immortal");
@@ -234,7 +242,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Tempest");
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Mutalisk");
     // addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Banshee");
-    // addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "DuskWing"); // I think the DuskWing is actually really strong. this might be overkill
+    addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "DuskWing"); // I think the DuskWing is actually really strong. this might be overkill
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "VikingFighter");
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Wraith");
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "CorsairMP");
@@ -264,7 +272,13 @@ void grantInitialUpgrades(int player) {
     grantUpgrade(player, "WraithCloak");
 
     //DuskWing - just a buffed banshee
-    grantUpgrade(player, "BansheeCloak");
+    // grantUpgrade(player, "BansheeCloak");
+
+    //Stalker - always has blink cause its fun and is a factory unit
+    grantUpgrade(player, "BlinkTech");
+
+    //Marine
+    grantUpgrade(player, "ShieldWall");
 
     // high templars -- I am giving them storm to start, which might be too much. 
     //For right now I am trying to buff splash damage so the game doesn't become deathball wars

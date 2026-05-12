@@ -40,10 +40,22 @@
     <CUpgrade id="barracks2warpigupg"/>
     <CUpgrade id="barracks2MarineUpg"/>
     <CUpgrade id="Factory2lurkerupg"/>
+    <CUpgrade id="factory1stalker"/>
     <CUpgrade id="factory2diamondback"/>
     <CUpgrade id="factory2warhoundupg"/>
     <CUpgrade id="factory2goliathupg"/>
     <CUpgrade id="factory3ultralisk"/>
+    <CUpgrade id="stalkerblinkcooldown">
+        <Flags index="TechTreeCheat" value="1"/>
+        <Icon value="Assets\Textures\btn-ability-zeratul-topbar-voidblink.dds"/>
+        <Alert value="ResearchComplete"/>
+        <Race value="Zerg"/>
+        <ScoreAmount value="400"/>
+        <ScoreResult value="BuildOrder"/>
+        <EffectArray Operation="Multiply" Reference="Abil,Blink,Cost[0].Cooldown.TimeUse" Value="0.500000"/>
+        <EditorCategories value="Race:Terran,UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="Stalker"/>
+    </CUpgrade>
     <CUpgrade id="starport1vikingupg"/>
     <CUpgrade id="starport1corsairupg"/>
     <CUpgrade id="starport2voidrayupg"/>
@@ -87,5 +99,17 @@
         <EffectArray Reference="Weapon,PsiBlades,RateMultiplier" Value="0.2"/>
         <EffectArray Reference="Weapon,PsiBlades,RateMultiplier" Value="0.2"/>
         <AffectedUnitArray value="Zealot"/>
+    </CUpgrade>
+    <CUpgrade id="stalkerblinkrange">
+        <Flags index="TechTreeCheat" value="1"/>
+        <Icon value="Assets\Textures\btn-ability-zeratul-darktemplar-blink.dds"/>
+        <Alert value="ResearchComplete"/>
+        <Race value="Zerg"/>
+        <ScoreAmount value="400"/>
+        <ScoreResult value="BuildOrder"/>
+        <EffectArray Operation="Multiply" Reference="Effect,Blink,Range" Value="2"/>
+        <EffectArray Operation="Set" Reference="Unit,Stalker,Sight" Value="16"/>
+        <EditorCategories value="Race:Terran,UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="Stalker"/>
     </CUpgrade>
 </Catalog>
