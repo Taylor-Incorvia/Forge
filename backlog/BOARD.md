@@ -12,7 +12,7 @@ _(nothing yet)_
 ## ⚡ Force multipliers — do these first if you can
 | ID | Ticket | Size | Phase |
 |----|--------|------|-------|
-| [WA-022](./WA-022-test-map.md) | Build a test map (instant unit/upgrade testing; may unblock dev testing) | M | 1 |
+| [WA-022](./WA-022-test-map.md) | Dev-mode test setup (triggers-only, no .sc2map; instant unit/upgrade testing) | M | 1 |
 
 ---
 

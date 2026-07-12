@@ -5,34 +5,37 @@ size: M
 phase: 1-game-readiness
 priority: 1
 ---
-# Build a test map (force multiplier)
+# Dev-mode test setup (triggers only — no .sc2map)
 
-A dedicated dev map that spawns every structure + unit and starts you with 9999 resources, so testing a unit/upgrade is instant instead of "turn on cheats, rebuild the tech tree, build the unit" every single time.
+A `devMode`-gated setup that, on game start, spawns every structure + one of every unit and hands you resources — so testing a unit/upgrade is instant instead of "build the tech tree, build the unit" every time. **No terrain editor, no separate map file** — runs on whatever melee map you launch with the mod.
 
 ## Why
-This is the loop you repeat constantly. Killing it saves time on nearly every gameplay ticket and makes you more likely to actually test changes (instead of shipping to prod untested). Force multiplier, like WA-021.
+Kills the repeated build-up loop on nearly every gameplay ticket, and makes you more likely to actually test before shipping. Force multiplier.
 
-## Key approach: spawn via triggers, don't hand-place
-You're strong with Data + Triggers and new to Terrain — so lean into that:
-- **Start from a copy of an existing small melee map** so the terrain is already done. You barely open the terrain editor.
-- **Spawn everything in an init trigger**, not by manually placing units. This plays to your strengths AND self-maintains: add a unit to the roster later and it appears in the test map automatically (drive the spawn loop off the same unit lists used in `initialize.galaxy`).
-- Extend the existing `test2.galaxy` `enableTestingCheats()` (already gives 50k resources behind `devMode`) rather than starting fresh.
+## Approach (revised): triggers-only, hooked to the existing devMode flag
+Ditches the earlier `.sc2map` idea — you don't want to touch the terrain editor, and you don't need to. The scaffolding already exists:
+- `devMode` flag: `nativeHelpers.galaxy:3` (toggle via the commented line 4).
+- `enableTestingCheats()` in `test2.galaxy` — already `devMode`-gated, already grants 50k/50k to all players. **This is the hook point.**
+- The mod already runs on any melee map ("Create with Mod"), so a devMode-gated spawn fires wherever you play.
+
+## ⚠️ Safety — the one rule
+`devMode` MUST stay `false` in committed code. If it ships `true`, real games spawn everything. Keep the toggle a local-only comment swap; never commit it flipped.
 
 ## Acceptance criteria
-- [ ] A new test `.SC2Map`, copied from a small existing melee/blank map (terrain pre-done).
-- [ ] Map dependency set to `ForgeModLowConfidence.SC2Mod` (+ its deps) so it uses the real mod data.
-- [ ] On init: player starts with 9999 minerals / 9999 gas.
-- [ ] On init: one of every production structure + upgrade facility is created.
-- [ ] On init: one of every rollable unit is created (ideally looped off existing roster lists so it stays current).
-- [ ] Instant/fast build enabled so tech + addons don't slow testing.
-- [ ] Confirm: open map → immediately select any unit and test its abilities/upgrades.
+- [ ] Extend the devMode path (in/alongside `enableTestingCheats()`) to spawn, near the testing player's start location:
+  - [ ] All production structures (Barracks, Factory, Starport) + their tech lab addons.
+  - [ ] All upgrade facilities (Ghost Academy, Armory, Fusion Core) so rolled upgrades are researchable.
+  - [ ] One of every rollable unit — ideally looped off the existing slot pools in `initialize.galaxy` so it stays current as the roster changes.
+- [ ] Units/structures placed in a grid/offset from the start point so they don't stack (main new trigger work).
+- [ ] Resources granted (existing 50k/50k is plenty).
+- [ ] `devMode = false` verified before commit.
+- [ ] Test: flip devMode on locally → launch any melee map with the mod → everything's there, select any unit and test immediately.
 
-## Decisions to make while building
-- Where the map lives (keep it in the repo, e.g. a `dev/` folder, so it's versioned — it's a dev artifact, NOT part of the published mod).
-- One of each unit, or a few, or grouped by facility? Start with one of each.
-
-## Bonus: might unblock local testing (see WA-014)
-You suspect a fresh map could dodge the SC2 Editor's dev-only caching bug — the "works on prod, not on dev" issue that currently blocks testing stalker blink range (WA-014) and forces prod testing generally. **Test that theory here.** If a clean test map makes dev testing reliable, that removes the "test on prod only" tax on a whole class of bugs — arguably a bigger win than the test map itself.
+## Known limitation (possible follow-up)
+Pre-spawning units lets you test unit stats/abilities instantly, but a *specific* upgrade still depends on what the roll system assigned to each slot. To reliably test any given upgrade, a small devMode helper to force-grant a named upgrade (building on the existing `grantUpgrade`) would close the gap. Note it and split into a follow-up if you want it.
 
 ## Notes
-Unit roster / slot pools live in `initialize.galaxy`. Existing cheat scaffold in `test2.galaxy`. Per CLAUDE.md, don't set up triggers in script — you'll wire the init trigger in the editor UI and have it call a galaxy function (e.g. an expanded `enableTestingCheats()` / new `spawnAllTestUnits(player)`).
+- Per CLAUDE.md, wire the trigger in the editor UI and have it call the galaxy function; keep everything behind `if(devMode)`.
+- Confirm the existing devMode init trigger actually calls `enableTestingCheats()` (or add a `setupTestEnvironment(player)` it calls) so the spawn fires.
+- `natives.galaxy` (now in `reference/`) has the exact unit-create / point / start-location functions for the placement loop.
+- Tradeoff vs. the old .sc2map idea: gives up the speculative "fresh map dodges the WA-014 caching bug" side-benefit, in exchange for zero terrain work. Worth it.
