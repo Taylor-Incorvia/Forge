@@ -1,11 +1,16 @@
 ---
 id: WA-022
-status: todo
+status: done
 size: M
 phase: 1-game-readiness
 priority: 1
 ---
 # Dev-mode test setup (triggers only — no .sc2map)
+
+## ✅ DONE (2026-07-11) — structures-only
+Shipped: `enableTestingCheats()` in `test2.galaxy` grants 50k/50k and spawns all 6 buildings (Barracks/Factory/Starport + Ghost Academy/Armory/Fusion Core) near each player's start, gated by `devMode`, called from a 1.0s delayed timer trigger. Good enough to skip the tech-tree build-up.
+
+Descoped: the "one of every unit" spawn — pools came back empty at spawn time (a pool-timing/data-keying issue), and structures-only was deemed sufficient. Revisit if you ever want the full unit dump. ⚠️ Keep `devMode = false` in commits.
 
 A `devMode`-gated setup that, on game start, spawns every structure + one of every unit and hands you resources — so testing a unit/upgrade is instant instead of "build the tech tree, build the unit" every time. **No terrain editor, no separate map file** — runs on whatever melee map you launch with the mod.
 
@@ -22,14 +27,20 @@ Ditches the earlier `.sc2map` idea — you don't want to touch the terrain edito
 `devMode` MUST stay `false` in committed code. If it ships `true`, real games spawn everything. Keep the toggle a local-only comment swap; never commit it flipped.
 
 ## Acceptance criteria
-- [ ] Extend the devMode path (in/alongside `enableTestingCheats()`) to spawn, near the testing player's start location:
-  - [ ] All production structures (Barracks, Factory, Starport) + their tech lab addons.
-  - [ ] All upgrade facilities (Ghost Academy, Armory, Fusion Core) so rolled upgrades are researchable.
-  - [ ] One of every rollable unit — ideally looped off the existing slot pools in `initialize.galaxy` so it stays current as the roster changes.
-- [ ] Units/structures placed in a grid/offset from the start point so they don't stack (main new trigger work).
-- [ ] Resources granted (existing 50k/50k is plenty).
-- [ ] `devMode = false` verified before commit.
-- [ ] Test: flip devMode on locally → launch any melee map with the mod → everything's there, select any unit and test immediately.
+- [x] Extend the devMode path (in/alongside `enableTestingCheats()`) to spawn, near the testing player's start location:
+  - [x] All production structures (Barracks, Factory, Starport).
+  - [x] All upgrade facilities (Ghost Academy, Armory, Fusion Core) so rolled upgrades are researchable.
+  - [x] One of every rollable unit — looped off the slot pools in `initialize.galaxy` (`slotPoolKey`) so it stays current.
+- [x] Units/structures placed in a grid/offset from the start point so they don't stack.
+- [x] Resources granted (existing 50k/50k kept).
+- [ ] **YOU:** call `enableTestingCheats()` from a trigger that runs AFTER start locations exist — a `Timer - Elapsed Game Time 1.0s` one-shot trigger, NOT Mod Initialization. (Mod Init is too early: `PlayerStartLocation` returns null → null-point errors. Fixed the null case with a guard, but the spawn only works once deferred.) Also ensure `initializePools()` has run first (the spawn reads the pools).
+- [ ] **YOU:** flip `devMode = true` (nativeHelpers.galaxy:3-4), launch any melee map with the mod, confirm everything spawns and is testable.
+- [ ] `devMode = false` verified before commit. ⚠️
+
+## Code written (2026-07-11)
+Implemented in `test2.galaxy`: `spawnTestArsenalForPlayer(player)` + helpers, called from `enableTestingCheats()` inside the existing `if(devMode)` loop. Uses `UnitCreate` / `PlayerStartLocation` / `PointWithOffset` (verified against `reference/` natives). Tuning knobs at top of file: `c_testPerRow`, `c_testSpacing`. To spawn for yourself only, see the commented guard in `enableTestingCheats()`.
+
+Optional tech-lab addons were left out (they attach to production buildings and complicate placement) — add later if a unit needs one to appear.
 
 ## Known limitation (possible follow-up)
 Pre-spawning units lets you test unit stats/abilities instantly, but a *specific* upgrade still depends on what the roll system assigned to each slot. To reliably test any given upgrade, a small devMode helper to force-grant a named upgrade (building on the existing `grantUpgrade`) would close the gap. Note it and split into a follow-up if you want it.

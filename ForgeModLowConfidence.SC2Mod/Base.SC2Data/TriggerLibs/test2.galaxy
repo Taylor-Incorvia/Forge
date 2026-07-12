@@ -1,9 +1,43 @@
-include "TriggerLibs/listHelpers"
 include "TriggerLibs/nativeHelpers"
-include "TriggerLibs/upgradeHelpers"
+include "TriggerLibs/forgeProductionFacilityHeplers" // for rax/factory/starport + upgrade-facility constants
 
-// Function to enable testing cheats at game start
-// This gives all players resources and speeds up build times
+// =====================================================================
+// DEV TEST SETUP (devMode only)
+// ---------------------------------------------------------------------
+// When devMode is on, this spawns every production + upgrade building
+// near each player's start location and grants 50k/50k, so you can test
+// without building up the tech tree. Runs on any melee map launched with
+// the mod -- no .sc2map needed.
+//
+// SAFETY: only fires when devMode == true (nativeHelpers.galaxy).
+//         devMode MUST stay false in committed code.
+//
+// TRIGGER: call enableTestingCheats() from a short-delay trigger
+//          (Timer - Elapsed Game Time 1.0s), NOT Mod Initialization --
+//          at Mod Init start locations don't exist yet.
+// =====================================================================
+
+// spawn all production + upgrade structures for a player, in a row north of the base
+void spawnTestStructuresForPlayer(int player) {
+    point origin = PlayerStartLocation(player);
+
+    // Bail if the start location isn't ready (e.g. called too early at Mod Init).
+    if (origin == null) {
+        return;
+    }
+
+    // production facilities
+    UnitCreate(1, rax,          c_unitCreateIgnorePlacement, player, PointWithOffset(origin, -15.0, 10.0), 270.0);
+    UnitCreate(1, factory,      c_unitCreateIgnorePlacement, player, PointWithOffset(origin,  -9.0, 10.0), 270.0);
+    UnitCreate(1, starport,     c_unitCreateIgnorePlacement, player, PointWithOffset(origin,  -3.0, 10.0), 270.0);
+    // upgrade facilities (so rolled upgrades are researchable)
+    UnitCreate(1, ghostAcademy, c_unitCreateIgnorePlacement, player, PointWithOffset(origin,   3.0, 10.0), 270.0);
+    UnitCreate(1, armory,       c_unitCreateIgnorePlacement, player, PointWithOffset(origin,   9.0, 10.0), 270.0);
+    UnitCreate(1, fusionCore,   c_unitCreateIgnorePlacement, player, PointWithOffset(origin,  15.0, 10.0), 270.0);
+}
+
+// Function to enable testing cheats at game start.
+// Gives all players resources and spawns the test structures.
 void enableTestingCheats() {
     playergroup pg = PlayerGroupAll();
     int playerIndex = -1;
@@ -18,6 +52,11 @@ void enableTestingCheats() {
             // Add resources (equivalent to "minerals" and "vespene" cheats)
             PlayerModifyPropertyInt(playerIndex, c_playerPropMinerals, c_playerPropOperAdd, 50000);
             PlayerModifyPropertyInt(playerIndex, c_playerPropVespene, c_playerPropOperAdd, 50000);
+
+            // Spawn every structure near this player's start.
+            // NOTE: fires for ALL players (incl. AI). To limit to just yourself:
+            //   if (playerIndex == 1) { spawnTestStructuresForPlayer(playerIndex); }
+            spawnTestStructuresForPlayer(playerIndex);
         }
     }
 }
