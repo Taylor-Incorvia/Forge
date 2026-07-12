@@ -1,0 +1,6 @@
+# Extracted stock SC2 catalogs (WA-021) — local lookup aid, NOT part of the mod.
+# Blizzard's files; never commit them (copyright — matters once repo/website is public).
+# The README is kept so the folder's purpose stays documented.
+/reference/**
+!/reference/
+!/reference/README.md
