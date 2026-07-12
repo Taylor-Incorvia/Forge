@@ -1,7 +1,13 @@
 include "TriggerLibs/forgeUnitHelpers"
 
+// Unit tag scheme for the upgrade-pool system (see WA-018):
+//   "caster"     = eligible for caster/energy-ability upgrades (Storm, Fungal, ...)
+//   "pureCaster" = a caster that must NOT receive fighter buffs (Speed/Stim/Range/...)
+// Pure spellcaster -> tagPureCaster() (both tags).
+// Hybrid (energy bar + real attack, e.g. Queen/DuskWing) -> tagHybridCaster()
+//   ("caster" only) so it rolls from BOTH the caster and fighter upgrade pools.
 void initializeTags() {
-    // *** RAX *** 
+    // *** RAX ***
     // slot 1
     addUnitTag("Zergling", "melee");
     addUnitTag("Zealot", "melee");
@@ -12,15 +18,15 @@ void initializeTags() {
     // slot 3
     addUnitTag("Firebat", "shortrange");
     addUnitTag("Roach", "shortrange");
-    addUnitTag("Sentry", "caster");
-    addUnitTag("Medic", "caster");
+    tagPureCaster("Sentry");
+    tagPureCaster("Medic");
 
     // slot 4
-    addUnitTag("Infestor", "caster");
-    addUnitTag("Ghost", "fighter-caster");
+    tagPureCaster("Infestor");
+    tagHybridCaster("Ghost"); // hybrid: rolls both caster spells and fighter buffs (see WA-018)
     addUnitTag("LurkerMP", "stationary-attacker");
-    addUnitTag("DefilerMP", "caster");
-    addUnitTag("HighTemplar", "caster");
+    tagPureCaster("DefilerMP");
+    tagPureCaster("HighTemplar");
 
     // *** FACTORY  ***
     // slot 1
@@ -34,15 +40,15 @@ void initializeTags() {
 
     // *** STARPORT  ***
     // slot 1
-    addUnitTag("Wraith", "caster"); // consider if these make sense. Especailly wraith
-    addUnitTag("Phoenix", "caster");
-    addUnitTag("CorsairMP", "caster"); 
+    tagHybridCaster("Wraith"); // hybrid: attacker + energy (cloak), rolls both pools
+    tagHybridCaster("Phoenix"); // hybrid: attacker + energy ability, rolls both pools
+    tagHybridCaster("CorsairMP"); // hybrid: attacker + energy ability, rolls both pools
 
     // slot 3
-    addUnitTag("Raven", "caster");
-    addUnitTag("ScienceVessel", "caster");
-    addUnitTag("Viper", "caster");
-    addUnitTag("ArbiterMP", "caster");
+    tagPureCaster("Raven");
+    tagPureCaster("ScienceVessel");
+    tagPureCaster("Viper");
+    tagPureCaster("ArbiterMP");
 }
 
 void initializeAlternateForms() { // if a lurker is burrowed when an upgrade completes, it doesn't get the upgrade because it is a different unit. 

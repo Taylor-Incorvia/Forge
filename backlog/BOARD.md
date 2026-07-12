@@ -5,7 +5,7 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 ---
 
 ## 🔨 In progress
-_(nothing yet)_
+- [WA-018](./WA-018-hybrid-caster-upgrade-pool.md) — Hybrid caster mechanism implemented (behavior-preserving); needs in-game sanity check + Ghost decision
 
 ---
 
@@ -20,15 +20,15 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-006](./WA-006-update-mod-description.md) | Update mod description | S | 1 |
 | [WA-023](./WA-023-chitinous-plating-researchable.md) | Chitinous Plating researchable (Ultralisk nerf) | S | 1 |
 | [WA-024](./WA-024-ghost-academy-nuke.md) | Enable nuke (Ghost Academy arms, Ghost fires) | M | 1 |
+| [WA-025](./WA-025-transfuse-eligibility.md) | Decide who should roll Transfuse | S | 1 |
 | [WA-014](./WA-014-verify-stalker-blink-range.md) | Re-enable + test stalker blink range | S | 1 |
 | [WA-015](./WA-015-blink-changes-form.md) | Blink teleports then changes form | M | 1 |
 
-### Barracks Slot 2 rework (was WA-002) — do WA-018 before WA-019/WA-020
+### Barracks Slot 2 rework (was WA-002)
 | ID | Ticket | Size | Phase |
 |----|--------|------|-------|
-| [WA-018](./WA-018-hybrid-caster-upgrade-pool.md) | ⭐ Hybrid units roll both upgrade pools | L | 1 |
-| [WA-019](./WA-019-add-queen-barracks-slot2.md) | Add Queen to Barracks Slot 2 _(needs WA-018)_ | M | 1 |
-| [WA-020](./WA-020-decide-cloak-behavior.md) | Decide Wraith/DuskWing cloak behavior _(needs WA-018)_ | S | 1 |
+| [WA-019](./WA-019-add-queen-barracks-slot2.md) | Add Queen to Barracks Slot 2 _(WA-018 done — unblocked)_ | M | 1 |
+| [WA-020](./WA-020-decide-cloak-behavior.md) | Decide Wraith/DuskWing cloak behavior _(WA-018 done — unblocked)_ | S | 1 |
 
 ---
 

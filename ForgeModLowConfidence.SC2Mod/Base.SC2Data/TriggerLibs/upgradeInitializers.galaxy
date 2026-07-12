@@ -112,7 +112,7 @@ void initializeUpgrades() {
     // ==================== NON-CASTER UPGRADES (require NOT caster) ====================
 
     addAbilityToUpgrade("Blink", "F_Blink");
-    addUpgradeRequirementTag("Blink", logicType_NoneOf, "unitTag", "caster"); // casters with blink sounds underwhelming 90% of the time and completely abusive 10% of the time
+    addUpgradeRequirementTag("Blink", logicType_NoneOf, "unitTag", "pureCaster"); // casters with blink sounds underwhelming 90% of the time and completely abusive 10% of the time
     addAltFormBannedAbility("LurkerBurrowed", "F_Blink"); // burrowed lurkers shouldn't blink // I am not  under the impression that addAltFormBannedAbility works at all
     addAltFormBannedAbility("SiegeTankSieged", "F_Blink"); // sieged tanks shouldn't blink // I am not  under the impression that addAltFormBannedAbility works at all
 
@@ -130,7 +130,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", "Warhound");
 
     addBehaviorToUpgrade("Range", "Range");
-    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "caster");
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "pureCaster");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Firebat");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "LurkerMP");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Hellion");
@@ -146,7 +146,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("DiggingClaws", logicType_AnyOf, "unitTag", "SiegeTank");
 
     addBehaviorToUpgrade("Speed", "Speed");
-    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "caster");
+    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "pureCaster");
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Tempest"); // Tempests become insanely opressive. unbeatable. no counter play. 
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "melee"); // charge gives melee units speed and the charge ability. No need for this to be in the pool too for melee. 
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "LurkerMP"); // lurkers, tanks, zerglings, zealots have their own speed upgrade that also improves transform speed. 
@@ -161,17 +161,17 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Charge", logicType_NoneOf, "unitTag", "Zergling"); // zerglings get default speed, which gives them more than 50% speed and charge at it's core is a movement speed boost that doesn't affect micro that much more than regular speed. 
 
     addAbilityToUpgrade("Stimpack", "F_Stimpack");
-    addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "caster");
+    addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "pureCaster");
     addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "VoidRay");
     addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "Archon");
 
     // addAbilityToUpgrade("TempestDisruptionBlast", "F_TempestDisruptionBlast"); // this still doesn't work -- the channel time of 4 seconds makes it suck. tried to reduce it but it didn't work. 
-    // addUpgradeRequirementTag("TempestDisruptionBlast", logicType_NoneOf, "unitTag", "caster");
+    // addUpgradeRequirementTag("TempestDisruptionBlast", logicType_NoneOf, "unitTag", "pureCaster");
     // addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", factory +"3");
     // addUpgradeRequirementTag("TempestDisruptionBlast", logicType_AnyOf, "unitTag", starport +"3");
 
     addAbilityToUpgrade("Yamato", "F_Yamato");
-    addUpgradeRequirementTag("Yamato", logicType_NoneOf, "unitTag", "caster");
+    addUpgradeRequirementTag("Yamato", logicType_NoneOf, "unitTag", "pureCaster");
     addUpgradeRequirementTag("Yamato", logicType_AnyOf, "unitTag", factory +"3");
     addUpgradeRequirementTag("Yamato", logicType_AnyOf, "unitTag", starport +"3");
 
@@ -181,11 +181,11 @@ void initializeUpgrades() {
     // addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", factory +"3");
     // addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", starport +"3");
     // addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Vulture");
-    // addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "caster");
+    // addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "pureCaster");
     // addUpgradeRequirementTag("KD8Charge", logicType_NoneOf, "unitTag", "Zergling"); // I buffed the spell so it does more damage. If it wasn't already crazy on a zergling, now it is. 
 
     addAbilityToUpgrade("RavagerCorrosiveBile", "F_RavagerCorrosiveBile");
-    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "caster");
+    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "pureCaster");
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", rax +"1");
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", factory +"3");
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", starport +"3");
@@ -193,7 +193,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "Ravager"); // ravager already has this
 
     //  addAbilityToUpgrade("PsionicShockwave", "F_PsionicShockwave"); // removing this unitl I figure out how to make it not hit your own units. Might still be off. 
-    //  addUpgradeRequirementTag("PsionicShockwave", logicType_NoneOf, "unitTag", "caster");
+    //  addUpgradeRequirementTag("PsionicShockwave", logicType_NoneOf, "unitTag", "pureCaster");
     //  addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", factory +"3");
     // addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", starp ort +"3");
     // addUpgradeRequirementTag("PsionicShockwave", logicType_AnyOf, "unitTag", rax +"4");

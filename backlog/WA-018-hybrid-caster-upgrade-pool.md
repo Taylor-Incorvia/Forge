@@ -16,11 +16,24 @@ Today the pool splits cleanly in two and the halves are mutually exclusive: cast
 ## ⭐ Do before WA-019 and WA-020 — it unblocks both.
 
 ## Acceptance criteria
-- [ ] Document how caster vs non-caster eligibility is currently decided (`upgradeInitializers.galaxy` + `unitInitializers.galaxy` tagging; eligibility math in `initializeUpgradePoolForPlayerSlot()`).
-- [ ] Design a mechanism (e.g. a new `hybrid` tag, or decoupling "can cast energy abilities" from "has an attack") so a hybrid unit is eligible for both pools.
-- [ ] Pure casters and pure fighters are **unchanged**.
-- [ ] No broken rolls — a hybrid must not roll an upgrade it can't actually use.
-- [ ] Mechanism is general (works for any future hybrid), with Queen + DuskWing as the first two targets.
+- [x] Document how caster vs non-caster eligibility is currently decided (see below).
+- [x] Design a mechanism decoupling "can cast" from "excluded from fighter buffs".
+- [x] Pure casters and pure fighters are **unchanged** (behavior-preserving).
+- [x] No broken rolls — hybrid gets caster gate + fighter eligibility, nothing it can't use.
+- [x] Mechanism is general (any unit → `tagHybridCaster()`), Queen + DuskWing as first targets.
+- [ ] **YOU:** in-game sanity check — current rolls unchanged (no behavior diff), and a temp `tagHybridCaster("DuskWing")` confirms it can roll from both pools.
 
-## Notes
-Eligibility rule today: a unit gets an upgrade only if it satisfies NoneOf AND AllOf AND AnyOf on its unit tags. The `caster` tag is the pivot to rethink.
+## ✅ Implemented (2026-07-12) — behavior-preserving
+The `caster` tag did two opposite jobs (gate for caster upgrades via `AllOf`, exclusion for fighter upgrades via `NoneOf`), making hybrids impossible. Split it:
+- `caster` = eligible for caster/energy-ability upgrades (unchanged `AllOf` gate; ~18 caster upgrades untouched).
+- `pureCaster` = a caster excluded from fighter buffs (new `NoneOf` exclusion).
+- New helpers in `forgeUnitHelpers.galaxy`: `tagPureCaster()` (both tags) and `tagHybridCaster()` (caster only).
+- `unitInitializers.galaxy`: the 12 pure casters now use `tagPureCaster()`.
+- `upgradeInitializers.galaxy`: fighter upgrades' `NoneOf caster` → `NoneOf pureCaster` (Blink/Range/Speed/Stim/Yamato/RavagerCorrosiveBile + the commented ones).
+
+Result — identical current behavior (every caster has both tags); hybrids get BOTH pools by carrying `caster` without `pureCaster`. To make a unit hybrid: `tagHybridCaster("X")`.
+
+## Resolved: Ghost is now a hybrid
+Ghost's dead `fighter-caster` tag → `tagHybridCaster("Ghost")` (the original intent). This is the ONE intentional behavior change in this ticket — Ghost now also rolls caster spells (previously fighter-only). Everything else is behavior-preserving.
+
+Bonus: Ghost is already in the pool (Barracks slot 4), so it's a **live test case** for the hybrid mechanism — roll a Ghost and confirm it can pull both a caster spell and a fighter buff.

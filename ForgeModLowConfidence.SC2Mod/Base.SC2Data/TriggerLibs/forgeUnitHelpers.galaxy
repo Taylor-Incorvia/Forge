@@ -12,6 +12,20 @@ void addUnitTag(string unitId, string tag) {
     addToStringList(listName, tag);
 }
 
+// A "pure caster" gets caster/energy-ability upgrades but NOT fighter buffs
+// (Speed / Stim / Range / Blink / etc). It carries both tags.
+void tagPureCaster(string unitId) {
+    addUnitTag(unitId, "caster");      // eligible for caster/energy-ability upgrades
+    addUnitTag(unitId, "pureCaster");  // excluded from fighter-buff upgrades
+}
+
+// A "hybrid" has an energy bar AND a real attack (e.g. Queen, DuskWing). It rolls
+// from BOTH pools: caster spells AND fighter buffs. It has "caster" but NOT
+// "pureCaster", so it passes the caster gate and is not excluded from fighter buffs.
+void tagHybridCaster(string unitId) {
+    addUnitTag(unitId, "caster");
+}
+
 string unitUnlockUpgKey(string unitId) {
     // e.g. "zergling" → "unit.zergling.unlockUpg"
     return "unit." + unitId + ".unlockUpg";
