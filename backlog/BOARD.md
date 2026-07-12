@@ -25,8 +25,6 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 ### Barracks Slot 2 rework (was WA-002) — do WA-018 before WA-019/WA-020
 | ID | Ticket | Size | Phase |
 |----|--------|------|-------|
-| [WA-016](./WA-016-marine-cost-and-combat-shield.md) | Marine: 50/25 + Combat Shield | S | 1 |
-| [WA-017](./WA-017-hydralisk-cost-and-grooved-spines.md) | Hydralisk: 100/50 + Grooved Spines | S | 1 |
 | [WA-018](./WA-018-hybrid-caster-upgrade-pool.md) | ⭐ Hybrid units roll both upgrade pools | L | 1 |
 | [WA-019](./WA-019-add-queen-barracks-slot2.md) | Add Queen to Barracks Slot 2 _(needs WA-018)_ | M | 1 |
 | [WA-020](./WA-020-decide-cloak-behavior.md) | Decide Wraith/DuskWing cloak behavior _(needs WA-018)_ | S | 1 |
@@ -57,5 +55,7 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ---
 
 ## 🏁 Done
+- [WA-016](./WA-016-marine-cost-and-combat-shield.md) — Marine 50/25 + starts with Combat Shield (`ShieldWall`) + tooltip · 2026-07-11
+- [WA-017](./WA-017-hydralisk-cost-and-grooved-spines.md) — Hydralisk 100/50 + starts with Grooved Spines (`EvolveGroovedSpines`) + tooltip · 2026-07-11
 - [WA-022](./WA-022-test-map.md) — Dev-mode test setup: `devMode` spawns all 6 buildings + 50k/50k (structures-only; unit-dump descoped) · 2026-07-11
 - [WA-021](./WA-021-extract-base-game-catalogs.md) — Extracted all 6 base deps + trigger libs + UI into `reference/` (Claude now has stock-data lookup) · 2026-07-11

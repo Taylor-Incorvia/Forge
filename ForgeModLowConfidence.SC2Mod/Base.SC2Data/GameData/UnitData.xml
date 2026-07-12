@@ -271,8 +271,6 @@
             <LayoutButtons index="28" removed="1"/>
             <LayoutButtons index="29" removed="1"/>
         </CardLayouts>
-        <CostResource index="Minerals" value="90"/>
-        <CostResource index="Vespene" value="35"/>
     </CUnit>
     <CUnit id="Infestor">
         <CardLayouts index="0">
@@ -328,7 +326,7 @@
         <CardLayouts index="0">
             <LayoutButtons index="5" removed="1"/>
         </CardLayouts>
-        <CostResource index="Vespene" value="10"/>
+        <CostResource index="Vespene" value="25"/>
     </CUnit>
     <CUnit id="Medic">
         <Collide index="ForceField" value="1"/>

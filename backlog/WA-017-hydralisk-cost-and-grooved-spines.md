@@ -1,12 +1,15 @@
 ---
 id: WA-017
-status: todo
+status: done
 size: S
 phase: 1-game-readiness
 priority: 11
 parent: WA-002
 ---
 # Hydralisk: revert to 100/50 + starts with Grooved Spines
+
+## ✅ DONE (2026-07-11)
+Hydralisk reverted to 100/50. Starts with `EvolveGroovedSpines` (range) via `grantInitialUpgrades()`. Tooltip updated to note the starting upgrade. Balance to be confirmed in playtests later.
 
 Undo the recent cost bump and give the Hydralisk its range upgrade at start, so it's a solid, straightforward ranged Barracks Slot 2 pick.
 

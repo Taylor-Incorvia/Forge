@@ -1,12 +1,15 @@
 ---
 id: WA-016
-status: todo
+status: done
 size: S
 phase: 1-game-readiness
 priority: 10
 parent: WA-002
 ---
 # Marine: 50/25 cost + starts with Combat Shield
+
+## ✅ DONE (2026-07-11)
+Marine set to 50/25 (considered 20 gas, settled on 25). Starts with Combat Shield (`ShieldWall`) via `grantInitialUpgrades()`. Tooltip updated to note the starting upgrade. Balance to be confirmed in playtests later.
 
 Marine should be a cheap, simple, but not brain-dead Barracks Slot 2 pick. Combat Shield (extra HP) makes it feel good without Stim's power level.
 
