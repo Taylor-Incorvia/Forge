@@ -19,6 +19,7 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-005](./WA-005-verify-hotkey-collisions.md) | Verify hotkey collisions | M | 1 |
 | [WA-006](./WA-006-update-mod-description.md) | Update mod description | S | 1 |
 | [WA-023](./WA-023-chitinous-plating-researchable.md) | Chitinous Plating researchable (Ultralisk nerf) | S | 1 |
+| [WA-024](./WA-024-ghost-academy-nuke.md) | Enable nuke (Ghost Academy arms, Ghost fires) | M | 1 |
 | [WA-014](./WA-014-verify-stalker-blink-range.md) | Re-enable + test stalker blink range | S | 1 |
 | [WA-015](./WA-015-blink-changes-form.md) | Blink teleports then changes form | M | 1 |
 
