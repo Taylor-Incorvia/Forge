@@ -6,7 +6,6 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 
 ## 🔨 In progress
 - [WA-018](./WA-018-hybrid-caster-upgrade-pool.md) — Hybrid caster mechanism implemented (behavior-preserving); needs in-game sanity check + Ghost decision
-- [WA-019](./WA-019-add-queen-barracks-slot2.md) — Queen added to Barracks slot 2 (6-file wiring); needs in-game test (esp. button icon)
 
 ---
 
@@ -58,6 +57,8 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ---
 
 ## 🏁 Done
+- [WA-019](./WA-019-add-queen-barracks-slot2.md) — Queen added to Barracks slot 2 (150/50, speed 1.9, hybrid, Transfusion kept) · 2026-07-12
+- [WA-028](./WA-028-queen-hide-zerg-abilities.md) — Queen: removed Burrow / Spawn Larva / Creep Tumor from card (kept Transfusion) · 2026-07-12
 - [WA-016](./WA-016-marine-cost-and-combat-shield.md) — Marine 50/25 + starts with Combat Shield (`ShieldWall`) + tooltip · 2026-07-11
 - [WA-017](./WA-017-hydralisk-cost-and-grooved-spines.md) — Hydralisk 100/50 + starts with Grooved Spines (`EvolveGroovedSpines`) + tooltip · 2026-07-11
 - [WA-022](./WA-022-test-map.md) — Dev-mode test setup: `devMode` spawns all 6 buildings + 50k/50k (structures-only; unit-dump descoped) · 2026-07-11

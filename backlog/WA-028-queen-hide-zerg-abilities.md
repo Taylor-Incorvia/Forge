@@ -1,11 +1,14 @@
 ---
 id: WA-028
-status: todo
+status: done
 size: M
 phase: 1-game-readiness
 priority: 24
 ---
 # Hide Queen's burrow / spawn larva / creep tumor (editor-safe, for production)
+
+## ✅ DONE (2026-07-12)
+User removed Burrow / Spawn Larva / Creep Tumor from the Queen's card manually in the SC2 editor's data UI — and it worked locally. Consistent with the finding that card *removals* are in the locally-testable class (vs. added/unlocked ability buttons, which are production-only). Transfusion retained.
 
 The Queen currently shows her full stock command card — including **Burrow**, **Spawn Larva**, and **Build Creep Tumor** — because we had to remove the card-strip to get Transfusion working. Fine for testing; not for production. Remove those three the right way.
 

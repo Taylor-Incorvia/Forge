@@ -1,6 +1,6 @@
 ---
 id: WA-019
-status: in-progress
+status: done
 size: M
 phase: 1-game-readiness
 priority: 13
