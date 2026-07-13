@@ -56,6 +56,7 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ---
 
 ## 🏁 Done
+- [WA-029](./WA-029-archon-price.md) — Archon re-priced to 225/150 (was 150/250) · 2026-07-13
 - [WA-026](./WA-026-stim-indicator-missing.md) — Stim flash now fires for `F_Stimpack` (any rolled-stim unit), via `StimpackStartImpact` actor override · 2026-07-12
 - [WA-019](./WA-019-add-queen-barracks-slot2.md) — Queen added to Barracks slot 2 (150/50, speed 1.9, hybrid, Transfusion kept) · 2026-07-12
 - [WA-028](./WA-028-queen-hide-zerg-abilities.md) — Queen: removed Burrow / Spawn Larva / Creep Tumor from card (kept Transfusion) · 2026-07-12
