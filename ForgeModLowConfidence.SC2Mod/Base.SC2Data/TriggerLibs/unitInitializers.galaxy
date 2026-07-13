@@ -13,7 +13,7 @@ void initializeTags() {
     addUnitTag("Zealot", "melee");
 
     // slot 2
-
+    tagHybridCaster("Queen"); // energy caster + attacker; rolls both pools
 
     // slot 3
     addUnitTag("Firebat", "shortrange");

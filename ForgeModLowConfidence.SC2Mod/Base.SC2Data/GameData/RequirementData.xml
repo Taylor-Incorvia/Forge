@@ -147,6 +147,10 @@
         <NodeArray index="Use" Link="GTECountUpgradebarracks2MarineUpgCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradebarracks2MarineUpgCompleteOnly1"/>
     </CRequirement>
+    <CRequirement id="barracks2queenreq">
+        <NodeArray index="Use" Link="GTECountUpgradebarracks2queenupgCompleteOnly1"/>
+        <NodeArray index="Show" Link="GTECountUpgradebarracks2queenupgCompleteOnly1"/>
+    </CRequirement>
     <CRequirement id="barracksZealot">
         <NodeArray index="Use" Link="GTECountUpgradebarracksZealotUpgCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradebarracksZealotUpgCompleteOnly1"/>

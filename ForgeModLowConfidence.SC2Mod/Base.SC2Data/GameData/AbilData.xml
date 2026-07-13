@@ -331,6 +331,10 @@
             <Button DefaultButtonFace="Marine2" Requirements="barracks2MarineReq"/>
             <Unit value="Marine"/>
         </InfoArray>
+        <InfoArray index="Train21" Time="40">
+            <Button DefaultButtonFace="Queen" Requirements="barracks2queenreq"/>
+            <Unit value="Queen"/>
+        </InfoArray>
     </CAbilTrain>
     <CAbilEffectTarget id="F_D8Charge">
         <Alignment value="Negative"/>

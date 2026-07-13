@@ -251,6 +251,12 @@
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="Reaper"/>
     </CButton>
+    <CButton id="Queen">
+        <Icon value="Assets\Textures\btn-unit-zerg-queen.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-queen.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="Reaper"/>
+    </CButton>
     <CButton id="Medic">
         <HotkeyAlias value="Marauder"/>
     </CButton>

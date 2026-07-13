@@ -235,6 +235,10 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="barracks2MarineUpg" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradebarracks2queenupgCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="barracks2queenupg" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradebarracks2hydraliskupgCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="barracks2hydraliskupg" State="CompleteOnly"/>
@@ -466,6 +470,10 @@
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradebarracks2MarineUpgCompleteOnly1">
         <OperandArray index="0" value="CountUpgradebarracks2MarineUpgCompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountUpgradebarracks2queenupgCompleteOnly1">
+        <OperandArray index="0" value="CountUpgradebarracks2queenupgCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountUpgradebarracks2hydraliskupgCompleteOnly1">

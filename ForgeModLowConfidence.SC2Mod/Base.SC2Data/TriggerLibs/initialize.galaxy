@@ -11,6 +11,7 @@ void initializeUnitUnlockUpgradeMapping() {
     setUnitUnlockUpgrade("Hydralisk", "barracks2hydraliskupg");
     setUnitUnlockUpgrade("WarPig", "barracks2warpigupg");
     setUnitUnlockUpgrade("Marine", "barracks2MarineUpg");
+    setUnitUnlockUpgrade("Queen", "barracks2queenupg");
 
     //slot 3
     setUnitUnlockUpgrade("Firebat", "barracks3firebatupg");
@@ -88,6 +89,7 @@ void initializeBarracksSlot2Pool() {
     addUnitToSlotPool(facility, slot, "Hydralisk");
     // addUnitToSlotPool(facility, slot, "WarPig");
     addUnitToSlotPool(facility, slot, "Marine");
+    addUnitToSlotPool(facility, slot, "Queen");
 }
 
 // slot 3 pool was previously known as slot 2b. 

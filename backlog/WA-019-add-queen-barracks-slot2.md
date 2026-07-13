@@ -1,6 +1,6 @@
 ---
 id: WA-019
-status: todo
+status: in-progress
 size: M
 phase: 1-game-readiness
 priority: 13
@@ -8,6 +8,24 @@ parent: WA-002
 depends_on: WA-018
 ---
 # Add Queen as the third Barracks Slot 2 unit
+
+## 🔨 Implemented (2026-07-12) — needs in-game test
+Full wiring across 6 files (mirrors the Marine/Hydralisk template). Load-bearing ids: `Queen` ↔ `barracks2queenupg` ↔ `barracks2queenreq` ↔ `BarracksTrain,Train21` ↔ button face `Queen`.
+- `initialize.galaxy`: `setUnitUnlockUpgrade("Queen","barracks2queenupg")` + `addUnitToSlotPool(rax,2,"Queen")`.
+- `unitInitializers.galaxy`: `tagHybridCaster("Queen")`.
+- `UpgradeData.xml`: `<CUpgrade id="barracks2queenupg"/>`.
+- `RequirementNodeData.xml`: count + GTE nodes. `RequirementData.xml`: `barracks2queenreq`.
+- `AbilData.xml`: `BarracksTrain` → `Train21` (Time 40, tunable).
+- `ButtonData.xml`: `<CButton id="Queen">` (icon `btn-unit-zerg-queen.dds`).
+- `UnitData.xml`: Barracks card `LayoutButtons` (Row0/Col1) + `<CUnit id="Queen">` override — Speed 1.9, +50 gas, hides creep-tumor/spawn-larva/burrow via **card removal only** (card idx 5/6/8), keeps Transfusion.
+  - ⚠️ Gotcha fixed: removing those abilities via `AbilArray index` ALSO stripped Transfusion (merge indices shift). Switched to card-button removal — abilities stay on the unit but have no button, so they're unusable.
+- `GameStrings.txt`: Button name/tooltip + upgrade name.
+
+### ⚠️ Verify in game
+- **Button icon** — `btn-unit-zerg-queen.dds` path is a guess; if the train button is blank, fix the icon path.
+- Queen trains from Barracks (150/50), moves ~1.9 (slower than Marine/Hydra), has Transfusion + both attacks, and has **no** creep tumor / spawn larva / burrow buttons.
+- Hybrid: her slot can roll both a caster spell and a fighter buff (and NOT Transfusion — already excluded).
+- `Train21` index accepted by `BarracksTrain` (should be — it's used in other train abilities).
 
 A near-stock Queen as the third slot-2 option alongside Marine and Hydralisk, adjusted for a mod with no creep and no hatcheries.
 

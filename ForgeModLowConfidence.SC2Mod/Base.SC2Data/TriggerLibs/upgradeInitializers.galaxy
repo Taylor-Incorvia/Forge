@@ -70,6 +70,8 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Irradiate", logicType_AnyOf, "unitTag", starport +"3");
     addUpgradeRequirementTag("Irradiate", logicType_AnyOf, "unitTag", rax +"4");
 
+    // NOTE: MissilePods might be too strong. It has only AllOf caster (no slot gate), so EVERY
+    // caster/hybrid -- low tier and high tier -- can roll it. Decide low vs high tier and restrict. See WA-027.
     addAbilityToUpgrade("MissilePods", "F_MissilePods");
     addUpgradeRequirementTag("MissilePods", logicType_AllOf, "unitTag", "caster");
 
