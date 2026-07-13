@@ -21,7 +21,6 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-023](./WA-023-chitinous-plating-researchable.md) | Chitinous Plating researchable (Ultralisk nerf) | S | 1 |
 | [WA-024](./WA-024-ghost-academy-nuke.md) | Enable nuke (Ghost Academy arms, Ghost fires) | M | 1 |
 | [WA-025](./WA-025-transfuse-eligibility.md) | Decide who should roll Transfuse | S | 1 |
-| [WA-026](./WA-026-stim-indicator-missing.md) | Stim indicator missing on non-stim units | M | 1 |
 | [WA-027](./WA-027-missilepods-tier.md) | MissilePods: pick a caster tier + restrict | S | 1 |
 | [WA-014](./WA-014-verify-stalker-blink-range.md) | Re-enable + test stalker blink range | S | 1 |
 | [WA-015](./WA-015-blink-changes-form.md) | Blink teleports then changes form | M | 1 |
@@ -57,6 +56,7 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ---
 
 ## 🏁 Done
+- [WA-026](./WA-026-stim-indicator-missing.md) — Stim flash now fires for `F_Stimpack` (any rolled-stim unit), via `StimpackStartImpact` actor override · 2026-07-12
 - [WA-019](./WA-019-add-queen-barracks-slot2.md) — Queen added to Barracks slot 2 (150/50, speed 1.9, hybrid, Transfusion kept) · 2026-07-12
 - [WA-028](./WA-028-queen-hide-zerg-abilities.md) — Queen: removed Burrow / Spawn Larva / Creep Tumor from card (kept Transfusion) · 2026-07-12
 - [WA-016](./WA-016-marine-cost-and-combat-shield.md) — Marine 50/25 + starts with Combat Shield (`ShieldWall`) + tooltip · 2026-07-11
