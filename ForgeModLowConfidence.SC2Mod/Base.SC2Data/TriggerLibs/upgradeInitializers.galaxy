@@ -115,8 +115,8 @@ void initializeUpgrades() {
 
     addAbilityToUpgrade("Blink", "F_Blink");
     addUpgradeRequirementTag("Blink", logicType_NoneOf, "unitTag", "pureCaster"); // casters with blink sounds underwhelming 90% of the time and completely abusive 10% of the time
-    addAltFormBannedAbility("LurkerBurrowed", "F_Blink"); // burrowed lurkers shouldn't blink // I am not  under the impression that addAltFormBannedAbility works at all
-    addAltFormBannedAbility("SiegeTankSieged", "F_Blink"); // sieged tanks shouldn't blink // I am not  under the impression that addAltFormBannedAbility works at all
+    // WA-015: removed addAltFormBannedAbility (never worked -- "LurkerBurrowed" != the real alt-form id "LurkerMPBurrowed").
+    // Burrowed Lurkers / sieged Tanks now blink, then auto-transform back via onBlinkUsed() (unitInitializers.galaxy) + an editor trigger.
 
     addAbilityToUpgrade("HotSRaptorCharge2", "HotSRaptorCharge2");
     addBehaviorToUpgrade("HotSRaptorCharge2", "ReaperJump");

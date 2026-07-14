@@ -322,6 +322,11 @@
             <LayoutButtons index="2" Face="LurkerBurrowUp"/>
         </CardLayouts>
     </CUnit>
+    <CUnit id="LurkerMP">
+        <CardLayouts index="0">
+            <LayoutButtons index="6" Column="4"/>
+        </CardLayouts>
+    </CUnit>
     <CUnit id="Marine">
         <AbilArray index="3" removed="1"/>
         <CardLayouts index="0">

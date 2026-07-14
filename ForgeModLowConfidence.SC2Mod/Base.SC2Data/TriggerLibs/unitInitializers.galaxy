@@ -87,3 +87,17 @@ void convertNonTerranUnit(unit u) {
         UnitRemove(u);
     }
 }
+
+// When a burrowed Lurker or sieged Siege Tank uses blink, teleport-then-transform-back (WA-015).
+// Wire to an editor trigger: event = Any Unit uses Ability F_Blink (Complete stage), action = onBlinkUsed();
+void onBlinkUsed() {
+    unit u = EventUnit();
+    string unitType = UnitGetType(u);
+
+    if (unitType == "LurkerMPBurrowed") {
+        UnitIssueOrder(u, Order(AbilityCommand("BurrowLurkerMPUp", 0)), c_orderQueueAddToEnd);
+    }
+    if (unitType == "SiegeTankSieged") {
+        UnitIssueOrder(u, Order(AbilityCommand("Unsiege", 0)), c_orderQueueAddToEnd);
+    }
+}

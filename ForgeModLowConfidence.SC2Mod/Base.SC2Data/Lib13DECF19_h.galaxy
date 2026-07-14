@@ -4,6 +4,7 @@ include "TriggerLibs/natives"
 // Library: Forge
 //--------------------------------------------------------------------------------------------------
 // Trigger Declarations
+trigger lib13DECF19_gt_onBlink;
 trigger lib13DECF19_gt_onCcCompleted;
 trigger lib13DECF19_gt_onUpgradeCompleted;
 trigger lib13DECF19_gt_onUnitCreated;

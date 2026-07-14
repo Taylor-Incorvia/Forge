@@ -107,6 +107,7 @@ Trigger/Name/lib_13DECF19_5F4CC85B=Untitled Trigger 001
 Trigger/Name/lib_13DECF19_68176515=Forge Upgrade completion
 Trigger/Name/lib_13DECF19_94630347=Untitled Trigger 001
 Trigger/Name/lib_13DECF19_D832CB06=Untitled Trigger 001
+Trigger/Name/lib_13DECF19_DB00F84C=Untitled Trigger 001
 Variable/Name/lib_13DECF19_4C847CD3=fusionCoreSlot1
 Variable/Name/lib_13DECF19_7CAA290A=armorySlot1
 Variable/Name/lib_13DECF19_8D41B4BB=Untitled Variable 001

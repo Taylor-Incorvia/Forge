@@ -1,6 +1,6 @@
 ---
 id: WA-018
-status: todo
+status: done
 size: L
 phase: 1-game-readiness
 priority: 12

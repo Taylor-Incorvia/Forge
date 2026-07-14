@@ -5,7 +5,7 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 ---
 
 ## 🔨 In progress
-- [WA-018](./WA-018-hybrid-caster-upgrade-pool.md) — Hybrid caster mechanism implemented (behavior-preserving); needs in-game sanity check + Ghost decision
+_(nothing yet)_
 
 ---
 
@@ -23,7 +23,7 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-025](./WA-025-transfuse-eligibility.md) | Decide who should roll Transfuse | S | 1 |
 | [WA-027](./WA-027-missilepods-tier.md) | MissilePods: pick a caster tier + restrict | S | 1 |
 | [WA-014](./WA-014-verify-stalker-blink-range.md) | Re-enable + test stalker blink range | S | 1 |
-| [WA-015](./WA-015-blink-changes-form.md) | Blink teleports then changes form | M | 1 |
+| [WA-031](./WA-031-range-indicator-not-updating.md) | Range indicator not updating on rolled Range upgrade | M | 1 |
 
 ### Barracks Slot 2 rework (was WA-002)
 | ID | Ticket | Size | Phase |
@@ -38,6 +38,13 @@ Real work, but not ready to grab — needs a decision or a problem statement fir
 | ID | Ticket | Size | Phase | Blocked on |
 |----|--------|------|-------|------------|
 | [WA-001](./WA-001-arsenal-modal.md) | Arsenal / Roll Explanation modal (SPIKE first) | L | 1 | Run the spike → docs + split into build tickets |
+
+---
+
+## 🌟 Nice to have (ticketed)
+| ID | Ticket | Size | Phase |
+|----|--------|------|-------|
+| [WA-030](./WA-030-ability-telegraph.md) | Ability telegraph — icon/name above caster (upgrade abilities) | M | 1 |
 
 ---
 
@@ -56,6 +63,8 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ---
 
 ## 🏁 Done
+- [WA-015](./WA-015-blink-changes-form.md) — Blink on burrowed Lurker / sieged Tank teleports then auto-unburrows/unsieges (`onBlinkUsed` + editor trigger) · 2026-07-13
+- [WA-018](./WA-018-hybrid-caster-upgrade-pool.md) — Hybrid caster/fighter upgrade mechanism (`caster`/`pureCaster` split); Ghost/Phoenix/Corsair/Wraith + Queen hybrids · 2026-07-13
 - [WA-029](./WA-029-archon-price.md) — Archon re-priced to 225/150 (was 150/250) · 2026-07-13
 - [WA-026](./WA-026-stim-indicator-missing.md) — Stim flash now fires for `F_Stimpack` (any rolled-stim unit), via `StimpackStartImpact` actor override · 2026-07-12
 - [WA-019](./WA-019-add-queen-barracks-slot2.md) — Queen added to Barracks slot 2 (150/50, speed 1.9, hybrid, Transfusion kept) · 2026-07-12

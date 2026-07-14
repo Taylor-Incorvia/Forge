@@ -1,11 +1,18 @@
 ---
 id: WA-015
-status: todo
+status: done
 size: M
 phase: 1-game-readiness
 priority: 9
 ---
 # Blink on burrowed/sieged units teleports, then changes form
+
+## ✅ DONE (2026-07-13) — trigger wired; confirmed on both Lurker and Siege Tank; devMode hacks removed
+(Note: the editor trigger's Unit param must be "Any Unit", not "Triggering Unit", or it throws a harmless init error.)
+- Removed the broken `addAltFormBannedAbility` calls (`upgradeInitializers.galaxy`).
+- Added `onBlinkUsed()` (`unitInitializers.galaxy`): on blink, if caster is `LurkerMPBurrowed` → issue `BurrowLurkerMPUp`; if `SiegeTankSieged` → issue `Unsiege` (queued `AddToEnd` so it runs after the teleport).
+- **YOU:** wire an editor trigger — Event: *Any Unit uses Ability `F_Blink`* (Complete stage); Action: Custom Script `onBlinkUsed();`.
+- **Test:** blink a burrowed Lurker / sieged Tank → teleports THEN transforms. If it transforms at the old spot, bump the trigger stage later. (Liberator left alone — already unsieges incidentally.)
 
 Change the intended behavior for Blink on alternate-form units. The old approach (`addAltFormBannedAbility`) was meant to *prevent* blinking while sieged/burrowed — but it never actually worked. New direction: don't ban it, transform it.
 

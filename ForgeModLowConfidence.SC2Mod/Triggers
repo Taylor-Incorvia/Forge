@@ -2,6 +2,7 @@
 <TriggerData>
     <Library Id="13DECF19">
         <Root>
+            <Item Type="Trigger" Library="13DECF19" Id="DB00F84C"/>
             <Item Type="Trigger" Library="13DECF19" Id="3B7B71A9"/>
             <Item Type="Trigger" Library="13DECF19" Id="5F4CC85B"/>
             <Item Type="Trigger" Library="13DECF19" Id="D832CB06"/>
@@ -11,6 +12,41 @@
             <Item Type="Trigger" Library="13DECF19" Id="94630347"/>
             <Item Type="Trigger" Library="13DECF19" Id="157E4740"/>
         </Root>
+        <Element Type="Trigger" Id="DB00F84C">
+            <Identifier>onBlink</Identifier>
+            <Event Type="FunctionCall" Library="13DECF19" Id="F694C1DD"/>
+            <Action Type="FunctionCall" Library="13DECF19" Id="4F5C17E1"/>
+        </Element>
+        <Element Type="FunctionCall" Id="F694C1DD">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="D00F9D6F"/>
+            <Parameter Type="Param" Library="13DECF19" Id="075AE2DB"/>
+            <Parameter Type="Param" Library="13DECF19" Id="306A3032"/>
+            <Parameter Type="Param" Library="13DECF19" Id="77B9252E"/>
+            <Parameter Type="Param" Library="13DECF19" Id="91519ACE"/>
+        </Element>
+        <Element Type="Param" Id="075AE2DB">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="EE631277"/>
+            <Preset Type="PresetValue" Library="Ntve" Id="C84C7A78"/>
+        </Element>
+        <Element Type="Param" Id="306A3032">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="BB4C37B6"/>
+            <Preset Type="PresetValue" Library="Ntve" Id="00000257"/>
+        </Element>
+        <Element Type="Param" Id="77B9252E">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="ACC52290"/>
+            <Preset Type="PresetValue" Library="Ntve" Id="03977D39"/>
+        </Element>
+        <Element Type="Param" Id="91519ACE">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="3F2584C8"/>
+            <Value>F_Blink</Value>
+            <ValueType Type="abilcmd"/>
+        </Element>
+        <Element Type="FunctionCall" Id="4F5C17E1">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000123"/>
+            <ScriptCode>
+                onBlinkUsed();
+            </ScriptCode>
+        </Element>
         <Element Type="Trigger" Id="3B7B71A9">
             <Identifier>onCcCompleted</Identifier>
             <Event Type="FunctionCall" Library="13DECF19" Id="708BB84C"/>
