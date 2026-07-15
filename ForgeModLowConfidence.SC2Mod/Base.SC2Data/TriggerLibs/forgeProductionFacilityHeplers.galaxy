@@ -88,7 +88,24 @@ void setPlayerSlotUnit(string facilityId, int slotIndex, int playerIndex, string
 }
 
 string setRandomSlotUnitFromPoolForPlayer(string facilityId, int slotIndex, int playerIndex) {
-    string selectedUnitId = getRandomUnitIdFromSlotPool(facilityId, slotIndex);
+    string selectedUnitId;
+    string poolKey;
+    int poolSize;
+
+    selectedUnitId = getRandomUnitIdFromSlotPool(facilityId, slotIndex);
+
+    // ===== WA-033 hotkey sweep (devMode only) =====
+    // Set testCaseNumber (nativeHelpers.galaxy) to 1..7 and launch. Each slot forces its
+    // Nth unit (wrapping for slots with fewer options), so you can walk every unit's
+    // production hotkey. Record all 10 slots, bump testCaseNumber, relaunch. 7 cases
+    // cover every unit. testCaseNumber = 0 keeps normal random rolls. See backlog/WA-033.
+    if (devMode && testCaseNumber >= 1) {
+        poolKey = slotPoolKey(facilityId, slotIndex);
+        poolSize = getStringListSize(poolKey);
+        if (poolSize > 0) {
+            selectedUnitId = getStringAtIndex(poolKey, (testCaseNumber - 1) % poolSize);
+        }
+    }
 
     setPlayerSlotUnit(facilityId, slotIndex, playerIndex, selectedUnitId);
     return selectedUnitId;
