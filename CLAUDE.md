@@ -236,3 +236,29 @@ Button/Tooltip/UpgradeNameN=What the upgrade does.
 - [ ] AbilData.xml: One `CAbilResearch` with id `UpgradeNameN` and `Upgrade="N"`
 - [ ] ButtonData.xml: One `CButton` with id `UpgradeNameN` AND `<DefaultButtonLayout Column="N-1"/>` (omit for slot 1)
 - [ ] GameStrings.txt: Abil/Name, Button/Name, Button/Tooltip entries
+
+### Variant: custom stat upgrade (when no stock SC2 upgrade exists)
+Same wiring as above, but you first **create the `CUpgrade` yourself** in `UpgradeData.xml` to modify a catalog field directly. Proven working (WA-031: Tempest/Siege Tank range). Use this when there is no stock upgrade for the effect you want.
+
+```xml
+<CUpgrade id="UpgradeName">
+    <EditorCategories value="Race:Terran"/>
+    <EffectArray Reference="Weapon,SomeWeapon,Range" Value="2.5"/>   <!-- default Operation = Add -->
+    <EffectArray Reference="Weapon,OtherWeapon,Range" Value="2.5"/>  <!-- one line per weapon/form -->
+    <AffectedUnitArray value="SomeUnit"/>
+</CUpgrade>
+```
+- `Reference` = `<Catalog>,<Entry>,<Field>` — e.g. `Weapon,Tempest,Range`, `Weapon,PsiBlades,RateMultiplier`, `Effect,Blink,Range`, `Unit,Stalker,Sight`. `Operation` defaults to **Add**; use `Operation="Multiply"` / `"Set"` when needed.
+- **Modify every relevant weapon and unit-form**, or it only half-applies. Multi-weapon: Tempest = `Tempest` (air) + `TempestGround`. Multi-form: Siege Tank = `90mmCannons` (tank mode) + `CrucioShockCannon` (sieged).
+- Then wire it exactly like a stock count upgrade: `addUpgradeToUpgrade("UpgradeName","UpgradeName")` + `AnyOf` unit tag, one `CAbilResearch UpgradeNameN` (N = the unit's slot), one `CButton UpgradeNameN`, GameStrings.
+- **Why prefer this over a behavior:** an upgrade changes the **catalog** value, so display visuals sourced from the catalog (range indicators / `CActorRange`, tooltips) update. A `CBehaviorBuff` `<Modification>` changes effective stats but NOT the catalog, so the visual desyncs — that was the WA-031 bug. If a visual must reflect the change, use a catalog upgrade, not a behavior.
+- In-mod examples: `TempestRange`, `SiegeTankRange` (weapon range), `zerglingattackspeed` (weapon rate), `stalkerblinkrange` (`Effect,Blink,Range`).
+
+## Dev testing
+
+All dev toggles live in `nativeHelpers.galaxy` and **must be reset before committing.** Fuller reference: `docs/dev-testing.md`.
+- **`bool devMode`** — gates every test hack + `showMessage`. Commit with `false` (the file keeps both lines; toggle by swapping the comment).
+- **`int testCaseNumber`** — `0` = normal random rolls; `1..7` forces **every** slot to its Nth pool unit (`index = (testCaseNumber-1) % poolSize`; 7 covers all units). Commit with `0`. To hit a specific unit: `testCaseNumber = its 0-based index in the slot pool + 1` (pools are in `initialize.galaxy`).
+- **Force a specific roll** (remove before commit): a `devMode`-gated `if` in `setRandomSlotUnitFromPoolForPlayer` (force a unit) or `assignRandomUpgradeFromPoolToPlayerSlot` (force an upgrade).
+- **Upgrades research at:** Barracks units → **Ghost Academy**, Factory → **Armory**, Starport → **Fusion Core**. Research-button column on that facility = slot − 1.
+- **"Publish to verify" applies ONLY** to command-card buttons of *added / upgrade-unlocked* abilities (granted via `UnitAbilityAdd`) — they don't render in the local Test Document but do on published builds. Train buttons, count/stat upgrades, and native abilities all test fine locally.
