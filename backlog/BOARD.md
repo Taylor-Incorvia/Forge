@@ -5,7 +5,7 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 ---
 
 ## 🔨 In progress
-_(nothing in flight)_
+- [WA-020](./WA-020-decide-cloak-behavior.md) — Cloak as a rollable upgrade (Wraith/DuskWing/Ghost) + Wraith cost → 100/100; built, needs in-game test
 
 ---
 
@@ -24,11 +24,6 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-036](./WA-036-overseer-hotkey.md) | Overseer hotkey won't render (cursed F_Blink class) | S | 1 |
 | [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) | Remove unresearchable Tectonic Destabilizers button from Tempest card | S | 1 |
 | [WA-039](./WA-039-arsenal-paper-design.md) | Arsenal modal — paper design + info spec (design-first; epic WA-001) | S | 1 |
-
-### Barracks Slot 2 rework (was WA-002)
-| ID | Ticket | Size | Phase |
-|----|--------|------|-------|
-| [WA-020](./WA-020-decide-cloak-behavior.md) | Cloak as an upgrade for Wraith/DuskWing/Ghost + Wraith cost cut | S | 1 |
 
 ---
 

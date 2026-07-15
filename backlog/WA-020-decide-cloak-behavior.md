@@ -1,6 +1,6 @@
 ---
 id: WA-020
-status: todo
+status: in-progress
 size: S
 phase: 1-game-readiness
 priority: 14
@@ -8,6 +8,11 @@ parent: WA-002
 depends_on: WA-018
 ---
 # Cloak as an upgrade for Wraith / DuskWing / Ghost + Wraith cost cut
+
+## ✅ Implemented 2026-07-15 (pending in-game test)
+- **Wraith:** cost → **100/100** (UnitData); start-with-cloak grant commented out (`upgradeInitializers.galaxy`).
+- **Cloak count upgrades** wired (galaxy reg + `CAbilResearch` + `CButton` w/ cloak icon + GameStrings): `WraithCloak` (Wraith, Starport s1), `BansheeCloak` (DuskWing, Starport s2), `PersonalCloaking` (Ghost, Barracks s4). Research cost 100/100, time 100.
+- **Test:** roll cloak on each → research at Fusion Core (Wraith/DuskWing) / Ghost Academy (Ghost) → confirm it enables cloak. Confirm Wraith feels worth building at 100/100 (drop lower if not). Verify DuskWing actually cloaks from `BansheeCloak` (it's a banshee variant — should inherit the gate).
 
 ## Direction (simplified & decided 2026-07-15)
 Make cloak a **rollable count upgrade** for all three cloak-capable units, using the **stock SC2 cloak upgrades** (already implemented) — so it's just count-upgrade wiring per CLAUDE.md, no new data mechanic. Plus a Wraith cost cut. Dropped the speed-while-cloaked bonus to keep it simple (revisit later only if plain cloak feels like a weak roll).

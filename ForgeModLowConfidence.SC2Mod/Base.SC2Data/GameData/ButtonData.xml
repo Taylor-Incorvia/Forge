@@ -344,6 +344,23 @@
         <AlertIcon value="Assets\Textures\btn-ability-protoss-massrecall.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
+    <CButton id="WraithCloak1">
+        <Icon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="BansheeCloak2">
+        <Icon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="PersonalCloaking4">
+        <Icon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="3"/>
+    </CButton>
     <CButton id="TempestRange3">
         <Icon value="Assets\Textures\btn-upgrade-zerg-hotsgroovedspines.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-hotsgroovedspines.dds"/>
