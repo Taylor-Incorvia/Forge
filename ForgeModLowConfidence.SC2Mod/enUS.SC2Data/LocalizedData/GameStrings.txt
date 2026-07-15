@@ -84,10 +84,10 @@ Button/Name/KD8Charge=KD8 Charge
 Button/Name/LightningBomb=Disintegration
 Button/Name/LurkerRange2=Seismic Spines
 Button/Name/Marine2=Train Marine 2
-Button/Name/Queen=Train Queen
 Button/Name/MissilePods=Missile Pods
 Button/Name/NeuralParasite=Neural Parasite
 Button/Name/PsionicShockwave2=F_Psionic Shockwave
+Button/Name/Queen=Train Queen
 Button/Name/RavagerCorrosiveBile=Corrosive Bile
 Button/Name/RavenScramblerMissile=Interference Matrix
 Button/Name/ResearchCharge1=Research Charge 1
@@ -159,10 +159,11 @@ Button/Tooltip/GhostAcademy2=Contains randomized upgrades that each apply to a s
 Button/Tooltip/HighCapacityBarrels1=Increases the hellion's attack damage by +5 (to +11) vs light units and the hellbat's attack damage by +12 vs light units. The flame changes to a blue color.
 Button/Tooltip/HireKelmorianMiners=Build a War Pig elite marine. +65% health and +35% damage over marines
 Button/Tooltip/Hydralisk=Ranged attacker. Armed with Grooved Spines (+1 range). <n/><n/><c val="ffff8a">Can attack ground and air units.</c>
-Button/Tooltip/Queen=Support caster with Transfusion (heal). Slower than other slot-2 units. <n/><n/><c val="ffff8a">Can attack ground and air units.</c>
+Button/Tooltip/LurkerFromHydraliskBurrowed=Fire-support ambusher. Must burrow to attack. <c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/Marine=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c> Armed with Combat Shields (+10 HP). 
 Button/Tooltip/Marine2=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c> Armed with Combat Shields (+10 HP). 
 Button/Tooltip/PsionicShockwave2=Releases a burst of psionic energy radiating outward from the Hybrid, knocking away all units and stunning them momentarily.
+Button/Tooltip/Queen=Support caster with Transfusion (heal). Slower than other slot-2 units. <n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/Reactor=Allows Factory slot 3 units to be produced. Does NOT allow double unit production. 
 Button/Tooltip/ResearchArbiterMPRecall1=Grants the Recall ability to the slot 1 unit. Teleports all allied units in the area of effect to the caster.
 Button/Tooltip/ResearchArbiterMPRecall2=Grants the Recall ability to the slot 2 unit. Teleports all allied units in the area of effect to the caster.
@@ -331,8 +332,8 @@ Upgrade/Name/Factory2lurkerupg=Factory 2 lurker upg
 Upgrade/Name/GA1BehaviorIndex=1SlotBehaviorIndex
 Upgrade/Name/Starport1speedupg=Starport 1 speed upg
 Upgrade/Name/barracks2MarineUpg=barracks 2 Marine Upg
-Upgrade/Name/barracks2queenupg=barracks 2 Queen Upg
 Upgrade/Name/barracks2hydraliskupg=barracks 2 hydralisk upg
+Upgrade/Name/barracks2queenupg=barracks 2 Queen Upg
 Upgrade/Name/barracks2stalkerupg=barracks 2 stalker upg
 Upgrade/Name/barracks2warpigupg=barracks War Pig Upg
 Upgrade/Name/barracks3adeptupg=barracks 3 adept upg
