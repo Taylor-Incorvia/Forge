@@ -6,7 +6,7 @@ bool devMode = false;
 // WA-033 hotkey sweep. 0 = normal random rolls. Set 1..7 to force every slot to its Nth
 // unit (wraps for slots with fewer options) so you can walk every unit's production hotkey.
 // Bump between test runs; 7 covers every unit. See backlog/WA-033. (Only active when devMode.)
-int testCaseNumber = 6;
+int testCaseNumber = 0;
 
 void grantUpgrade(int playerIndex, string upgradeId) {
     libNtve_gf_SetUpgradeLevelForPlayer(playerIndex, upgradeId, 1);
