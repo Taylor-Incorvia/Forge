@@ -202,3 +202,55 @@ For all non-collision cases (the vast majority), static declaration of vanilla a
 8. **Document `CUnit.AbilArray` max = 32** in CLAUDE.md or similar — this is reusable knowledge for the broader Phase 1 rollout.
 9. **The Forge_Rax1_Blink research ability with `Upgrade="Forge_Granted_Blink"` is sound** — SC2 natively grants the linked CUpgrade on research completion, so the Galaxy code path is technically optional for prototyping. Keep this pattern in the next attempt.
 10. **Avoid adding `UseDefaultButton`/`CreateDefaultButton` flags to ability CmdButtonArrays for static declarations.** Those flags are for the dynamic `UnitAbilityAdd` path. Static declaration via LayoutButtons does not require them — the user's instinct on this was correct.
+
+---
+
+## Addendum (2026-07-14): Hellion Factory-card column — a clean, isolated instance of the local-vs-production divergence
+
+**New data point found during the WA-033 hotkey sweep** (forcing each slot to a specific unit via `testCaseNumber`). This is the cleanest example yet of the local-Test-Document-vs-production discrepancy, because it's a single wrong attribute with a known-correct production baseline.
+
+### Symptom
+In the local Test Document, **Hellion (Factory slot 1) renders in the SECOND command-card column**, covering whatever Factory slot 2 rolled. On **published/production builds it renders correctly in column 0** — the user has built Hellions many times in production with no overlap. Same class of bug as Stalker-not-showing-Blink and Vulture-not-showing-KD8: **local render ≠ production render.**
+
+### Root cause (concrete, in source)
+`UnitData.xml`, Factory `CUnit` → `CardLayouts` → the Hellion entry was **missing its `Column` attribute**:
+```xml
+<LayoutButtons index="15" Face="Hellion" AbilCmd="FactoryTrain,Train6" Row="0"/>   <!-- no Column! -->
+```
+Every other Factory **slot-1** unit has explicit `Column="0"` (Vulture, Stalker, Ravager, Roach, Predator). This is a leftover from Hellion's historical move from slot 2 → slot 1: the move never wrote an explicit `Column="0"`, it just left the attribute absent. (Confirmed the Barracks card, by contrast, sets `Column` explicitly on every train button — which is likely why Barracks never shows this bug.)
+
+### Why this matters for the "caching" mystery — a testable hypothesis
+Production resolves a **missing** `Column` → `0` (correct). The local Test Document renders it as column **1**. The most likely explanation, consistent with §4/§5 above: **the editor holds a stale/normalized cache, and the divergence surfaces specifically on OMITTED / defaulted attributes** — anything without an explicit value in source falls back to the editor's cached representation (here, the old slot-2 `Column="1"`), while an explicit value forces the render. This unifies all three known cases:
+- Hellion — omitted `Column` → falls back to stale cached column.
+- Stalker Blink / Vulture KD8 — buttons added at runtime via `UnitAbilityAdd`, i.e. **no explicit static card entry at all** → nothing to render locally.
+
+Common thread: **no explicit static value in source ⇒ local editor uses stale cache / renders nothing; production resolves fresh.** If this holds, the general workaround is *set every button attribute explicitly in XML; never rely on defaults or dynamic add for anything you need to see locally.*
+
+### Fix applied as a live diagnostic (2026-07-14)
+Made the attribute explicit to match its siblings (safe — production was already correct, so this can only help or be neutral there):
+```xml
+<LayoutButtons index="15" Face="Hellion" AbilCmd="FactoryTrain,Train6" Row="0" Column="0"/>
+```
+**Next test tells us a lot:**
+- If local now renders Hellion in **column 0** → confirms "explicit values bypass the cache, omitted ones leak it." Concrete workaround established.
+- If local **still shows column 1** despite explicit `Column="0"` → the cache ignores even explicit source data, which is a deeper (worse) problem and points back at the profile/editor-cache theories in §1/§4.
+
+### Caveat
+Per §5: **do NOT open the Factory `CUnit` in the editor's data UI** — it will re-normalize `CardLayouts.LayoutButtons` and may strip the `Column` again. XML edits only; close the document before editing externally.
+
+### ✅ CONFIRMED (2026-07-14, same day) + swept for siblings
+Relaunched with the explicit `Column="0"` → **Hellion renders in slot 1 locally.** Hypothesis **confirmed**: explicit attributes render correctly in the local Test Document; omitted ones leak the stale cache. **Established workaround: set every command-card button attribute explicitly.**
+
+Swept all of `UnitData.xml` for the same bug class (train `LayoutButtons` with a missing `Row`/`Column`) and fixed 5 more that would have misplaced a button and covered its slot-mate locally:
+| Unit | Facility slot | Was | Fixed to |
+|---|---|---|---|
+| Immortal | Factory s2 | (no Row, no Col) | `Row="0" Column="1"` |
+| Colossus | Factory s3 | (no Row, no Col) | `Row="0" Column="2"` |
+| Viper | Starport s3 | (no Row, no Col) | `Row="0" Column="2"` |
+| Medic | Barracks s3 | `Column="2"` (no Row) | `Row="0" Column="2"` |
+| SiegeTank | Factory s2 | `Column="1"` (no Row) | `Row="0" Column="1"` |
+
+Every Barracks train button was already fully explicit — which is exactly why the Barracks card never exhibited this. **Fragility:** these all live in `CUnit.CardLayouts.LayoutButtons`, which the editor re-normalizes on data-UI open (§5) and may strip again. If a train button starts misplacing locally after an editor session, re-add its explicit `Row`/`Column`. XML-only.
+
+#### ⚠️ Correction (2026-07-14, later that day) — the sibling sweep was WRONG; only Hellion was real
+The user reverted the 5 sibling fixes (Immortal / Colossus / Viper / Medic / SiegeTank) — they had **already tested those slots in-game and the buttons rendered fine** despite the omitted `Row`/`Column`. **Only Hellion was a genuine display bug** (its `Column="0"` fix was kept). So "omitted attribute → local mis-render" is **too broad**. Refined model: the local stale-cache leak needs the editor to hold a **historically DIFFERENT cached value** for that button — Hellion was physically moved slot 2 → slot 1, so the cache still had the old `Column="1"`. An attribute that was simply never set, with no prior conflicting position, defaults correctly even in local test. **Bug = (omitted/defaulted attribute) AND (a prior different cached position). Omission alone is not enough.** Do not proactively "fix" omitted Row/Column on buttons that render correctly.

@@ -1,6 +1,6 @@
 ---
 id: WA-004
-status: todo
+status: done
 size: M
 phase: 1-game-readiness
 priority: 4

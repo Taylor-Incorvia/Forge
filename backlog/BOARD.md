@@ -5,7 +5,7 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 ---
 
 ## 🔨 In progress
-_(nothing yet)_
+- [WA-033](./WA-033-hotkey-collisions-fix.md) — Hotkey collisions: full in-game re-pass via `testCaseNumber` sweep (1–7); user records letters under Standard profile → Claude computes conflicts → minimal ButtonData fixes
 
 ---
 
@@ -14,9 +14,7 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 
 | ID | Ticket | Size | Phase |
 |----|--------|------|-------|
-| [WA-003](./WA-003-verify-unit-costs.md) | Verify unit costs | M | 1 |
-| [WA-004](./WA-004-verify-upgrade-pools.md) | Verify upgrade pools | M | 1 |
-| [WA-005](./WA-005-verify-hotkey-collisions.md) | Verify hotkey collisions | M | 1 |
+| [WA-032](./WA-032-upgrade-pool-bugs.md) | Fix upgrade-pool bugs (D8Charge case / Yamato+BC) | S | 1 |
 | [WA-006](./WA-006-update-mod-description.md) | Update mod description | S | 1 |
 | [WA-023](./WA-023-chitinous-plating-researchable.md) | Chitinous Plating researchable (Ultralisk nerf) | S | 1 |
 | [WA-024](./WA-024-ghost-academy-nuke.md) | Enable nuke (Ghost Academy arms, Ghost fires) | M | 1 |
@@ -38,6 +36,8 @@ Real work, but not ready to grab — needs a decision or a problem statement fir
 | ID | Ticket | Size | Phase | Blocked on |
 |----|--------|------|-------|------------|
 | [WA-001](./WA-001-arsenal-modal.md) | Arsenal / Roll Explanation modal (SPIKE first) | L | 1 | Run the spike → docs + split into build tickets |
+| [WA-034](./WA-034-concussive-shells-upgrade.md) | Slow-on-attack (Concussive) — per-unit upgrades | M | 1 | Pick units/slots (Marauder stock = quick slice 1) |
+| [WA-035](./WA-035-lifesteal-upgrade.md) | Lifesteal — per-unit upgrades on non-shielded units | M | 1 | Pick unit subset + fraction (15/20%) |
 
 ---
 
@@ -60,9 +60,14 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 
 **Nice-to-have (from Reddit feedback):** a genuinely-random "chaos" mode · Banelings in the pool · send replays to casters (Lowko/Uthermal) · replay organization
 
+**🧊 Icebox (cut scope, kept for someday):** [The Forge](../docs/ideas/forge-mechanic.md) — the mod's namesake. A one-time-use "unstable forge" (unlocked by Armory/Fusion Core) that rolls wild upgrades: meta-upgrades on already-researched abilities, player-wide buffs, a 2nd upgrade stacked on a unit, or a 4th-slot mega/hero unit (Brutalisk / Loki BC) — then explodes. Cut for v1; revisit if the mod grows.
+
 ---
 
 ## 🏁 Done
+- [WA-003](./WA-003-verify-unit-costs.md) — Cost audit → `docs/audits/unit-costs.md` (7 flagged: Zergling/HighTemplar/Goliath standouts) · 2026-07-13
+- [WA-004](./WA-004-verify-upgrade-pools.md) — Upgrade matrix → `docs/audits/upgrade-matrix.md` (found bugs → WA-032) · 2026-07-13
+- [WA-005](./WA-005-verify-hotkey-collisions.md) — Hotkey audit → `docs/audits/hotkey-collisions.md` (found collisions → WA-033) · 2026-07-13
 - [WA-015](./WA-015-blink-changes-form.md) — Blink on burrowed Lurker / sieged Tank teleports then auto-unburrows/unsieges (`onBlinkUsed` + editor trigger) · 2026-07-13
 - [WA-018](./WA-018-hybrid-caster-upgrade-pool.md) — Hybrid caster/fighter upgrade mechanism (`caster`/`pureCaster` split); Ghost/Phoenix/Corsair/Wraith + Queen hybrids · 2026-07-13
 - [WA-029](./WA-029-archon-price.md) — Archon re-priced to 225/150 (was 150/250) · 2026-07-13
