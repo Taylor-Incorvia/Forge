@@ -9,6 +9,11 @@ depends_on: WA-018
 ---
 # Cloak as an upgrade for Wraith / DuskWing / Ghost + Wraith cost cut
 
+## Testing follow-ups (2026-07-15)
+- **Ghost:** cloak didn't fire because the card had been customized during the invisibility purge and lost the cloak-**on** button. Fix (in editor): **reverted the Ghost card to stock** — which restores Cloak On/Off, EMP, Snipe by inheritance — with **one override**. Stock's decloak button sits at Row 2 Col 3, which is the slot reserved for rolled upgrade abilities (Blink/Fungal/etc.), so it's moved out via `<LayoutButtons index="9" Row="1" Column="1"/>`. Couldn't verify locally (command-card caching) → **publish-to-verify**; expected to work on production.
+- **DuskWing:** cloaks for *free* — it's the **campaign** DuskWing using `DuskWingBansheeCloakingField`, which has no research requirement. So the `BansheeCloak` roll is currently inert on it. Decision (user): gate it → make cloak a roll → **WA-041**.
+- **Wraith:** cloak-as-roll stands (real MP `WraithCloak`, properly gated).
+
 ## ✅ Implemented 2026-07-15 (pending in-game test)
 - **Wraith:** cost → **100/100** (UnitData); start-with-cloak grant commented out (`upgradeInitializers.galaxy`).
 - **Cloak count upgrades** wired (galaxy reg + `CAbilResearch` + `CButton` w/ cloak icon + GameStrings): `WraithCloak` (Wraith, Starport s1), `BansheeCloak` (DuskWing, Starport s2), `PersonalCloaking` (Ghost, Barracks s4). Research cost 100/100, time 100.

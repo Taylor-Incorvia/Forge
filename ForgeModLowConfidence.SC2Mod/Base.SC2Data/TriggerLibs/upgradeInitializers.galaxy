@@ -8,6 +8,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("ArbiterMPRecall", logicType_AllOf, "unitTag", "caster");
     addUpgradeRequirementTag("ArbiterMPRecall", logicType_AnyOf, "unitTag", starport +"3");
     addUpgradeRequirementTag("ArbiterMPRecall", logicType_AnyOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("ArbiterMPRecall", logicType_NoneOf, "unitTag", "Ghost"); // Ghost isn't a support unit -- recall feels off on it
 
     // addAbilityToUpgrade("ArbiterMPStasisField", "F_ArbiterMPStasisField");  // This felt cheap and lame -- opponent doesn't know it is coming
     // addUpgradeRequirementTag("ArbiterMPStasisField", logicType_AllOf, "unitTag", "caster");
@@ -195,6 +196,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", starport +"3");
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", rax +"4");
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "Ravager"); // ravager already has this
+    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "Marine");
 
     //  addAbilityToUpgrade("PsionicShockwave", "F_PsionicShockwave"); // removing this unitl I figure out how to make it not hit your own units. Might still be off. 
     //  addUpgradeRequirementTag("PsionicShockwave", logicType_NoneOf, "unitTag", "pureCaster");
@@ -271,7 +273,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "CorsairMP");
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Colossus"); // COULDNT TURN TOWARDS TARGET issue was fixed by increasing arc to 360
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Phoenix");
-    addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Medic");
+    // addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Medic"); // removed: useless on a Medic (tested)
 
     
 

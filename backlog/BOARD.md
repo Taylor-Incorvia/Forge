@@ -24,6 +24,8 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-036](./WA-036-overseer-hotkey.md) | Overseer hotkey won't render (cursed F_Blink class) | S | 1 |
 | [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) | Remove unresearchable Tectonic Destabilizers button from Tempest card | S | 1 |
 | [WA-039](./WA-039-arsenal-paper-design.md) | Arsenal modal — paper design + info spec (design-first; epic WA-001) | S | 1 |
+| [WA-040](./WA-040-corrosive-bile-eligibility.md) | Restrict who can roll Corrosive Bile (currently ~everyone) | S | 1 |
+| [WA-041](./WA-041-duskwing-gate-cloak.md) | Nerf DuskWing: gate its cloak (make it a roll, not free) | S | 1 |
 
 ---
 

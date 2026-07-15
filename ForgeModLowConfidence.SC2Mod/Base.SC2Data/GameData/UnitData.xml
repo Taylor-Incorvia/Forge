@@ -188,12 +188,7 @@
     </CUnit>
     <CUnit id="Ghost">
         <CardLayouts index="0">
-            <LayoutButtons index="8" Face="CloakOff" AbilCmd="GhostCloak,Off" Column="3"/>
-            <LayoutButtons index="9" Face="EMP" AbilCmd="EMP,Execute" Column="1"/>
-            <LayoutButtons index="10" Face="WeaponsFree" AbilCmd="GhostWeaponsFree,Execute" Row="1" Column="3"/>
-            <LayoutButtons index="11" Face="Cancel" AbilCmd="ChannelSnipe,Cancel" Row="2" Column="4"/>
-            <LayoutButtons index="12" Face="ChannelSnipe" AbilCmd="ChannelSnipe,Execute" Column="0"/>
-            <LayoutButtons index="13" removed="1"/>
+            <LayoutButtons index="9" Row="1" Column="1"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="GhostAcademy">
