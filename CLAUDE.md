@@ -1,5 +1,22 @@
 # Forge SC2 Mod - Project Instructions
 
+## How the mod works — core mechanics
+
+Wildcard Arena ("Forge") rolls **randomized units** into production-building slots and **randomized upgrades** from tag-filtered pools. A few things about the structures are **very different from standard SC2 multiplayer** — do not assume stock behavior.
+
+### Add-ons GATE the top slot; they do NOT enable double production
+In this mod an add-on's ONLY purpose is to **unlock the highest slot** of its production facility. The stock SC2 reactor behavior (produce two units at once) does **not** exist here.
+
+| Add-on | Produced by (only) | Unlocks |
+|--------|--------------------|---------|
+| Tech Lab | Barracks | **Barracks slot 4** |
+| Reactor | Factory | **Factory slot 3** |
+| Tech Reactor | Starport | **Starport slot 3** |
+
+- Each facility produces **exactly one** add-on type, and each add-on is produced by **exactly one** facility. A Factory cannot build a Tech Lab; a Barracks cannot build a Reactor; etc. **So there is only one add-on button per facility's command card.**
+- A facility cannot produce its top-slot units until its add-on is attached (Factory needs a Reactor for slot-3 units, Barracks needs a Tech Lab for slot-4 units, Starport needs a Tech Reactor for slot-3 units).
+- Hotkey consequence: the single add-on button per facility must not collide with any of that facility's train buttons (this is why the add-on builds were consolidated onto `X`).
+
 ## Galaxy Language Rules
 
 When working with `.galaxy` files:

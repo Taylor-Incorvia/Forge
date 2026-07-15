@@ -138,7 +138,9 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Hellion");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Liberator");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Zergling"); 
-    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Zealot"); 
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Zealot");
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Tempest");   // uses the TempestRange count upgrade instead (WA-031)
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "SiegeTank"); // uses the SiegeTankRange count upgrade instead (WA-031) 
 
     addUpgradeToUpgrade("LurkerRange", "LurkerRange");
     addUpgradeRequirementTag("LurkerRange", logicType_AllOf, "unitTag", "LurkerMP");
@@ -224,6 +226,15 @@ void initializeUpgrades() {
 
     addUpgradeToUpgrade("stalkerblinkcooldown", "stalkerblinkcooldown");
     addUpgradeRequirementTag("stalkerblinkcooldown", logicType_AnyOf, "unitTag", "Stalker");
+
+    // Range as a COUNT upgrade for Tempest + Siege Tank (instead of the behavior version), so the
+    // catalog weapon Range changes and the range indicator (CActorRange) updates. Modifies all weapons
+    // of each unit/form: Tempest (air) + TempestGround; 90mmCannons (tank mode) + CrucioShockCannon (sieged). WA-031
+    addUpgradeToUpgrade("TempestRange", "TempestRange");
+    addUpgradeRequirementTag("TempestRange", logicType_AnyOf, "unitTag", "Tempest");
+
+    addUpgradeToUpgrade("SiegeTankRange", "SiegeTankRange");
+    addUpgradeRequirementTag("SiegeTankRange", logicType_AnyOf, "unitTag", "SiegeTank");
 
     // addBehaviorToUpgrade("ImmortalRevive", "VoidMPImmortalRevive"); // I couldn't get this to work. This upgrade makes the immortal literally immortal. Immune to death.
     // addUpgradeToUpgrade("ImmortalRevive", "ImmortalRevive");

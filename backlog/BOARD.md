@@ -21,8 +21,8 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-025](./WA-025-transfuse-eligibility.md) | Decide who should roll Transfuse | S | 1 |
 | [WA-027](./WA-027-missilepods-tier.md) | MissilePods: pick a caster tier + restrict | S | 1 |
 | [WA-014](./WA-014-verify-stalker-blink-range.md) | Re-enable + test stalker blink range | S | 1 |
-| [WA-031](./WA-031-range-indicator-not-updating.md) | Range indicator not updating on rolled Range upgrade | M | 1 |
 | [WA-036](./WA-036-overseer-hotkey.md) | Overseer hotkey won't render (cursed F_Blink class) | S | 1 |
+| [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) | Remove unresearchable Tectonic Destabilizers button from Tempest card | S | 1 |
 
 ### Barracks Slot 2 rework (was WA-002)
 | ID | Ticket | Size | Phase |
@@ -66,6 +66,8 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ---
 
 ## 🏁 Done
+- [WA-031](./WA-031-range-indicator-not-updating.md) — Range indicator fix: Tempest/SiegeTank Range → catalog count upgrades (`TempestRange`/`SiegeTankRange`, +2.5 to all their weapons); ring now tracks the upgrade · 2026-07-14
+- [WA-037](./WA-037-caster-native-abilities-on-g.md) — Caster natives reverted off G to stock defaults (ForceField→F, BlindingCloud→B, Transfusion→T, FungalGrowth→F); F_FungalGrowth verified still G · 2026-07-14
 - [WA-033](./WA-033-hotkey-collisions-fix.md) — Hotkey collision sweep (in-game, Standard profile): addon builds→X; Factory Stalker→F/Lurker→R/Archon→A; Starport Phoenix→E/VoidRay→G/DuskWing→F/Corsair→E. Overseer split → WA-036 · 2026-07-14
 - [WA-003](./WA-003-verify-unit-costs.md) — Cost audit → `docs/audits/unit-costs.md` (7 flagged: Zergling/HighTemplar/Goliath standouts) · 2026-07-13
 - [WA-004](./WA-004-verify-upgrade-pools.md) — Upgrade matrix → `docs/audits/upgrade-matrix.md` (found bugs → WA-032) · 2026-07-13

@@ -114,4 +114,16 @@
         <EditorCategories value="Race:Terran,UpgradeType:SpellResearch"/>
         <AffectedUnitArray value="Stalker"/>
     </CUpgrade>
+    <CUpgrade id="TempestRange">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray Reference="Weapon,Tempest,Range" Value="2.5"/>
+        <EffectArray Reference="Weapon,TempestGround,Range" Value="2.5"/>
+        <AffectedUnitArray value="Tempest"/>
+    </CUpgrade>
+    <CUpgrade id="SiegeTankRange">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray Reference="Weapon,90mmCannons,Range" Value="2.5"/>
+        <EffectArray Reference="Weapon,CrucioShockCannon,Range" Value="2.5"/>
+        <AffectedUnitArray value="SiegeTank"/>
+    </CUpgrade>
 </Catalog>
