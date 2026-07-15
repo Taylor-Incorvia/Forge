@@ -7,21 +7,32 @@ priority: 14
 parent: WA-002
 depends_on: WA-018
 ---
-# Decide desired cloak behavior for Wraith and DuskWing
+# Cloak as an upgrade for Wraith / DuskWing / Ghost + Wraith cost cut
 
-Figure out what cloak *should* do for the Wraith and the DuskWing — start-with-cloak, roll-for-cloak, or no default cloak + hybrid-caster upside — then implement whatever we land on.
+## Direction (simplified & decided 2026-07-15)
+Make cloak a **rollable count upgrade** for all three cloak-capable units, using the **stock SC2 cloak upgrades** (already implemented) — so it's just count-upgrade wiring per CLAUDE.md, no new data mechanic. Plus a Wraith cost cut. Dropped the speed-while-cloaked bonus to keep it simple (revisit later only if plain cloak feels like a weak roll).
 
-## Why
-Current state is inconsistent and worth a deliberate decision: the Wraith starts with `WraithCloak`, while `BansheeCloak` for the DuskWing is already commented out. Before touching either, decide the intended design rather than patching ad hoc.
+| Unit | Slot | Stock cloak upgrade | Research id | Research at |
+|---|---|---|---|---|
+| Wraith | Starport s1 | `WraithCloak` | `WraithCloak1` | Fusion Core (col 0) |
+| DuskWing | Starport s2 | `BansheeCloak` | `BansheeCloak2` | Fusion Core (col 1) |
+| Ghost | Barracks s4 | `PersonalCloaking` | `PersonalCloaking4` | Ghost Academy (col 3) |
 
-## The decision to make
-- Should Wraith / DuskWing start cloaked, have cloak in their roll pool, or neither?
-- Option on the table: DuskWing (and maybe Wraith) start **without** default cloak and instead become **hybrid casters** (roll from both caster and non-caster pools, per WA-018) — trading guaranteed cloak for wildcard upside.
+Plus for the **Wraith only**:
+- **Reduce cost** to ≤ Mutalisk (100/100). Currently ~150/100 (stock, not overridden). *(Pick the exact number.)*
+- **Remove the start-with-cloak grant** (`grantUpgrade(player, "WraithCloak")`, `upgradeInitializers.galaxy:285`) so cloak becomes a roll, not a default.
+
+DuskWing cost unchanged (200/150). These cloak upgrades gate **native** cloak abilities (already on the units' cards), so no added-ability-button local-render concern.
+
+## Confirmed current state
+- Wraith: ~150/100 (stock, not overridden), **starts with** `WraithCloak` (`upgradeInitializers.galaxy:285`).
+- DuskWing: 200/150 (mod override), no starting cloak.
+- Mutalisk: 100/100 (the cost target ceiling).
 
 ## Acceptance criteria
-- [ ] Confirm the current cloak state of both units in code (`grantInitialUpgrades()` and any relevant defaults).
-- [ ] Decide the intended cloak design for each, and write down the reasoning.
-- [ ] Implement the decision (may spin a small follow-up ticket if the chosen direction is bigger than expected).
+- [ ] Cloak count upgrades wired for Wraith (`WraithCloak1`), DuskWing (`BansheeCloak2`), Ghost (`PersonalCloaking4`) — galaxy reg + tag + `CAbilResearch` + `CButton` + GameStrings each.
+- [ ] Wraith cost reduced to ≤ 100/100 **and** its start-with-cloak grant removed (`upgradeInitializers.galaxy:285`).
+- [ ] In-game: each unit can roll cloak and it works after research; Wraith is worth building at the new cost.
 
 ## Notes
-If the decision is "hybrid caster instead of cloak," this depends on WA-018. If it's a simpler cloak on/off tweak, it doesn't. Resolve the decision first, then size the implementation.
+Cloak icons: reuse each stock cloak upgrade's own icon (no new art). The cost cut is a trivial standalone edit; the three cloak upgrades are mechanical count-upgrade wiring (same shape as WA-031). Small ticket overall. Verify the stock upgrade ids in the reference during build (`WraithCloak`/`BansheeCloak` confirmed in `upgradeInitializers.galaxy:285/288`; `PersonalCloaking` to confirm).

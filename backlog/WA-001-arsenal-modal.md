@@ -1,40 +1,37 @@
 ---
 id: WA-001
-status: backlog
+status: epic
 size: L
 phase: 1-game-readiness
 priority: 1
-type: spike
 ---
-# Arsenal / Roll Explanation modal  — SPIKE FIRST
+# Your Arsenal modal (EPIC) — show the player their rolled units + upgrades + tech tree
 
-The single biggest onboarding improvement: when a match starts, show each player exactly what they rolled, in plain language, so the chaos is legible. Too many unknowns to build directly — **this ticket is a timeboxed spike, not a build ticket.**
+The single biggest onboarding improvement: at match start, show each player their full randomized faction — every rolled unit, its corresponding rolled upgrade, and how the slots relate — so the chaos is legible without a wall of text. The mod's identity feature.
 
 ## Why
-Reddit commenters worried about "marines with disruptor shots out of nowhere." The fix for a player's *own* confusion is legibility: show them what they were dealt at the start of the game.
+Reddit worried about "marines with disruptor shots out of nowhere." The fix for a player's *own* confusion is legibility: show them what they were dealt.
 
-## Do NOT groom this into build tickets yet
-Writing detailed build tickets now would be guessing. Resolve the unknowns with a spike first.
+## Historical note — feasibility is already established
+The mod began as a **"design your race"** mod (not randomized). In that era the user built/experimented with this exact class of UI and **confirmed it's technically possible** in SC2's dialog system. The open question was never "can it be done" but "how to lay it out" — and it's known that **it will be inconvenient to build no matter the design** (SC2 dialogs are manual and finicky). So: **no blocking feasibility spike.** Design first, build second, validating the chosen layout with a minimal version before completing it.
 
-## Open unknowns (what the spike exists to answer)
-1. **How does it look?** Layout/contents of the dialog. (Genuine design unknown — answered by building an ugly version and looking at it.)
-2. **What does the player click to open it?** Dialog button vs hotkey-bound command.
-3. **Per-player content.** Each player must see *their own* rolls. (Likely the easy part — per-player roll data already exists in the galaxy code as stored slot→unit / slot→upgrade assignments, and SC2 dialogs are natively per-player. Prove it.)
+Two de-risks worth stating:
+- **Local-testable.** Runtime galaxy dialogs are NOT command-card buttons → they don't hit the "publish to verify" quirk; iterate in the editor Test Document.
+- **Data already exists.** Rolled units live in per-slot state (assignment in `initialize.galaxy`), rolled upgrades in the per-slot selected-upgrade string (`upgradeInitializers.galaxy`). Population = reading existing state. SC2 dialogs are natively per-player.
 
-## Big idea to test: forced 20s preview at game start
-Fully pause the game for ~20s at the start and make players stare at their Arsenal modal.
-- Technical caveat: truly pausing a multiplayer lockstep sim is finicky. Practical version is likely a "preview phase" — modal up, actions suppressed, countdown ticking. Nothing meaningful happens in the first 20s anyway.
-- Design note: forced every game may annoy repeat players. Consider skippable-once-both-ready, shorter, or only first few games.
+## Plan (design-first). Build phases get ticketed AFTER the design lands.
+1. **[WA-039] Paper design + info/interaction spec** ← grab first. The ideal layout on paper, then compromise; define always-visible vs tooltip info + open/close/reopen behavior.
+2. **Static modal shell** — build the chosen layout in galaxy with placeholder data; start minimal (1 facility) to validate rendering, then complete all slots. Decide if a tiny grid helper removes coordinate repetition (NO framework).
+3. **Populate rolled units** — each slot from the player's actual roll (icon/name/cost/tooltip), per-player.
+4. **Populate rolled upgrades** — each slot's rolled upgrade; unit↔upgrade pairing clear; **flag starting upgrades** (ShieldWall/GroovedSpines) so they don't read as randomly rolled.
+5. **Tech-tree explanation pass** — slot correspondence + production-vs-upgrade-facility legible via layout/cues, minimal text.
+6. **Readability & clutter pass** — test at aspect ratios / UI scales; tune sizes/spacing/hierarchy; detail → tooltips.
+7. **Integration & cleanup** — remove placeholders/dev controls; init after rolls assign; dev reopen shortcut; document the UI structure.
 
-## Spike goal (timebox ~1 hr)
-Prove out the three pieces cheaply:
-- [ ] Create a per-player dialog populated from that player's stored roll data.
-- [ ] Open it via a button and/or hotkey.
-- [ ] Test the forced-preview pause approach.
+(Adapted from the user's high-level plan: feasibility folded in given the historical confirmation; grid-helper folded into phase 2.)
 
-## Spike output (the actual deliverable)
-- [ ] Short doc in `docs/` recording what works, what doesn't, and the chosen approach.
-- [ ] WA-001 broken into small build tickets based on findings (e.g. roll-data accessor, dialog UI, per-unit copy, preview-phase timer).
+## Design consideration to carry into WA-039: forced preview at game start
+Idea: hold a ~20s "preview phase" at match start with the Arsenal up and actions suppressed (truly pausing a lockstep MP sim is finicky; a preview phase is the practical version — nothing meaningful happens in the first 20s anyway). Forced every game may annoy repeat players → consider skippable-when-both-ready, shorter, or first-few-games-only. Decide the open/close behavior in WA-039.
 
-## Notes
-Roll assignment lives in `initialize.galaxy` (units per slot) and `upgradeInitializers.galaxy` (upgrade per slot). Feeds off the unit→upgrade matrices from WA-003/WA-004. Website reference version (every unit + possible upgrades) is a separate, later docs task.
+## Why the build phases aren't tickets yet
+Phases 2–7 depend on the chosen layout + info set — ticketing them before WA-039 would be speculative and get rewritten. Full plan is captured here so nothing's lost; groom the next phase into a ticket when WA-039 lands.

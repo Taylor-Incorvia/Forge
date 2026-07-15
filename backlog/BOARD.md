@@ -23,11 +23,12 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-014](./WA-014-verify-stalker-blink-range.md) | Re-enable + test stalker blink range | S | 1 |
 | [WA-036](./WA-036-overseer-hotkey.md) | Overseer hotkey won't render (cursed F_Blink class) | S | 1 |
 | [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) | Remove unresearchable Tectonic Destabilizers button from Tempest card | S | 1 |
+| [WA-039](./WA-039-arsenal-paper-design.md) | Arsenal modal — paper design + info spec (design-first; epic WA-001) | S | 1 |
 
 ### Barracks Slot 2 rework (was WA-002)
 | ID | Ticket | Size | Phase |
 |----|--------|------|-------|
-| [WA-020](./WA-020-decide-cloak-behavior.md) | Decide Wraith/DuskWing cloak behavior _(WA-018 done — unblocked)_ | S | 1 |
+| [WA-020](./WA-020-decide-cloak-behavior.md) | Cloak as an upgrade for Wraith/DuskWing/Ghost + Wraith cost cut | S | 1 |
 
 ---
 
@@ -36,7 +37,7 @@ Real work, but not ready to grab — needs a decision or a problem statement fir
 
 | ID | Ticket | Size | Phase | Blocked on |
 |----|--------|------|-------|------------|
-| [WA-001](./WA-001-arsenal-modal.md) | Arsenal / Roll Explanation modal (SPIKE first) | L | 1 | Run the spike → docs + split into build tickets |
+| [WA-001](./WA-001-arsenal-modal.md) | Your Arsenal modal (**EPIC**) — design-first plan captured; grab WA-039 to start | L | 1 | Build phases (2–7) groom after the design lands |
 | [WA-034](./WA-034-concussive-shells-upgrade.md) | Slow-on-attack (Concussive) — per-unit upgrades | M | 1 | Pick units/slots (Marauder stock = quick slice 1) |
 | [WA-035](./WA-035-lifesteal-upgrade.md) | Lifesteal — per-unit upgrades on non-shielded units | M | 1 | Pick unit subset + fraction (15/20%) |
 
