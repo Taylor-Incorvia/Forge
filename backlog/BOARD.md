@@ -5,7 +5,7 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 ---
 
 ## 🔨 In progress
-- [WA-033](./WA-033-hotkey-collisions-fix.md) — Hotkey collisions: full in-game re-pass via `testCaseNumber` sweep (1–7); user records letters under Standard profile → Claude computes conflicts → minimal ButtonData fixes
+_(nothing in flight)_
 
 ---
 
@@ -22,6 +22,7 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-027](./WA-027-missilepods-tier.md) | MissilePods: pick a caster tier + restrict | S | 1 |
 | [WA-014](./WA-014-verify-stalker-blink-range.md) | Re-enable + test stalker blink range | S | 1 |
 | [WA-031](./WA-031-range-indicator-not-updating.md) | Range indicator not updating on rolled Range upgrade | M | 1 |
+| [WA-036](./WA-036-overseer-hotkey.md) | Overseer hotkey won't render (cursed F_Blink class) | S | 1 |
 
 ### Barracks Slot 2 rework (was WA-002)
 | ID | Ticket | Size | Phase |
@@ -65,6 +66,7 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ---
 
 ## 🏁 Done
+- [WA-033](./WA-033-hotkey-collisions-fix.md) — Hotkey collision sweep (in-game, Standard profile): addon builds→X; Factory Stalker→F/Lurker→R/Archon→A; Starport Phoenix→E/VoidRay→G/DuskWing→F/Corsair→E. Overseer split → WA-036 · 2026-07-14
 - [WA-003](./WA-003-verify-unit-costs.md) — Cost audit → `docs/audits/unit-costs.md` (7 flagged: Zergling/HighTemplar/Goliath standouts) · 2026-07-13
 - [WA-004](./WA-004-verify-upgrade-pools.md) — Upgrade matrix → `docs/audits/upgrade-matrix.md` (found bugs → WA-032) · 2026-07-13
 - [WA-005](./WA-005-verify-hotkey-collisions.md) — Hotkey audit → `docs/audits/hotkey-collisions.md` (found collisions → WA-033) · 2026-07-13

@@ -1,11 +1,24 @@
 ---
 id: WA-033
-status: in-progress
+status: done
 size: M
 phase: 1-game-readiness
 priority: 28
 ---
 # Fix hotkey collisions (from WA-005 audit)
+
+## ✅ Resolved 2026-07-14
+Full in-game sweep (Standard profile) via the `testCaseNumber` 1–7 tool. All collisions fixed and verified in-game:
+- **Addon consolidation:** all addon-build buttons → `X` (Barracks Tech Lab already X; Factory Reactor `C→X`; Starport Tech Reactor `Z→X`). Reactor leaving `C` also cleared the Colossus/Reactor clash.
+- **Factory:** Stalker `S→F`, Lurker (`LurkerMP`) `E→R`, Archon `N→A`.
+- **Starport:** Phoenix `X→E`, Void Ray `V→G`, Dusk Wings `I→F`, Corsair `O→E`.
+- **Barracks:** already clean, no changes.
+- **Gotchas hit:** the Lurker change had to land on face id `LurkerMP` (not `Lurker`/`LurkerFromHydraliskBurrowed`); Corsair needed a re-save to persist.
+- **Overseer** wouldn't accept a hotkey (F_Blink cursed-morph-button class) → split out to **WA-036**.
+
+Cleanup before commit: reset `devMode = false` + `testCaseNumber = 0` in `nativeHelpers.galaxy` (the sweep code stays — it's gated and inert).
+
+---
 
 Full re-pass on production hotkeys. PiG played the mod before several units were added, and the WA-005 audit read `GameHotkeys.txt` (a **derived, possibly-stale** file), so it can't be trusted. This ticket grounds everything in **what actually renders in-game under the Standard hotkey profile** — you record the letters, I compute the conflicts.
 
