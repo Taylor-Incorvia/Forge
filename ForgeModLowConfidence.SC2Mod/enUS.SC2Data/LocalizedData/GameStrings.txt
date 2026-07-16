@@ -176,6 +176,7 @@ Button/Tooltip/GhostAcademy=Contains randomized upgrades that each apply to a si
 Button/Tooltip/GhostAcademy2=Contains randomized upgrades that each apply to a single barracks unit slot.<n/>Enables barracks slot 3 units to be built from the Barracks. <n/>Enables add on to be built from the Barracks.  <n/>Requirements for building a starport are Engineering Academy or Factory. <n/> Upgrades remain available after research so players can easily track which randomized upgrades were rolled this game. Re-researching an upgrade has no effect. 
 Button/Tooltip/HighCapacityBarrels1=Increases the hellion's attack damage by +5 (to +11) vs light units and the hellbat's attack damage by +12 vs light units. The flame changes to a blue color.
 Button/Tooltip/HireKelmorianMiners=Build a War Pig elite marine. +65% health and +35% damage over marines
+Button/Tooltip/Colossus=Long-range area-damage strider; walks over cliffs. Armed with Extended Thermal Lance (+2 range, total 9). <n/><n/><c val="#ColorAttackInfo">Can attack ground units only.</c>
 Button/Tooltip/Hydralisk=Ranged attacker. Armed with Grooved Spines (+1 range). <n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/LurkerFromHydraliskBurrowed=Fire-support ambusher. Must burrow to attack. <c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/Marine=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c> Armed with Combat Shields (+10 HP). 
