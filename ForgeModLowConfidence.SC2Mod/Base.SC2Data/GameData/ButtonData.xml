@@ -391,6 +391,12 @@
         <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Column="2"/>
     </CButton>
+    <CButton id="LifestealMarine2">
+        <Icon value="Assets\Textures\btn-ability-zerg-transfusion.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-transfusion.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
     <CButton id="VoidRay">
         <HotkeyAlias value="Banshee"/>
     </CButton>

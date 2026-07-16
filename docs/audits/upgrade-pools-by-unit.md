@@ -9,7 +9,7 @@ BARRACKS
  s1  Zergling      [5]  Blink, HotSRaptorCharge2, Stimpack, zerglingattackspeed, zerglingmovementspeed
  s1  Zealot        [5]  Blink, HotSRaptorCharge2, Charge, Stimpack, zerglingattackspeed
  s2  Hydralisk     [5]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile
- s2  Marine        [4]  Blink, Range, Speed, Stimpack
+ s2  Marine        [5]  Blink, Range, Speed, Stimpack, LifestealMarine
  s2  Queen        [10]  CorsairMPDisruptionWeb, ForceField, GuardianShield, GravitonBeam, MissilePods, Blink, Range, Speed, Stimpack, RavagerCorrosiveBile
  s3  Firebat       [5]  Blink, HotSRaptorCharge2, Speed, Stimpack, RavagerCorrosiveBile
  s3  Marauder      [5]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile
