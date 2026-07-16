@@ -21,15 +21,15 @@ BARRACKS
 FACTORY
  s1  Vulture       [4]  Blink, Range, Speed, Stimpack
  s1  Hellion       [5]  Blink, Speed, Stimpack, HighCapacityBarrels, TwinLinkedFlameThrowers
- s1  Stalker       [6]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile, stalkerblinkcooldown
+ s1  Stalker       [7]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile, stalkerblinkcooldown, stalkerblinkrange
  s2  Diamondback   [5]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile
  s2  Immortal      [5]  Blink, D8Charge, Range, Speed, Stimpack
  s2  SiegeTank     [4]  Blink, DiggingClaws, Stimpack, SiegeTankRange
- s2  WarHound      [5]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile
+ s2  WarHound      [6]  Blink, D8Charge, Range, Speed, Stimpack, RavagerCorrosiveBile
  s2  Archon        [3]  Blink, Range, Speed
  s2  LurkerMP      [4]  Blink, LurkerRange, DiggingClaws, Stimpack
  s2  Goliath       [5]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile
- s3  ThorAP        [5]  Blink, Range, Speed, Stimpack, Yamato
+ s3  ThorAP        [6]  Blink, D8Charge, Range, Speed, Stimpack, Yamato
  s3  Ultralisk     [6]  Blink, HotSRaptorCharge2, Range, Charge, Stimpack, Yamato
  s3  Colossus      [6]  Blink, Range, Speed, Stimpack, Yamato, Hyperjump
 STARPORT
@@ -44,7 +44,7 @@ STARPORT
  s3  Raven        [10]  ArbiterMPRecall, BlindingCloud, CorsairMPDisruptionWeb, FungalGrowth, Irradiate, MissilePods, NeuralParasite, ParasiticBomb, SeekerMissile, Yoink
  s3  Tempest       [5]  Blink, Stimpack, Yamato, TempestRange, Hyperjump
  s3  Viper         [9]  ArbiterMPRecall, BuildAutoTurret, CorsairMPDisruptionWeb, FungalGrowth, Irradiate, MissilePods, NeuralParasite, RavenScramblerMissile, SeekerMissile
- s3  Battlecruiser [5]  Blink, Range, Speed, Stimpack, Yamato
+ s3  Battlecruiser [4]  Blink, Range, Speed, Stimpack
 ```
 
-_Note: current as of WA-040. `RavagerCorrosiveBile` now excludes Marine / Hellion / Vulture / Immortal (too cheap or useless) and Archon / VoidRay / SiegeTank / LurkerMP (too expensive or useless). Also reflects Medic ✗Hyperjump and Ghost ✗Recall._
+_Note: current as of WA-032/WA-040. `RavagerCorrosiveBile` now excludes Marine / Hellion / Vulture / Immortal (too cheap or useless) and Archon / VoidRay / SiegeTank / LurkerMP (too expensive or useless). Also reflects Medic ✗Hyperjump and Ghost ✗Recall. WA-032: D8Charge now correctly reaches ThorAP + WarHound (tag-case fix); Battlecruiser no longer rolls Yamato (has it natively)._

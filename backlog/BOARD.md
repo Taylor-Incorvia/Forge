@@ -5,7 +5,7 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 ---
 
 ## 🔨 In progress
-_(nothing in flight)_
+- [WA-014](./WA-014-verify-stalker-blink-range.md) — stalker blink range re-enabled in galaxy (root cause: first push missed the `PlacementRange` line; data complete since b40c4e6). **Awaiting production test** — roll it onto a Stalker, confirm range grows.
 
 ---
 
@@ -14,13 +14,11 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 
 | ID | Ticket | Size | Phase |
 |----|--------|------|-------|
-| [WA-032](./WA-032-upgrade-pool-bugs.md) | Fix upgrade-pool bugs (D8Charge case / Yamato+BC) | S | 1 |
 | [WA-006](./WA-006-update-mod-description.md) | Update mod description | S | 1 |
 | [WA-023](./WA-023-chitinous-plating-researchable.md) | Chitinous Plating researchable (Ultralisk nerf) | S | 1 |
 | [WA-024](./WA-024-ghost-academy-nuke.md) | Enable nuke (Ghost Academy arms, Ghost fires) | M | 1 |
 | [WA-025](./WA-025-transfuse-eligibility.md) | Decide who should roll Transfuse | S | 1 |
 | [WA-027](./WA-027-missilepods-tier.md) | MissilePods: pick a caster tier + restrict | S | 1 |
-| [WA-014](./WA-014-verify-stalker-blink-range.md) | Re-enable + test stalker blink range | S | 1 |
 | [WA-036](./WA-036-overseer-hotkey.md) | Overseer hotkey won't render (cursed F_Blink class) | S | 1 |
 | [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) | Remove unresearchable Tectonic Destabilizers button from Tempest card | S | 1 |
 | [WA-039](./WA-039-arsenal-paper-design.md) | Arsenal modal — paper design + info spec (design-first; epic WA-001) | S | 1 |
@@ -63,6 +61,7 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ---
 
 ## 🏁 Done
+- [WA-032](./WA-032-upgrade-pool-bugs.md) — Upgrade-pool bug fixes: D8Charge tag-case (`Thor`→`ThorAP`, `Warhound`→`WarHound`) so it reaches Thor/WarHound; Battlecruiser no longer rolls duplicate Yamato. Raven/Seeker + BC/Hyperjump verified as intended · 2026-07-16
 - [WA-042](./WA-042-queen-build-time.md) — Barracks slot-2 retune: Queen build 40→32s + supply 2→3 (price kept 175/50), Marine build 17→15s. None of the three now especially cost/supply-efficient · 2026-07-16
 - [WA-040](./WA-040-corrosive-bile-eligibility.md) — Corrosive Bile eligibility narrowed: `NoneOf` Marine/Hellion/Vulture (too cheap), Immortal/SiegeTank/Lurker (useless), Archon/VoidRay (too pricey); eligible span now Marauder→DuskWing. Doc regenerated · 2026-07-15
 - [WA-041](./WA-041-duskwing-gate-cloak.md) — DuskWing cloak gated (nerf: now a roll, not free) + cloak-button Show/Use gating (hidden → grayed-while-researching → usable) on DuskWing & Wraith · 2026-07-15

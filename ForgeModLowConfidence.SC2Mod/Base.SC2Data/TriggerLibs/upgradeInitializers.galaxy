@@ -128,9 +128,9 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("HotSRaptorCharge2", logicType_AnyOf, "unitTag", "Firebat");
 
     addAbilityToUpgrade("D8Charge", "F_D8Charge"); // clusterbomb (campaign)
-    addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", "Thor");
+    addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", "ThorAP");   // WA-032: was "Thor" (wrong tag) -> never matched
     addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", "Immortal");
-    addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", "Warhound");
+    addUpgradeRequirementTag("D8Charge", logicType_AnyOf, "unitTag", "WarHound"); // WA-032: was "Warhound" (wrong case) -> never matched
 
     addBehaviorToUpgrade("Range", "Range");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "pureCaster");
@@ -177,6 +177,7 @@ void initializeUpgrades() {
 
     addAbilityToUpgrade("Yamato", "F_Yamato");
     addUpgradeRequirementTag("Yamato", logicType_NoneOf, "unitTag", "pureCaster");
+    addUpgradeRequirementTag("Yamato", logicType_NoneOf, "unitTag", "Battlecruiser"); // WA-032: BC has Yamato natively; don't let it roll a duplicate
     addUpgradeRequirementTag("Yamato", logicType_AnyOf, "unitTag", factory +"3");
     addUpgradeRequirementTag("Yamato", logicType_AnyOf, "unitTag", starport +"3");
 
@@ -230,8 +231,11 @@ void initializeUpgrades() {
     addUpgradeToUpgrade("TwinLinkedFlameThrowers", "TwinLinkedFlameThrowers");
     addUpgradeRequirementTag("TwinLinkedFlameThrowers", logicType_AnyOf, "unitTag", "Hellion");
 
-    // addUpgradeToUpgrade("stalkerblinkrange", "stalkerblinkrange"); // don't know why this doesn't work but I can't test it because of editor bullshit. 
-    // addUpgradeRequirementTag("stalkerblinkrange", logicType_AnyOf, "unitTag", "Stalker");
+    // WA-014: re-enabled. First prod push (a001b4d) shipped the CUpgrade with only Effect,Blink,Range doubled and
+    // NOT Effect,Blink,PlacementRange -- so the click range never grew and the extra teleport range was unreachable.
+    // b40c4e6 added the missing PlacementRange line, so the data is now complete. Verify on production (editor can't test this).
+    addUpgradeToUpgrade("stalkerblinkrange", "stalkerblinkrange");
+    addUpgradeRequirementTag("stalkerblinkrange", logicType_AnyOf, "unitTag", "Stalker");
 
     addUpgradeToUpgrade("stalkerblinkcooldown", "stalkerblinkcooldown");
     addUpgradeRequirementTag("stalkerblinkcooldown", logicType_AnyOf, "unitTag", "Stalker");
