@@ -371,6 +371,11 @@ void initializeUpgradePoolForPlayerSlot(int player, int slotIndex, string facili
 }
 
 void assignRandomUpgradeFromPoolToPlayerSlot(int player, int slotIndex, string facilityId) {
+    // WA-023 TEST HACK (remove before commit): force ChitinousPlating onto Factory slot 3 so it can be researched at the Armory.
+    if (devMode && facilityId == factory && slotIndex == 3) {
+        setSlotSelectedUpgrade(player, slotIndex, facilityId, "ChitinousPlating");
+        return;
+    }
     setSlotSelectedUpgrade(player, slotIndex, facilityId, getRandomStringFromList(getUpgradePoolListKey(player, slotIndex, facilityId)));
 }
 

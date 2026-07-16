@@ -57,9 +57,9 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 
 **Nice-to-have (from Reddit feedback):** a genuinely-random "chaos" mode · Banelings in the pool · send replays to casters (Lowko/Uthermal) · replay organization
 
-**🚫 Explicitly not planned:** Support for additional races — the mod is built around the current unit set and there are no plans to ever add more races. Kept here only as the priority floor (everything real ranks above it).
+**🧊 Icebox (cut scope, kept for someday):** [The Forge](../docs/ideas/forge-mechanic.md) — the mod's namesake. A one-time-use "unstable forge" (unlocked by Armory/Fusion Core) that rolls wild upgrades: meta-upgrades on already-researched abilities, player-wide buffs, a 2nd upgrade stacked on a unit, or a 4th-slot mega/hero unit (Brutalisk / Loki BC) — then explodes. Cut for v1 (**not** shipping for Season 1), but still ranks **above** everything below.
 
-**🧊 Icebox (cut scope, kept for someday):** [The Forge](../docs/ideas/forge-mechanic.md) — the mod's namesake. A one-time-use "unstable forge" (unlocked by Armory/Fusion Core) that rolls wild upgrades: meta-upgrades on already-researched abilities, player-wide buffs, a 2nd upgrade stacked on a unit, or a 4th-slot mega/hero unit (Brutalisk / Loki BC) — then explodes. Cut for v1; revisit if the mod grows.
+**🚫 Not planned (priority floor):** Support for additional races. Frequently asked about; explicitly not happening — huge effort, and it would erode Wildcard Arena's core advantage: **per-unit balance instead of per-matchup** (too strong a unit → just nerf that unit; no need to keep three matchups simultaneously balanced like standard SC2). Ranks below even the icebox Forge.
 
 ---
 

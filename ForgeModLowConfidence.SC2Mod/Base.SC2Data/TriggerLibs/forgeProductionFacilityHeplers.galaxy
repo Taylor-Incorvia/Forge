@@ -107,6 +107,11 @@ string setRandomSlotUnitFromPoolForPlayer(string facilityId, int slotIndex, int 
         }
     }
 
+    // WA-023 TEST HACK (remove before commit): force Ultralisk into Factory slot 3 to test rolled Chitinous Plating.
+    if (devMode && facilityId == factory && slotIndex == 3) {
+        selectedUnitId = "Ultralisk";
+    }
+
     setPlayerSlotUnit(facilityId, slotIndex, playerIndex, selectedUnitId);
     return selectedUnitId;
 }
