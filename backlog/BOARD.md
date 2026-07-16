@@ -5,6 +5,7 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 ---
 
 ## 🔨 In progress
+- [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) — Tectonic Destabilizers (`TempestGroundAttackUpgrade`) passive button hidden via a Show-node requirement override (index-independent). **PR open — needs local visual confirm** it's gone + nothing else disturbed.
 - [WA-014](./WA-014-verify-stalker-blink-range.md) — stalker blink range re-enabled in galaxy (root cause: first push missed the `PlacementRange` line; data complete since b40c4e6). **Awaiting production test** — roll it onto a Stalker, confirm range grows.
 
 ---
@@ -18,7 +19,6 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-044](./WA-044-transfuse-targeting.md) | Transfuse should heal (almost) any unit — kill the Biological target gate | S | 1 |
 | [WA-045](./WA-045-editor-caching-settings.md) | Investigate if editor Documents-prefs settings fix the caching pain | S | 1 |
 | [WA-036](./WA-036-overseer-hotkey.md) | Overseer hotkey won't render (cursed F_Blink class) | S | 1 |
-| [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) | Remove unresearchable Tectonic Destabilizers button from Tempest card | S | 1 |
 | [WA-039](./WA-039-arsenal-paper-design.md) | Arsenal modal — paper design + info spec (design-first; epic WA-001) | S | 1 |
 | [WA-048](./WA-048-colossus-thermal-lance-tooltip.md) | Tooltip: Colossus starts with Extended Thermal Lance (9 range) | S | 1 |
 | [WA-043](./WA-043-unit-stats-reference-doc.md) | Doc: full per-unit stats reference (weapons/HP/armor/speed/build) | M | 1 |

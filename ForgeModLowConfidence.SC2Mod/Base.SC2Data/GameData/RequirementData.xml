@@ -259,4 +259,12 @@
         <NodeArray index="Show" Link="CountUpgradeWraithCloakQueuedOrBetter"/>
         <NodeArray index="Use" Link="CountUpgradeWraithCloakCompleteOnly"/>
     </CRequirement>
+    <!-- WA-038: hide the dead "Tectonic Destabilizers" (TempestGroundAttackUpgrade) passive button on the Tempest card.
+         Stock requirement (voidmulti) has only a Use node, so the button always SHOWS (greyed) even though the arena
+         has no Fleet Beacon research path to complete the upgrade. Adding a Show node that requires the upgrade
+         complete -- never true here -- hides the button. Index-independent (no CardLayouts edit, no docs-#5 risk). -->
+    <CRequirement id="HaveTempestGroundAttackUpgrade">
+        <NodeArray index="Show" Link="CountUpgradeTempestGroundAttackUpgradeCompleteOnly788113278"/>
+        <NodeArray index="Use" Link="CountUpgradeTempestGroundAttackUpgradeCompleteOnly788113278"/>
+    </CRequirement>
 </Catalog>
