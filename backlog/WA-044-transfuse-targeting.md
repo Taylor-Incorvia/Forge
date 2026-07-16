@@ -1,6 +1,6 @@
 ---
 id: WA-044
-status: in-review
+status: todo
 size: S
 phase: 1-game-readiness
 priority: 22
@@ -9,13 +9,14 @@ priority: 22
 
 Split from WA-025 (which decided *eligibility* — Transfuse now rolls on Sentry/Medic only). This ticket is the **targeting** half: the user wants Transfuse to be castable on almost any friendly unit (mechanical included), not just Biological ones.
 
-## 🔨 Root cause found + fixed 2026-07-16 (in-game test: Queen couldn't transfuse a Siege Tank — "Must target biological units")
-My earlier static trace looked at the wrong ability. **The Queen uses the stock native `Transfusion` ability, not the rolled `F_Transfusion`.** The mod's `Transfusion` override (`AbilData.xml`) only cleared its `CmdButtonArray` Requirements — it **inherited the stock bio-gated `TargetFilters`**, which is where the "Must target biological units" error comes from. (`F_Transfusion`, the rolled version, was already clean — hence my earlier "no gate" conclusion, which was true *only* for that ability.)
+## ❌ Attempt 1 (merged PR #6) — did NOT fix it
+**The Queen uses the stock native `Transfusion` ability** (not the rolled `F_Transfusion`, which was already clean). The mod's `Transfusion` override only cleared its `CmdButtonArray` Requirements and inherited the stock bio-gated `TargetFilters`. **Attempt:** added a clean `TargetFilters` override to `Transfusion` (`Visible;Self,Neutral,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden,Invulnerable`, no Biological) — merged in **PR #6**.
 
-**Fix:** added a `TargetFilters` override to the native `Transfusion`, copying `F_Transfusion`'s clean filter:
-`Visible;Self,Neutral,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden,Invulnerable` (required = Visible, allies-only, **no Biological**). Locally testable — re-test the Queen transfusing a Siege Tank / any mechanical ally.
+**Result (in-game, 2026-07-16): still errors "Must target biological units" on a Siege Tank.** So the bio gate is **not** (only) in the ability's `TargetFilters`. Two remaining suspects, in order:
+1. **A `Biological` validator on the inherited heal effect chain** (`TransfusionImpactSet` → its heal effect). That effect isn't in the mod's `EffectData.xml` or `reference/`, so it can only be seen/edited via the **SC2 Editor's merged view** — open the `Transfusion` effect, find the `ValidatorArray` entry that requires Biological, and remove it (or override the heal effect in the mod's `EffectData.xml` to clear it).
+2. **Editor command/ability cache** (WA-045) — less likely for an ability filter, but the `TargetFilters` override may not have taken effect locally. Rule out with a clean rebuild before assuming #1.
 
-**Watch on re-test:** if it now *targets* a tank but the heal does nothing, there may still be a Biological validator on the inherited heal effect (step 2 below). And Transfuse only restores Life, so on shield-tankers it may still feel dead (step 3).
+The merged `TargetFilters` override is a correct partial step (harmless) — left in place. This ticket now needs the **editor merged-view validator hunt**, which is a hands-on-editor task. Parked back in `todo`.
 
 ## What I found (static trace, 2026-07-16)
 - **Ability layer is already clean.** `F_Transfusion` (`AbilData.xml`) `TargetFilters = "Visible;Self,Neutral,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden,Invulnerable"`. Format is `required;excluded` → the **only requirement is `Visible`** (plus allies-only). **No `Biological` requirement.** Stock SC2 gates Transfuse to Biological right here; this mod already removed it. There is also no `ValidatorArray` on the ability.
