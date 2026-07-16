@@ -24,6 +24,7 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-036](./WA-036-overseer-hotkey.md) | Overseer hotkey won't render (cursed F_Blink class) | S | 1 |
 | [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) | Remove unresearchable Tectonic Destabilizers button from Tempest card | S | 1 |
 | [WA-039](./WA-039-arsenal-paper-design.md) | Arsenal modal — paper design + info spec (design-first; epic WA-001) | S | 1 |
+| [WA-043](./WA-043-unit-stats-reference-doc.md) | Doc: full per-unit stats reference (weapons/HP/armor/speed/build) | M | 1 |
 
 ---
 
@@ -62,6 +63,7 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ---
 
 ## 🏁 Done
+- [WA-042](./WA-042-queen-build-time.md) — Barracks slot-2 retune: Queen build 40→32s + supply 2→3 (price kept 175/50), Marine build 17→15s. None of the three now especially cost/supply-efficient · 2026-07-16
 - [WA-040](./WA-040-corrosive-bile-eligibility.md) — Corrosive Bile eligibility narrowed: `NoneOf` Marine/Hellion/Vulture (too cheap), Immortal/SiegeTank/Lurker (useless), Archon/VoidRay (too pricey); eligible span now Marauder→DuskWing. Doc regenerated · 2026-07-15
 - [WA-041](./WA-041-duskwing-gate-cloak.md) — DuskWing cloak gated (nerf: now a roll, not free) + cloak-button Show/Use gating (hidden → grayed-while-researching → usable) on DuskWing & Wraith · 2026-07-15
 - [WA-020](./WA-020-decide-cloak-behavior.md) — Cloak as a rollable upgrade: Wraith (cost→100/100, no start-cloak) + Ghost (card restored to stock) done; DuskWing gating → WA-041 · 2026-07-15

@@ -401,11 +401,11 @@
             <Button DefaultButtonFace="Siphon" Requirements="barracks4defilerreqreal"/>
             <Unit value="DefilerMP"/>
         </InfoArray>
-        <InfoArray index="Train20" Time="17">
+        <InfoArray index="Train20" Time="15">
             <Button DefaultButtonFace="Marine2" Requirements="barracks2MarineReq"/>
             <Unit value="Marine"/>
         </InfoArray>
-        <InfoArray index="Train21" Time="40">
+        <InfoArray index="Train21" Time="32">
             <Button DefaultButtonFace="Queen" Requirements="barracks2queenreq"/>
             <Unit value="Queen"/>
         </InfoArray>
