@@ -392,14 +392,14 @@
         <DefaultButtonLayout Column="2"/>
     </CButton>
     <CButton id="LifestealMarine2">
-        <Icon value="Assets\Textures\btn-ability-zerg-transfusion.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-zerg-transfusion.dds"/>
+        <Icon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Column="1"/>
     </CButton>
     <CButton id="PunisherGrenades3">
-        <Icon value="Assets\Textures\btn-upgrade-terran-concussiveshells.dds"/>
-        <AlertIcon value="Assets\Textures\btn-upgrade-terran-concussiveshells.dds"/>
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Column="2"/>
     </CButton>
