@@ -17,6 +17,7 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-006](./WA-006-update-mod-description.md) | Update mod description | S | 1 |
 | [WA-024](./WA-024-ghost-academy-nuke.md) | Enable nuke (Ghost Academy arms, Ghost fires) | M | 1 |
 | [WA-044](./WA-044-transfuse-targeting.md) | Transfuse should heal (almost) any unit — kill the Biological target gate | S | 1 |
+| [WA-045](./WA-045-editor-caching-settings.md) | Investigate if editor Documents-prefs settings fix the caching pain | S | 1 |
 | [WA-036](./WA-036-overseer-hotkey.md) | Overseer hotkey won't render (cursed F_Blink class) | S | 1 |
 | [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) | Remove unresearchable Tectonic Destabilizers button from Tempest card | S | 1 |
 | [WA-039](./WA-039-arsenal-paper-design.md) | Arsenal modal — paper design + info spec (design-first; epic WA-001) | S | 1 |
@@ -36,9 +37,11 @@ Real work, but not ready to grab — needs a decision or a problem statement fir
 ---
 
 ## 🌟 Nice to have (ticketed)
+_Lowest priority. Ordered bottom-up toward "never" (other races — see icebox)._
 | ID | Ticket | Size | Phase |
 |----|--------|------|-------|
 | [WA-030](./WA-030-ability-telegraph.md) | Ability telegraph — icon/name above caster (upgrade abilities) | M | 1 |
+| [WA-046](./WA-046-ultralisk-chitinous-visual.md) | Ultralisk looks different when it has Chitinous Plating (readability) | M | 1 |
 
 ---
 
@@ -53,6 +56,8 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 **Phase 7 — Tournament:** first Season 1 event · replay library · YouTube clips
 
 **Nice-to-have (from Reddit feedback):** a genuinely-random "chaos" mode · Banelings in the pool · send replays to casters (Lowko/Uthermal) · replay organization
+
+**🚫 Explicitly not planned:** Support for additional races — the mod is built around the current unit set and there are no plans to ever add more races. Kept here only as the priority floor (everything real ranks above it).
 
 **🧊 Icebox (cut scope, kept for someday):** [The Forge](../docs/ideas/forge-mechanic.md) — the mod's namesake. A one-time-use "unstable forge" (unlocked by Armory/Fusion Core) that rolls wild upgrades: meta-upgrades on already-researched abilities, player-wide buffs, a 2nd upgrade stacked on a unit, or a 4th-slot mega/hero unit (Brutalisk / Loki BC) — then explodes. Cut for v1; revisit if the mod grows.
 

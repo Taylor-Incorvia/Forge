@@ -34,7 +34,7 @@ In this mod, pool upgrades are randomly rolled per slot. So after this change an
 - [x] `AbilData.xml`: `CAbilResearch id="ChitinousPlating3"` with `Upgrade="3"`.
 - [x] `ButtonData.xml`: `CButton id="ChitinousPlating3"` with `Column="2"` + stock icon.
 - [x] `GameStrings.txt`: Abil/Name, Button/Name, Button/Tooltip.
-- [ ] Verify in game: Ultralisk no longer starts with the armor; appears as a researchable upgrade at the Armory when rolled.
+- [x] Verify in game: Ultralisk no longer starts with the armor; appears as a researchable upgrade at the Armory when rolled. **Confirmed working 2026-07-16** (armor upgrade researches + applies). Visibility polish → WA-046.
 
 ## Fallback if this over-nerfs
 If Ultras become worst-in-slot, start them with the Ultralisk speed upgrade instead:
