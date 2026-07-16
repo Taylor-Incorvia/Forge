@@ -1,6 +1,6 @@
 ---
 id: WA-044
-status: todo
+status: in-review
 size: S
 phase: 1-game-readiness
 priority: 22
@@ -8,6 +8,14 @@ priority: 22
 # Let Transfuse heal (just about) any unit — kill the Biological target gate
 
 Split from WA-025 (which decided *eligibility* — Transfuse now rolls on Sentry/Medic only). This ticket is the **targeting** half: the user wants Transfuse to be castable on almost any friendly unit (mechanical included), not just Biological ones.
+
+## 🔨 Root cause found + fixed 2026-07-16 (in-game test: Queen couldn't transfuse a Siege Tank — "Must target biological units")
+My earlier static trace looked at the wrong ability. **The Queen uses the stock native `Transfusion` ability, not the rolled `F_Transfusion`.** The mod's `Transfusion` override (`AbilData.xml`) only cleared its `CmdButtonArray` Requirements — it **inherited the stock bio-gated `TargetFilters`**, which is where the "Must target biological units" error comes from. (`F_Transfusion`, the rolled version, was already clean — hence my earlier "no gate" conclusion, which was true *only* for that ability.)
+
+**Fix:** added a `TargetFilters` override to the native `Transfusion`, copying `F_Transfusion`'s clean filter:
+`Visible;Self,Neutral,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden,Invulnerable` (required = Visible, allies-only, **no Biological**). Locally testable — re-test the Queen transfusing a Siege Tank / any mechanical ally.
+
+**Watch on re-test:** if it now *targets* a tank but the heal does nothing, there may still be a Biological validator on the inherited heal effect (step 2 below). And Transfuse only restores Life, so on shield-tankers it may still feel dead (step 3).
 
 ## What I found (static trace, 2026-07-16)
 - **Ability layer is already clean.** `F_Transfusion` (`AbilData.xml`) `TargetFilters = "Visible;Self,Neutral,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden,Invulnerable"`. Format is `required;excluded` → the **only requirement is `Visible`** (plus allies-only). **No `Biological` requirement.** Stock SC2 gates Transfuse to Biological right here; this mod already removed it. There is also no `ValidatorArray` on the ability.
@@ -20,8 +28,8 @@ Split from WA-025 (which decided *eligibility* — Transfuse now rolls on Sentry
 3. **Optional — make it useful on shield units.** Transfuse only restores `Life` (+75). On Protoss/shield-tankers Life is rarely the low bar, so the heal feels dead even when targetable. Consider also restoring `Shields` (add a shield-heal to the effect set) so "any unit" is meaningful, not just legal.
 
 ## Acceptance criteria
-- [ ] Confirm in-game Transfuse can target mechanical/non-bio allies.
-- [ ] If not, remove the Biological validator from the effect chain (editor) and re-confirm.
+- [x] Confirm in-game Transfuse can target mechanical/non-bio allies. → **fix applied (native `Transfusion` TargetFilters); needs re-test.**
+- [ ] If it targets but doesn't heal, remove the Biological validator from the inherited heal effect and re-confirm.
 - [ ] Decide the Shields question (add shield heal, or accept Life-only) and note the call.
 
 ## Notes
