@@ -316,7 +316,7 @@ Button/Tooltip/Vulture=Fast skirmish unit. Can use the KD8 Charge ability(Reaper
 Button/Tooltip/YamatoGun2=Blasts a target with a devastating plasma cannon, causing <d ref="Effect,YamatoU,Amount"/> damage.
 Button/Tooltip/stalkerblinkcooldown1=Reduces Blink cooldown by 50%.
 Button/Tooltip/stalkerblinkrange1=Doubles Blink range and increases Stalker sight range to 16.
-DocInfo/DescLong=Every game, your tech tree is different. Play normal SC2 macro, but your Barracks, Factory, and Starport roll a semi-random mix of units from all three races at each tech tier, and your tech buildings roll random upgrades to match. Read what you're dealt and adapt. It's curated, not chaos: rolls are balanced and rule-bound (you won't roll Marines with Disruptor shots). Join the Discord: https://discord.gg/hdT6FCyM
+DocInfo/DescLong=Every game, your tech tree is different. Macro like normal SC2, but your Barracks/Factory/Starport roll random units from all races each tier plus matching upgrades. Curated, not chaos: no Marines with Disruptor shots. Discord: https://discord.gg/hdT6FCyM
 DocInfo/DescShort=1v1/2v2/3v3/4v4
 DocInfo/HowToPlayAdvanced00=Barracks/Factory/Starport use a slot system – Lower tech units are in Slot 1, higher tech units appear in later slots (up to Slot 4).
 DocInfo/HowToPlayAdvanced01=Eng Academy/Armory/Fusion Core use the same slot system. Slot 1 ability on the Armory will produce an upgrade that applies to Factory slot 1
