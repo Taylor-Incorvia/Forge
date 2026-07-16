@@ -1,11 +1,19 @@
 ---
 id: WA-040
-status: todo
+status: done
 size: S
 phase: 1-game-readiness
 priority: 30
 ---
 # Restrict who can roll RavagerCorrosiveBile (currently ~everyone)
+
+## ✅ Done 2026-07-15
+Went **subtractive**: added `NoneOf` tags in `upgradeInitializers.galaxy` for eight units.
+- **Too cheap / too strong:** Marine, Hellion, Vulture.
+- **Useless / awkward on it:** Immortal, Siege Tank, Lurker.
+- **Too expensive to bother:** Archon, VoidRay.
+
+After exclusions, the eligible span is **Marauder (100/25, cheapest)** → **DuskWing (200/150, most expensive)**. Marauder deliberately kept as the cheap floor (tankier than the cut units). Regenerated `docs/audits/upgrade-pools-by-unit.md`.
 
 ## Problem
 Corrosive Bile is a strong ranged AoE, but it's rollable by **~23 units** — nearly every non-caster. Current eligibility (`upgradeInitializers.galaxy`): `NoneOf pureCaster, rax1, factory3, starport3, rax4, Ravager`. That leaves it available to Barracks s2/s3-fighters, all of Factory s1+s2, and Starport s1+s2.
@@ -20,9 +28,9 @@ Options:
 - **Subtractive** — keep broad, just `NoneOf` the offenders (Marine/Hellion/Vulture) + the duds (Immortal).
 
 ## Acceptance criteria
-- [ ] Decide the eligibility rule and apply it (NoneOf tags or a curated AnyOf list).
-- [ ] Marine / Hellion / Vulture can no longer roll Corrosive Bile; Immortal excluded.
-- [ ] Regenerate `docs/audits/upgrade-pools-by-unit.md` after.
+- [x] Decide the eligibility rule and apply it (NoneOf tags or a curated AnyOf list).
+- [x] Marine / Hellion / Vulture can no longer roll Corrosive Bile; Immortal excluded.
+- [x] Regenerate `docs/audits/upgrade-pools-by-unit.md` after.
 
 ## Notes
 Found while reviewing the per-unit upgrade pools (`docs/audits/upgrade-pools-by-unit.md`). Sibling quick-fixes done same day: Medic no longer rolls Hyperjump; Ghost no longer rolls Recall.

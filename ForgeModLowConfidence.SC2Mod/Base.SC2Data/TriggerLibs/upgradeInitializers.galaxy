@@ -196,7 +196,14 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", starport +"3");
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", rax +"4");
     addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "Ravager"); // ravager already has this
-    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "Marine");
+    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "Marine");    // too strong on a cheap unit
+    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "Hellion");   // too strong on a cheap unit
+    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "Vulture");   // too strong on a cheap unit
+    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "Immortal");  // awkward/useless on the Immortal
+    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "VoidRay");   // too expensive to bother
+    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "Archon");    // too expensive to bother
+    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "SiegeTank"); // useless on the Siege Tank
+    addUpgradeRequirementTag("RavagerCorrosiveBile", logicType_NoneOf, "unitTag", "LurkerMP");  // useless on the Lurker
 
     //  addAbilityToUpgrade("PsionicShockwave", "F_PsionicShockwave"); // removing this unitl I figure out how to make it not hit your own units. Might still be off. 
     //  addUpgradeRequirementTag("PsionicShockwave", logicType_NoneOf, "unitTag", "pureCaster");
