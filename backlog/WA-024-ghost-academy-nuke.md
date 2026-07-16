@@ -18,9 +18,11 @@ priority: 20
 
 **Design questions resolved:** only players who rolled a Ghost can arm (operand 3 gates on `barracks4ghostupg`), so "everyone has a Ghost Academy" isn't a problem. No Tech Lab needed — the mod's override already replaced the stock Tech-Lab requirement; this just drops the leftover Factory check.
 
-**Must confirm in a published test (can't verify locally):**
-1. The `NukeArm` button actually renders + enables on the *repurposed* Ghost Academy card once a Ghost is rolled (its research buttons share that card — possible visual collision at Row2/Col0).
-2. The `NukeCalldown` button renders on the rolled Ghost, and the full loop runs: arm silo → ghost calls down nuke → detonates.
+**Card collision found + fixed 2026-07-16 (during in-game test — the arm button really didn't show):** stock `NukeArm` (card index 3) is at **Row 0 Col 0**, and the mod's trigger-injected rolled-upgrade research buttons occupy **Row 0 Cols 0–3** — so an upgrade button covered it. **Fix:** repositioned `NukeArm` to the free **Row 2 Col 0** in the `GhostAcademy` `CardLayouts` (`UnitData.xml`).
+
+**Still to confirm in-game (re-test):**
+1. Arm button now visible + enabled at Row 2 Col 0 on the Ghost Academy card.
+2. `NukeCalldown` renders on the rolled Ghost, and the full loop runs: arm silo → ghost calls down nuke → detonates.
 
 Now that Ghosts are in the pool (Barracks slot 4), wire up nukes: the Ghost Academy should be able to arm a nuke, and a Ghost should be able to call it down. First step is diagnosing *why* it doesn't work today.
 
