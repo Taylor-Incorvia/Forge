@@ -71,10 +71,12 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Irradiate", logicType_AnyOf, "unitTag", starport +"3");
     addUpgradeRequirementTag("Irradiate", logicType_AnyOf, "unitTag", rax +"4");
 
-    // NOTE: MissilePods might be too strong. It has only AllOf caster (no slot gate), so EVERY
-    // caster/hybrid -- low tier and high tier -- can roll it. Decide low vs high tier and restrict. See WA-027.
+    // WA-027: MissilePods is a LOW-TIER caster ability. Gate off the high tiers (Barracks s4 + Starport s3),
+    // mirroring Transfusion. Stays on Queen(s2), Sentry/Medic(rax s3), Corsair/Phoenix/Wraith(starport s1).
     addAbilityToUpgrade("MissilePods", "F_MissilePods");
     addUpgradeRequirementTag("MissilePods", logicType_AllOf, "unitTag", "caster");
+    addUpgradeRequirementTag("MissilePods", logicType_NoneOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("MissilePods", logicType_NoneOf, "unitTag", starport +"3");
 
     addAbilityToUpgrade("NeuralParasite", "F_NeuralParasite");
     addUpgradeRequirementTag("NeuralParasite", logicType_AllOf, "unitTag", "caster");
@@ -102,6 +104,7 @@ void initializeUpgrades() {
 
     addAbilityToUpgrade("Transfusion", "F_Transfusion");
     addUpgradeRequirementTag("Transfusion", logicType_AllOf, "unitTag", "caster");
+    addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", starport +"1"); // WA-025: off the Starport s1 fliers (Corsair/Phoenix/Wraith)
     addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", starport +"3"); // this isn't exciting enough for slot 3
     addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", rax +"4");
     addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", "Queen"); // Queen already has this ability (queen not added yet)

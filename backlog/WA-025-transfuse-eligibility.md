@@ -1,11 +1,18 @@
 ---
 id: WA-025
-status: todo
+status: done
 size: S
 phase: 1-game-readiness
 priority: 21
 ---
 # Figure out who should roll the Transfuse upgrade
+
+## ✅ Done 2026-07-16
+**Eligibility decision:** keep Transfuse, but pull it off the Starport slot-1 fliers. Added `NoneOf starport1` in `upgradeInitializers.galaxy` — heal-another is too situational on lone aggressive flyers (Phoenix/Corsair/Wraith).
+
+**Now rolls on: Sentry, Medic** (the two Barracks-s3 casters). Doc updated (`upgrade-pools-by-unit.md`).
+
+**Targeting question → split to [WA-044](./WA-044-transfuse-targeting.md).** The Biological-target-gate / Life-vs-Shields question below was moved to its own ticket (user wants Transfuse castable on almost any unit). Static trace there found no bio gate left in the moddable data — likely already works post-rebuild.
 
 Transfuse (`F_Transfusion`, target-heal an ally) has come up a lot in rolls and felt lame in some situations. Decide the intended set of units that should be able to roll it, then adjust the tags — or cut it.
 

@@ -15,9 +15,9 @@ BARRACKS
  s3  Marauder      [5]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile
  s3  Sentry        [4]  CorsairMPDisruptionWeb, GravitonBeam, MissilePods, Transfusion
  s3  Medic         [6]  CorsairMPDisruptionWeb, ForceField, GuardianShield, GravitonBeam, MissilePods, Transfusion
- s4  Ghost        [16]  BlindingCloud, BuildAutoTurret, CorsairMPDisruptionWeb, FungalGrowth, Irradiate, MissilePods, NeuralParasite, ParasiticBomb, RavenScramblerMissile, SeekerMissile, Yoink, Blink, Range, Speed, Stimpack, PersonalCloaking
- s4  Infestor     [10]  ArbiterMPRecall, BlindingCloud, BuildAutoTurret, CorsairMPDisruptionWeb, Irradiate, MissilePods, ParasiticBomb, RavenScramblerMissile, SeekerMissile, Yoink
- s4  HighTemplar  [12]  ArbiterMPRecall, BlindingCloud, BuildAutoTurret, CorsairMPDisruptionWeb, FungalGrowth, Irradiate, MissilePods, NeuralParasite, ParasiticBomb, RavenScramblerMissile, SeekerMissile, Yoink
+ s4  Ghost        [15]  BlindingCloud, BuildAutoTurret, CorsairMPDisruptionWeb, FungalGrowth, Irradiate, NeuralParasite, ParasiticBomb, RavenScramblerMissile, SeekerMissile, Yoink, Blink, Range, Speed, Stimpack, PersonalCloaking
+ s4  Infestor      [9]  ArbiterMPRecall, BlindingCloud, BuildAutoTurret, CorsairMPDisruptionWeb, Irradiate, ParasiticBomb, RavenScramblerMissile, SeekerMissile, Yoink
+ s4  HighTemplar  [11]  ArbiterMPRecall, BlindingCloud, BuildAutoTurret, CorsairMPDisruptionWeb, FungalGrowth, Irradiate, NeuralParasite, ParasiticBomb, RavenScramblerMissile, SeekerMissile, Yoink
 FACTORY
  s1  Vulture       [4]  Blink, Range, Speed, Stimpack
  s1  Hellion       [5]  Blink, Speed, Stimpack, HighCapacityBarrels, TwinLinkedFlameThrowers
@@ -33,18 +33,18 @@ FACTORY
  s3  Ultralisk     [6]  Blink, HotSRaptorCharge2, Range, Charge, Stimpack, Yamato
  s3  Colossus      [6]  Blink, Range, Speed, Stimpack, Yamato, Hyperjump
 STARPORT
- s1  CorsairMP    [11]  ForceField, GuardianShield, GravitonBeam, MissilePods, Transfusion, Blink, Range, Speed, Stimpack, RavagerCorrosiveBile, Hyperjump
- s1  Phoenix      [11]  CorsairMPDisruptionWeb, ForceField, GuardianShield, MissilePods, Transfusion, Blink, Range, Speed, Stimpack, RavagerCorrosiveBile, Hyperjump
- s1  Wraith       [13]  CorsairMPDisruptionWeb, ForceField, GuardianShield, GravitonBeam, MissilePods, Transfusion, Blink, Range, Speed, Stimpack, RavagerCorrosiveBile, WraithCloak, Hyperjump
+ s1  CorsairMP    [10]  ForceField, GuardianShield, GravitonBeam, MissilePods, Blink, Range, Speed, Stimpack, RavagerCorrosiveBile, Hyperjump
+ s1  Phoenix      [10]  CorsairMPDisruptionWeb, ForceField, GuardianShield, MissilePods, Blink, Range, Speed, Stimpack, RavagerCorrosiveBile, Hyperjump
+ s1  Wraith       [12]  CorsairMPDisruptionWeb, ForceField, GuardianShield, GravitonBeam, MissilePods, Blink, Range, Speed, Stimpack, RavagerCorrosiveBile, WraithCloak, Hyperjump
  s1  VikingFighter [6]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile, Hyperjump
  s2  Liberator     [4]  Blink, Speed, Stimpack, RavagerCorrosiveBile
  s2  Mutalisk      [6]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile, Hyperjump
  s2  DuskWing      [8]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile, ClusterWarheads, BansheeCloak, Hyperjump
  s2  VoidRay       [3]  Blink, Range, Speed
- s3  Raven        [10]  ArbiterMPRecall, BlindingCloud, CorsairMPDisruptionWeb, FungalGrowth, Irradiate, MissilePods, NeuralParasite, ParasiticBomb, SeekerMissile, Yoink
+ s3  Raven         [9]  ArbiterMPRecall, BlindingCloud, CorsairMPDisruptionWeb, FungalGrowth, Irradiate, NeuralParasite, ParasiticBomb, SeekerMissile, Yoink
  s3  Tempest       [5]  Blink, Stimpack, Yamato, TempestRange, Hyperjump
- s3  Viper         [9]  ArbiterMPRecall, BuildAutoTurret, CorsairMPDisruptionWeb, FungalGrowth, Irradiate, MissilePods, NeuralParasite, RavenScramblerMissile, SeekerMissile
+ s3  Viper         [8]  ArbiterMPRecall, BuildAutoTurret, CorsairMPDisruptionWeb, FungalGrowth, Irradiate, NeuralParasite, RavenScramblerMissile, SeekerMissile
  s3  Battlecruiser [4]  Blink, Range, Speed, Stimpack
 ```
 
-_Note: current as of WA-032/WA-040. `RavagerCorrosiveBile` now excludes Marine / Hellion / Vulture / Immortal (too cheap or useless) and Archon / VoidRay / SiegeTank / LurkerMP (too expensive or useless). Also reflects Medic ✗Hyperjump and Ghost ✗Recall. WA-032: D8Charge now correctly reaches ThorAP + WarHound (tag-case fix); Battlecruiser no longer rolls Yamato (has it natively)._
+_Note: current as of WA-032/WA-040. `RavagerCorrosiveBile` now excludes Marine / Hellion / Vulture / Immortal (too cheap or useless) and Archon / VoidRay / SiegeTank / LurkerMP (too expensive or useless). Also reflects Medic ✗Hyperjump and Ghost ✗Recall. WA-032: D8Charge now correctly reaches ThorAP + WarHound (tag-case fix); Battlecruiser no longer rolls Yamato (has it natively). WA-014: Stalker can roll stalkerblinkrange again. WA-025: Transfusion pulled off Starport s1 (Corsair/Phoenix/Wraith) — now Sentry/Medic only. WA-027: MissilePods now low-tier only — off Barracks s4 (Ghost/Infestor/HighTemplar) and Starport s3 (Raven/Viper)._
