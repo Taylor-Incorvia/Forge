@@ -252,6 +252,11 @@ void initializeUpgrades() {
     addUpgradeToUpgrade("LifestealMarine", "LifestealMarine");
     addUpgradeRequirementTag("LifestealMarine", logicType_AnyOf, "unitTag", "Marine");
 
+    // WA-034: Concussive Shells (slow-on-attack) -- Marauder slice. Stock PunisherGrenades gates the Marauder's
+    // built-in slow chain, so it's a plain count-upgrade. More units are a follow-up (custom per-weapon wiring).
+    addUpgradeToUpgrade("PunisherGrenades", "PunisherGrenades");
+    addUpgradeRequirementTag("PunisherGrenades", logicType_AnyOf, "unitTag", "Marauder");
+
     addUpgradeToUpgrade("stalkerblinkcooldown", "stalkerblinkcooldown");
     addUpgradeRequirementTag("stalkerblinkcooldown", logicType_AnyOf, "unitTag", "Stalker");
 

@@ -1,11 +1,16 @@
 ---
 id: WA-034
-status: backlog
+status: in-progress
 size: M
 phase: 1-game-readiness
 priority: 40
 ---
 # Slow-on-attack (Concussive Shells) as per-unit upgrades — pool diversity
+
+## 🔨 Slice 1 done 2026-07-16 (PR) — Marauder
+Marauder can now roll **Concussive Shells** (stock `PunisherGrenades`). Count-upgrade recipe: `addUpgradeToUpgrade("PunisherGrenades","PunisherGrenades")` + `AnyOf Marauder`; `CAbilResearch PunisherGrenades3` (Barracks slot 3 → Ghost Academy col 2); `CButton PunisherGrenades3` (stock concussive icon); GameStrings. Locally testable (count/stat upgrade). No XML comments.
+
+**Slice 2+ (follow-up, needs your unit-list decision):** every other unit needs custom per-weapon surgery (wrap weapon damage effect in a Set + ApplySlow gated by that unit's count upgrade; multi-weapon units modify all weapons). Blocked on: **which units get slow-on-attack + their slots?** (see Open decisions). Marauder-only "doesn't move the needle," so this stays open until the unit list is picked.
 
 ## Why (updated)
 Goal is a **more diverse pool for basic attackers** so players stop rolling blank. Marauder-only "doesn't move the needle" — the slow needs to be available on **multiple units**. Per decision: accept **per-unit count upgrades** (no behavior shortcut exists — see below).
