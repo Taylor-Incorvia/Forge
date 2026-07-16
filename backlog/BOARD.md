@@ -5,6 +5,7 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 ---
 
 ## 🔨 In progress
+- [WA-035](./WA-035-lifesteal-upgrade.md) — Lifesteal **slice 1 (Marine, 15%)** done via a `CUpgrade` on `LeechFraction[Life]` (PR). **Needs in-game test** (no reference example of a LeechFraction upgrade). Slice 2+ (heal indicator + more units) needs a unit-list decision.
 - [WA-024](./WA-024-ghost-academy-nuke.md) — Nuke diagnosed: `TrainNuke` Use node had a stale **Factory** requirement blocking the silo-arm. Removed it (gates now: Ghost rolled + no nuke armed). Abilities/buttons verified intact. **PR open — needs a published test** of the full arm→calldown→detonate loop + Ghost Academy card button rendering.
 - [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) — Tectonic Destabilizers (`TempestGroundAttackUpgrade`) passive button hidden via a Show-node requirement override (index-independent). **Merged to main (PR #2)** — one open AC: eyeball the Tempest card in-game to confirm it's gone + nothing else disturbed.
 - [WA-014](./WA-014-verify-stalker-blink-range.md) — stalker blink range re-enabled in galaxy (root cause: first push missed the `PlacementRange` line; data complete since b40c4e6). **Awaiting production test** — roll it onto a Stalker, confirm range grows.
@@ -31,7 +32,6 @@ Real work, but not ready to grab — needs a decision or a problem statement fir
 |----|--------|------|-------|------------|
 | [WA-001](./WA-001-arsenal-modal.md) | Your Arsenal modal (**EPIC**) — design-first plan captured; grab WA-039 to start | L | 1 | Build phases (2–7) groom after the design lands |
 | [WA-034](./WA-034-concussive-shells-upgrade.md) | Slow-on-attack (Concussive) — per-unit upgrades | M | 1 | Pick units/slots (Marauder stock = quick slice 1) |
-| [WA-035](./WA-035-lifesteal-upgrade.md) | Lifesteal — per-unit upgrades on non-shielded units | M | 1 | Pick unit subset + fraction (15/20%) |
 
 ---
 

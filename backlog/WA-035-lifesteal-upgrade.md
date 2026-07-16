@@ -1,11 +1,18 @@
 ---
 id: WA-035
-status: backlog
+status: in-progress
 size: M
 phase: 1-game-readiness
 priority: 41
 ---
 # Lifesteal — per-unit upgrades on non-shielded units
+
+## 🔨 Slice 1 done 2026-07-16 (PR) — Marine, 15%
+Proved the mechanism on the Marine. `CUpgrade LifestealMarine` adds `LeechFraction[Life] = 0.15` to the Marine's damage effect (`Effect,GuassRifle`) — confirmed the bracket-index EffectArray syntax against working examples (`AttributeBonus[Structure]` etc.). Count-upgrade wiring: `addUpgradeToUpgrade` + `AnyOf Marine`; `CAbilResearch LifestealMarine2` (Marine = Barracks slot 2 → Ghost Academy col 1); `CButton LifestealMarine2`; GameStrings. Fraction = **15%**, Life only. No XML comments.
+
+**⚠️ Needs an in-game test:** there is **no reference example of a `CUpgrade` modifying `LeechFraction`**, so while the bracket syntax is confirmed for other indexed fields, verify in-game that a researched Marine actually heals on attack. If it doesn't apply, the likely fix is the field path (`LeechFraction[Life]` vs a different index form).
+
+**Deferred to slice 2+:** (a) the green heal-indicator actor (AC #2) — pure polish, gated on the upgrade; (b) replicate to the rest of the non-shielded basic-attacker list (needs your unit pick — see Open decisions). Multi-weapon units modify all weapons.
 
 ## Why
 Pool diversity for basic attackers (sibling of WA-034). Lifesteal (attacks heal the attacker for ~15–20% of damage dealt) is a flavorful, build-defining option.

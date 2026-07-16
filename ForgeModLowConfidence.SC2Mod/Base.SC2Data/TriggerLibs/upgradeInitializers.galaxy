@@ -247,6 +247,11 @@ void initializeUpgrades() {
     addUpgradeToUpgrade("ChitinousPlating", "ChitinousPlating");
     addUpgradeRequirementTag("ChitinousPlating", logicType_AnyOf, "unitTag", "Ultralisk");
 
+    // WA-035: Lifesteal (attacks heal the attacker for 15% of damage dealt, Life only). Slice 1 = Marine.
+    // Native CEffectDamage LeechFraction[Life] modified per-unit via a CUpgrade. Non-shielded units only.
+    addUpgradeToUpgrade("LifestealMarine", "LifestealMarine");
+    addUpgradeRequirementTag("LifestealMarine", logicType_AnyOf, "unitTag", "Marine");
+
     addUpgradeToUpgrade("stalkerblinkcooldown", "stalkerblinkcooldown");
     addUpgradeRequirementTag("stalkerblinkcooldown", logicType_AnyOf, "unitTag", "Stalker");
 
