@@ -16,7 +16,9 @@ Chitinous Plating is now a **rolled** count-upgrade at the Armory (Factory slot 
 
 Verified against reference: Ultralisk = Factory slot 3 (`initializeFactorySlot3Pool`); `ChitinousPlating` = `Unit,Ultralisk,LifeArmor +2`. Count/stat upgrade → locally testable (no publish needed).
 
-**Effect:** Ultralisk starts with **no** free armor and only *sometimes* rolls Chitinous Plating (real nerf + variance, as intended). Fallback lever if over-nerfed is noted below (start with AnabolicSynthesis speed instead).
+**Effect:** Ultralisk starts with **no** free armor and only *sometimes* rolls Chitinous Plating (real nerf + variance, as intended).
+
+**Follow-up (same session):** applied the fallback lever proactively — re-enabled `grantUpgrade(player, "AnabolicSynthesis")` so Ultras now start with **speed instead of free armor**. It was previously disabled (3/9) as "too strong," but that was while it stacked *with* free armor; with armor moved to a roll, speed-only is the intended baseline.
 
 Ultralisks currently start with Chitinous Plating for free (`grantInitialUpgrades()`). Since the ~40% faster build times (PiG feedback), you can tech to Ultras and mass them too fast — the free armor makes them oppressive. Move Chitinous Plating into the rollable upgrade pool so it must be researched.
 
