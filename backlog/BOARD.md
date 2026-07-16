@@ -22,6 +22,7 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) | Remove unresearchable Tectonic Destabilizers button from Tempest card | S | 1 |
 | [WA-039](./WA-039-arsenal-paper-design.md) | Arsenal modal — paper design + info spec (design-first; epic WA-001) | S | 1 |
 | [WA-043](./WA-043-unit-stats-reference-doc.md) | Doc: full per-unit stats reference (weapons/HP/armor/speed/build) | M | 1 |
+| [WA-047](./WA-047-gameplay-clips.md) | Play + capture gameplay clips (every Reddit post needs one) | M | 4 (parallel) |
 
 ---
 
