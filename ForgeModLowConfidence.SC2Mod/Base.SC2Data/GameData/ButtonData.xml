@@ -385,6 +385,12 @@
         <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Column="1"/>
     </CButton>
+    <CButton id="ChitinousPlating3">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-chitinousplating.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-chitinousplating.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
     <CButton id="VoidRay">
         <HotkeyAlias value="Banshee"/>
     </CButton>

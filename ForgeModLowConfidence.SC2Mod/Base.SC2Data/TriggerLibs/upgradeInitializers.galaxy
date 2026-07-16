@@ -240,6 +240,10 @@ void initializeUpgrades() {
     addUpgradeToUpgrade("stalkerblinkrange", "stalkerblinkrange");
     addUpgradeRequirementTag("stalkerblinkrange", logicType_AnyOf, "unitTag", "Stalker");
 
+    // WA-023: Chitinous Plating -- Ultralisk armor. Now a rolled research (Armory slot 3) instead of a free start upgrade.
+    addUpgradeToUpgrade("ChitinousPlating", "ChitinousPlating");
+    addUpgradeRequirementTag("ChitinousPlating", logicType_AnyOf, "unitTag", "Ultralisk");
+
     addUpgradeToUpgrade("stalkerblinkcooldown", "stalkerblinkcooldown");
     addUpgradeRequirementTag("stalkerblinkcooldown", logicType_AnyOf, "unitTag", "Stalker");
 
@@ -295,8 +299,9 @@ void initializeUpgrades() {
 
 void grantInitialUpgrades(int player) {
     // some units need upgrades to not be terrible.
-    // ultralisk
-    grantUpgrade(player, "ChitinousPlating");
+    // ultralisk -- WA-023: Chitinous Plating is now a ROLLED research at the Armory (slot 3), not free.
+    // Registered in initializeUpgrades(). Leaving disabled here so Ultras must research it (and only when rolled).
+    // grantUpgrade(player, "ChitinousPlating");
     // grantUpgrade(player, "AnabolicSynthesis"); // playtest on 3/9 -- ultralisks seemed really strong. Removing this upgrade. 
     // increasing colossus range from 7 -> 9 doesn't seem completely essesntial, 
     // but I am trying to buff splash damage to counter deathball comps.

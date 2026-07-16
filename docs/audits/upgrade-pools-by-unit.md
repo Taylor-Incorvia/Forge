@@ -30,7 +30,7 @@ FACTORY
  s2  LurkerMP      [4]  Blink, LurkerRange, DiggingClaws, Stimpack
  s2  Goliath       [5]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile
  s3  ThorAP        [6]  Blink, D8Charge, Range, Speed, Stimpack, Yamato
- s3  Ultralisk     [6]  Blink, HotSRaptorCharge2, Range, Charge, Stimpack, Yamato
+ s3  Ultralisk     [7]  Blink, HotSRaptorCharge2, Range, Charge, Stimpack, Yamato, ChitinousPlating
  s3  Colossus      [6]  Blink, Range, Speed, Stimpack, Yamato, Hyperjump
 STARPORT
  s1  CorsairMP    [10]  ForceField, GuardianShield, GravitonBeam, MissilePods, Blink, Range, Speed, Stimpack, RavagerCorrosiveBile, Hyperjump
@@ -47,4 +47,4 @@ STARPORT
  s3  Battlecruiser [4]  Blink, Range, Speed, Stimpack
 ```
 
-_Note: current as of WA-032/WA-040. `RavagerCorrosiveBile` now excludes Marine / Hellion / Vulture / Immortal (too cheap or useless) and Archon / VoidRay / SiegeTank / LurkerMP (too expensive or useless). Also reflects Medic ✗Hyperjump and Ghost ✗Recall. WA-032: D8Charge now correctly reaches ThorAP + WarHound (tag-case fix); Battlecruiser no longer rolls Yamato (has it natively). WA-014: Stalker can roll stalkerblinkrange again. WA-025: Transfusion pulled off Starport s1 (Corsair/Phoenix/Wraith) — now Sentry/Medic only. WA-027: MissilePods now low-tier only — off Barracks s4 (Ghost/Infestor/HighTemplar) and Starport s3 (Raven/Viper)._
+_Note: current as of WA-032/WA-040. `RavagerCorrosiveBile` now excludes Marine / Hellion / Vulture / Immortal (too cheap or useless) and Archon / VoidRay / SiegeTank / LurkerMP (too expensive or useless). Also reflects Medic ✗Hyperjump and Ghost ✗Recall. WA-032: D8Charge now correctly reaches ThorAP + WarHound (tag-case fix); Battlecruiser no longer rolls Yamato (has it natively). WA-014: Stalker can roll stalkerblinkrange again. WA-025: Transfusion pulled off Starport s1 (Corsair/Phoenix/Wraith) — now Sentry/Medic only. WA-027: MissilePods now low-tier only — off Barracks s4 (Ghost/Infestor/HighTemplar) and Starport s3 (Raven/Viper). WA-023: Ultralisk can now roll ChitinousPlating (no longer a free start upgrade)._
