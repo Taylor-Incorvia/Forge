@@ -57,6 +57,14 @@
             </Button>
         </InfoArray>
     </CAbilResearch>
+    <!-- WA-041: gate the DuskWing's (campaign) cloak behind a research roll. Requirements="UseCloakingField"
+         counts the BansheeCloak upgrade, which the rolled BansheeCloak count upgrade grants. The On CmdButtonArray
+         override REPLACES the entry (per docs section 2), so DefaultButtonFace + Flags are re-declared here. -->
+    <CAbilBehavior id="DuskWingBansheeCloakingField">
+        <CmdButtonArray index="On" DefaultButtonFace="CloakOnBanshee" Requirements="UseCloakingField">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+    </CAbilBehavior>
     <CAbilResearch id="TempestRange3">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Activity value="UI/Training"/>

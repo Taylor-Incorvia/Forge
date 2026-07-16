@@ -5,7 +5,7 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 ---
 
 ## 🔨 In progress
-- [WA-020](./WA-020-decide-cloak-behavior.md) — Cloak as a rollable upgrade (Wraith/DuskWing/Ghost) + Wraith cost → 100/100; built, needs in-game test
+- [WA-041](./WA-041-duskwing-gate-cloak.md) — DuskWing cloak gated (nerf: cloak is now a roll, not free); built, needs in-game test
 
 ---
 
@@ -25,7 +25,6 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) | Remove unresearchable Tectonic Destabilizers button from Tempest card | S | 1 |
 | [WA-039](./WA-039-arsenal-paper-design.md) | Arsenal modal — paper design + info spec (design-first; epic WA-001) | S | 1 |
 | [WA-040](./WA-040-corrosive-bile-eligibility.md) | Restrict who can roll Corrosive Bile (currently ~everyone) | S | 1 |
-| [WA-041](./WA-041-duskwing-gate-cloak.md) | Nerf DuskWing: gate its cloak (make it a roll, not free) | S | 1 |
 
 ---
 
@@ -64,6 +63,7 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ---
 
 ## 🏁 Done
+- [WA-020](./WA-020-decide-cloak-behavior.md) — Cloak as a rollable upgrade: Wraith (cost→100/100, no start-cloak) + Ghost (card restored to stock) done; DuskWing gating → WA-041 · 2026-07-15
 - [WA-031](./WA-031-range-indicator-not-updating.md) — Range indicator fix: Tempest/SiegeTank Range → catalog count upgrades (`TempestRange`/`SiegeTankRange`, +2.5 to all their weapons); ring now tracks the upgrade · 2026-07-14
 - [WA-037](./WA-037-caster-native-abilities-on-g.md) — Caster natives reverted off G to stock defaults (ForceField→F, BlindingCloud→B, Transfusion→T, FungalGrowth→F); F_FungalGrowth verified still G · 2026-07-14
 - [WA-033](./WA-033-hotkey-collisions-fix.md) — Hotkey collision sweep (in-game, Standard profile): addon builds→X; Factory Stalker→F/Lurker→R/Archon→A; Starport Phoenix→E/VoidRay→G/DuskWing→F/Corsair→E. Overseer split → WA-036 · 2026-07-14

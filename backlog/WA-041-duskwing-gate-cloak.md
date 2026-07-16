@@ -1,11 +1,15 @@
 ---
 id: WA-041
-status: todo
+status: in-progress
 size: S
 phase: 1-game-readiness
 priority: 31
 ---
 # Nerf DuskWing: make cloak a roll instead of free (gate its cloak ability)
+
+## ✅ Implemented 2026-07-15 (pending in-game test)
+Overrode `DuskWingBansheeCloakingField` in `AbilData.xml` — added `Requirements="UseCloakingField"` to the `On` command (re-declaring `DefaultButtonFace="CloakOnBanshee"` + `Flags ToSelection`, since CmdButtonArray overrides replace the whole entry per docs §2). Confirmed `UseCloakingField` counts the `BansheeCloak` upgrade, which the rolled `BansheeCloak` count upgrade grants. So a fresh DuskWing starts **un**cloaked; cloak unlocks only after rolling + researching it.
+**Test:** build a DuskWing → confirm no cloak by default → roll + research `BansheeCloak` (Fusion Core s2) → confirm cloak now works. Also closes WA-020's dead-roll gap (the DuskWing `BansheeCloak` roll now does something).
 
 ## Why
 The DuskWing is over-strong right now, and **free cloak is a big part of it**. It's been the deciding factor across multiple games; it's so obviously optimal that a brand-new player massed cloaked DuskWings unprompted, both games. The user sometimes refuses to use its cloak because it feels too strong. Making cloak a **roll** (not guaranteed) reins it in.

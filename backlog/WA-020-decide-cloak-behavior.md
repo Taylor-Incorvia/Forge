@@ -1,6 +1,6 @@
 ---
 id: WA-020
-status: in-progress
+status: done
 size: S
 phase: 1-game-readiness
 priority: 14
