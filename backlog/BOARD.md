@@ -5,6 +5,7 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 ---
 
 ## 🔨 In progress
+- [WA-024](./WA-024-ghost-academy-nuke.md) — Nuke diagnosed: `TrainNuke` Use node had a stale **Factory** requirement blocking the silo-arm. Removed it (gates now: Ghost rolled + no nuke armed). Abilities/buttons verified intact. **PR open — needs a published test** of the full arm→calldown→detonate loop + Ghost Academy card button rendering.
 - [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) — Tectonic Destabilizers (`TempestGroundAttackUpgrade`) passive button hidden via a Show-node requirement override (index-independent). **Merged to main (PR #2)** — one open AC: eyeball the Tempest card in-game to confirm it's gone + nothing else disturbed.
 - [WA-014](./WA-014-verify-stalker-blink-range.md) — stalker blink range re-enabled in galaxy (root cause: first push missed the `PlacementRange` line; data complete since b40c4e6). **Awaiting production test** — roll it onto a Stalker, confirm range grows.
 
@@ -15,7 +16,6 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 
 | ID | Ticket | Size | Phase |
 |----|--------|------|-------|
-| [WA-024](./WA-024-ghost-academy-nuke.md) | Enable nuke (Ghost Academy arms, Ghost fires) | M | 1 |
 | [WA-044](./WA-044-transfuse-targeting.md) | Transfuse should heal (almost) any unit — kill the Biological target gate | S | 1 |
 | [WA-045](./WA-045-editor-caching-settings.md) | Investigate if editor Documents-prefs settings fix the caching pain | S | 1 |
 | [WA-036](./WA-036-overseer-hotkey.md) | Overseer hotkey won't render (cursed F_Blink class) | S | 1 |
