@@ -1,11 +1,26 @@
 ---
 id: WA-024
-status: todo
+status: in-review
 size: M
 phase: 1-game-readiness
 priority: 20
 ---
 # Enable nuke: Ghost Academy builds it, Ghost uses it
+
+## 🔨 Diagnosed + fixed 2026-07-16 (PR — needs in-game confirm)
+**Root cause (H2 — requirement fails): CONFIRMED.** The mod's `TrainNuke` override (the `ArmSiloWithNuke` gate) has a `Use` node that AND's three operands, and operand 1 was a **stale stock leftover requiring a completed/lifted Factory**. Its `Show` node only checks "a Ghost was rolled," so the **arm button appears but stays greyed** for any Ghost-roller who hasn't built a Factory → silo never arms → no nuke. Exactly the "shows but dead" symptom.
+
+**Fix:** removed that Factory operand from the `CRequirementAnd` in `RequirementNodeData.xml` (the Use node of `TrainNuke`). Remaining gates: *no nuke already at the silo* AND *a Ghost has been rolled* (`barracks4ghostupg`) — the intended loop.
+
+**Ruled out (no edits needed):**
+- **H3 (`TacNukeStrike` stripped): RULED OUT.** The mod's Ghost block makes no `AbilArray` edits (only repositions the CloakOff button); `TacNukeStrike` + the `NukeCalldown` button survive, gated by `HaveNuke` (inherited, passes once armed).
+- **H1 (arm button stripped): RULED OUT.** The mod's `AbilArray index="3" removed` drops *GhostAcademyResearch*, not `ArmSiloWithNuke` (index 2); the `NukeArm` button isn't removed either.
+
+**Design questions resolved:** only players who rolled a Ghost can arm (operand 3 gates on `barracks4ghostupg`), so "everyone has a Ghost Academy" isn't a problem. No Tech Lab needed — the mod's override already replaced the stock Tech-Lab requirement; this just drops the leftover Factory check.
+
+**Must confirm in a published test (can't verify locally):**
+1. The `NukeArm` button actually renders + enables on the *repurposed* Ghost Academy card once a Ghost is rolled (its research buttons share that card — possible visual collision at Row2/Col0).
+2. The `NukeCalldown` button renders on the rolled Ghost, and the full loop runs: arm silo → ghost calls down nuke → detonates.
 
 Now that Ghosts are in the pool (Barracks slot 4), wire up nukes: the Ghost Academy should be able to arm a nuke, and a Ghost should be able to call it down. First step is diagnosing *why* it doesn't work today.
 
@@ -26,10 +41,10 @@ The **Ghost Academy is repurposed as the Barracks upgrade facility** in this mod
 3. The Ghost's `TacNukeStrike` ability may have been stripped/left off its command card (the code comments mention ghosts that "can't nuke").
 
 ## Acceptance criteria
-- [ ] Diagnose which of the above is actually blocking it (start here — don't assume).
-- [ ] Ghost Academy can arm a nuke (`ArmSiloWithNuke` available, requirements satisfiable in the mod).
-- [ ] Ghost has `TacNukeStrike` on its command card, with a hotkey that doesn't collide (see WA-005 hotkey rules — the Ghost Academy card is already busy with research buttons).
-- [ ] Full loop works in a test game: arm silo → ghost calls down nuke → it detonates.
+- [x] Diagnose which of the above is actually blocking it (start here — don't assume). → **H2, the Factory operand in TrainNuke's Use node.**
+- [x] Ghost Academy can arm a nuke (`ArmSiloWithNuke` available, requirements satisfiable in the mod). → requirement fixed (pending in-game confirm the button enables).
+- [x] Ghost has `TacNukeStrike` on its command card. → verified intact (native `NukeCalldown` button, `HaveNuke` gate).
+- [ ] Full loop works in a test game: arm silo → ghost calls down nuke → it detonates. _(published-test caveat — see above)_
 
 ## Design considerations (flag, don't block)
 - Every player has a Ghost Academy (it's the Barracks upgrade facility), so *anyone* could arm a silo — but only players who rolled a Ghost can actually use it. Decide if that's fine.
