@@ -18,11 +18,13 @@ priority: 20
 
 **Design questions resolved:** only players who rolled a Ghost can arm (operand 3 gates on `barracks4ghostupg`), so "everyone has a Ghost Academy" isn't a problem. No Tech Lab needed — the mod's override already replaced the stock Tech-Lab requirement; this just drops the leftover Factory check.
 
-**Card collision found + fixed 2026-07-16 (during in-game test — the arm button really didn't show):** stock `NukeArm` (card index 3) is at **Row 0 Col 0**, and the mod's trigger-injected rolled-upgrade research buttons occupy **Row 0 Cols 0–3** — so an upgrade button covered it. **Fix:** repositioned `NukeArm` to the free **Row 2 Col 0** in the `GhostAcademy` `CardLayouts` (`UnitData.xml`).
+**Card collision found 2026-07-16 (in-game test — arm button didn't show):** stock `NukeArm` (card index 3) is at **Row 0 Col 0**, and the mod's trigger-injected rolled-upgrade research buttons occupy **Row 0 Cols 0–3** — so an upgrade button covered it. **Attempted fix:** repositioned `NukeArm` to the free **Row 2 Col 0** in the `GhostAcademy` `CardLayouts` (`UnitData.xml`).
 
-**Still to confirm in-game (re-test):**
-1. Arm button now visible + enabled at Row 2 Col 0 on the Ghost Academy card.
-2. `NukeCalldown` renders on the rolled Ghost, and the full loop runs: arm silo → ghost calls down nuke → detonates.
+**Re-test still showed no arm button locally (2026-07-16).** Two remaining hypotheses:
+1. **Local Test Document card cache** — the change is correct but the local editor isn't re-rendering the Ghost Academy card (the "publish to verify" class). Would work on a published build. → tied to **[WA-045](./WA-045-editor-caching-settings.md)**; retest locally after messing with the Test-Document editor settings.
+2. **Trigger rebuilds the card** — the card-injection trigger reconstructs the Ghost Academy command card at runtime and drops static `LayoutButtons`, so the reposition never takes effect (even on prod). If prod also shows no button, the arm button must be added via the card-injection **trigger** (galaxy), not static `CardLayouts`.
+
+**Deferred to a production test** (per user, 2026-07-16): the Ghost rolls ~1 in 3, so it's easy to hit on prod without rigging RNG. The **requirement fix** (Factory operand removed) and the **card reposition** are both committed in PR #4. Verify on the next deploy; if the button still doesn't render, pursue hypothesis 2 (trigger-side button add). Revisit local testability after WA-045.
 
 Now that Ghosts are in the pool (Barracks slot 4), wire up nukes: the Ghost Academy should be able to arm a nuke, and a Ghost should be able to call it down. First step is diagnosing *why* it doesn't work today.
 
