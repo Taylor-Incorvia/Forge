@@ -21,8 +21,8 @@
         <PeriodCount value="180"/>
     </CEffectCreatePersistent>
     <CEffectDamage id="HurricaneMissileDamage">
-        <AttributeBonus index="Light" value="0"/>  <!-- WA-027: explicitly zero the Light bonus (base campaign is +5) so it doesn't bleed through the catalog merge -->
-        <Amount value="6"/>  <!-- WA-027: 6 x 10 missiles = 60 flat vs all air. Kept flat so it stays useful vs heavy/armored air late game. -->
+        <AttributeBonus index="Light" value="0"/>
+        <Amount value="6"/>
     </CEffectDamage>
     <CEffectDamage id="KD8ChargeExplodeDamage">
         <Amount value="12"/>

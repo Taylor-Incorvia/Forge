@@ -168,10 +168,6 @@
         <OperandArray value="GTECountUpgradestarport2voidrayupgCompleteOnly1"/>
         <OperandArray value="CountUnitFusionCoreCompleteOnly"/>
     </CRequirementAnd>
-    <!-- WA-024: this AND is the Use node of the mod's TrainNuke override (the Ghost Academy's ArmSiloWithNuke gate).
-         Removed the first operand (a stale stock leftover that required a completed/lifted Factory) so a Ghost-roller
-         can arm the silo without a Factory. Remaining gates: no nuke already at the silo, AND a Ghost has been rolled
-         (barracks4ghostupg) -- so only players who rolled a Ghost can arm, which is the intended design. -->
     <CRequirementAnd id="AndOr96167438CountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOnly1718561093TechTreeCheatCountUnitFactoryCompleteOnly96167438TechTreeCheatCountUnitFactoryFlyingCompleteOn839427818">
         <OperandArray value="Not866976074CountUnitNukeQueuedOrBetterAtUnit"/>
         <OperandArray value="CountUpgradebarracks4ghostupgCompleteOnly"/>

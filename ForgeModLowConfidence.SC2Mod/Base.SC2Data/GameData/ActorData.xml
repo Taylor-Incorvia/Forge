@@ -67,11 +67,6 @@
         <On Terms="ActorCreation" Send="AnimPlay Attack Attack"/>
         <Model value="Invisible"/>
     </CActorMissile>
-    <!-- WA-026: make the stim flash fire for F_Stimpack (the rolled stim), not just native Stimpack.
-         Stock StimpackStartImpact only listens for Abil.Stimpack.SourceCastStart; F_Stimpack casts fire
-         Abil.F_Stimpack.SourceCastStart, so this appends that trigger. Marines keep their native flash;
-         any unit that rolls stim now gets the visual too. (End flash keys on Behavior.Stimpack.Off, which
-         F_Stimpack already fires, so only the start flash needed fixing.) -->
     <CActorModel id="StimpackStartImpact">
         <On Terms="Abil.F_Stimpack.SourceCastStart" Send="Create"/>
     </CActorModel>
