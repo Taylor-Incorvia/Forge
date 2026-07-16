@@ -16,7 +16,9 @@ Split from WA-025 (which decided *eligibility* — Transfuse now rolls on Sentry
 1. **A `Biological` validator on the inherited heal effect chain** (`TransfusionImpactSet` → its heal effect). That effect isn't in the mod's `EffectData.xml` or `reference/`, so it can only be seen/edited via the **SC2 Editor's merged view** — open the `Transfusion` effect, find the `ValidatorArray` entry that requires Biological, and remove it (or override the heal effect in the mod's `EffectData.xml` to clear it).
 2. **Editor command/ability cache** (WA-045) — less likely for an ability filter, but the `TargetFilters` override may not have taken effect locally. Rule out with a clean rebuild before assuming #1.
 
-The merged `TargetFilters` override is a correct partial step (harmless) — left in place. This ticket now needs the **editor merged-view validator hunt**, which is a hands-on-editor task. Parked back in `todo`.
+**Decision 2026-07-16 (user):** since the gate makes Transfuse useful on only a small subset of units, **pull the rolled `F_Transfusion` from the upgrade pool for V1** so it can't be rolled as a dead-ish upgrade. Done in `upgradeInitializers.galaxy` (registration commented out; Sentry/Medic no longer roll it — doc updated). Also **reverted** the dead native-`Transfusion` TargetFilters override (the Queen keeps its stock bio-only Transfusion — fine for V1). Re-enable the roll once the bio validator is actually removed.
+
+This ticket now needs the **editor merged-view validator hunt** to truly kill the bio gate — a hands-on-editor task. Parked in `todo`.
 
 ## What I found (static trace, 2026-07-16)
 - **Ability layer is already clean.** `F_Transfusion` (`AbilData.xml`) `TargetFilters = "Visible;Self,Neutral,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden,Invulnerable"`. Format is `required;excluded` → the **only requirement is `Visible`** (plus allies-only). **No `Biological` requirement.** Stock SC2 gates Transfuse to Biological right here; this mod already removed it. There is also no `ValidatorArray` on the ability.

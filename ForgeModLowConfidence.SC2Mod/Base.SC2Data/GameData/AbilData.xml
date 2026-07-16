@@ -1764,7 +1764,6 @@
         </CmdButtonArray>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="Transfusion">
-        <TargetFilters value="Visible;Self,Neutral,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden,Invulnerable"/>
         <CmdButtonArray index="Execute" Requirements=""/>
     </CAbilEffectTarget>
     <CAbilResearch id="Transfusion1">

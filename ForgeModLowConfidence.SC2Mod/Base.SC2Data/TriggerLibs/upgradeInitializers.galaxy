@@ -102,12 +102,15 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("SeekerMissile", logicType_AnyOf, "unitTag", starport +"3");
     addUpgradeRequirementTag("SeekerMissile", logicType_AnyOf, "unitTag", rax +"4");
 
-    addAbilityToUpgrade("Transfusion", "F_Transfusion");
-    addUpgradeRequirementTag("Transfusion", logicType_AllOf, "unitTag", "caster");
-    addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", starport +"1"); // WA-025: off the Starport s1 fliers (Corsair/Phoenix/Wraith)
-    addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", starport +"3"); // this isn't exciting enough for slot 3
-    addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", rax +"4");
-    addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", "Queen"); // Queen already has this ability (queen not added yet)
+    // WA-044: Transfuse pulled from the rollable pool for V1 -- the bio-only target gate (a validator on the
+    // inherited heal effect) makes it a bad roll (useful on only a small subset of units). Re-enable if/when the
+    // bio gate is removed via the editor merged-view. The Queen keeps its native Transfusion (bio-only, fine for V1).
+    // addAbilityToUpgrade("Transfusion", "F_Transfusion");
+    // addUpgradeRequirementTag("Transfusion", logicType_AllOf, "unitTag", "caster");
+    // addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", starport +"1");
+    // addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", starport +"3");
+    // addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", rax +"4");
+    // addUpgradeRequirementTag("Transfusion", logicType_NoneOf, "unitTag", "Queen");
 
     addAbilityToUpgrade("Yoink", "F_Yoink");
     addUpgradeRequirementTag("Yoink", logicType_AllOf, "unitTag", "caster");

@@ -13,8 +13,8 @@ BARRACKS
  s2  Queen        [10]  CorsairMPDisruptionWeb, ForceField, GuardianShield, GravitonBeam, MissilePods, Blink, Range, Speed, Stimpack, RavagerCorrosiveBile
  s3  Firebat       [5]  Blink, HotSRaptorCharge2, Speed, Stimpack, RavagerCorrosiveBile
  s3  Marauder      [5]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile
- s3  Sentry        [4]  CorsairMPDisruptionWeb, GravitonBeam, MissilePods, Transfusion
- s3  Medic         [6]  CorsairMPDisruptionWeb, ForceField, GuardianShield, GravitonBeam, MissilePods, Transfusion
+ s3  Sentry        [3]  CorsairMPDisruptionWeb, GravitonBeam, MissilePods
+ s3  Medic         [5]  CorsairMPDisruptionWeb, ForceField, GuardianShield, GravitonBeam, MissilePods
  s4  Ghost        [15]  BlindingCloud, BuildAutoTurret, CorsairMPDisruptionWeb, FungalGrowth, Irradiate, NeuralParasite, ParasiticBomb, RavenScramblerMissile, SeekerMissile, Yoink, Blink, Range, Speed, Stimpack, PersonalCloaking
  s4  Infestor      [9]  ArbiterMPRecall, BlindingCloud, BuildAutoTurret, CorsairMPDisruptionWeb, Irradiate, ParasiticBomb, RavenScramblerMissile, SeekerMissile, Yoink
  s4  HighTemplar  [11]  ArbiterMPRecall, BlindingCloud, BuildAutoTurret, CorsairMPDisruptionWeb, FungalGrowth, Irradiate, NeuralParasite, ParasiticBomb, RavenScramblerMissile, SeekerMissile, Yoink
@@ -47,4 +47,4 @@ STARPORT
  s3  Battlecruiser [4]  Blink, Range, Speed, Stimpack
 ```
 
-_Note: current as of WA-032/WA-040. `RavagerCorrosiveBile` now excludes Marine / Hellion / Vulture / Immortal (too cheap or useless) and Archon / VoidRay / SiegeTank / LurkerMP (too expensive or useless). Also reflects Medic ✗Hyperjump and Ghost ✗Recall. WA-032: D8Charge now correctly reaches ThorAP + WarHound (tag-case fix); Battlecruiser no longer rolls Yamato (has it natively). WA-014: Stalker can roll stalkerblinkrange again. WA-025: Transfusion pulled off Starport s1 (Corsair/Phoenix/Wraith) — now Sentry/Medic only. WA-027: MissilePods now low-tier only — off Barracks s4 (Ghost/Infestor/HighTemplar) and Starport s3 (Raven/Viper). WA-023: Ultralisk can now roll ChitinousPlating (no longer a free start upgrade)._
+_Note: current as of WA-032/WA-040. `RavagerCorrosiveBile` now excludes Marine / Hellion / Vulture / Immortal (too cheap or useless) and Archon / VoidRay / SiegeTank / LurkerMP (too expensive or useless). Also reflects Medic ✗Hyperjump and Ghost ✗Recall. WA-032: D8Charge now correctly reaches ThorAP + WarHound (tag-case fix); Battlecruiser no longer rolls Yamato (has it natively). WA-014: Stalker can roll stalkerblinkrange again. WA-025: Transfusion pulled off Starport s1 (Corsair/Phoenix/Wraith) — now Sentry/Medic only. WA-027: MissilePods now low-tier only — off Barracks s4 (Ghost/Infestor/HighTemplar) and Starport s3 (Raven/Viper). WA-023: Ultralisk can now roll ChitinousPlating (no longer a free start upgrade). WA-044: Transfusion pulled from the rollable pool entirely for V1 (bio-only gate makes it a bad roll) — Sentry/Medic no longer roll it; Queen keeps its native (bio-only) Transfusion._
