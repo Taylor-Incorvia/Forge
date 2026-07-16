@@ -21,7 +21,6 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) | Remove unresearchable Tectonic Destabilizers button from Tempest card | S | 1 |
 | [WA-039](./WA-039-arsenal-paper-design.md) | Arsenal modal — paper design + info spec (design-first; epic WA-001) | S | 1 |
 | [WA-048](./WA-048-colossus-thermal-lance-tooltip.md) | Tooltip: Colossus starts with Extended Thermal Lance (9 range) | S | 1 |
-| [WA-043](./WA-043-unit-stats-reference-doc.md) | Doc: full per-unit stats reference (weapons/HP/armor/speed/build) | M | 1 |
 | [WA-047](./WA-047-gameplay-clips.md) | Play + capture gameplay clips (every Reddit post needs one) | M | 4 (parallel) |
 
 ---
@@ -65,6 +64,7 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ---
 
 ## 🏁 Done
+- [WA-043](./WA-043-unit-stats-reference-doc.md) — New `docs/audits/unit-stats.md`: merged per-unit stats (cost/supply/build/HP/shields/armor/speed/weapons+DPS) for all ~34 units, `(MOD)` flags + override summary + game-speed caveat · 2026-07-16
 - [WA-006](./WA-006-update-mod-description.md) — Rewrote the in-client mod description (`DocInfo/DescLong`): hook-first, roll-and-adapt pitch, "not chaos" reassurance, Discord link; dropped the stale "PICK TERRAN (P/Z don't work)" line · 2026-07-16 (PR)
 - [WA-023](./WA-023-chitinous-plating-researchable.md) — Ultralisk nerf: Chitinous Plating no longer free — now a rolled count-upgrade at the Armory (slot 3, +2 armor). Full recipe wired (galaxy/AbilData/ButtonData/GameStrings) · 2026-07-16
 - [WA-027](./WA-027-missilepods-tier.md) — MissilePods → low-tier only (off Barracks s4 + Starport s3); Light bonus removed → flat 60 to all air (explicit `Light=0` so base +5 doesn't bleed through). Anti-air burst, 10 missiles × 6 · 2026-07-16

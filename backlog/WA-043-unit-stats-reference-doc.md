@@ -1,11 +1,16 @@
 ---
 id: WA-043
-status: todo
+status: done
 size: M
 phase: 1-game-readiness
 priority: 33
 ---
 # Documentation: full per-unit stats reference
+
+## ✅ Done 2026-07-16 (PR)
+Created `docs/audits/unit-stats.md` covering **all ~34 rollable units** across every facility/slot: cost (M/G/supply), build time, life/shields/armor, move speed, and every weapon (damage + bonus, period, range, air/ground, computed DPS). Merged from ForgeMod overrides + Liberty campaign / Void / VoidMulti base, with `(MOD)` flags on every custom value and a "Mod-overridden values" summary. Game-speed caveat noted (catalog periods → ×1.4 on Faster).
+
+Two data caveats surfaced and documented: (1) the **Immortal** catalog has flat 20 dmg with no `+Armored` bonus in any layer; (2) a few missile weapons (Corsair/Wraith/Liberator) store range on the launch effect, not the CWeapon.
 
 ## Goal
 A single reference doc listing the **effective (merged) stats for every rollable unit** — so balance decisions (and eventually player-facing docs) don't require re-deriving numbers from the catalogs each time.
@@ -33,10 +38,10 @@ Flag each mod-overridden value so future edits know what's custom (mod-repriced 
 - Multi-form units (Siege Tank, Viking, Lurker) — pick the relevant combat form and say which.
 
 ## Acceptance criteria
-- [ ] `docs/audits/unit-stats.md` covers every unit in the slot pools with all fields above.
-- [ ] Mod-overridden values are flagged vs base.
-- [ ] Game-speed caveat stated; DPS computed consistently.
-- [ ] Linked from the other audit docs / board where appropriate.
+- [x] `docs/audits/unit-stats.md` covers every unit in the slot pools with all fields above.
+- [x] Mod-overridden values are flagged vs base.
+- [x] Game-speed caveat stated; DPS computed consistently.
+- [x] Linked from the other audit docs / board where appropriate.
 
 ## Notes
 A big chunk of this was already extracted 2026-07-15 for the Queen/Wraith comparison (Barracks s2 + Starport s1 + Mutalisk) — reuse those numbers as the first rows. Size M mostly because it's ~30 units × several catalogs. Feeds Phase 2 "Unit list" docs later.
