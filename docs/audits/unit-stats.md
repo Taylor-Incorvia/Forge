@@ -2,7 +2,9 @@
 
 Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time changes. Companion to [`upgrade-pools-by-unit.md`](./upgrade-pools-by-unit.md) (who can roll what) and [`unit-costs.md`](./unit-costs.md).
 
-> **Reading these numbers:** all values are merged from two layers — the **ForgeMod** override files (authoritative when present) and the **base game** (voidmulti = LotV multiplayer, authoritative; Wraith/Firebat/Medic/Vulture/Diamondback/Goliath/DuskWing from the Liberty campaign; CorsairMP/WarHound from Void). **`(MOD)`** marks a value set in ForgeMod's own GameData; everything else is base. Weapon **Period** values are **pre-game-speed catalog** numbers — on multiplayer "Faster" effective DPS is roughly **×1.4** higher than the catalog DPS shown here. Armor defaults to 0 when `LifeArmor` is unset. Shields listed only for Protoss.
+> **Reading these numbers:** all values are merged from two layers — the **ForgeMod** override files (authoritative when present) and the **base game** (voidmulti = LotV multiplayer, authoritative; Wraith/Firebat/Medic/Vulture/Diamondback/Goliath/DuskWing from the Liberty campaign; CorsairMP/WarHound from Void). **`(MOD)`** marks a value set in ForgeMod's own GameData; everything else is base.
+>
+> **Speed of these numbers — read this:** **every time and DPS below is a standard-speed catalog value** (what the editor shows). Multiplayer runs on **"Faster" (≈ ×1.4 game speed)**, so in the actual game: **build times are shorter — roughly `listed ÷ 1.4`** (a listed 30.8s ≈ 22s real), and **weapon DPS is higher — roughly `listed × 1.4`** (weapon Periods are catalog, so attacks come faster). Armor defaults to 0 when `LifeArmor` is unset. Shields listed only for Protoss.
 
 ---
 
@@ -103,7 +105,7 @@ Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time ch
 - Build: **21s (MOD)**
 - Life 75 | Armor 1 | Speed 4.25 | Attributes: Light, Mechanical
 - Weapon — Vulture (ground): 10 dmg **(+10 vs Light — MOD; campaign base is +15)** ×1, period 1.694, range 6 → **DPS 5.9 (11.8 vs Light)**
-- *Also lays Spider Mines (KD8/D8 charge, 12 dmg — mod EffectData).*
+- *Has a native **KD8 Charge** — a thrown grenade (12 dmg, `KD8ChargeExplodeDamage` in mod `EffectData`; button on the card). **Not** a spider mine: the mod removes the mine — there are no traps anywhere in the mod.*
 
 **Hellion**
 - Cost: 100 min / 0 gas — Supply 2 (base)
@@ -184,7 +186,8 @@ Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time ch
 - Cost: 300 min / 200 gas — Supply 6 (base)
 - Build: **67.2s (MOD)**
 - Life 250 | Shields 100 | Armor 1 (base voidmulti; liberty was 200/150) | Speed 2.25 | Attributes: Armored, Mechanical, Massive
-- Weapon — ThermalLances (ground only, line splash): 10 dmg (+5 vs Light) ×2, period 1.5, range 7 → **DPS 13.3 (20.0 vs Light)**
+- Weapon — ThermalLances (ground only, line splash): 10 dmg (+5 vs Light) ×2, period 1.5, range **9 (MOD)** → **DPS 13.3 (20.0 vs Light)**
+- *Note: mod grants **Extended Thermal Lance** at spawn (+2 weapon range, base 7 → 9), like the Ultralisk's AnabolicSynthesis. No in-mod tooltip flags this yet → WA-048.*
 
 ---
 
@@ -291,11 +294,13 @@ Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time ch
 **Unit stats / behaviors (ForgeMod):**
 - **Queen** — Speed → **1.8984** (`UnitData.xml`)
 - **Ultralisk** — spawns with **AnabolicSynthesis** (speed 2.9531 → ~3.375), granted via upgrade/trigger init
+- **Colossus** — spawns with **Extended Thermal Lance** (weapon range 7 → 9), granted via trigger init
+- **Vulture** — spider mine removed; gains a native **KD8 Charge** thrown grenade (`AbilArray Link="KD8Charge"` + card button)
 
 **Weapon-effect overrides (ForgeMod `EffectData.xml`):**
 - **Vulture** (`VultureU`) — Light bonus **+15 → +10** (10 base dmg unchanged)
 - **DuskWing** (`HurricaneMissileDamage`) — anti-air missile → **6 dmg**, Light bonus zeroed (6 × 10 missiles = 60 flat vs air)
-- *(Also Vulture KD8 mine `KD8ChargeExplodeDamage` = 12.)*
+- **Vulture** native **KD8 Charge** thrown grenade (`KD8ChargeExplodeDamage` = 12) — replaces the removed spider mine (mod has no traps).
 
 **Build times (ForgeMod `AbilData.xml` train InfoArrays) — MOD unless noted:**
 - Barracks: Zergling 5.6, Zealot 21, Hydralisk 26, Marine 15, Queen 32, Firebat 21, Marauder 28, Sentry 21, Medic 26.6, Infestor 37.8, HighTemplar 42; **Ghost 40 = base fallback**
