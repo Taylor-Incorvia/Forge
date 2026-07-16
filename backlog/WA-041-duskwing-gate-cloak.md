@@ -14,6 +14,14 @@ Overrode `DuskWingBansheeCloakingField` in `AbilData.xml` — added `Requirement
 ## Why
 The DuskWing is over-strong right now, and **free cloak is a big part of it**. It's been the deciding factor across multiple games; it's so obviously optimal that a brand-new player massed cloaked DuskWings unprompted, both games. The user sometimes refuses to use its cloak because it feels too strong. Making cloak a **roll** (not guaranteed) reins it in.
 
+## Refinement (2026-07-15): cloak button Show/Use gating
+The cloak-on button showed (grayed) on every DuskWing/Wraith even without cloak — bad clarity. Added Show+Use requirements so it's **hidden until cloak research is queued, grayed while researching, enabled when complete**:
+- `Forge_BansheeCloakShowUse` / `Forge_WraithCloakShowUse` (RequirementData): Show = `QueuedOrBetter`, Use = `CompleteOnly`.
+- Applied to `DuskWingBansheeCloakingField` + `WraithCloak` ability On commands (AbilData overrides).
+
+**Gap vs the exact ideal** ("grayed the instant it's rolled"): "rolled" is stored as a galaxy DataTable string, not a data-checkable upgrade, so a `CRequirement` can't see it — it grays when research is *queued*, not rolled. The exact ideal would need a **marker upgrade granted on roll** (the reverted static-pre-declaration territory) → separate ticket if wanted.
+**Alternative** for "fully hidden until researched, no grayed state": change the Show node `QueuedOrBetter → CompleteOnly`.
+
 ## Root cause (found during WA-020 testing)
 The DuskWing is the **campaign** unit, using its own cloak ability **`DuskWingBansheeCloakingField`**, whose `On` command has **no research requirement** → free cloak. It does NOT use the MP `BansheeCloak` ability — which is why the `BansheeCloak` count upgrade (added in WA-020) currently does nothing for it.
 

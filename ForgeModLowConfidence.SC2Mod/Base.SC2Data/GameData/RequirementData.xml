@@ -249,4 +249,14 @@
         <NodeArray index="Use" Link="AndCountUnitStarportTechReactorCompleteOnlyAtUnit3842314283TechTreeCheatGTECountUpgradestarport3battlecruiserupgCompleteOnly1"/>
         <NodeArray index="Show" Link="GTECountUpgradestarport3battlecruiserupgCompleteOnly1"/>
     </CRequirement>
+    <!-- WA-041 refinement: cloak button shows (grayed) once cloak research is queued, and is usable when complete;
+         hidden otherwise. Show = BansheeCloak QueuedOrBetter, Use = BansheeCloak CompleteOnly. -->
+    <CRequirement id="Forge_BansheeCloakShowUse">
+        <NodeArray index="Show" Link="CountUpgradeBansheeCloakQueuedOrBetter"/>
+        <NodeArray index="Use" Link="CountUpgradeBansheeCloakCompleteOnly758801471TechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="Forge_WraithCloakShowUse">
+        <NodeArray index="Show" Link="CountUpgradeWraithCloakQueuedOrBetter"/>
+        <NodeArray index="Use" Link="CountUpgradeWraithCloakCompleteOnly"/>
+    </CRequirement>
 </Catalog>
