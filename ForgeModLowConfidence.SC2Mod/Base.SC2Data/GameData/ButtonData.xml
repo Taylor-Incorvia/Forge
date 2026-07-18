@@ -403,6 +403,12 @@
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Column="2"/>
     </CButton>
+    <CButton id="ConcussiveVoidRay2">
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
     <CButton id="VoidRay">
         <HotkeyAlias value="Banshee"/>
     </CButton>

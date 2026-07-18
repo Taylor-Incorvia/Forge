@@ -257,6 +257,11 @@ void initializeUpgrades() {
     addUpgradeToUpgrade("PunisherGrenades", "PunisherGrenades");
     addUpgradeRequirementTag("PunisherGrenades", logicType_AnyOf, "unitTag", "Marauder");
 
+    // WA-034 slice 2: Concussive on the VoidRay (custom -- its weapon periodic set now fires an apply-Slow
+    // gated by the ConcussiveVoidRay marker upgrade). VoidRay = Starport slot 2.
+    addUpgradeToUpgrade("ConcussiveVoidRay", "ConcussiveVoidRay");
+    addUpgradeRequirementTag("ConcussiveVoidRay", logicType_AnyOf, "unitTag", "VoidRay");
+
     addUpgradeToUpgrade("stalkerblinkcooldown", "stalkerblinkcooldown");
     addUpgradeRequirementTag("stalkerblinkcooldown", logicType_AnyOf, "unitTag", "Stalker");
 

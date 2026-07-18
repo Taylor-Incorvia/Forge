@@ -725,4 +725,7 @@
         <OperandArray value="CountUnitFusionCoreCompleteOnly"/>
         <OperandArray value="CountUnitGhostAcademyCompleteOnly"/>
     </CRequirementOr>
+    <CRequirementCountUpgrade id="CountUpgradeConcussiveVoidRayCompleteOnly">
+        <Count Link="ConcussiveVoidRay" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
 </Catalog>

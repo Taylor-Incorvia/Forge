@@ -17,4 +17,9 @@
         <Compare value="LT"/>
         <Range value="4"/>
     </CValidatorLocationCompareRange>
+    <CValidatorPlayerRequirement id="VoidRayConcussiveResearched">
+        <ResultNoPlayer value="Error"/>
+        <Find value="1"/>
+        <Value value="UseConcussiveVoidRay"/>
+    </CValidatorPlayerRequirement>
 </Catalog>

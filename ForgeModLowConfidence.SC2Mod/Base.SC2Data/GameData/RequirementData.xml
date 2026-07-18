@@ -261,4 +261,7 @@
         <NodeArray index="Show" Link="CountUpgradeTempestGroundAttackUpgradeCompleteOnly788113278"/>
         <NodeArray index="Use" Link="CountUpgradeTempestGroundAttackUpgradeCompleteOnly788113278"/>
     </CRequirement>
+    <CRequirement id="UseConcussiveVoidRay">
+        <NodeArray index="Use" Link="CountUpgradeConcussiveVoidRayCompleteOnly"/>
+    </CRequirement>
 </Catalog>

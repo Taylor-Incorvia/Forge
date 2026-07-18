@@ -24,6 +24,15 @@
         <AttributeBonus index="Light" value="0"/>
         <Amount value="6"/>
     </CEffectDamage>
+    <CEffectApplyBehavior id="VoidRayConcussiveSlow">
+        <ValidatorArray index="0" value="VoidRayConcussiveResearched"/>
+        <ValidatorArray value="NotStructure"/>
+        <ValidatorArray value="NotFrenzied"/>
+        <Behavior value="Slow"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="VoidRayWeaponPeriodicSet">
+        <EffectArray index="3" value="VoidRayConcussiveSlow"/>
+    </CEffectSet>
     <CEffectDamage id="KD8ChargeExplodeDamage">
         <Amount value="12"/>
     </CEffectDamage>

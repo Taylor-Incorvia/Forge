@@ -125,6 +125,9 @@
         <EffectArray Reference="Effect,GuassRifle,LeechFraction[Life]" Value="0.15"/>
         <AffectedUnitArray value="Marine"/>
     </CUpgrade>
+    <CUpgrade id="ConcussiveVoidRay">
+        <EditorCategories value="Race:Protoss"/>
+    </CUpgrade>
     <CUpgrade id="SiegeTankRange">
         <EditorCategories value="Race:Terran"/>
         <EffectArray Reference="Weapon,90mmCannons,Range" Value="2.5"/>
