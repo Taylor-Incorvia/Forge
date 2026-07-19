@@ -96,6 +96,11 @@ string getUpgradeFamilyKey(string upgradeId) {
 }
 
 void setUpgradeFamily(string upgradeId, string familyName) {
+    // Dev guard: a family should only be set on an upgrade that's actually registered to the roll pool.
+    // (Same spirit as addAbilityToUpgrade warning when an ability doesn't start with F_.)
+    if (!stringListExists(allUpgradesListKey) || !stringListContains(allUpgradesListKey, upgradeId)) {
+        showMessage("Warning:: setUpgradeFamily for upgrade not registered to allUpgrades :: " + upgradeId);
+    }
     DataTableSetString(true, getUpgradeFamilyKey(upgradeId), familyName);
 }
 

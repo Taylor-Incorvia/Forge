@@ -283,28 +283,6 @@ void initializeUpgrades() {
     addUpgradeToUpgrade("ConcussiveWraith", "ConcussiveWraith");
     addUpgradeRequirementTag("ConcussiveWraith", logicType_AnyOf, "unitTag", "Wraith");
 
-    // WA-050: upgrade families so WA-049 caps count per-unit variants as one concept.
-    // Concussive family (Marauder's stock PunisherGrenades + the custom Concussive* variants) -> cap 1.
-    setUpgradeFamily("PunisherGrenades", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveVoidRay", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveVulture", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveHellion", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveZealot", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveZergling", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveDiamondback", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveArchon", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveColossus", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveMutalisk", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveUltralisk", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveWraith", "ConcussiveShells");
-    // Lifesteal family (currently just the Marine; grows as lifesteal expands).
-    setUpgradeFamily("LifestealMarine", "Lifesteal");
-    // Range family: the generic behavior upgrade + the two catalog range upgrades (Tempest/Siege Tank
-    // needed their own upgrades for the range visual, WA-031) all share one cap.
-    setUpgradeFamily("Range", "Range");
-    setUpgradeFamily("SiegeTankRange", "Range");
-    setUpgradeFamily("TempestRange", "Range");
-
     addUpgradeToUpgrade("stalkerblinkcooldown", "stalkerblinkcooldown");
     addUpgradeRequirementTag("stalkerblinkcooldown", logicType_AnyOf, "unitTag", "Stalker");
 
@@ -353,6 +331,26 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Colossus"); // COULDNT TURN TOWARDS TARGET issue was fixed by increasing arc to 360
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Phoenix");
     // addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Medic"); // removed: useless on a Medic (tested)
+
+    // WA-050: upgrade families -- placed LAST so every upgrade is already registered to allUpgrades
+    // (setUpgradeFamily warns on unregistered ids). Per-unit variants of one concept share a family so
+    // WA-049 caps count them as one; unregistered ids default to their own id (shared upgrades need none).
+    setUpgradeFamily("PunisherGrenades", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveVoidRay", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveVulture", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveHellion", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveZealot", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveZergling", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveDiamondback", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveArchon", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveColossus", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveMutalisk", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveUltralisk", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveWraith", "ConcussiveShells");
+    setUpgradeFamily("LifestealMarine", "Lifesteal");
+    setUpgradeFamily("Range", "Range");
+    setUpgradeFamily("SiegeTankRange", "Range");
+    setUpgradeFamily("TempestRange", "Range");
 
     
 
@@ -498,33 +496,46 @@ string pickLeastUsedFamily(int player, string listKey) {
     return bestCand;
 }
 
-// Choose an upgrade for one slot, honoring the family cap AND the same-slot-number uniqueness rule
-// (the <upgrade><slot> research id is shared across facilities, so an upgrade can't sit in the same
-// slot number in two facilities -- preserved here). Graceful fallback so a slot is never left blank.
-string pickCappedUpgradeForSlot(int player, int slotIndex, string facility) {
+// True if this upgrade's family still has room under its cap.
+bool candidateUnderCap(int player, string upgradeId) {
+    return getFamilyUsedCount(player, getUpgradeFamily(upgradeId)) < getUpgradeCap(upgradeId);
+}
+
+// From a slot's eligible pool, fill tier2 (candidates with no same-slot-number collision) and tier1
+// (the subset of tier2 that is also under its family cap). The <upgrade><slot> research id is shared
+// across facilities, so isUpgradeAlreadyAssignedToSlot enforces the same-slot-number uniqueness rule.
+void buildSlotCandidateTiers(int player, int slotIndex, string facility, string tier1Key, string tier2Key) {
     string poolKey;
     int poolSize;
     int i;
     string cand;
-    string tier1Key;
-    string tier2Key;
 
     poolKey = getUpgradePoolListKey(player, slotIndex, facility);
     poolSize = getStringListSize(poolKey);
-    tier1Key = "capTier1.p" + IntToString(player) + "." + facility + "." + IntToString(slotIndex);
-    tier2Key = "capTier2.p" + IntToString(player) + "." + facility + "." + IntToString(slotIndex);
-    listStringRequire(tier1Key);
-    listStringRequire(tier2Key);
-
     for (i = 0; i < poolSize; i += 1) {
         cand = getStringAtIndex(poolKey, i);
         if (!isUpgradeAlreadyAssignedToSlot(player, slotIndex, cand)) {
             addToStringList(tier2Key, cand);
-            if (getFamilyUsedCount(player, getUpgradeFamily(cand)) < getUpgradeCap(cand)) {
+            if (candidateUnderCap(player, cand)) {
                 addToStringList(tier1Key, cand);
             }
         }
     }
+}
+
+// Choose an upgrade for one slot: a random under-cap candidate if any (tier1), else the least-used
+// family among collision-free candidates (tier2), else least-used across the whole pool. Never blank
+// unless the pool itself is empty.
+string pickCappedUpgradeForSlot(int player, int slotIndex, string facility) {
+    string tier1Key;
+    string tier2Key;
+    string poolKey;
+
+    tier1Key = "capTier1.p" + IntToString(player) + "." + facility + "." + IntToString(slotIndex);
+    tier2Key = "capTier2.p" + IntToString(player) + "." + facility + "." + IntToString(slotIndex);
+    listStringRequire(tier1Key);
+    listStringRequire(tier2Key);
+    buildSlotCandidateTiers(player, slotIndex, facility, tier1Key, tier2Key);
 
     if (getStringListSize(tier1Key) > 0) {
         return getRandomStringFromList(tier1Key);
@@ -532,7 +543,8 @@ string pickCappedUpgradeForSlot(int player, int slotIndex, string facility) {
     if (getStringListSize(tier2Key) > 0) {
         return pickLeastUsedFamily(player, tier2Key);
     }
-    if (poolSize > 0) {
+    poolKey = getUpgradePoolListKey(player, slotIndex, facility);
+    if (getStringListSize(poolKey) > 0) {
         return pickLeastUsedFamily(player, poolKey);
     }
     return "";
@@ -545,30 +557,11 @@ void buildBaseEligiblePoolsForPlayer(int player) {
     for (i = 1; i <= 3; i += 1) { initializeUpgradePoolForPlayerSlot(player, i, starport); }
 }
 
-// Global cap-aware assignment across all 10 slots: build every slot's eligible pool, then assign
-// smallest-pool-first (most-constrained units go first so tight pools like Archon/VoidRay aren't
-// stranded), each a random under-cap pick with the fallback above. Replaces the old independent roll.
-void assignUpgradesWithCapsForPlayer(int player) {
-    string facKey;
-    string idxKey;
-    string assignedKey;
-    int nSlots;
-    int assignedTotal;
-    int k;
-    int bestK;
-    int bestSize;
-    int curSize;
-    string facility;
-    int slotIdx;
-    string chosen;
-
-    facKey = "capSlotFac.p" + IntToString(player);
-    idxKey = "capSlotIdx.p" + IntToString(player);
-    assignedKey = "capAssigned.p" + IntToString(player);
+// Fill the parallel (facility, slotIndex) descriptor lists for all 10 slots (rax 1-4, factory 1-3,
+// starport 1-3). Kept in lists so the assignment order can be re-sorted independently of facility.
+void buildSlotDescriptorLists(string facKey, string idxKey) {
     listStringRequire(facKey);
     listIntRequire(idxKey);
-    listStringRequire(assignedKey);
-
     addToStringList(facKey, rax);      addToIntList(idxKey, 1);
     addToStringList(facKey, rax);      addToIntList(idxKey, 2);
     addToStringList(facKey, rax);      addToIntList(idxKey, 3);
@@ -579,26 +572,60 @@ void assignUpgradesWithCapsForPlayer(int player) {
     addToStringList(facKey, starport); addToIntList(idxKey, 1);
     addToStringList(facKey, starport); addToIntList(idxKey, 2);
     addToStringList(facKey, starport); addToIntList(idxKey, 3);
+}
+
+// Descriptor index of the not-yet-assigned slot with the smallest eligible pool (most-constrained
+// first), or -1 if all are assigned. Assigning tight pools first keeps Archon/VoidRay from stranding.
+int findSmallestUnassignedSlot(int player, string facKey, string idxKey, string assignedKey, int nSlots) {
+    int k;
+    int bestK;
+    int bestSize;
+    int curSize;
+    string facility;
+    int slotIdx;
+
+    bestK = -1;
+    bestSize = 999999;
+    for (k = 0; k < nSlots; k += 1) {
+        if (!stringListContains(assignedKey, IntToString(k))) {
+            facility = getStringAtIndex(facKey, k);
+            slotIdx = getIntAtIndex(idxKey, k);
+            curSize = getStringListSize(getUpgradePoolListKey(player, slotIdx, facility));
+            if (curSize < bestSize) {
+                bestSize = curSize;
+                bestK = k;
+            }
+        }
+    }
+    return bestK;
+}
+
+// Global cap-aware assignment across all 10 slots: build every slot's eligible pool, then assign
+// smallest-pool-first, each a random under-cap pick with a graceful fallback (never blank).
+// Replaces the old per-slot independent roll.
+void assignUpgradesWithCapsForPlayer(int player) {
+    string facKey;
+    string idxKey;
+    string assignedKey;
+    int nSlots;
+    int assignedTotal;
+    int bestK;
+    string facility;
+    int slotIdx;
+    string chosen;
+
+    facKey = "capSlotFac.p" + IntToString(player);
+    idxKey = "capSlotIdx.p" + IntToString(player);
+    assignedKey = "capAssigned.p" + IntToString(player);
+    listStringRequire(assignedKey);
     nSlots = 10;
 
+    buildSlotDescriptorLists(facKey, idxKey);
     buildBaseEligiblePoolsForPlayer(player);
 
     assignedTotal = 0;
     while (assignedTotal < nSlots) {
-        bestK = -1;
-        bestSize = 999999;
-        for (k = 0; k < nSlots; k += 1) {
-            if (!stringListContains(assignedKey, IntToString(k))) {
-                facility = getStringAtIndex(facKey, k);
-                slotIdx = getIntAtIndex(idxKey, k);
-                curSize = getStringListSize(getUpgradePoolListKey(player, slotIdx, facility));
-                if (curSize < bestSize) {
-                    bestSize = curSize;
-                    bestK = k;
-                }
-            }
-        }
-
+        bestK = findSmallestUnassignedSlot(player, facKey, idxKey, assignedKey, nSlots);
         facility = getStringAtIndex(facKey, bestK);
         slotIdx = getIntAtIndex(idxKey, bestK);
         chosen = pickCappedUpgradeForSlot(player, slotIdx, facility);
