@@ -72,4 +72,7 @@
         <Find value="1"/>
         <Value value="UseConcussiveWraith"/>
     </CValidatorPlayerRequirement>
+    <CValidatorUnitFilters id="NotMassive">
+        <Filters value="-;Massive"/>
+    </CValidatorUnitFilters>
 </Catalog>

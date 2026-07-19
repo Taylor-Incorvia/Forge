@@ -24,7 +24,7 @@ Injection safety property: the original damage effect is kept inside a new `CEff
 
 **Verify in-game (riskier — flagged by the research pass):** Archon (custom search), Ultralisk (Liberty note hints its cleave search may be inactive; if only the primary slows, treat like Archon), Mutalisk (3-hop bounce). Everything else is the proven VoidRay-style wrap.
 
-**Massive:** slow hits any non-structure incl. massive (validators = NotStructure + NotFrenzied — no massive check), matching the approved VoidRay. Say if you want massive immune (one shared `NotMassive` validator).
+**Massive:** massive units are IMMUNE (2026-07-19) — added a shared `NotMassive` unit-filter validator (`-;Massive`) to all 11 custom apply-Slow effects (VoidRay + 10). Marauder's stock concussive already excludes massive natively. Tooltips say "non-massive"; splash/line/bounce/cleave tooltips call out the mechanic.
 
 **Test convenience (devMode):** `getConcussiveUpgradeForUnit` auto-rolls each concussive unit's concussive upgrade, so walking `testCaseNumber` 1→7 shows Concussive pre-selected on every concussive unit's upgrade facility — one sweep tests all.
 

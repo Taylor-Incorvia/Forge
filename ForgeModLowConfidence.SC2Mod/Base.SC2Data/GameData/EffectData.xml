@@ -28,6 +28,7 @@
         <ValidatorArray index="0" value="VoidRayConcussiveResearched"/>
         <ValidatorArray value="NotStructure"/>
         <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
         <Behavior value="Slow"/>
     </CEffectApplyBehavior>
     <CEffectSet id="VoidRayWeaponPeriodicSet">
@@ -37,60 +38,70 @@
         <ValidatorArray index="0" value="VultureConcussiveResearched"/>
         <ValidatorArray value="NotStructure"/>
         <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
         <Behavior value="Slow"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="HellionConcussiveSlow">
         <ValidatorArray index="0" value="HellionConcussiveResearched"/>
         <ValidatorArray value="NotStructure"/>
         <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
         <Behavior value="Slow"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="ZealotConcussiveSlow">
         <ValidatorArray index="0" value="ZealotConcussiveResearched"/>
         <ValidatorArray value="NotStructure"/>
         <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
         <Behavior value="Slow"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="ZerglingConcussiveSlow">
         <ValidatorArray index="0" value="ZerglingConcussiveResearched"/>
         <ValidatorArray value="NotStructure"/>
         <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
         <Behavior value="Slow"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="DiamondbackConcussiveSlow">
         <ValidatorArray index="0" value="DiamondbackConcussiveResearched"/>
         <ValidatorArray value="NotStructure"/>
         <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
         <Behavior value="Slow"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="ArchonConcussiveSlow">
         <ValidatorArray index="0" value="ArchonConcussiveResearched"/>
         <ValidatorArray value="NotStructure"/>
         <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
         <Behavior value="Slow"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="ColossusConcussiveSlow">
         <ValidatorArray index="0" value="ColossusConcussiveResearched"/>
         <ValidatorArray value="NotStructure"/>
         <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
         <Behavior value="Slow"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="MutaliskConcussiveSlow">
         <ValidatorArray index="0" value="MutaliskConcussiveResearched"/>
         <ValidatorArray value="NotStructure"/>
         <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
         <Behavior value="Slow"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="UltraliskConcussiveSlow">
         <ValidatorArray index="0" value="UltraliskConcussiveResearched"/>
         <ValidatorArray value="NotStructure"/>
         <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
         <Behavior value="Slow"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="WraithConcussiveSlow">
         <ValidatorArray index="0" value="WraithConcussiveResearched"/>
         <ValidatorArray value="NotStructure"/>
         <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
         <Behavior value="Slow"/>
     </CEffectApplyBehavior>
     <CEffectSet id="VultureConcussiveSet">
