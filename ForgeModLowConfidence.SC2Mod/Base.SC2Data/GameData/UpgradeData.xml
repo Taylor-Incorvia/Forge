@@ -128,6 +128,36 @@
     <CUpgrade id="ConcussiveVoidRay">
         <EditorCategories value="Race:Protoss"/>
     </CUpgrade>
+    <CUpgrade id="ConcussiveVulture">
+        <EditorCategories value="Race:Terran"/>
+    </CUpgrade>
+    <CUpgrade id="ConcussiveHellion">
+        <EditorCategories value="Race:Terran"/>
+    </CUpgrade>
+    <CUpgrade id="ConcussiveZealot">
+        <EditorCategories value="Race:Protoss"/>
+    </CUpgrade>
+    <CUpgrade id="ConcussiveZergling">
+        <EditorCategories value="Race:Zerg"/>
+    </CUpgrade>
+    <CUpgrade id="ConcussiveDiamondback">
+        <EditorCategories value="Race:Terran"/>
+    </CUpgrade>
+    <CUpgrade id="ConcussiveArchon">
+        <EditorCategories value="Race:Protoss"/>
+    </CUpgrade>
+    <CUpgrade id="ConcussiveColossus">
+        <EditorCategories value="Race:Protoss"/>
+    </CUpgrade>
+    <CUpgrade id="ConcussiveMutalisk">
+        <EditorCategories value="Race:Zerg"/>
+    </CUpgrade>
+    <CUpgrade id="ConcussiveUltralisk">
+        <EditorCategories value="Race:Zerg"/>
+    </CUpgrade>
+    <CUpgrade id="ConcussiveWraith">
+        <EditorCategories value="Race:Terran"/>
+    </CUpgrade>
     <CUpgrade id="SiegeTankRange">
         <EditorCategories value="Race:Terran"/>
         <EffectArray Reference="Weapon,90mmCannons,Range" Value="2.5"/>

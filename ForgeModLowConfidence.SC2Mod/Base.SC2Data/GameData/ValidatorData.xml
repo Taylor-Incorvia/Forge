@@ -22,4 +22,54 @@
         <Find value="1"/>
         <Value value="UseConcussiveVoidRay"/>
     </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="VultureConcussiveResearched">
+        <ResultNoPlayer value="Error"/>
+        <Find value="1"/>
+        <Value value="UseConcussiveVulture"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="HellionConcussiveResearched">
+        <ResultNoPlayer value="Error"/>
+        <Find value="1"/>
+        <Value value="UseConcussiveHellion"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="ZealotConcussiveResearched">
+        <ResultNoPlayer value="Error"/>
+        <Find value="1"/>
+        <Value value="UseConcussiveZealot"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="ZerglingConcussiveResearched">
+        <ResultNoPlayer value="Error"/>
+        <Find value="1"/>
+        <Value value="UseConcussiveZergling"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="DiamondbackConcussiveResearched">
+        <ResultNoPlayer value="Error"/>
+        <Find value="1"/>
+        <Value value="UseConcussiveDiamondback"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="ArchonConcussiveResearched">
+        <ResultNoPlayer value="Error"/>
+        <Find value="1"/>
+        <Value value="UseConcussiveArchon"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="ColossusConcussiveResearched">
+        <ResultNoPlayer value="Error"/>
+        <Find value="1"/>
+        <Value value="UseConcussiveColossus"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="MutaliskConcussiveResearched">
+        <ResultNoPlayer value="Error"/>
+        <Find value="1"/>
+        <Value value="UseConcussiveMutalisk"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="UltraliskConcussiveResearched">
+        <ResultNoPlayer value="Error"/>
+        <Find value="1"/>
+        <Value value="UseConcussiveUltralisk"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="WraithConcussiveResearched">
+        <ResultNoPlayer value="Error"/>
+        <Find value="1"/>
+        <Value value="UseConcussiveWraith"/>
+    </CValidatorPlayerRequirement>
 </Catalog>

@@ -13,6 +13,21 @@ Marauder can now roll **Concussive Shells** (stock `PunisherGrenades`). Count-up
 ## 🔨 Slice 2 done 2026-07-16 (PR) — VoidRay (custom pattern proven)
 VoidRay concussive wired by hand (no stock chain): marker `CUpgrade ConcussiveVoidRay` → `CountUpgradeConcussiveVoidRayCompleteOnly` node → `UseConcussiveVoidRay` requirement → `VoidRayConcussiveResearched` validator; `CEffectApplyBehavior VoidRayConcussiveSlow` (Behavior=Slow, gated by that validator + NotStructure/NotFrenzied) injected into `VoidRayWeaponPeriodicSet` at **index 3** (additive — keeps the existing beam effects); research UI `ConcussiveVoidRay2` (Starport slot 2, col 1), name **"Concussive Beam"**. **Awaiting in-game test** (does the VoidRay still attack + does the slow apply post-research) before replicating.
 
+## 🔨 Slice 3 built 2026-07-19 — all 10 remaining units wired (VoidRay tested "just spicy enough")
+Full concussive chain built for: **Vulture, Hellion, Zealot, Zergling, Diamondback, Archon, Colossus, Mutalisk, Ultralisk, Wraith.** Each = marker `CUpgrade Concussive<Unit>` → CountUpgrade node → `UseConcussive<Unit>` req → `<Unit>ConcussiveResearched` validator → `<Unit>ConcussiveSlow` apply-behavior injected into the weapon effect; research UI `Concussive<Unit><slot>` (unit's slot → column); GameStrings; `addUpgradeToUpgrade` + `AnyOf` unit tag. Shared 2s / 70% slow.
+
+Injection safety property: the original damage effect is kept inside a new `CEffectSet`, so damage distribution is unchanged — only the slow rides along the same targets.
+- Single/melee (Vulture, Zealot, Zergling, Wraith[both weapons], Diamondback[already a Set]): wrap/append slow into the weapon's damage set.
+- Splash/line/cleave (Hellion, Colossus, Ultralisk): slow injected into the AREA/SEARCH effect → ALL targets slow.
+- Archon: no stock search existed → authored `ArchonConcussiveSlowSearch` (r0.8) beside the splash damage.
+- Mutalisk bounce: slow on primary + both bounces (GlaiveWurmS1/S2/S3).
+
+**Verify in-game (riskier — flagged by the research pass):** Archon (custom search), Ultralisk (Liberty note hints its cleave search may be inactive; if only the primary slows, treat like Archon), Mutalisk (3-hop bounce). Everything else is the proven VoidRay-style wrap.
+
+**Massive:** slow hits any non-structure incl. massive (validators = NotStructure + NotFrenzied — no massive check), matching the approved VoidRay. Say if you want massive immune (one shared `NotMassive` validator).
+
+**Test convenience (devMode):** `getConcussiveUpgradeForUnit` auto-rolls each concussive unit's concussive upgrade, so walking `testCaseNumber` 1→7 shows Concussive pre-selected on every concussive unit's upgrade facility — one sweep tests all.
+
 ## 📋 Locked expansion plan (2026-07-19) — build AFTER the VoidRay test confirms the pattern
 **Slow tuning — shared `Slow` behavior, ONE place, applies to every concussive unit at once:**
 - Duration: **2s** (done, `BehaviorData.xml` Slow override; supersedes the earlier 1.5s).

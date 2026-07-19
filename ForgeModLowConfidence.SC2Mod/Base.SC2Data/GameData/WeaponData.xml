@@ -6,7 +6,9 @@
     <CWeaponLegacy id="Adept"/>
     <CWeaponLegacy id="BacklashRockets"/>
     <CWeaponLegacy id="C10CanisterRifle"/>
-    <CWeaponLegacy id="Claws"/>
+    <CWeaponLegacy id="Claws">
+        <Effect value="ClawsConcussiveSet"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="CrucioShockCannon"/>
     <CWeaponLegacy id="Diamondback"/>
     <CWeaponLegacy id="Firebat"/>
@@ -35,6 +37,9 @@
     <CWeaponLegacy id="ParticleDisruptors"/>
     <CWeaponLegacy id="PhaseDisruptors"/>
     <CWeaponLegacy id="PsiBlades"/>
+    <CWeaponLegacy id="PsionicShockwave">
+        <Effect value="PsionicShockwaveConcussiveSet"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="PunisherGrenades"/>
     <CWeaponLegacy id="RavagerWeapon"/>
     <CWeaponLegacy id="RoachMelee"/>

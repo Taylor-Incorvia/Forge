@@ -262,6 +262,27 @@ void initializeUpgrades() {
     addUpgradeToUpgrade("ConcussiveVoidRay", "ConcussiveVoidRay");
     addUpgradeRequirementTag("ConcussiveVoidRay", logicType_AnyOf, "unitTag", "VoidRay");
 
+    addUpgradeToUpgrade("ConcussiveVulture", "ConcussiveVulture");
+    addUpgradeRequirementTag("ConcussiveVulture", logicType_AnyOf, "unitTag", "Vulture");
+    addUpgradeToUpgrade("ConcussiveHellion", "ConcussiveHellion");
+    addUpgradeRequirementTag("ConcussiveHellion", logicType_AnyOf, "unitTag", "Hellion");
+    addUpgradeToUpgrade("ConcussiveZealot", "ConcussiveZealot");
+    addUpgradeRequirementTag("ConcussiveZealot", logicType_AnyOf, "unitTag", "Zealot");
+    addUpgradeToUpgrade("ConcussiveZergling", "ConcussiveZergling");
+    addUpgradeRequirementTag("ConcussiveZergling", logicType_AnyOf, "unitTag", "Zergling");
+    addUpgradeToUpgrade("ConcussiveDiamondback", "ConcussiveDiamondback");
+    addUpgradeRequirementTag("ConcussiveDiamondback", logicType_AnyOf, "unitTag", "Diamondback");
+    addUpgradeToUpgrade("ConcussiveArchon", "ConcussiveArchon");
+    addUpgradeRequirementTag("ConcussiveArchon", logicType_AnyOf, "unitTag", "Archon");
+    addUpgradeToUpgrade("ConcussiveColossus", "ConcussiveColossus");
+    addUpgradeRequirementTag("ConcussiveColossus", logicType_AnyOf, "unitTag", "Colossus");
+    addUpgradeToUpgrade("ConcussiveMutalisk", "ConcussiveMutalisk");
+    addUpgradeRequirementTag("ConcussiveMutalisk", logicType_AnyOf, "unitTag", "Mutalisk");
+    addUpgradeToUpgrade("ConcussiveUltralisk", "ConcussiveUltralisk");
+    addUpgradeRequirementTag("ConcussiveUltralisk", logicType_AnyOf, "unitTag", "Ultralisk");
+    addUpgradeToUpgrade("ConcussiveWraith", "ConcussiveWraith");
+    addUpgradeRequirementTag("ConcussiveWraith", logicType_AnyOf, "unitTag", "Wraith");
+
     addUpgradeToUpgrade("stalkerblinkcooldown", "stalkerblinkcooldown");
     addUpgradeRequirementTag("stalkerblinkcooldown", logicType_AnyOf, "unitTag", "Stalker");
 
