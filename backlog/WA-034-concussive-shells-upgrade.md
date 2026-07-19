@@ -16,7 +16,7 @@ VoidRay concussive wired by hand (no stock chain): marker `CUpgrade ConcussiveVo
 ## 📋 Locked expansion plan (2026-07-19) — build AFTER the VoidRay test confirms the pattern
 **Slow tuning — shared `Slow` behavior, ONE place, applies to every concussive unit at once:**
 - Duration: **2s** (done, `BehaviorData.xml` Slow override; supersedes the earlier 1.5s).
-- Strength: stock **50%** (`MoveSpeedMultiplier 0.5`). May bump to **60% (0.4)** after feel-testing 2s@50%; keep ≤ ~65% to avoid stun-like / kiting-oppressive.
+- Strength: **70%** (`MoveSpeedMultiplier 0.3`, done) — target moves at 30% speed. Deliberately strong (user chose 70% over the ≤65% caution). Easy to dial back if it plays oppressive.
 
 **Unit list (12):**
 - **Done:** Marauder ✅ (stock), VoidRay ✅ (custom).
