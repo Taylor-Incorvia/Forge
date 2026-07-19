@@ -54,6 +54,10 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="Slow">
         <Duration value="2"/>
+        <Alignment value="Negative"/>
+        <InfoFlags index="Hidden" value="0"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <DisplayDuration index="Enemy" value="1"/>
         <Modification MoveSpeedMultiplier="0.3"/>
     </CBehaviorBuff>
 </Catalog>
