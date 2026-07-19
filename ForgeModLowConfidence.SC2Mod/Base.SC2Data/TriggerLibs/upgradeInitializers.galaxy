@@ -283,6 +283,28 @@ void initializeUpgrades() {
     addUpgradeToUpgrade("ConcussiveWraith", "ConcussiveWraith");
     addUpgradeRequirementTag("ConcussiveWraith", logicType_AnyOf, "unitTag", "Wraith");
 
+    // WA-050: upgrade families so WA-049 caps count per-unit variants as one concept.
+    // Concussive family (Marauder's stock PunisherGrenades + the custom Concussive* variants) -> cap 1.
+    setUpgradeFamily("PunisherGrenades", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveVoidRay", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveVulture", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveHellion", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveZealot", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveZergling", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveDiamondback", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveArchon", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveColossus", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveMutalisk", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveUltralisk", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveWraith", "ConcussiveShells");
+    // Lifesteal family (currently just the Marine; grows as lifesteal expands).
+    setUpgradeFamily("LifestealMarine", "Lifesteal");
+    // Range family: the generic behavior upgrade + the two catalog range upgrades (Tempest/Siege Tank
+    // needed their own upgrades for the range visual, WA-031) all share one cap.
+    setUpgradeFamily("Range", "Range");
+    setUpgradeFamily("SiegeTankRange", "Range");
+    setUpgradeFamily("TempestRange", "Range");
+
     addUpgradeToUpgrade("stalkerblinkcooldown", "stalkerblinkcooldown");
     addUpgradeRequirementTag("stalkerblinkcooldown", logicType_AnyOf, "unitTag", "Stalker");
 
@@ -409,23 +431,184 @@ void initializeUpgradePoolForPlayerSlot(int player, int slotIndex, string facili
     }
 }
 
-void assignRandomUpgradeFromPoolToPlayerSlot(int player, int slotIndex, string facilityId) {
-    setSlotSelectedUpgrade(player, slotIndex, facilityId, getRandomStringFromList(getUpgradePoolListKey(player, slotIndex, facilityId)));
+// ==================== WA-049: per-upgrade roll caps ====================
+// A caster ability = any upgrade registered with AllOf unitTag "caster" (see initializeUpgrades),
+// so the whole caster set is capped at 1 automatically with zero maintenance.
+bool isCasterUpgrade(string upgradeId) {
+    string allOfUnitTagList;
+    allOfUnitTagList = getUpgradeTagsListName(upgradeId, logicType_AllOf, upgradeTagType_unitTag);
+    if (!stringListExists(allOfUnitTagList)) {
+        return false;
+    }
+    return stringListContains(allOfUnitTagList, "caster");
 }
 
+// Max number of a player's units that may roll a given upgrade (counted per family -- see WA-050).
+// 1 for Blink, Corrosive Bile, every caster spell, and the Concussive family; 2 for everything else.
+int getUpgradeCap(string upgradeId) {
+    if (upgradeId == "Blink") { return 1; }
+    if (upgradeId == "RavagerCorrosiveBile") { return 1; }
+    if (getUpgradeFamily(upgradeId) == "ConcussiveShells") { return 1; }
+    if (isCasterUpgrade(upgradeId)) { return 1; }
+    return 2;
+}
 
-void setUpgradeSlotsForFacility(string facility, int facilitySlotCount, int playerIndex){
-    int slotIndex;
-    for (slotIndex = 1; slotIndex <= facilitySlotCount; slotIndex += 1) {
-        initializeUpgradePoolForPlayerSlot(playerIndex, slotIndex, facility);
-        assignRandomUpgradeFromPoolToPlayerSlot(playerIndex, slotIndex, facility);
+// How many already-assigned slots (this player, this facility) hold an upgrade in `family`.
+int countFamilyInFacility(int player, string facility, int slotCount, string family) {
+    int i;
+    int count;
+    string sel;
+    count = 0;
+    for (i = 1; i <= slotCount; i += 1) {
+        sel = getSlotSelectedUpgrade(player, i, facility);
+        if (sel != "" && getUpgradeFamily(sel) == family) {
+            count += 1;
+        }
+    }
+    return count;
+}
+
+// Total assigned slots (all facilities) holding an upgrade in `family`. Derived from the live
+// selected-upgrade state, so it needs no separate counter to reset between games.
+int getFamilyUsedCount(int player, string family) {
+    return countFamilyInFacility(player, rax, 4, family)
+        + countFamilyInFacility(player, factory, 3, family)
+        + countFamilyInFacility(player, starport, 3, family);
+}
+
+// Fallback picker: among `listKey`, the upgrade whose family is currently least-used (minimizes overflow).
+string pickLeastUsedFamily(int player, string listKey) {
+    int size;
+    int i;
+    string cand;
+    int used;
+    int bestUsed;
+    string bestCand;
+    size = getStringListSize(listKey);
+    bestUsed = 999999;
+    bestCand = "";
+    for (i = 0; i < size; i += 1) {
+        cand = getStringAtIndex(listKey, i);
+        used = getFamilyUsedCount(player, getUpgradeFamily(cand));
+        if (used < bestUsed) {
+            bestUsed = used;
+            bestCand = cand;
+        }
+    }
+    return bestCand;
+}
+
+// Choose an upgrade for one slot, honoring the family cap AND the same-slot-number uniqueness rule
+// (the <upgrade><slot> research id is shared across facilities, so an upgrade can't sit in the same
+// slot number in two facilities -- preserved here). Graceful fallback so a slot is never left blank.
+string pickCappedUpgradeForSlot(int player, int slotIndex, string facility) {
+    string poolKey;
+    int poolSize;
+    int i;
+    string cand;
+    string tier1Key;
+    string tier2Key;
+
+    poolKey = getUpgradePoolListKey(player, slotIndex, facility);
+    poolSize = getStringListSize(poolKey);
+    tier1Key = "capTier1.p" + IntToString(player) + "." + facility + "." + IntToString(slotIndex);
+    tier2Key = "capTier2.p" + IntToString(player) + "." + facility + "." + IntToString(slotIndex);
+    listStringRequire(tier1Key);
+    listStringRequire(tier2Key);
+
+    for (i = 0; i < poolSize; i += 1) {
+        cand = getStringAtIndex(poolKey, i);
+        if (!isUpgradeAlreadyAssignedToSlot(player, slotIndex, cand)) {
+            addToStringList(tier2Key, cand);
+            if (getFamilyUsedCount(player, getUpgradeFamily(cand)) < getUpgradeCap(cand)) {
+                addToStringList(tier1Key, cand);
+            }
+        }
+    }
+
+    if (getStringListSize(tier1Key) > 0) {
+        return getRandomStringFromList(tier1Key);
+    }
+    if (getStringListSize(tier2Key) > 0) {
+        return pickLeastUsedFamily(player, tier2Key);
+    }
+    if (poolSize > 0) {
+        return pickLeastUsedFamily(player, poolKey);
+    }
+    return "";
+}
+
+void buildBaseEligiblePoolsForPlayer(int player) {
+    int i;
+    for (i = 1; i <= 4; i += 1) { initializeUpgradePoolForPlayerSlot(player, i, rax); }
+    for (i = 1; i <= 3; i += 1) { initializeUpgradePoolForPlayerSlot(player, i, factory); }
+    for (i = 1; i <= 3; i += 1) { initializeUpgradePoolForPlayerSlot(player, i, starport); }
+}
+
+// Global cap-aware assignment across all 10 slots: build every slot's eligible pool, then assign
+// smallest-pool-first (most-constrained units go first so tight pools like Archon/VoidRay aren't
+// stranded), each a random under-cap pick with the fallback above. Replaces the old independent roll.
+void assignUpgradesWithCapsForPlayer(int player) {
+    string facKey;
+    string idxKey;
+    string assignedKey;
+    int nSlots;
+    int assignedTotal;
+    int k;
+    int bestK;
+    int bestSize;
+    int curSize;
+    string facility;
+    int slotIdx;
+    string chosen;
+
+    facKey = "capSlotFac.p" + IntToString(player);
+    idxKey = "capSlotIdx.p" + IntToString(player);
+    assignedKey = "capAssigned.p" + IntToString(player);
+    listStringRequire(facKey);
+    listIntRequire(idxKey);
+    listStringRequire(assignedKey);
+
+    addToStringList(facKey, rax);      addToIntList(idxKey, 1);
+    addToStringList(facKey, rax);      addToIntList(idxKey, 2);
+    addToStringList(facKey, rax);      addToIntList(idxKey, 3);
+    addToStringList(facKey, rax);      addToIntList(idxKey, 4);
+    addToStringList(facKey, factory);  addToIntList(idxKey, 1);
+    addToStringList(facKey, factory);  addToIntList(idxKey, 2);
+    addToStringList(facKey, factory);  addToIntList(idxKey, 3);
+    addToStringList(facKey, starport); addToIntList(idxKey, 1);
+    addToStringList(facKey, starport); addToIntList(idxKey, 2);
+    addToStringList(facKey, starport); addToIntList(idxKey, 3);
+    nSlots = 10;
+
+    buildBaseEligiblePoolsForPlayer(player);
+
+    assignedTotal = 0;
+    while (assignedTotal < nSlots) {
+        bestK = -1;
+        bestSize = 999999;
+        for (k = 0; k < nSlots; k += 1) {
+            if (!stringListContains(assignedKey, IntToString(k))) {
+                facility = getStringAtIndex(facKey, k);
+                slotIdx = getIntAtIndex(idxKey, k);
+                curSize = getStringListSize(getUpgradePoolListKey(player, slotIdx, facility));
+                if (curSize < bestSize) {
+                    bestSize = curSize;
+                    bestK = k;
+                }
+            }
+        }
+
+        facility = getStringAtIndex(facKey, bestK);
+        slotIdx = getIntAtIndex(idxKey, bestK);
+        chosen = pickCappedUpgradeForSlot(player, slotIdx, facility);
+        setSlotSelectedUpgrade(player, slotIdx, facility, chosen);
+        addToStringList(assignedKey, IntToString(bestK));
+        assignedTotal += 1;
     }
 }
 
 void initializeUpgradePoolsForPlayer(int player) {
-    setUpgradeSlotsForFacility(rax, 4, player);
-    setUpgradeSlotsForFacility(factory, 3, player);
-    setUpgradeSlotsForFacility(starport, 3, player);
-
+    assignUpgradesWithCapsForPlayer(player);
     grantInitialUpgrades(player);
 }
