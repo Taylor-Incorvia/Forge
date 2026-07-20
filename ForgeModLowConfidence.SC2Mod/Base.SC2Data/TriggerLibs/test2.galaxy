@@ -17,7 +17,11 @@ include "TriggerLibs/forgeProductionFacilityHeplers" // for rax/factory/starport
 //          at Mod Init start locations don't exist yet.
 // =====================================================================
 
-// spawn all production + upgrade structures for a player, in a row north of the base
+// spawn all production + upgrade structures for a player.
+// Production facilities are clustered CLOSE to the CC (just south of it) so they land on solid
+// ground instead of the sea, and each spawns with its add-on at the add-on socket so the top
+// production slot is immediately testable (Barracks->TechLab s4, Factory->Reactor s3,
+// Starport->TechReactor s3). Upgrade facilities stay in their old row (fine if they land in the sea).
 void spawnTestStructuresForPlayer(int player) {
     point origin = PlayerStartLocation(player);
 
@@ -26,11 +30,15 @@ void spawnTestStructuresForPlayer(int player) {
         return;
     }
 
-    // production facilities
-    UnitCreate(1, rax,          c_unitCreateIgnorePlacement, player, PointWithOffset(origin, -15.0, 10.0), 270.0);
-    UnitCreate(1, factory,      c_unitCreateIgnorePlacement, player, PointWithOffset(origin,  -9.0, 10.0), 270.0);
-    UnitCreate(1, starport,     c_unitCreateIgnorePlacement, player, PointWithOffset(origin,  -3.0, 10.0), 270.0);
-    // upgrade facilities (so rolled upgrades are researchable)
+    // production facilities, close to the CC, each with its add-on attached at the socket (+2.5, -0.5)
+    UnitCreate(1, rax,                   c_unitCreateIgnorePlacement, player, PointWithOffset(origin, -6.0, -6.0), 270.0);
+    UnitCreate(1, "BarracksTechLab",     c_unitCreateIgnorePlacement, player, PointWithOffset(origin, -3.5, -6.5), 270.0);
+    UnitCreate(1, factory,               c_unitCreateIgnorePlacement, player, PointWithOffset(origin,  0.0, -6.0), 270.0);
+    UnitCreate(1, "FactoryReactor",      c_unitCreateIgnorePlacement, player, PointWithOffset(origin,  2.5, -6.5), 270.0);
+    UnitCreate(1, starport,              c_unitCreateIgnorePlacement, player, PointWithOffset(origin,  6.0, -6.0), 270.0);
+    UnitCreate(1, "StarportTechReactor", c_unitCreateIgnorePlacement, player, PointWithOffset(origin,  8.5, -6.5), 270.0);
+
+    // upgrade facilities (so rolled upgrades are researchable) -- unchanged, sea is fine
     UnitCreate(1, ghostAcademy, c_unitCreateIgnorePlacement, player, PointWithOffset(origin,   3.0, 10.0), 270.0);
     UnitCreate(1, armory,       c_unitCreateIgnorePlacement, player, PointWithOffset(origin,   9.0, 10.0), 270.0);
     UnitCreate(1, fusionCore,   c_unitCreateIgnorePlacement, player, PointWithOffset(origin,  15.0, 10.0), 270.0);
@@ -52,6 +60,8 @@ void enableTestingCheats() {
             // Add resources (equivalent to "minerals" and "vespene" cheats)
             PlayerModifyPropertyInt(playerIndex, c_playerPropMinerals, c_playerPropOperAdd, 50000);
             PlayerModifyPropertyInt(playerIndex, c_playerPropVespene, c_playerPropOperAdd, 50000);
+            // Grant 200 supply so you don't have to build depots while testing.
+            PlayerModifyPropertyInt(playerIndex, c_playerPropSuppliesMade, c_playerPropOperAdd, 200);
 
             // Spawn every structure near this player's start.
             // NOTE: fires for ALL players (incl. AI). To limit to just yourself:
