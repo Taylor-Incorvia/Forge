@@ -5,8 +5,7 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 ---
 
 ## 🔨 In progress
-- [WA-035](./WA-035-lifesteal-upgrade.md) — Lifesteal **slice 1 (Marine, 15%)** confirmed working in-game; merged (PR #8). Slice 2+ (heal indicator + more units) needs a unit-list decision.
-- [WA-034](./WA-034-concussive-shells-upgrade.md) — Slow-on-attack **slice 1 (Marauder)** done via stock `PunisherGrenades` count-upgrade (PR). Slice 2+ (more units, custom weapon surgery) needs a unit-list decision.
+- [WA-035](./WA-035-lifesteal-upgrade.md) — Lifesteal **slice 1 (Marine, 15%)** merged (PR #8). Slice 2+ **parked** (decided lifesteal is less fun than the other upgrades) — resume if desired.
 - [WA-024](./WA-024-ghost-academy-nuke.md) — Nuke diagnosed: `TrainNuke` Use node had a stale **Factory** requirement blocking the silo-arm. Removed it (gates now: Ghost rolled + no nuke armed). Abilities/buttons verified intact. **PR open — needs a published test** of the full arm→calldown→detonate loop + Ghost Academy card button rendering.
 - [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) — Tectonic Destabilizers (`TempestGroundAttackUpgrade`) passive button hidden via a Show-node requirement override (index-independent). **Merged to main (PR #2)** — one open AC: eyeball the Tempest card in-game to confirm it's gone + nothing else disturbed.
 - [WA-014](./WA-014-verify-stalker-blink-range.md) — stalker blink range re-enabled in galaxy (root cause: first push missed the `PlacementRange` line; data complete since b40c4e6). **Awaiting production test** — roll it onto a Stalker, confirm range grows.
@@ -18,6 +17,13 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 
 | ID | Ticket | Size | Phase |
 |----|--------|------|-------|
+| [WA-052](./WA-052-adjust-upgrade-caps.md) | Bump Blink roll cap 1→2 (Corrosive Bile stays 1) | XS | 1 |
+| [WA-053](./WA-053-firebat-stalker-concussive.md) | Add Firebat + Stalker to the concussive pool | S | 1 |
+| [WA-054](./WA-054-liberator-transform-speed-upgrade.md) | Liberator transform-speed upgrade (Digging Claws equiv; replaces Speed) | M | 1 |
+| [WA-055](./WA-055-goliath-range-upgrade.md) | Goliath range upgrade (+3 air / +1 ground; replaces Range for Goliath) | S | 1 |
+| [WA-056](./WA-056-projectile-count-upgrades.md) | Projectile-count upgrades — Phoenix (scalar ✅) + Liberator (array append ⚠️) | M | 1 |
+| [WA-057](./WA-057-phoenix-anion-pulse-crystals.md) | Phoenix: Anion Pulse-Crystals replaces Range (proj. color change not free) | S | 1 |
+| [WA-058](./WA-058-battlecruiser-roll-yamato.md) | Let Battlecruiser roll Yamato (decide: drop native vs. two Yamatos) | S | 1 |
 | [WA-044](./WA-044-transfuse-targeting.md) | Transfuse any unit — bio gate is a heal-effect validator (TargetFilters fix didn't do it); needs editor merged-view | S | 1 |
 | [WA-045](./WA-045-editor-caching-settings.md) | Investigate if editor Documents-prefs settings fix the caching pain | S | 1 |
 | [WA-036](./WA-036-overseer-hotkey.md) | Overseer hotkey won't render (cursed F_Blink class) | S | 1 |
@@ -63,6 +69,9 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ---
 
 ## 🏁 Done
+- [WA-034](./WA-034-concussive-shells-upgrade.md) — Concussive slow-on-attack on **13 units** (Marauder + 12 custom incl. Sentry); shared 2s / 70% slow, massive-immune, splash/bounce/cleave slow all targets · 2026-07-20 (PR #7/#9)
+- [WA-049](./WA-049-per-upgrade-roll-caps.md) — Per-upgrade roll caps: global cap-aware assignment (smallest-pool-first, per-family counts, graceful fallback); cap 1 for Blink/Bile/casters/Concussive, 2 otherwise · 2026-07-20 (PR #9)
+- [WA-050](./WA-050-upgrade-families.md) — Upgrade families (`upgradeFamilyHelpers`): per-unit variants (all `Concussive*`, `Lifesteal*`, the split Range upgrades) count as one for caps · 2026-07-20 (PR #9)
 - [WA-048](./WA-048-colossus-thermal-lance-tooltip.md) — Added `Button/Tooltip/Colossus` (mirrors Marine/Hydralisk free-upgrade tooltips): flags that it starts with Extended Thermal Lance (+2 range, 9) · 2026-07-16
 - [WA-043](./WA-043-unit-stats-reference-doc.md) — New `docs/audits/unit-stats.md`: merged per-unit stats (cost/supply/build/HP/shields/armor/speed/weapons+DPS) for all ~34 units, `(MOD)` flags + override summary + game-speed caveat · 2026-07-16
 - [WA-006](./WA-006-update-mod-description.md) — Rewrote the in-client mod description (`DocInfo/DescLong`): hook-first, roll-and-adapt pitch, "not chaos" reassurance, Discord link; dropped the stale "PICK TERRAN (P/Z don't work)" line · 2026-07-16 (PR)
