@@ -153,6 +153,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Firebat");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "LurkerMP");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Hellion");
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Phoenix");   // uses the AnionPulseCrystals count upgrade instead (WA-057)
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Liberator");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Zergling"); 
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Zealot");
@@ -306,6 +307,9 @@ void initializeUpgrades() {
 
     addUpgradeToUpgrade("SiegeTankRange", "SiegeTankRange");
     addUpgradeRequirementTag("SiegeTankRange", logicType_AnyOf, "unitTag", "SiegeTank");
+
+    addUpgradeToUpgrade("AnionPulseCrystals", "AnionPulseCrystals");
+    addUpgradeRequirementTag("AnionPulseCrystals", logicType_AnyOf, "unitTag", "Phoenix");
 
     // Cloak as a rollable count upgrade (stock cloak upgrades enable each unit's native cloak). WA-020
     addUpgradeToUpgrade("WraithCloak", "WraithCloak");

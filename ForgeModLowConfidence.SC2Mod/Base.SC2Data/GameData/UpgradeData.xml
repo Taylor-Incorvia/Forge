@@ -167,4 +167,9 @@
         <EffectArray Reference="Weapon,CrucioShockCannon,Range" Value="2.5"/>
         <AffectedUnitArray value="SiegeTank"/>
     </CUpgrade>
+    <CUpgrade id="AnionPulseCrystals">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray Reference="Weapon,IonCannons,Range" Value="2.5"/>
+        <AffectedUnitArray value="Phoenix"/>
+    </CUpgrade>
 </Catalog>
