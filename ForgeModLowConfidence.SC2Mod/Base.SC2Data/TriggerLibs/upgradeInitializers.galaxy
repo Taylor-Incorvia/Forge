@@ -166,7 +166,8 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("DiggingClaws", logicType_AnyOf, "unitTag", "LurkerMP");
     addUpgradeRequirementTag("DiggingClaws", logicType_AnyOf, "unitTag", "SiegeTank");
 
-    addUpgradeToUpgrade("LiberatorSiegeSpeed", "LiberatorSiegeSpeed"); // Smart Servos: faster Defender-Mode morph + move speed (WA-054)
+    addUpgradeToUpgrade("LiberatorSiegeSpeed", "LiberatorSiegeSpeed"); // Smart Servos: faster Defender-Mode morph (the catalog upgrade) (WA-054)
+    addBehaviorToUpgrade("LiberatorSiegeSpeed", "Speed"); // +50% move speed via the shared Speed behavior (per review -- not baked into the catalog data)
     addUpgradeRequirementTag("LiberatorSiegeSpeed", logicType_AnyOf, "unitTag", "Liberator");
 
     addBehaviorToUpgrade("Speed", "Speed");
