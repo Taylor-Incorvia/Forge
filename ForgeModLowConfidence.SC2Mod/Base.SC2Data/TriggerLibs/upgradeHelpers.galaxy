@@ -87,30 +87,6 @@ void addUpgradeToUpgrade(string upgrade, string countUpgrade) {
     registerToAllUpgradesList(upgrade);
 }
 
-// ==================== WA-050: upgrade families ====================
-// Per-unit variants of one concept (LifestealMarine/..., all Concussive*, the split Range upgrades)
-// map to a shared family so WA-049's roll caps count them as one. An unregistered upgrade is its own
-// family (returns its own id), so shared upgrades like Speed/Blink/casters need no registration.
-string getUpgradeFamilyKey(string upgradeId) {
-    return "upgradeFamily." + upgradeId;
-}
-
-void setUpgradeFamily(string upgradeId, string familyName) {
-    // Dev guard: a family should only be set on an upgrade that's actually registered to the roll pool.
-    // (Same spirit as addAbilityToUpgrade warning when an ability doesn't start with F_.)
-    if (!stringListExists(allUpgradesListKey) || !stringListContains(allUpgradesListKey, upgradeId)) {
-        showMessage("Warning:: setUpgradeFamily for upgrade not registered to allUpgrades :: " + upgradeId);
-    }
-    DataTableSetString(true, getUpgradeFamilyKey(upgradeId), familyName);
-}
-
-string getUpgradeFamily(string upgradeId) {
-    if (DataTableValueExists(true, getUpgradeFamilyKey(upgradeId))) {
-        return DataTableGetString(true, getUpgradeFamilyKey(upgradeId));
-    }
-    return upgradeId;
-}
-
 void applyUpgradeCatalogOverrides(int player, string upgrade, string unitId) {
     if (upgrade == "HotSRaptorCharge2") {
         CatalogFieldValueSet(c_gameCatalogUnit, unitId, "Mover", player, "CliffJumper");

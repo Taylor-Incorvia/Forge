@@ -1,0 +1,50 @@
+include "TriggerLibs/upgradeHelpers"
+
+// ==================== WA-050: upgrade families ====================
+// Per-unit variants of one concept (LifestealMarine/..., all Concussive*, the split Range upgrades)
+// map to a shared family so WA-049's roll caps count them as one. An unregistered upgrade is its own
+// family (returns its own id), so shared upgrades like Speed/Blink/casters need no registration.
+string getUpgradeFamilyKey(string upgradeId) {
+    return "upgradeFamily." + upgradeId;
+}
+
+void setUpgradeFamily(string upgradeId, string familyName) {
+    // Dev guard: a family should only be set on an upgrade that's actually registered to the roll pool.
+    // (Same spirit as the addAbilityToUpgrade warning when an ability doesn't start with F_.)
+    if (!stringListExists(allUpgradesListKey) || !stringListContains(allUpgradesListKey, upgradeId)) {
+        showMessage("Warning:: setUpgradeFamily for upgrade not registered to allUpgrades :: " + upgradeId);
+    }
+    DataTableSetString(true, getUpgradeFamilyKey(upgradeId), familyName);
+}
+
+string getUpgradeFamily(string upgradeId) {
+    if (DataTableValueExists(true, getUpgradeFamilyKey(upgradeId))) {
+        return DataTableGetString(true, getUpgradeFamilyKey(upgradeId));
+    }
+    return upgradeId;
+}
+
+// Register the per-unit-variant families. Call AFTER initializeUpgrades() so every upgrade is already
+// in the allUpgrades list (setUpgradeFamily warns on ids that aren't).
+void initializeUpgradeFamilies() {
+    // Concussive family (Marauder's stock PunisherGrenades + the custom Concussive* variants).
+    setUpgradeFamily("PunisherGrenades", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveVoidRay", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveVulture", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveHellion", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveZealot", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveZergling", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveDiamondback", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveArchon", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveColossus", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveMutalisk", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveUltralisk", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveWraith", "ConcussiveShells");
+    // Lifesteal family (currently just the Marine; grows as lifesteal expands).
+    setUpgradeFamily("LifestealMarine", "Lifesteal");
+    // Range family: the generic behavior upgrade + the two catalog range upgrades (Tempest/Siege Tank
+    // needed their own upgrades for the range visual, WA-031) all share one cap.
+    setUpgradeFamily("Range", "Range");
+    setUpgradeFamily("SiegeTankRange", "Range");
+    setUpgradeFamily("TempestRange", "Range");
+}

@@ -1,5 +1,6 @@
 include "TriggerLibs/listHelpers"
 include "TriggerLibs/upgradeHelpers"
+include "TriggerLibs/upgradeFamilyHelpers"
 
 void initializeUpgrades() {
     // ==================== CASTER UPGRADES (require caster tag) ====================
@@ -332,25 +333,9 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Phoenix");
     // addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Medic"); // removed: useless on a Medic (tested)
 
-    // WA-050: upgrade families -- placed LAST so every upgrade is already registered to allUpgrades
-    // (setUpgradeFamily warns on unregistered ids). Per-unit variants of one concept share a family so
-    // WA-049 caps count them as one; unregistered ids default to their own id (shared upgrades need none).
-    setUpgradeFamily("PunisherGrenades", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveVoidRay", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveVulture", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveHellion", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveZealot", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveZergling", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveDiamondback", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveArchon", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveColossus", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveMutalisk", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveUltralisk", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveWraith", "ConcussiveShells");
-    setUpgradeFamily("LifestealMarine", "Lifesteal");
-    setUpgradeFamily("Range", "Range");
-    setUpgradeFamily("SiegeTankRange", "Range");
-    setUpgradeFamily("TempestRange", "Range");
+    // WA-050: register upgrade families (defined in upgradeFamilyHelpers). Called last so every upgrade
+    // is already in the allUpgrades list before its family is set.
+    initializeUpgradeFamilies();
 
     
 
@@ -474,28 +459,6 @@ int getFamilyUsedCount(int player, string family) {
         + countFamilyInFacility(player, starport, 3, family);
 }
 
-// Fallback picker: among `listKey`, the upgrade whose family is currently least-used (minimizes overflow).
-string pickLeastUsedFamily(int player, string listKey) {
-    int size;
-    int i;
-    string cand;
-    int used;
-    int bestUsed;
-    string bestCand;
-    size = getStringListSize(listKey);
-    bestUsed = 999999;
-    bestCand = "";
-    for (i = 0; i < size; i += 1) {
-        cand = getStringAtIndex(listKey, i);
-        used = getFamilyUsedCount(player, getUpgradeFamily(cand));
-        if (used < bestUsed) {
-            bestUsed = used;
-            bestCand = cand;
-        }
-    }
-    return bestCand;
-}
-
 // True if this upgrade's family still has room under its cap.
 bool candidateUnderCap(int player, string upgradeId) {
     return getFamilyUsedCount(player, getUpgradeFamily(upgradeId)) < getUpgradeCap(upgradeId);
@@ -523,13 +486,12 @@ void buildSlotCandidateTiers(int player, int slotIndex, string facility, string 
     }
 }
 
-// Choose an upgrade for one slot: a random under-cap candidate if any (tier1), else the least-used
-// family among collision-free candidates (tier2), else least-used across the whole pool. Never blank
-// unless the pool itself is empty.
+// Choose an upgrade for one slot: a random under-cap, collision-free candidate (tier1). If every
+// under-cap option is used up (rare -- pools are large), fall back to any collision-free candidate
+// (tier2), which goes one over its cap. Pools are sized so tier2 is never empty in practice.
 string pickCappedUpgradeForSlot(int player, int slotIndex, string facility) {
     string tier1Key;
     string tier2Key;
-    string poolKey;
 
     tier1Key = "capTier1.p" + IntToString(player) + "." + facility + "." + IntToString(slotIndex);
     tier2Key = "capTier2.p" + IntToString(player) + "." + facility + "." + IntToString(slotIndex);
@@ -540,14 +502,7 @@ string pickCappedUpgradeForSlot(int player, int slotIndex, string facility) {
     if (getStringListSize(tier1Key) > 0) {
         return getRandomStringFromList(tier1Key);
     }
-    if (getStringListSize(tier2Key) > 0) {
-        return pickLeastUsedFamily(player, tier2Key);
-    }
-    poolKey = getUpgradePoolListKey(player, slotIndex, facility);
-    if (getStringListSize(poolKey) > 0) {
-        return pickLeastUsedFamily(player, poolKey);
-    }
-    return "";
+    return getRandomStringFromList(tier2Key);
 }
 
 void buildBaseEligiblePoolsForPlayer(int player) {
