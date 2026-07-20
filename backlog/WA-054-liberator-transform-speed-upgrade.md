@@ -12,6 +12,8 @@ Give the **Liberator** (Starport slot 2) a rollable upgrade like `DiggingClaws` 
 
 Suggested id `LiberatorSiegeSpeed`, display **"Smart Servos"** (the stock Terran mech transform-speed flavor).
 
+**Decided:** match Digging Claws' magnitudes exactly — transform durations **×0.4** (i.e. 60% faster morph, both directions) and move speed **×1.5**, plus `RandomDelayMax` set to 0.125.
+
 ## Data (from research)
 Model it on `<CUpgrade id="DiggingClaws">` (MOD `UpgradeData.xml`). Liberator specifics:
 - Move speed: `Unit,Liberator,Speed` (base 3.375) — ×1.5 like DiggingClaws. (`LiberatorAG` sieged Speed=1 is stationary; skip or include harmlessly.)

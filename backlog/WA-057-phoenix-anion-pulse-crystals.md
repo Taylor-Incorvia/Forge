@@ -8,23 +8,23 @@ priority: 25
 # Phoenix: replace generic Range with Anion Pulse-Crystals
 
 ## What
-Swap the generic `Range` on the **Phoenix** (Starport slot 1) for a flavored **Anion Pulse-Crystals** upgrade: same +2.5 range, but the proper Phoenix-range icon. Add it to the **Range family** (WA-050).
+Swap the generic `Range` on the **Phoenix** (Starport slot 1) for the flavored **Anion Pulse-Crystals** upgrade: same +2.5 range, the proper Phoenix-range icon, and — per known MP behavior — the Phoenix beam turns **purple instead of blue**. Add it to the **Range family** (WA-050).
 
-## Data (from research)
-- Weapon `IonCannons` (Phoenix), Range 5 (LotV). Stock `<CUpgrade id="AnionPulseCrystals">` (void `upgradedata.xml`) does `Weapon,IonCannons,Range +2` only. We want **+2.5** to match the generic Range, so make our own catalog upgrade:
+## Reuse the STOCK upgrade id (so the purple recolor rides along)
+In standard multiplayer, Anion Pulse-Crystals recolors the Phoenix attack purple. That recolor is tied to the **stock `AnionPulseCrystals` upgrade** completing (research didn't surface a standalone color effect in the extracted data, but the recolor is real in MP — it comes with the stock upgrade). So **reuse the stock `AnionPulseCrystals` id** rather than inventing a new one, and just **override its range to +2.5** (stock is +2):
 ```xml
 <CUpgrade id="AnionPulseCrystals">
-    <EditorCategories value="Race:Protoss"/>
-    <EffectArray Reference="Weapon,IonCannons,Range" Value="2.5"/>
-    <AffectedUnitArray value="Phoenix"/>
+    <EffectArray index="0" Reference="Weapon,IonCannons,Range" Value="2.5"/>
 </CUpgrade>
 ```
-- **Icon** (reuse stock): `Assets\Textures\btn-upgrade-protoss-phoenixrange.dds` (`CButton id="AnionPulseCrystals"`, liberty `buttondata.xml`).
+Overriding the existing entry keeps whatever actor/model swap the stock upgrade triggers, so the purple projectiles should follow for free. (Stock already targets the Phoenix + carries icon `Assets\Textures\btn-upgrade-protoss-phoenixrange.dds`.)
 
 ## Wiring
 - `addUpgradeToUpgrade("AnionPulseCrystals","AnionPulseCrystals")` + `AnyOf Phoenix`; `addUpgradeRequirementTag("Range", NoneOf, Phoenix)`.
 - `setUpgradeFamily("AnionPulseCrystals", "Range")` in `initializeUpgradeFamilies` (WA-050).
 - `CAbilResearch`/`CButton` `AnionPulseCrystals1` (Starport slot 1 → Fusion Core col 0), GameStrings.
 
-## ⚠️ Projectile color change — NOT free
-You asked for the projectiles to change color. Research found **no color effect tied to `AnionPulseCrystals`** anywhere in the catalog (nothing in actordata/effectdata — the stock upgrade is range-only). So the color change is a **separate actor/model task**, not something the upgrade grants. Options: (a) ship range-only now, add color as a follow-up ticket; (b) find/author a projectile-tint actor keyed on the upgrade. Recommend (a) — decide before building the color piece.
+## Acceptance criteria
+- [ ] Phoenix rolls Anion Pulse-Crystals instead of Range; +2.5 range applies (range indicator updates).
+- [ ] Phoenix projectiles turn purple after research — **verify in-game** (expected free from the stock upgrade; if it doesn't, the recolor becomes a small follow-up actor task).
+- [ ] In the Range family (shares the range cap).
