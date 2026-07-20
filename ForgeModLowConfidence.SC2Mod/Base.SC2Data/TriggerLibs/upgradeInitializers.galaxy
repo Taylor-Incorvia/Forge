@@ -482,7 +482,7 @@ string chooseUpgradeForSlotWithinCaps(int player, int slotIndex, string producti
 // Scan one facility's slots; if an unassigned slot has a smaller eligible pool than the smallest seen
 // so far, record it in the smallestPool globals. A slot counts as unassigned while its selected upgrade
 // is still empty.
-void considerFacilitySlotsForSmallestUnassignedPool(int player, string productionFacility, int facilitySlotCount) {
+void updateSmallestUnassignedPoolInfo(int player, string productionFacility, int facilitySlotCount) {
     int slotIndex;
     int eligiblePoolSize;
     string selectedUpgrade;
@@ -508,9 +508,9 @@ void findUnassignedSlotWithSmallestPool(int player) {
     smallestPoolSize = 999999;
     smallestPoolProductionFacility = "";
     smallestPoolSlotIndex = 0;
-    considerFacilitySlotsForSmallestUnassignedPool(player, rax, 4);
-    considerFacilitySlotsForSmallestUnassignedPool(player, factory, 3);
-    considerFacilitySlotsForSmallestUnassignedPool(player, starport, 3);
+    updateSmallestUnassignedPoolInfo(player, rax, 4);
+    updateSmallestUnassignedPoolInfo(player, factory, 3);
+    updateSmallestUnassignedPoolInfo(player, starport, 3);
 }
 
 // Assign an upgrade to every production slot, honoring the per-family caps: build all eligible pools,
