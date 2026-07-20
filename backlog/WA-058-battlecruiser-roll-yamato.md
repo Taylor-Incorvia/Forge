@@ -1,11 +1,14 @@
 ---
 id: WA-058
-status: todo
+status: done
 size: S
 phase: 1-game-readiness
 priority: 26
 ---
 # Let the Battlecruiser roll Yamato
+
+## ✅ Done 2026-07-20 (PR)
+Decision: **option (b) — two Yamatos.** Removed the `NoneOf Battlecruiser` exclusion on `Yamato`, so a BC can roll the `F_Yamato` upgrade on top of its native `Yamato` (accepted the second button, on-theme). Also **capped `Yamato` at 1** (`getUpgradeCap`, like Corrosive Bile) so only one of a player's units rolls it.
 
 ## What
 The Battlecruiser (Starport slot 3) is currently blocked from rolling `Yamato`. Make it eligible.

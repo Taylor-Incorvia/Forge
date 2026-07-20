@@ -22,7 +22,6 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-055](./WA-055-goliath-range-upgrade.md) | Goliath range upgrade (+3 air / +1 ground; replaces Range for Goliath) | S | 1 |
 | [WA-056](./WA-056-projectile-count-upgrades.md) | Projectile-count upgrades — Phoenix (scalar ✅) + Liberator (array append ⚠️) | M | 1 |
 | [WA-057](./WA-057-phoenix-anion-pulse-crystals.md) | Phoenix: Anion Pulse-Crystals replaces Range (proj. color change not free) | S | 1 |
-| [WA-058](./WA-058-battlecruiser-roll-yamato.md) | Let Battlecruiser roll Yamato (decide: drop native vs. two Yamatos) | S | 1 |
 | [WA-044](./WA-044-transfuse-targeting.md) | Transfuse any unit — bio gate is a heal-effect validator (TargetFilters fix didn't do it); needs editor merged-view | S | 1 |
 | [WA-045](./WA-045-editor-caching-settings.md) | Investigate if editor Documents-prefs settings fix the caching pain | S | 1 |
 | [WA-036](./WA-036-overseer-hotkey.md) | Overseer hotkey won't render (cursed F_Blink class) | S | 1 |
@@ -68,6 +67,7 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ---
 
 ## 🏁 Done
+- [WA-058](./WA-058-battlecruiser-roll-yamato.md) — Battlecruiser can roll Yamato (kept native → two Yamatos); Yamato capped at 1 like Corrosive Bile · 2026-07-20 (PR)
 - [WA-052](./WA-052-adjust-upgrade-caps.md) — Blink roll cap 1→2 (Corrosive Bile / casters / Concussive family stay at 1) · 2026-07-20
 - [WA-034](./WA-034-concussive-shells-upgrade.md) — Concussive slow-on-attack on **13 units** (Marauder + 12 custom incl. Sentry); shared 2s / 70% slow, massive-immune, splash/bounce/cleave slow all targets · 2026-07-20 (PR #7/#9)
 - [WA-049](./WA-049-per-upgrade-roll-caps.md) — Per-upgrade roll caps: global cap-aware assignment (smallest-pool-first, per-family counts, graceful fallback); cap 1 for Blink/Bile/casters/Concussive, 2 otherwise · 2026-07-20 (PR #9)
