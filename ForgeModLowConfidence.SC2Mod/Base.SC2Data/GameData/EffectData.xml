@@ -104,6 +104,16 @@
         <ValidatorArray value="NotMassive"/>
         <Behavior value="Slow"/>
     </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="SentryConcussiveSlow">
+        <ValidatorArray index="0" value="SentryConcussiveResearched"/>
+        <ValidatorArray value="NotStructure"/>
+        <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
+        <Behavior value="Slow"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="SentryWeaponPeriodicSet">
+        <EffectArray index="3" value="SentryConcussiveSlow"/>
+    </CEffectSet>
     <CEffectSet id="VultureConcussiveSet">
         <EffectArray index="0" value="VultureU"/>
         <EffectArray index="1" value="VultureConcussiveSlow"/>

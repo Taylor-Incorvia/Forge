@@ -1,5 +1,15 @@
 include "TriggerLibs/listHelpers"
 include "TriggerLibs/upgradeHelpers"
+include "TriggerLibs/upgradeFamilyHelpers"
+include "TriggerLibs/upgradeCapHelpers"
+
+// Number of unit/upgrade slots across all 3 production facilities (Barracks 4 + Factory 3 + Starport 3).
+int totalProductionSlotCount = 10;
+
+// Working state for findUnassignedSlotWithSmallestPool -- the unassigned slot it selects each pass.
+string smallestPoolProductionFacility = "";
+int smallestPoolSlotIndex = 0;
+int smallestPoolSize = 0;
 
 void initializeUpgrades() {
     // ==================== CASTER UPGRADES (require caster tag) ====================
@@ -282,6 +292,8 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("ConcussiveUltralisk", logicType_AnyOf, "unitTag", "Ultralisk");
     addUpgradeToUpgrade("ConcussiveWraith", "ConcussiveWraith");
     addUpgradeRequirementTag("ConcussiveWraith", logicType_AnyOf, "unitTag", "Wraith");
+    addUpgradeToUpgrade("ConcussiveSentry", "ConcussiveSentry");
+    addUpgradeRequirementTag("ConcussiveSentry", logicType_AnyOf, "unitTag", "Sentry");
 
     addUpgradeToUpgrade("stalkerblinkcooldown", "stalkerblinkcooldown");
     addUpgradeRequirementTag("stalkerblinkcooldown", logicType_AnyOf, "unitTag", "Stalker");
@@ -331,6 +343,10 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Colossus"); // COULDNT TURN TOWARDS TARGET issue was fixed by increasing arc to 360
     addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Phoenix");
     // addUpgradeRequirementTag("Hyperjump", logicType_AnyOf, "unitTag", "Medic"); // removed: useless on a Medic (tested)
+
+    // WA-050: register upgrade families (defined in upgradeFamilyHelpers). Called last so every upgrade
+    // is already in the allUpgrades list before its family is set.
+    initializeUpgradeFamilies();
 
     
 
@@ -409,23 +425,116 @@ void initializeUpgradePoolForPlayerSlot(int player, int slotIndex, string facili
     }
 }
 
-void assignRandomUpgradeFromPoolToPlayerSlot(int player, int slotIndex, string facilityId) {
-    setSlotSelectedUpgrade(player, slotIndex, facilityId, getRandomStringFromList(getUpgradePoolListKey(player, slotIndex, facilityId)));
+// ==================== WA-049: cap-aware upgrade assignment ====================
+// The cap values + family counting live in upgradeCapHelpers. This section is the assignment that uses
+// them: build every slot's eligible pool, then fill slots smallest-pool-first with an under-cap roll.
+
+// Build each production slot's eligible upgrade pool (the unit-tag filtering happens inside).
+void buildEligibleUpgradePoolsForAllSlots(int player) {
+    int slotIndex;
+    for (slotIndex = 1; slotIndex <= 4; slotIndex += 1) { initializeUpgradePoolForPlayerSlot(player, slotIndex, rax); }
+    for (slotIndex = 1; slotIndex <= 3; slotIndex += 1) { initializeUpgradePoolForPlayerSlot(player, slotIndex, factory); }
+    for (slotIndex = 1; slotIndex <= 3; slotIndex += 1) { initializeUpgradePoolForPlayerSlot(player, slotIndex, starport); }
 }
 
+// From a slot's eligible pool, fill two candidate lists: collisionFreeCandidates (upgrades not already
+// rolled in this slot number at another facility -- the shared <upgrade><slot> research id would clash)
+// and underCapCandidates (the subset of those that are also under their family cap).
+void collectCandidateUpgradesForSlot(int player, int slotIndex, string productionFacility, string underCapCandidatesListName, string collisionFreeCandidatesListName) {
+    string eligiblePoolListName;
+    int eligiblePoolSize;
+    int poolPosition;
+    string candidateUpgrade;
 
-void setUpgradeSlotsForFacility(string facility, int facilitySlotCount, int playerIndex){
+    eligiblePoolListName = getUpgradePoolListKey(player, slotIndex, productionFacility);
+    eligiblePoolSize = getStringListSize(eligiblePoolListName);
+    for (poolPosition = 0; poolPosition < eligiblePoolSize; poolPosition += 1) {
+        candidateUpgrade = getStringAtIndex(eligiblePoolListName, poolPosition);
+        if (!isUpgradeAlreadyAssignedToSlot(player, slotIndex, candidateUpgrade)) {
+            addToStringList(collisionFreeCandidatesListName, candidateUpgrade);
+            if (isCandidateUnderFamilyCap(player, candidateUpgrade)) {
+                addToStringList(underCapCandidatesListName, candidateUpgrade);
+            }
+        }
+    }
+}
+
+// Choose one upgrade for a slot: a random under-cap, collision-free candidate. If every under-cap
+// option is already used up (rare -- pools are large), fall back to any collision-free candidate, which
+// lands one over its family cap. Returns "" only if the pool couldn't fill the slot -- that shouldn't
+// happen; if it does, add more upgrades to that slot's pool.
+string chooseUpgradeForSlotWithinCaps(int player, int slotIndex, string productionFacility) {
+    string underCapCandidatesListName;
+    string collisionFreeCandidatesListName;
+
+    underCapCandidatesListName = "underCapCandidates.player" + IntToString(player) + "." + productionFacility + "." + IntToString(slotIndex);
+    collisionFreeCandidatesListName = "collisionFreeCandidates.player" + IntToString(player) + "." + productionFacility + "." + IntToString(slotIndex);
+    listStringRequire(underCapCandidatesListName);
+    listStringRequire(collisionFreeCandidatesListName);
+    collectCandidateUpgradesForSlot(player, slotIndex, productionFacility, underCapCandidatesListName, collisionFreeCandidatesListName);
+
+    if (getStringListSize(underCapCandidatesListName) > 0) {
+        return getRandomStringFromList(underCapCandidatesListName);
+    }
+    return getRandomStringFromList(collisionFreeCandidatesListName);
+}
+
+// Scan one facility's slots; if an unassigned slot has a smaller eligible pool than the smallest seen
+// so far, record it in the smallestPool globals. A slot counts as unassigned while its selected upgrade
+// is still empty.
+void updateSmallestUnassignedPoolInfo(int player, string productionFacility, int facilitySlotCount) {
     int slotIndex;
+    int eligiblePoolSize;
+    string selectedUpgrade;
+
     for (slotIndex = 1; slotIndex <= facilitySlotCount; slotIndex += 1) {
-        initializeUpgradePoolForPlayerSlot(playerIndex, slotIndex, facility);
-        assignRandomUpgradeFromPoolToPlayerSlot(playerIndex, slotIndex, facility);
+        selectedUpgrade = getSlotSelectedUpgrade(player, slotIndex, productionFacility);
+        if (selectedUpgrade == "") {
+            eligiblePoolSize = getStringListSize(getUpgradePoolListKey(player, slotIndex, productionFacility));
+            if (eligiblePoolSize < smallestPoolSize) {
+                smallestPoolSize = eligiblePoolSize;
+                smallestPoolProductionFacility = productionFacility;
+                smallestPoolSlotIndex = slotIndex;
+            }
+        }
+    }
+}
+
+// Find the unassigned slot (across all facilities) with the smallest eligible pool and record it in the
+// smallestPool globals. Assigning the most-constrained slot first keeps tight pools (e.g. Archon, Void
+// Ray) from being stranded once caps fill up. Leaves smallestPoolProductionFacility "" if every slot is
+// already assigned.
+void findUnassignedSlotWithSmallestPool(int player) {
+    smallestPoolSize = 999999;
+    smallestPoolProductionFacility = "";
+    smallestPoolSlotIndex = 0;
+    updateSmallestUnassignedPoolInfo(player, rax, 4);
+    updateSmallestUnassignedPoolInfo(player, factory, 3);
+    updateSmallestUnassignedPoolInfo(player, starport, 3);
+}
+
+// Assign an upgrade to every production slot, honoring the per-family caps: build all eligible pools,
+// then repeatedly fill the most-constrained unassigned slot with an under-cap roll. Replaces the old
+// per-slot independent roll.
+void assignUpgradesToAllSlotsWithinCaps(int player) {
+    int assignedSlotCount;
+    string chosenUpgrade;
+
+    buildEligibleUpgradePoolsForAllSlots(player);
+
+    assignedSlotCount = 0;
+    while (assignedSlotCount < totalProductionSlotCount) {
+        findUnassignedSlotWithSmallestPool(player);
+        if (smallestPoolProductionFacility == "") {
+            return;
+        }
+        chosenUpgrade = chooseUpgradeForSlotWithinCaps(player, smallestPoolSlotIndex, smallestPoolProductionFacility);
+        setSlotSelectedUpgrade(player, smallestPoolSlotIndex, smallestPoolProductionFacility, chosenUpgrade);
+        assignedSlotCount += 1;
     }
 }
 
 void initializeUpgradePoolsForPlayer(int player) {
-    setUpgradeSlotsForFacility(rax, 4, player);
-    setUpgradeSlotsForFacility(factory, 3, player);
-    setUpgradeSlotsForFacility(starport, 3, player);
-
+    assignUpgradesToAllSlotsWithinCaps(player);
     grantInitialUpgrades(player);
 }
