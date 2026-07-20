@@ -40,6 +40,7 @@ void initializeUpgradeFamilies() {
     setUpgradeFamily("ConcussiveMutalisk", "ConcussiveShells");
     setUpgradeFamily("ConcussiveUltralisk", "ConcussiveShells");
     setUpgradeFamily("ConcussiveWraith", "ConcussiveShells");
+    setUpgradeFamily("ConcussiveSentry", "ConcussiveShells");
     // Lifesteal family (currently just the Marine; grows as lifesteal expands).
     setUpgradeFamily("LifestealMarine", "Lifesteal");
     // Range family: the generic behavior upgrade + the two catalog range upgrades (Tempest/Siege Tank

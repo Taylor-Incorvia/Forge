@@ -294,4 +294,7 @@
     <CRequirement id="UseConcussiveWraith">
         <NodeArray index="Use" Link="CountUpgradeConcussiveWraithCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="UseConcussiveSentry">
+        <NodeArray index="Use" Link="CountUpgradeConcussiveSentryCompleteOnly"/>
+    </CRequirement>
 </Catalog>

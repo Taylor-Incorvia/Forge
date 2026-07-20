@@ -72,6 +72,11 @@
         <Find value="1"/>
         <Value value="UseConcussiveWraith"/>
     </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="SentryConcussiveResearched">
+        <ResultNoPlayer value="Error"/>
+        <Find value="1"/>
+        <Value value="UseConcussiveSentry"/>
+    </CValidatorPlayerRequirement>
     <CValidatorUnitFilters id="NotMassive">
         <Filters value="-;Massive"/>
     </CValidatorUnitFilters>
