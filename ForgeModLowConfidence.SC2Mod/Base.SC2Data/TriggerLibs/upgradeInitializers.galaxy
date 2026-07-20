@@ -193,7 +193,7 @@ void initializeUpgrades() {
 
     addAbilityToUpgrade("Yamato", "F_Yamato");
     addUpgradeRequirementTag("Yamato", logicType_NoneOf, "unitTag", "pureCaster");
-    addUpgradeRequirementTag("Yamato", logicType_NoneOf, "unitTag", "Battlecruiser"); // WA-032: BC has Yamato natively; don't let it roll a duplicate
+    // WA-058: BC may roll Yamato even though it has native Yamato (accepted the second button). Capped at 1 (getUpgradeCap).
     addUpgradeRequirementTag("Yamato", logicType_AnyOf, "unitTag", factory +"3");
     addUpgradeRequirementTag("Yamato", logicType_AnyOf, "unitTag", starport +"3");
 
