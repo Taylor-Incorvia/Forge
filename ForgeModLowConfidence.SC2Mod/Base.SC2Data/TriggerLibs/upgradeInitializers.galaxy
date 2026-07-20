@@ -1,6 +1,15 @@
 include "TriggerLibs/listHelpers"
 include "TriggerLibs/upgradeHelpers"
 include "TriggerLibs/upgradeFamilyHelpers"
+include "TriggerLibs/upgradeCapHelpers"
+
+// Number of unit/upgrade slots across all 3 production facilities (Barracks 4 + Factory 3 + Starport 3).
+int totalProductionSlotCount = 10;
+
+// Working state for findUnassignedSlotWithSmallestPool -- the unassigned slot it selects each pass.
+string smallestPoolProductionFacility = "";
+int smallestPoolSlotIndex = 0;
+int smallestPoolSize = 0;
 
 void initializeUpgrades() {
     // ==================== CASTER UPGRADES (require caster tag) ====================
@@ -414,183 +423,116 @@ void initializeUpgradePoolForPlayerSlot(int player, int slotIndex, string facili
     }
 }
 
-// ==================== WA-049: per-upgrade roll caps ====================
-// A caster ability = any upgrade registered with AllOf unitTag "caster" (see initializeUpgrades),
-// so the whole caster set is capped at 1 automatically with zero maintenance.
-bool isCasterUpgrade(string upgradeId) {
-    string allOfUnitTagList;
-    allOfUnitTagList = getUpgradeTagsListName(upgradeId, logicType_AllOf, upgradeTagType_unitTag);
-    if (!stringListExists(allOfUnitTagList)) {
-        return false;
-    }
-    return stringListContains(allOfUnitTagList, "caster");
+// ==================== WA-049: cap-aware upgrade assignment ====================
+// The cap values + family counting live in upgradeCapHelpers. This section is the assignment that uses
+// them: build every slot's eligible pool, then fill slots smallest-pool-first with an under-cap roll.
+
+// Build each production slot's eligible upgrade pool (the unit-tag filtering happens inside).
+void buildEligibleUpgradePoolsForAllSlots(int player) {
+    int slotIndex;
+    for (slotIndex = 1; slotIndex <= 4; slotIndex += 1) { initializeUpgradePoolForPlayerSlot(player, slotIndex, rax); }
+    for (slotIndex = 1; slotIndex <= 3; slotIndex += 1) { initializeUpgradePoolForPlayerSlot(player, slotIndex, factory); }
+    for (slotIndex = 1; slotIndex <= 3; slotIndex += 1) { initializeUpgradePoolForPlayerSlot(player, slotIndex, starport); }
 }
 
-// Max number of a player's units that may roll a given upgrade (counted per family -- see WA-050).
-// 1 for Blink, Corrosive Bile, every caster spell, and the Concussive family; 2 for everything else.
-int getUpgradeCap(string upgradeId) {
-    if (upgradeId == "Blink") { return 1; }
-    if (upgradeId == "RavagerCorrosiveBile") { return 1; }
-    if (getUpgradeFamily(upgradeId) == "ConcussiveShells") { return 1; }
-    if (isCasterUpgrade(upgradeId)) { return 1; }
-    return 2;
-}
+// From a slot's eligible pool, fill two candidate lists: collisionFreeCandidates (upgrades not already
+// rolled in this slot number at another facility -- the shared <upgrade><slot> research id would clash)
+// and underCapCandidates (the subset of those that are also under their family cap).
+void collectCandidateUpgradesForSlot(int player, int slotIndex, string productionFacility, string underCapCandidatesListName, string collisionFreeCandidatesListName) {
+    string eligiblePoolListName;
+    int eligiblePoolSize;
+    int poolPosition;
+    string candidateUpgrade;
 
-// How many already-assigned slots (this player, this facility) hold an upgrade in `family`.
-int countFamilyInFacility(int player, string facility, int slotCount, string family) {
-    int i;
-    int count;
-    string sel;
-    count = 0;
-    for (i = 1; i <= slotCount; i += 1) {
-        sel = getSlotSelectedUpgrade(player, i, facility);
-        if (sel != "" && getUpgradeFamily(sel) == family) {
-            count += 1;
-        }
-    }
-    return count;
-}
-
-// Total assigned slots (all facilities) holding an upgrade in `family`. Derived from the live
-// selected-upgrade state, so it needs no separate counter to reset between games.
-int getFamilyUsedCount(int player, string family) {
-    return countFamilyInFacility(player, rax, 4, family)
-        + countFamilyInFacility(player, factory, 3, family)
-        + countFamilyInFacility(player, starport, 3, family);
-}
-
-// True if this upgrade's family still has room under its cap.
-bool candidateUnderCap(int player, string upgradeId) {
-    return getFamilyUsedCount(player, getUpgradeFamily(upgradeId)) < getUpgradeCap(upgradeId);
-}
-
-// From a slot's eligible pool, fill tier2 (candidates with no same-slot-number collision) and tier1
-// (the subset of tier2 that is also under its family cap). The <upgrade><slot> research id is shared
-// across facilities, so isUpgradeAlreadyAssignedToSlot enforces the same-slot-number uniqueness rule.
-void buildSlotCandidateTiers(int player, int slotIndex, string facility, string tier1Key, string tier2Key) {
-    string poolKey;
-    int poolSize;
-    int i;
-    string cand;
-
-    poolKey = getUpgradePoolListKey(player, slotIndex, facility);
-    poolSize = getStringListSize(poolKey);
-    for (i = 0; i < poolSize; i += 1) {
-        cand = getStringAtIndex(poolKey, i);
-        if (!isUpgradeAlreadyAssignedToSlot(player, slotIndex, cand)) {
-            addToStringList(tier2Key, cand);
-            if (candidateUnderCap(player, cand)) {
-                addToStringList(tier1Key, cand);
+    eligiblePoolListName = getUpgradePoolListKey(player, slotIndex, productionFacility);
+    eligiblePoolSize = getStringListSize(eligiblePoolListName);
+    for (poolPosition = 0; poolPosition < eligiblePoolSize; poolPosition += 1) {
+        candidateUpgrade = getStringAtIndex(eligiblePoolListName, poolPosition);
+        if (!isUpgradeAlreadyAssignedToSlot(player, slotIndex, candidateUpgrade)) {
+            addToStringList(collisionFreeCandidatesListName, candidateUpgrade);
+            if (isCandidateUnderFamilyCap(player, candidateUpgrade)) {
+                addToStringList(underCapCandidatesListName, candidateUpgrade);
             }
         }
     }
 }
 
-// Choose an upgrade for one slot: a random under-cap, collision-free candidate (tier1). If every
-// under-cap option is used up (rare -- pools are large), fall back to any collision-free candidate
-// (tier2), which goes one over its cap. Pools are sized so tier2 is never empty in practice.
-string pickCappedUpgradeForSlot(int player, int slotIndex, string facility) {
-    string tier1Key;
-    string tier2Key;
+// Choose one upgrade for a slot: a random under-cap, collision-free candidate. If every under-cap
+// option is already used up (rare -- pools are large), fall back to any collision-free candidate, which
+// lands one over its family cap. Returns "" only if the pool couldn't fill the slot -- that shouldn't
+// happen; if it does, add more upgrades to that slot's pool.
+string chooseUpgradeForSlotWithinCaps(int player, int slotIndex, string productionFacility) {
+    string underCapCandidatesListName;
+    string collisionFreeCandidatesListName;
 
-    tier1Key = "capTier1.p" + IntToString(player) + "." + facility + "." + IntToString(slotIndex);
-    tier2Key = "capTier2.p" + IntToString(player) + "." + facility + "." + IntToString(slotIndex);
-    listStringRequire(tier1Key);
-    listStringRequire(tier2Key);
-    buildSlotCandidateTiers(player, slotIndex, facility, tier1Key, tier2Key);
+    underCapCandidatesListName = "underCapCandidates.player" + IntToString(player) + "." + productionFacility + "." + IntToString(slotIndex);
+    collisionFreeCandidatesListName = "collisionFreeCandidates.player" + IntToString(player) + "." + productionFacility + "." + IntToString(slotIndex);
+    listStringRequire(underCapCandidatesListName);
+    listStringRequire(collisionFreeCandidatesListName);
+    collectCandidateUpgradesForSlot(player, slotIndex, productionFacility, underCapCandidatesListName, collisionFreeCandidatesListName);
 
-    if (getStringListSize(tier1Key) > 0) {
-        return getRandomStringFromList(tier1Key);
+    if (getStringListSize(underCapCandidatesListName) > 0) {
+        return getRandomStringFromList(underCapCandidatesListName);
     }
-    return getRandomStringFromList(tier2Key);
+    return getRandomStringFromList(collisionFreeCandidatesListName);
 }
 
-void buildBaseEligiblePoolsForPlayer(int player) {
-    int i;
-    for (i = 1; i <= 4; i += 1) { initializeUpgradePoolForPlayerSlot(player, i, rax); }
-    for (i = 1; i <= 3; i += 1) { initializeUpgradePoolForPlayerSlot(player, i, factory); }
-    for (i = 1; i <= 3; i += 1) { initializeUpgradePoolForPlayerSlot(player, i, starport); }
-}
+// Scan one facility's slots; if an unassigned slot has a smaller eligible pool than the smallest seen
+// so far, record it in the smallestPool globals. A slot counts as unassigned while its selected upgrade
+// is still empty.
+void considerFacilitySlotsForSmallestUnassignedPool(int player, string productionFacility, int facilitySlotCount) {
+    int slotIndex;
+    int eligiblePoolSize;
+    string selectedUpgrade;
 
-// Fill the parallel (facility, slotIndex) descriptor lists for all 10 slots (rax 1-4, factory 1-3,
-// starport 1-3). Kept in lists so the assignment order can be re-sorted independently of facility.
-void buildSlotDescriptorLists(string facKey, string idxKey) {
-    listStringRequire(facKey);
-    listIntRequire(idxKey);
-    addToStringList(facKey, rax);      addToIntList(idxKey, 1);
-    addToStringList(facKey, rax);      addToIntList(idxKey, 2);
-    addToStringList(facKey, rax);      addToIntList(idxKey, 3);
-    addToStringList(facKey, rax);      addToIntList(idxKey, 4);
-    addToStringList(facKey, factory);  addToIntList(idxKey, 1);
-    addToStringList(facKey, factory);  addToIntList(idxKey, 2);
-    addToStringList(facKey, factory);  addToIntList(idxKey, 3);
-    addToStringList(facKey, starport); addToIntList(idxKey, 1);
-    addToStringList(facKey, starport); addToIntList(idxKey, 2);
-    addToStringList(facKey, starport); addToIntList(idxKey, 3);
-}
-
-// Descriptor index of the not-yet-assigned slot with the smallest eligible pool (most-constrained
-// first), or -1 if all are assigned. Assigning tight pools first keeps Archon/VoidRay from stranding.
-int findSmallestUnassignedSlot(int player, string facKey, string idxKey, string assignedKey, int nSlots) {
-    int k;
-    int bestK;
-    int bestSize;
-    int curSize;
-    string facility;
-    int slotIdx;
-
-    bestK = -1;
-    bestSize = 999999;
-    for (k = 0; k < nSlots; k += 1) {
-        if (!stringListContains(assignedKey, IntToString(k))) {
-            facility = getStringAtIndex(facKey, k);
-            slotIdx = getIntAtIndex(idxKey, k);
-            curSize = getStringListSize(getUpgradePoolListKey(player, slotIdx, facility));
-            if (curSize < bestSize) {
-                bestSize = curSize;
-                bestK = k;
+    for (slotIndex = 1; slotIndex <= facilitySlotCount; slotIndex += 1) {
+        selectedUpgrade = getSlotSelectedUpgrade(player, slotIndex, productionFacility);
+        if (selectedUpgrade == "") {
+            eligiblePoolSize = getStringListSize(getUpgradePoolListKey(player, slotIndex, productionFacility));
+            if (eligiblePoolSize < smallestPoolSize) {
+                smallestPoolSize = eligiblePoolSize;
+                smallestPoolProductionFacility = productionFacility;
+                smallestPoolSlotIndex = slotIndex;
             }
         }
     }
-    return bestK;
 }
 
-// Global cap-aware assignment across all 10 slots: build every slot's eligible pool, then assign
-// smallest-pool-first, each a random under-cap pick with a graceful fallback (never blank).
-// Replaces the old per-slot independent roll.
-void assignUpgradesWithCapsForPlayer(int player) {
-    string facKey;
-    string idxKey;
-    string assignedKey;
-    int nSlots;
-    int assignedTotal;
-    int bestK;
-    string facility;
-    int slotIdx;
-    string chosen;
+// Find the unassigned slot (across all facilities) with the smallest eligible pool and record it in the
+// smallestPool globals. Assigning the most-constrained slot first keeps tight pools (e.g. Archon, Void
+// Ray) from being stranded once caps fill up. Leaves smallestPoolProductionFacility "" if every slot is
+// already assigned.
+void findUnassignedSlotWithSmallestPool(int player) {
+    smallestPoolSize = 999999;
+    smallestPoolProductionFacility = "";
+    smallestPoolSlotIndex = 0;
+    considerFacilitySlotsForSmallestUnassignedPool(player, rax, 4);
+    considerFacilitySlotsForSmallestUnassignedPool(player, factory, 3);
+    considerFacilitySlotsForSmallestUnassignedPool(player, starport, 3);
+}
 
-    facKey = "capSlotFac.p" + IntToString(player);
-    idxKey = "capSlotIdx.p" + IntToString(player);
-    assignedKey = "capAssigned.p" + IntToString(player);
-    listStringRequire(assignedKey);
-    nSlots = 10;
+// Assign an upgrade to every production slot, honoring the per-family caps: build all eligible pools,
+// then repeatedly fill the most-constrained unassigned slot with an under-cap roll. Replaces the old
+// per-slot independent roll.
+void assignUpgradesToAllSlotsWithinCaps(int player) {
+    int assignedSlotCount;
+    string chosenUpgrade;
 
-    buildSlotDescriptorLists(facKey, idxKey);
-    buildBaseEligiblePoolsForPlayer(player);
+    buildEligibleUpgradePoolsForAllSlots(player);
 
-    assignedTotal = 0;
-    while (assignedTotal < nSlots) {
-        bestK = findSmallestUnassignedSlot(player, facKey, idxKey, assignedKey, nSlots);
-        facility = getStringAtIndex(facKey, bestK);
-        slotIdx = getIntAtIndex(idxKey, bestK);
-        chosen = pickCappedUpgradeForSlot(player, slotIdx, facility);
-        setSlotSelectedUpgrade(player, slotIdx, facility, chosen);
-        addToStringList(assignedKey, IntToString(bestK));
-        assignedTotal += 1;
+    assignedSlotCount = 0;
+    while (assignedSlotCount < totalProductionSlotCount) {
+        findUnassignedSlotWithSmallestPool(player);
+        if (smallestPoolProductionFacility == "") {
+            return;
+        }
+        chosenUpgrade = chooseUpgradeForSlotWithinCaps(player, smallestPoolSlotIndex, smallestPoolProductionFacility);
+        setSlotSelectedUpgrade(player, smallestPoolSlotIndex, smallestPoolProductionFacility, chosenUpgrade);
+        assignedSlotCount += 1;
     }
 }
 
 void initializeUpgradePoolsForPlayer(int player) {
-    assignUpgradesWithCapsForPlayer(player);
+    assignUpgradesToAllSlotsWithinCaps(player);
     grantInitialUpgrades(player);
 }

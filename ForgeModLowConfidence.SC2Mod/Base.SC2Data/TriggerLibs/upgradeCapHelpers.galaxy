@@ -1,0 +1,56 @@
+include "TriggerLibs/upgradeFamilyHelpers"
+
+// ==================== WA-049: per-upgrade roll caps ====================
+// A "cap" is the maximum number of a player's units that may roll a given upgrade in one game (counted
+// per family -- see upgradeFamilyHelpers). These are the pure cap-value / family-counting helpers; the
+// assignment loop that uses them lives in upgradeInitializers.
+
+// A caster ability = any upgrade registered with AllOf unitTag "caster" (see initializeUpgrades), so
+// the whole caster set is capped at 1 automatically with zero maintenance.
+bool isCasterUpgrade(string upgradeId) {
+    string allOfUnitTagListName;
+    allOfUnitTagListName = getUpgradeTagsListName(upgradeId, logicType_AllOf, upgradeTagType_unitTag);
+    if (!stringListExists(allOfUnitTagListName)) {
+        return false;
+    }
+    return stringListContains(allOfUnitTagListName, "caster");
+}
+
+// Maximum units that may roll this upgrade: 1 for Blink, Corrosive Bile, every caster spell, and the
+// Concussive family; 2 for everything else.
+int getUpgradeCap(string upgradeId) {
+    if (upgradeId == "Blink") { return 1; }
+    if (upgradeId == "RavagerCorrosiveBile") { return 1; }
+    if (getUpgradeFamily(upgradeId) == "ConcussiveShells") { return 1; }
+    if (isCasterUpgrade(upgradeId)) { return 1; }
+    return 2;
+}
+
+// How many of a facility's slots (this player) already hold an upgrade in upgradeFamily.
+int countFamilyUsagesInFacility(int player, string productionFacility, int facilitySlotCount, string upgradeFamily) {
+    int slotIndex;
+    int usageCount;
+    string selectedUpgrade;
+
+    usageCount = 0;
+    for (slotIndex = 1; slotIndex <= facilitySlotCount; slotIndex += 1) {
+        selectedUpgrade = getSlotSelectedUpgrade(player, slotIndex, productionFacility);
+        if (selectedUpgrade != "" && getUpgradeFamily(selectedUpgrade) == upgradeFamily) {
+            usageCount += 1;
+        }
+    }
+    return usageCount;
+}
+
+// Total slots (all facilities) already holding an upgrade in upgradeFamily. Derived from the live
+// selected-upgrade state, so it needs no separate counter to reset between games.
+int countFamilyUsagesForPlayer(int player, string upgradeFamily) {
+    return countFamilyUsagesInFacility(player, rax, 4, upgradeFamily)
+        + countFamilyUsagesInFacility(player, factory, 3, upgradeFamily)
+        + countFamilyUsagesInFacility(player, starport, 3, upgradeFamily);
+}
+
+// True if this upgrade's family still has room under its cap.
+bool isCandidateUnderFamilyCap(int player, string upgradeId) {
+    return countFamilyUsagesForPlayer(player, getUpgradeFamily(upgradeId)) < getUpgradeCap(upgradeId);
+}
