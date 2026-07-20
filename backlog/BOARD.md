@@ -27,6 +27,7 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-036](./WA-036-overseer-hotkey.md) | Overseer hotkey won't render (cursed F_Blink class) | S | 1 |
 | [WA-039](./WA-039-arsenal-paper-design.md) | Arsenal modal — paper design + info spec (design-first; epic WA-001) | S | 1 |
 | [WA-047](./WA-047-gameplay-clips.md) | Play + capture gameplay clips (every Reddit post needs one) | M | 4 (parallel) |
+| [WA-059](./WA-059-ember-github-identity.md) | Give Ember its own GitHub identity so you can review/approve its PRs (workflow) | S | 1 |
 
 ---
 
