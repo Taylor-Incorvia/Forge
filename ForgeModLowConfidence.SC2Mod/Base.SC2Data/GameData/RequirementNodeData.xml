@@ -761,4 +761,7 @@
     <CRequirementCountUpgrade id="CountUpgradeConcussiveSentryCompleteOnly">
         <Count Link="ConcussiveSentry" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeConcussiveFirebatCompleteOnly">
+        <Count Link="ConcussiveFirebat" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
 </Catalog>

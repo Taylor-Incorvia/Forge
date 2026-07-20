@@ -1,11 +1,16 @@
 ---
 id: WA-053
-status: todo
+status: in-progress
 size: S
 phase: 1-game-readiness
 priority: 21
 ---
 # Add Firebat + Stalker to the concussive-shells pool
+
+## 🔨 Firebat done 2026-07-20 (PR); Stalker deferred
+**Firebat ✅** — full concussive chain wired. Its flame fires `FlameThrowerDamageSet` (a `CEffectSet`, its own — no overlap with the Hellion's `InfernalFlameThrower`), so the slow appends cleanly at index 2 and hits every cone target. Barracks slot 3 → Ghost Academy col 2 (`ConcussiveFirebat3`), massive-immune, `ConcussiveShells` family.
+
+**Stalker ⏸ deferred** — its `ParticleDisruptors` weapon internals are **not in the extracted `reference/`** (the multiplayer Protoss chains inherit from a dependency that wasn't extracted). Wiring it blind risks breaking the Stalker's attack (repointing to a set with a wrong damage id = no damage), so it's on hold until the void-multiplayer Stalker data is extracted. Then it's a 10-minute follow-up (same recipe, single-target wrap of `ParticleDisruptorsDamage`).
 
 ## What
 Two more units can roll **Concussive Shells** (slow-on-attack), following the WA-034 per-unit recipe:
