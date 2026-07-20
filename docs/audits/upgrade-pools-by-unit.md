@@ -12,7 +12,7 @@ BARRACKS
  s2  Marine        [5]  Blink, Range, Speed, Stimpack, LifestealMarine
  s2  Queen        [10]  CorsairMPDisruptionWeb, ForceField, GuardianShield, GravitonBeam, MissilePods, Blink, Range, Speed, Stimpack, RavagerCorrosiveBile
  s3  Firebat       [5]  Blink, HotSRaptorCharge2, Speed, Stimpack, RavagerCorrosiveBile
- s3  Marauder      [5]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile
+ s3  Marauder      [6]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile, PunisherGrenades
  s3  Sentry        [3]  CorsairMPDisruptionWeb, GravitonBeam, MissilePods
  s3  Medic         [5]  CorsairMPDisruptionWeb, ForceField, GuardianShield, GravitonBeam, MissilePods
  s4  Ghost        [15]  BlindingCloud, BuildAutoTurret, CorsairMPDisruptionWeb, FungalGrowth, Irradiate, NeuralParasite, ParasiticBomb, RavenScramblerMissile, SeekerMissile, Yoink, Blink, Range, Speed, Stimpack, PersonalCloaking

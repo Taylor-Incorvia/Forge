@@ -392,10 +392,77 @@
         <DefaultButtonLayout Column="2"/>
     </CButton>
     <CButton id="LifestealMarine2">
-        <Icon value="Assets\Textures\btn-ability-zerg-transfusion.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-zerg-transfusion.dds"/>
+        <Icon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="PunisherGrenades3">
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ConcussiveVoidRay2">
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ConcussiveVulture1">
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ConcussiveHellion1">
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ConcussiveZealot1">
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ConcussiveZergling1">
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="ConcussiveDiamondback2">
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ConcussiveArchon2">
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ConcussiveColossus3">
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ConcussiveMutalisk2">
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="ConcussiveUltralisk3">
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="ConcussiveWraith1">
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="VoidRay">
         <HotkeyAlias value="Banshee"/>

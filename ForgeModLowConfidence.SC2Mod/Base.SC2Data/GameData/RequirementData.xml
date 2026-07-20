@@ -261,4 +261,37 @@
         <NodeArray index="Show" Link="CountUpgradeTempestGroundAttackUpgradeCompleteOnly788113278"/>
         <NodeArray index="Use" Link="CountUpgradeTempestGroundAttackUpgradeCompleteOnly788113278"/>
     </CRequirement>
+    <CRequirement id="UseConcussiveVoidRay">
+        <NodeArray index="Use" Link="CountUpgradeConcussiveVoidRayCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="UseConcussiveVulture">
+        <NodeArray index="Use" Link="CountUpgradeConcussiveVultureCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="UseConcussiveHellion">
+        <NodeArray index="Use" Link="CountUpgradeConcussiveHellionCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="UseConcussiveZealot">
+        <NodeArray index="Use" Link="CountUpgradeConcussiveZealotCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="UseConcussiveZergling">
+        <NodeArray index="Use" Link="CountUpgradeConcussiveZerglingCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="UseConcussiveDiamondback">
+        <NodeArray index="Use" Link="CountUpgradeConcussiveDiamondbackCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="UseConcussiveArchon">
+        <NodeArray index="Use" Link="CountUpgradeConcussiveArchonCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="UseConcussiveColossus">
+        <NodeArray index="Use" Link="CountUpgradeConcussiveColossusCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="UseConcussiveMutalisk">
+        <NodeArray index="Use" Link="CountUpgradeConcussiveMutaliskCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="UseConcussiveUltralisk">
+        <NodeArray index="Use" Link="CountUpgradeConcussiveUltraliskCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="UseConcussiveWraith">
+        <NodeArray index="Use" Link="CountUpgradeConcussiveWraithCompleteOnly"/>
+    </CRequirement>
 </Catalog>

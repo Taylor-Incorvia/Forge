@@ -725,4 +725,37 @@
         <OperandArray value="CountUnitFusionCoreCompleteOnly"/>
         <OperandArray value="CountUnitGhostAcademyCompleteOnly"/>
     </CRequirementOr>
+    <CRequirementCountUpgrade id="CountUpgradeConcussiveVoidRayCompleteOnly">
+        <Count Link="ConcussiveVoidRay" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeConcussiveVultureCompleteOnly">
+        <Count Link="ConcussiveVulture" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeConcussiveHellionCompleteOnly">
+        <Count Link="ConcussiveHellion" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeConcussiveZealotCompleteOnly">
+        <Count Link="ConcussiveZealot" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeConcussiveZerglingCompleteOnly">
+        <Count Link="ConcussiveZergling" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeConcussiveDiamondbackCompleteOnly">
+        <Count Link="ConcussiveDiamondback" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeConcussiveArchonCompleteOnly">
+        <Count Link="ConcussiveArchon" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeConcussiveColossusCompleteOnly">
+        <Count Link="ConcussiveColossus" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeConcussiveMutaliskCompleteOnly">
+        <Count Link="ConcussiveMutalisk" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeConcussiveUltraliskCompleteOnly">
+        <Count Link="ConcussiveUltralisk" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeConcussiveWraithCompleteOnly">
+        <Count Link="ConcussiveWraith" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
 </Catalog>

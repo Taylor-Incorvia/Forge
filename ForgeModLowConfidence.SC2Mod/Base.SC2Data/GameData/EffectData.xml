@@ -24,6 +24,174 @@
         <AttributeBonus index="Light" value="0"/>
         <Amount value="6"/>
     </CEffectDamage>
+    <CEffectApplyBehavior id="VoidRayConcussiveSlow">
+        <ValidatorArray index="0" value="VoidRayConcussiveResearched"/>
+        <ValidatorArray value="NotStructure"/>
+        <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
+        <Behavior value="Slow"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="VoidRayWeaponPeriodicSet">
+        <EffectArray index="3" value="VoidRayConcussiveSlow"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="VultureConcussiveSlow">
+        <ValidatorArray index="0" value="VultureConcussiveResearched"/>
+        <ValidatorArray value="NotStructure"/>
+        <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
+        <Behavior value="Slow"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="HellionConcussiveSlow">
+        <ValidatorArray index="0" value="HellionConcussiveResearched"/>
+        <ValidatorArray value="NotStructure"/>
+        <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
+        <Behavior value="Slow"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ZealotConcussiveSlow">
+        <ValidatorArray index="0" value="ZealotConcussiveResearched"/>
+        <ValidatorArray value="NotStructure"/>
+        <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
+        <Behavior value="Slow"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ZerglingConcussiveSlow">
+        <ValidatorArray index="0" value="ZerglingConcussiveResearched"/>
+        <ValidatorArray value="NotStructure"/>
+        <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
+        <Behavior value="Slow"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="DiamondbackConcussiveSlow">
+        <ValidatorArray index="0" value="DiamondbackConcussiveResearched"/>
+        <ValidatorArray value="NotStructure"/>
+        <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
+        <Behavior value="Slow"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ArchonConcussiveSlow">
+        <ValidatorArray index="0" value="ArchonConcussiveResearched"/>
+        <ValidatorArray value="NotStructure"/>
+        <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
+        <Behavior value="Slow"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ColossusConcussiveSlow">
+        <ValidatorArray index="0" value="ColossusConcussiveResearched"/>
+        <ValidatorArray value="NotStructure"/>
+        <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
+        <Behavior value="Slow"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="MutaliskConcussiveSlow">
+        <ValidatorArray index="0" value="MutaliskConcussiveResearched"/>
+        <ValidatorArray value="NotStructure"/>
+        <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
+        <Behavior value="Slow"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="UltraliskConcussiveSlow">
+        <ValidatorArray index="0" value="UltraliskConcussiveResearched"/>
+        <ValidatorArray value="NotStructure"/>
+        <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
+        <Behavior value="Slow"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WraithConcussiveSlow">
+        <ValidatorArray index="0" value="WraithConcussiveResearched"/>
+        <ValidatorArray value="NotStructure"/>
+        <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
+        <Behavior value="Slow"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="VultureConcussiveSet">
+        <EffectArray index="0" value="VultureU"/>
+        <EffectArray index="1" value="VultureConcussiveSlow"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="Vulture">
+        <ImpactEffect value="VultureConcussiveSet"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="Diamondback">
+        <EffectArray index="2" value="DiamondbackConcussiveSlow"/>
+    </CEffectSet>
+    <CEffectSet id="WraithAConcussiveSet">
+        <EffectArray index="0" value="WraithAU"/>
+        <EffectArray index="1" value="WraithConcussiveSlow"/>
+    </CEffectSet>
+    <CEffectSet id="WraithGConcussiveSet">
+        <EffectArray index="0" value="WraithGU"/>
+        <EffectArray index="1" value="WraithConcussiveSlow"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="WraithARightLaunchMissile">
+        <ImpactEffect value="WraithAConcussiveSet"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WraithALeftLaunchMissile">
+        <ImpactEffect value="WraithAConcussiveSet"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="WraithGLaunchMissile">
+        <ImpactEffect value="WraithGConcussiveSet"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="PsiBladesConcussiveSet">
+        <EffectArray index="0" value="PsiBlades"/>
+        <EffectArray index="1" value="ZealotConcussiveSlow"/>
+    </CEffectSet>
+    <CEffectCreatePersistent id="PsiBladesBurst">
+        <PeriodicEffectArray index="0" value="PsiBladesConcussiveSet"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="ClawsConcussiveSet">
+        <EffectArray index="0" value="Claws"/>
+        <EffectArray index="1" value="ZerglingConcussiveSlow"/>
+    </CEffectSet>
+    <CEffectSet id="InfernalFlameThrowerConcussiveSet">
+        <EffectArray index="0" value="InfernalFlameThrower"/>
+        <EffectArray index="1" value="HellionConcussiveSlow"/>
+    </CEffectSet>
+    <CEffectEnumArea id="InfernalFlameThrowerE">
+        <AreaArray index="0" Radius="0.15" Effect="InfernalFlameThrowerConcussiveSet"/>
+    </CEffectEnumArea>
+    <CEffectCreatePersistent id="InfernalFlameThrowerCP">
+        <InitialEffect value="InfernalFlameThrowerConcussiveSet"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="ThermalLancesConcussiveSet">
+        <EffectArray index="0" value="ThermalLancesMU"/>
+        <EffectArray index="1" value="ColossusConcussiveSlow"/>
+    </CEffectSet>
+    <CEffectCreatePersistent id="ThermalLancesDamageDelay">
+        <FinalEffect value="ThermalLancesConcussiveSet"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="GlaiveWurmS1">
+        <EffectArray index="2" value="MutaliskConcussiveSlow"/>
+    </CEffectSet>
+    <CEffectSet id="GlaiveWurmS2">
+        <EffectArray index="2" value="MutaliskConcussiveSlow"/>
+    </CEffectSet>
+    <CEffectSet id="GlaiveWurmS3">
+        <EffectArray index="0" value="GlaiveWurmU3"/>
+        <EffectArray index="1" value="MutaliskConcussiveSlow"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="GlaiveWurmM3">
+        <ImpactEffect value="GlaiveWurmS3"/>
+    </CEffectLaunchMissile>
+    <CEffectEnumArea id="ArchonConcussiveSlowSearch">
+        <SearchFilters value="-;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="0.8" Effect="ArchonConcussiveSlow"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <ImpactLocation Value="TargetUnitOrPoint"/>
+    </CEffectEnumArea>
+    <CEffectSet id="PsionicShockwaveConcussiveSet">
+        <EffectArray index="0" value="PsionicShockwaveDamage"/>
+        <EffectArray index="1" value="ArchonConcussiveSlowSearch"/>
+    </CEffectSet>
+    <CEffectSet id="KaiserBladesHit">
+        <EffectArray index="0" value="KaiserBladesDamage"/>
+        <EffectArray index="1" value="UltraliskConcussiveSlow"/>
+    </CEffectSet>
+    <CEffectSet id="KaiserBlades">
+        <EffectArray index="0" value="KaiserBladesHit"/>
+    </CEffectSet>
+    <CEffectEnumArea id="KaiserBladesSearch">
+        <AreaArray index="0" Arc="180" Radius="2" Effect="KaiserBladesHit"/>
+    </CEffectEnumArea>
     <CEffectDamage id="KD8ChargeExplodeDamage">
         <Amount value="12"/>
     </CEffectDamage>

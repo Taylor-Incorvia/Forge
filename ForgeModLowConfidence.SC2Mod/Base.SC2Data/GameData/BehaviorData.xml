@@ -52,4 +52,8 @@
         <Duration value="2"/>
         <ExpireEffect value="SuicideRemove2"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="Slow">
+        <Duration value="2"/>
+        <Modification MoveSpeedMultiplier="0.3"/>
+    </CBehaviorBuff>
 </Catalog>
