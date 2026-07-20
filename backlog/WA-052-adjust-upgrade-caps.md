@@ -1,11 +1,14 @@
 ---
 id: WA-052
-status: todo
+status: done
 size: XS
 phase: 1-game-readiness
 priority: 20
 ---
 # Adjust upgrade roll caps — Blink to 2
+
+## ✅ Done 2026-07-20
+Removed the `Blink` early-return from `getUpgradeCap` (`upgradeCapHelpers.galaxy`) — Blink now falls through to the default cap of 2. Corrosive Bile / casters / Concussive family stay at 1. Pushed to main.
 
 ## What
 Raise one per-upgrade roll cap to the default 2 (set in WA-049):
