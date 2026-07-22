@@ -72,7 +72,7 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ## 🏁 Done
 - [WA-062](./WA-062-autoturret-cast-range.md) — `F_BuildAutoTurret` cast range 2→5 so ground units can actually place it (rolled `F_` only; Raven native untouched) · 2026-07-22
 - [WA-055](./WA-055-goliath-range-upgrade.md) — Goliath range upgrade (`GoliathRange`, +3 air / +1 ground, replaces generic Range for Goliath); in the Range family · 2026-07-20 (PR)
-- [WA-058](./WA-058-battlecruiser-roll-yamato.md) — Battlecruiser can roll Yamato (kept native → two Yamatos); Yamato capped at 1 like Corrosive Bile · 2026-07-20 (PR)
+- [WA-058](./WA-058-battlecruiser-roll-yamato.md) — Battlecruiser can roll Yamato (0 native → 1 from the upgrade; tested); Yamato capped at 1 like Corrosive Bile · 2026-07-20 (PR)
 - [WA-052](./WA-052-adjust-upgrade-caps.md) — Blink roll cap 1→2 (Corrosive Bile / casters / Concussive family stay at 1) · 2026-07-20
 - [WA-034](./WA-034-concussive-shells-upgrade.md) — Concussive slow-on-attack on **13 units** (Marauder + 12 custom incl. Sentry); shared 2s / 70% slow, massive-immune, splash/bounce/cleave slow all targets · 2026-07-20 (PR #7/#9)
 - [WA-049](./WA-049-per-upgrade-roll-caps.md) — Per-upgrade roll caps: global cap-aware assignment (smallest-pool-first, per-family counts, graceful fallback); cap 1 for Blink/Bile/casters/Concussive, 2 otherwise · 2026-07-20 (PR #9)
