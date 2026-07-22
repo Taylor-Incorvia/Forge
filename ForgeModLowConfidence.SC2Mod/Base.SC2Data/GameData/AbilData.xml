@@ -505,7 +505,7 @@
             <Cooldown Link="Raven Build Link" Location="Unit"/>
         </Cost>
         <Placeholder value="AutoTurret"/>
-        <Range value="2"/>
+        <Range value="5"/>
         <Marker Link="Abil/AutoTurret"/>
         <ErrorAlert value="Error"/>
         <AINotifyEffect value="AutoTurret"/>

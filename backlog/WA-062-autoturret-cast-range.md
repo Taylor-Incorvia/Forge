@@ -1,11 +1,13 @@
 ---
 id: WA-062
-status: todo
+status: done
 size: S
 phase: 1-game-readiness
 priority: 30
 ---
 # Increase F_BuildAutoTurret cast range — it's unusable on ground units
+
+**Done 2026-07-22:** `AbilData.xml` `CAbilEffectTarget F_BuildAutoTurret` `<Range>` bumped `2 → 5` (rolled `F_` version only; Raven native untouched). One-line data change; committed to main.
 
 ## Why
 When a **ground** unit rolls Build Auto Turret (`F_BuildAutoTurret`), the ability feels un-castable. Two things compound:

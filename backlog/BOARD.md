@@ -29,7 +29,6 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-059](./WA-059-ember-github-identity.md) | Give Ember its own GitHub identity so you can review/approve its PRs (workflow) | S | 1 |
 | [WA-060](./WA-060-auto-mine-after-race-replace.md) | Auto-mine after race replacement — workers gather at 0:00 regardless of picked race (post-first-push) | M | 1 |
 | [WA-061](./WA-061-orbital-to-planetary-upgrade.md) | Orbital → Planetary Fortress upgrade — costly, footprint-limited anti-drop static defense (post-first-push) | M | 1 |
-| [WA-062](./WA-062-autoturret-cast-range.md) | Increase F_BuildAutoTurret cast range (2→~5) — unusable on ground units | S | 1 |
 | [WA-063](./WA-063-ultralisk-concussive-no-slow.md) | Ultralisk concussive applies no slow (KaiserBlades set override not merging?) — pulled from pool | M | 1 |
 
 ---
@@ -71,6 +70,7 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ---
 
 ## 🏁 Done
+- [WA-062](./WA-062-autoturret-cast-range.md) — `F_BuildAutoTurret` cast range 2→5 so ground units can actually place it (rolled `F_` only; Raven native untouched) · 2026-07-22
 - [WA-055](./WA-055-goliath-range-upgrade.md) — Goliath range upgrade (`GoliathRange`, +3 air / +1 ground, replaces generic Range for Goliath); in the Range family · 2026-07-20 (PR)
 - [WA-058](./WA-058-battlecruiser-roll-yamato.md) — Battlecruiser can roll Yamato (kept native → two Yamatos); Yamato capped at 1 like Corrosive Bile · 2026-07-20 (PR)
 - [WA-052](./WA-052-adjust-upgrade-caps.md) — Blink roll cap 1→2 (Corrosive Bile / casters / Concussive family stay at 1) · 2026-07-20
