@@ -157,7 +157,8 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Zergling"); 
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Zealot");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Tempest");   // uses the TempestRange count upgrade instead (WA-031)
-    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "SiegeTank"); // uses the SiegeTankRange count upgrade instead (WA-031) 
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "SiegeTank"); // uses the SiegeTankRange count upgrade instead (WA-031)
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Goliath");   // uses the GoliathRange count upgrade instead (WA-055)
 
     addUpgradeToUpgrade("LurkerRange", "LurkerRange");
     addUpgradeRequirementTag("LurkerRange", logicType_AllOf, "unitTag", "LurkerMP");
@@ -306,6 +307,9 @@ void initializeUpgrades() {
 
     addUpgradeToUpgrade("SiegeTankRange", "SiegeTankRange");
     addUpgradeRequirementTag("SiegeTankRange", logicType_AnyOf, "unitTag", "SiegeTank");
+
+    addUpgradeToUpgrade("GoliathRange", "GoliathRange");
+    addUpgradeRequirementTag("GoliathRange", logicType_AnyOf, "unitTag", "Goliath");
 
     // Cloak as a rollable count upgrade (stock cloak upgrades enable each unit's native cloak). WA-020
     addUpgradeToUpgrade("WraithCloak", "WraithCloak");

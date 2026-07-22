@@ -167,4 +167,12 @@
         <EffectArray Reference="Weapon,CrucioShockCannon,Range" Value="2.5"/>
         <AffectedUnitArray value="SiegeTank"/>
     </CUpgrade>
+    <CUpgrade id="GoliathRange">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray Reference="Weapon,GoliathA,Range" Value="3.5"/>
+        <EffectArray Reference="Weapon,GoliathAUpgraded,Range" Value="3.5"/>
+        <EffectArray Reference="Weapon,GoliathG,Range" Value="1.5"/>
+        <EffectArray Reference="Weapon,GoliathGUpgraded,Range" Value="1.5"/>
+        <AffectedUnitArray value="Goliath"/>
+    </CUpgrade>
 </Catalog>
