@@ -15,10 +15,10 @@
     </CUpgrade>
     <CUpgrade id="LiberatorSiegeSpeed">
         <EditorCategories value="Race:Terran"/>
-        <EffectArray Operation="Multiply" Reference="Abil,LiberatorMorphtoAG,InfoArray[LiberatorAG].SectionArray[Actor].DurationArray[Duration]" Value="0.4"/>
-        <EffectArray Operation="Multiply" Reference="Abil,LiberatorMorphtoAG,InfoArray[LiberatorAG].SectionArray[Stats].DurationArray[Duration]" Value="0.4"/>
-        <EffectArray Operation="Multiply" Reference="Abil,LiberatorMorphtoAA,InfoArray[Liberator].SectionArray[Actor].DurationArray[Duration]" Value="0.4"/>
-        <EffectArray Operation="Multiply" Reference="Abil,LiberatorMorphtoAA,InfoArray[Liberator].SectionArray[Stats].DurationArray[Duration]" Value="0.4"/>
+        <EffectArray Operation="Multiply" Reference="Abil,LiberatorMorphtoAG,InfoArray[0].SectionArray[Actor].DurationArray[Duration]" Value="0.4"/>
+        <EffectArray Operation="Multiply" Reference="Abil,LiberatorMorphtoAG,InfoArray[0].SectionArray[Stats].DurationArray[Duration]" Value="0.4"/>
+        <EffectArray Operation="Multiply" Reference="Abil,LiberatorMorphtoAA,InfoArray[0].SectionArray[Actor].DurationArray[Duration]" Value="0.4"/>
+        <EffectArray Operation="Multiply" Reference="Abil,LiberatorMorphtoAA,InfoArray[0].SectionArray[Stats].DurationArray[Duration]" Value="0.4"/>
         <AffectedUnitArray value="Liberator"/>
         <AffectedUnitArray value="LiberatorAG"/>
     </CUpgrade>

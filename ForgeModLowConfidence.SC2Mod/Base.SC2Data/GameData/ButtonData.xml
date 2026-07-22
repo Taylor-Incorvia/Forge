@@ -397,8 +397,8 @@
         <DefaultButtonLayout Column="1"/>
     </CButton>
     <CButton id="LiberatorSiegeSpeed2">
-        <Icon value="Assets\Textures\btn-upgrade-zerg-adaptivetalons.dds"/>
-        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-adaptivetalons.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-transformationservos.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-transformationservos.dds"/>
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Column="1"/>
     </CButton>
