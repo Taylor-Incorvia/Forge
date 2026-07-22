@@ -391,6 +391,12 @@
         <EditorCategories value="Race:Zerg"/>
         <DefaultButtonLayout Column="1"/>
     </CButton>
+    <CButton id="LiberatorSiegeSpeed2">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-adaptivetalons.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-adaptivetalons.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
     <CButton id="ChitinousPlating3">
         <Icon value="Assets\Textures\btn-upgrade-zerg-chitinousplating.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-chitinousplating.dds"/>

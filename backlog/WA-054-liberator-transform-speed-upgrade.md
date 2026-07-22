@@ -1,11 +1,14 @@
 ---
 id: WA-054
-status: todo
+status: done
 size: M
 phase: 1-game-readiness
 priority: 22
 ---
 # Liberator transform-speed upgrade (Digging Claws equivalent) — replaces Speed
+
+## ✅ Done 2026-07-20 (PR)
+`LiberatorSiegeSpeed` ("Smart Servos") — mirrors Digging Claws' magnitudes: move speed ×1.5, and both morph durations (`LiberatorMorphtoAG` / `LiberatorMorphtoAA`, Actor + Stats) ×0.4. Replaces `Speed` for the Liberator (`Speed` → `NoneOf Liberator`); rolls at Starport slot 2 → Fusion Core col 1 (`LiberatorSiegeSpeed2`, reuses the Digging Claws icon). **Verify in-editor/in-game:** the morph-duration references use the **Unit-keyed** `InfoArray[LiberatorAG]` / `InfoArray[Liberator]` path (confirmed from the ability data, but the catalog-reference syntax for a unit-keyed InfoArray is the one thing to eyeball — worst case only the transform-speed half fails, move speed still applies).
 
 ## What
 Give the **Liberator** (Starport slot 2) a rollable upgrade like `DiggingClaws` (which Siege Tanks / Lurkers roll): faster siege/unsiege transform + a move-speed bump. Since `DiggingClaws` also grants speed, this **replaces `Speed`** in the Liberator's pool (Liberator currently rolls `Speed`, not `Range` — Range is already `NoneOf Liberator`).

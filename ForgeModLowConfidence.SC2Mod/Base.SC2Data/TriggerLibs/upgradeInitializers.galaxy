@@ -167,12 +167,17 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("DiggingClaws", logicType_AnyOf, "unitTag", "LurkerMP");
     addUpgradeRequirementTag("DiggingClaws", logicType_AnyOf, "unitTag", "SiegeTank");
 
+    addUpgradeToUpgrade("LiberatorSiegeSpeed", "LiberatorSiegeSpeed"); // Smart Servos: faster Defender-Mode morph (the catalog upgrade) (WA-054)
+    addBehaviorToUpgrade("LiberatorSiegeSpeed", "Speed"); // +50% move speed via the shared Speed behavior (per review -- not baked into the catalog data)
+    addUpgradeRequirementTag("LiberatorSiegeSpeed", logicType_AnyOf, "unitTag", "Liberator");
+
     addBehaviorToUpgrade("Speed", "Speed");
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "pureCaster");
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Tempest"); // Tempests become insanely opressive. unbeatable. no counter play. 
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "melee"); // charge gives melee units speed and the charge ability. No need for this to be in the pool too for melee. 
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "LurkerMP"); // lurkers, tanks, zerglings, zealots have their own speed upgrade that also improves transform speed. 
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "SiegeTank");
+    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Liberator"); // uses LiberatorSiegeSpeed (which also gives transform speed) instead (WA-054)
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Zergling");
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Zealot");
 

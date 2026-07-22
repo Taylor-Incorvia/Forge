@@ -188,7 +188,10 @@ Button/Tooltip/Armory=Contains randomized upgrades that each apply to a single f
 Button/Tooltip/Cancel=WARNING:: If this hotkey is unbound, go to your hotkey profile, select any unit, you will see that cancel is unbound and set it to your desired hotkey (probably escape) hotkey. SC2 hotkeys are nonsense. 
 Button/Tooltip/ClusterWarheads2=Increases the splash damage area of the Dusk Wing's attack.
 Button/Tooltip/DefilerMPDarkSwarm=Allied units in the area of effect take 0 damage from ranged attacks.
-Button/Tooltip/DiggingClaws2=Grants slot 2 unit 50% movement speed and ability to burrow/siege faster. 
+Button/Tooltip/DiggingClaws2=Grants slot 2 unit 50% movement speed and ability to burrow/siege faster.
+Abil/Name/LiberatorSiegeSpeed2=LiberatorSiegeSpeed2
+Button/Name/LiberatorSiegeSpeed2=Smart Servos
+Button/Tooltip/LiberatorSiegeSpeed2=The Liberator (Starport slot 2) moves 50% faster and morphs to and from Defender Mode much faster. 
 Button/Tooltip/F_ArbiterMPRecall=Teleports all friendly units in the target area to the location of the Arbiter.
 Button/Tooltip/F_ArbiterMPStasisField=Puts enemies in target area into stasis. Units in Stasis cannot move, attack, or be attacked or be affected by spells for <d ref="Behavior,ArbiterMPStasisField,Duration"/> seconds.
 Button/Tooltip/F_AutoTurret=Automated defensive turret. Times out after <d ref="Behavior,AutoTurretTimedLife,Duration"/> seconds.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
