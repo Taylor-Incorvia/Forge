@@ -16,11 +16,12 @@ bool isCasterUpgrade(string upgradeId) {
     return stringListContains(allOfUnitTagListName, "caster");
 }
 
-// Maximum units that may roll this upgrade: 1 for Corrosive Bile, Yamato, every caster spell, and the
-// Concussive family; 2 for everything else (including Blink).
+// Maximum units that may roll this upgrade: 1 for Corrosive Bile, Yamato, Hyperjump, every caster
+// spell, and the Concussive family; 2 for everything else (including Blink).
 int getUpgradeCap(string upgradeId) {
     if (upgradeId == "RavagerCorrosiveBile") { return 1; }
     if (upgradeId == "Yamato") { return 1; }
+    if (upgradeId == "Hyperjump") { return 1; }
     if (getUpgradeFamily(upgradeId) == "ConcussiveShells") { return 1; }
     if (isCasterUpgrade(upgradeId)) { return 1; }
     return 2;
