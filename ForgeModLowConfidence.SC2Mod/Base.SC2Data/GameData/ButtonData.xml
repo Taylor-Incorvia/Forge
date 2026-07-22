@@ -374,12 +374,12 @@
         <DefaultButtonLayout Column="1"/>
     </CButton>
     <CButton id="GoliathRange2">
-        <Icon value="Assets\Textures\btn-upgrade-zerg-hotsgroovedspines.dds"/>
-        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-hotsgroovedspines.dds"/>
+        <Icon value="Assets\Textures\btn-techupgrade-terran-charonboosters.dds"/>
+        <AlertIcon value="Assets\Textures\btn-techupgrade-terran-charonboosters.dds"/>
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Column="1"/>
     </CButton>
-    <CButton id="AnionPulseCrystals1">
+    <CButton id="PhoenixRangeUpgrade1">
         <Icon value="Assets\Textures\btn-upgrade-protoss-phoenixrange.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-protoss-phoenixrange.dds"/>
         <EditorCategories value="Race:Protoss"/>

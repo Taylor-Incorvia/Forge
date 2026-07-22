@@ -187,9 +187,7 @@
         <EffectArray Reference="Weapon,GoliathGUpgraded,Range" Value="1.5"/>
         <AffectedUnitArray value="Goliath"/>
     </CUpgrade>
-    <CUpgrade id="AnionPulseCrystals">
-        <EditorCategories value="Race:Protoss"/>
-        <EffectArray Reference="Weapon,IonCannons,Range" Value="2.5"/>
-        <AffectedUnitArray value="Phoenix"/>
+    <CUpgrade id="PhoenixRangeUpgrade">
+        <EffectArray index="0" Reference="Weapon,IonCannons,Range" Value="2.5"/>
     </CUpgrade>
 </Catalog>

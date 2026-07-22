@@ -153,7 +153,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Firebat");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "LurkerMP");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Hellion");
-    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Phoenix");   // uses the AnionPulseCrystals count upgrade instead (WA-057)
+    addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Phoenix");   // uses PhoenixRangeUpgrade instead (WA-057)
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Liberator");
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Zergling"); 
     addUpgradeRequirementTag("Range", logicType_NoneOf, "unitTag", "Zealot");
@@ -319,8 +319,13 @@ void initializeUpgrades() {
     addUpgradeToUpgrade("GoliathRange", "GoliathRange");
     addUpgradeRequirementTag("GoliathRange", logicType_AnyOf, "unitTag", "Goliath");
 
-    addUpgradeToUpgrade("AnionPulseCrystals", "AnionPulseCrystals");
-    addUpgradeRequirementTag("AnionPulseCrystals", logicType_AnyOf, "unitTag", "Phoenix");
+    // Phoenix range: use the clean MULTIPLAYER upgrade PhoenixRangeUpgrade (overridden to +2.5 in
+    // UpgradeData). Key == grant == "PhoenixRangeUpgrade" so setSlotSelectedUpgrade derives the
+    // research ability id "PhoenixRangeUpgrade1" (which exists). The button still DISPLAYS as
+    // "Anion Pulse-Crystals" via GameStrings + the phoenixrange icon. Do NOT reuse the id
+    // "AnionPulseCrystals" -- that's the CAMPAIGN upgrade and merging into it broke the range. (WA-057)
+    addUpgradeToUpgrade("PhoenixRangeUpgrade", "PhoenixRangeUpgrade");
+    addUpgradeRequirementTag("PhoenixRangeUpgrade", logicType_AnyOf, "unitTag", "Phoenix");
 
     // Cloak as a rollable count upgrade (stock cloak upgrades enable each unit's native cloak). WA-020
     addUpgradeToUpgrade("WraithCloak", "WraithCloak");

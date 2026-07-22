@@ -50,5 +50,5 @@ void initializeUpgradeFamilies() {
     setUpgradeFamily("SiegeTankRange", "Range");
     setUpgradeFamily("TempestRange", "Range");
     setUpgradeFamily("GoliathRange", "Range");
-    setUpgradeFamily("AnionPulseCrystals", "Range");
+    setUpgradeFamily("PhoenixRangeUpgrade", "Range");
 }
