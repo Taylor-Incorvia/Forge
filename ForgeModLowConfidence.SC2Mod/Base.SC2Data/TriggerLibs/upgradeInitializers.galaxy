@@ -298,8 +298,10 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("ConcussiveColossus", logicType_AnyOf, "unitTag", "Colossus");
     addUpgradeToUpgrade("ConcussiveMutalisk", "ConcussiveMutalisk");
     addUpgradeRequirementTag("ConcussiveMutalisk", logicType_AnyOf, "unitTag", "Mutalisk");
-    addUpgradeToUpgrade("ConcussiveUltralisk", "ConcussiveUltralisk");
-    addUpgradeRequirementTag("ConcussiveUltralisk", logicType_AnyOf, "unitTag", "Ultralisk");
+    // WA-063: Ultralisk (KaiserBlades) concussive applies no slow at all -- the KaiserBlades CEffectSet
+    // override does not appear to merge. Pulled from the pool pending investigation.
+    // addUpgradeToUpgrade("ConcussiveUltralisk", "ConcussiveUltralisk");
+    // addUpgradeRequirementTag("ConcussiveUltralisk", logicType_AnyOf, "unitTag", "Ultralisk");
     addUpgradeToUpgrade("ConcussiveWraith", "ConcussiveWraith");
     addUpgradeRequirementTag("ConcussiveWraith", logicType_AnyOf, "unitTag", "Wraith");
     addUpgradeToUpgrade("ConcussiveSentry", "ConcussiveSentry");

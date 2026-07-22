@@ -30,6 +30,7 @@ Groomed, scoped, has acceptance criteria. Pull from the top.
 | [WA-060](./WA-060-auto-mine-after-race-replace.md) | Auto-mine after race replacement — workers gather at 0:00 regardless of picked race (post-first-push) | M | 1 |
 | [WA-061](./WA-061-orbital-to-planetary-upgrade.md) | Orbital → Planetary Fortress upgrade — costly, footprint-limited anti-drop static defense (post-first-push) | M | 1 |
 | [WA-062](./WA-062-autoturret-cast-range.md) | Increase F_BuildAutoTurret cast range (2→~5) — unusable on ground units | S | 1 |
+| [WA-063](./WA-063-ultralisk-concussive-no-slow.md) | Ultralisk concussive applies no slow (KaiserBlades set override not merging?) — pulled from pool | M | 1 |
 
 ---
 

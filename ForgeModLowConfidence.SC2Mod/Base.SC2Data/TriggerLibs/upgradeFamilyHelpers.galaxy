@@ -38,7 +38,7 @@ void initializeUpgradeFamilies() {
     setUpgradeFamily("ConcussiveArchon", "ConcussiveShells");
     setUpgradeFamily("ConcussiveColossus", "ConcussiveShells");
     setUpgradeFamily("ConcussiveMutalisk", "ConcussiveShells");
-    setUpgradeFamily("ConcussiveUltralisk", "ConcussiveShells");
+    // setUpgradeFamily("ConcussiveUltralisk", "ConcussiveShells"); // WA-063: Ultralisk concussive pulled from pool
     setUpgradeFamily("ConcussiveWraith", "ConcussiveShells");
     setUpgradeFamily("ConcussiveSentry", "ConcussiveShells");
     setUpgradeFamily("ConcussiveFirebat", "ConcussiveShells");

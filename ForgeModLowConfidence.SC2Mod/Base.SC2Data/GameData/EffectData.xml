@@ -172,6 +172,16 @@
     <CEffectCreatePersistent id="InfernalFlameThrowerCP">
         <InitialEffect value="InfernalFlameThrowerConcussiveSet"/>
     </CEffectCreatePersistent>
+    <CEffectSet id="HellionTankConcussiveSet">
+        <EffectArray index="0" value="HellionTankDamage"/>
+        <EffectArray index="1" value="HellionConcussiveSlow"/>
+    </CEffectSet>
+    <CEffectSet id="HellionTank">
+        <EffectArray index="1" value="HellionTankConcussiveSet"/>
+    </CEffectSet>
+    <CEffectEnumArea id="HellionTankSearch">
+        <AreaArray index="0" Arc="90" Radius="2" Effect="HellionTankConcussiveSet"/>
+    </CEffectEnumArea>
     <CEffectSet id="ThermalLancesConcussiveSet">
         <EffectArray index="0" value="ThermalLancesMU"/>
         <EffectArray index="1" value="ColossusConcussiveSlow"/>
