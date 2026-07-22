@@ -111,6 +111,16 @@
         <ValidatorArray value="NotMassive"/>
         <Behavior value="Slow"/>
     </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="FirebatConcussiveSlow">
+        <ValidatorArray index="0" value="FirebatConcussiveResearched"/>
+        <ValidatorArray value="NotStructure"/>
+        <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="NotMassive"/>
+        <Behavior value="Slow"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="FlameThrowerDamageSet">
+        <EffectArray index="2" value="FirebatConcussiveSlow"/>
+    </CEffectSet>
     <CEffectSet id="SentryWeaponPeriodicSet">
         <EffectArray index="3" value="SentryConcussiveSlow"/>
     </CEffectSet>

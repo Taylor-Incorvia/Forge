@@ -476,6 +476,12 @@
         <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
+    <CButton id="ConcussiveFirebat3">
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
     <CButton id="ConcussiveSentry3">
         <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>

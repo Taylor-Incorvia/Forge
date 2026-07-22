@@ -300,6 +300,8 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("ConcussiveWraith", logicType_AnyOf, "unitTag", "Wraith");
     addUpgradeToUpgrade("ConcussiveSentry", "ConcussiveSentry");
     addUpgradeRequirementTag("ConcussiveSentry", logicType_AnyOf, "unitTag", "Sentry");
+    addUpgradeToUpgrade("ConcussiveFirebat", "ConcussiveFirebat");
+    addUpgradeRequirementTag("ConcussiveFirebat", logicType_AnyOf, "unitTag", "Firebat");
 
     addUpgradeToUpgrade("stalkerblinkcooldown", "stalkerblinkcooldown");
     addUpgradeRequirementTag("stalkerblinkcooldown", logicType_AnyOf, "unitTag", "Stalker");

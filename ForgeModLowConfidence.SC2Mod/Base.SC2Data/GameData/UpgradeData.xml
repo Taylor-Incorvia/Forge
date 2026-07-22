@@ -170,6 +170,9 @@
     <CUpgrade id="ConcussiveSentry">
         <EditorCategories value="Race:Protoss"/>
     </CUpgrade>
+    <CUpgrade id="ConcussiveFirebat">
+        <EditorCategories value="Race:Terran"/>
+    </CUpgrade>
     <CUpgrade id="SiegeTankRange">
         <EditorCategories value="Race:Terran"/>
         <EffectArray Reference="Weapon,90mmCannons,Range" Value="2.5"/>
