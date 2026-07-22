@@ -19,6 +19,7 @@
         <EffectArray Operation="Multiply" Reference="Abil,LiberatorMorphtoAG,InfoArray[0].SectionArray[Stats].DurationArray[Duration]" Value="0.4"/>
         <EffectArray Operation="Multiply" Reference="Abil,LiberatorMorphtoAA,InfoArray[0].SectionArray[Actor].DurationArray[Duration]" Value="0.4"/>
         <EffectArray Operation="Multiply" Reference="Abil,LiberatorMorphtoAA,InfoArray[0].SectionArray[Stats].DurationArray[Duration]" Value="0.4"/>
+        <EffectArray Operation="Multiply" Reference="Unit,Liberator,Speed" Value="1.5"/>
         <AffectedUnitArray value="Liberator"/>
         <AffectedUnitArray value="LiberatorAG"/>
     </CUpgrade>

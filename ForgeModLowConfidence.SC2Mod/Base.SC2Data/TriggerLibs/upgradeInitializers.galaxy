@@ -168,8 +168,11 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("DiggingClaws", logicType_AnyOf, "unitTag", "LurkerMP");
     addUpgradeRequirementTag("DiggingClaws", logicType_AnyOf, "unitTag", "SiegeTank");
 
-    addUpgradeToUpgrade("LiberatorSiegeSpeed", "LiberatorSiegeSpeed"); // Smart Servos: faster Defender-Mode morph (the catalog upgrade) (WA-054)
-    addBehaviorToUpgrade("LiberatorSiegeSpeed", "Speed"); // +50% move speed via the shared Speed behavior (per review -- not baked into the catalog data)
+    // Smart Servos: faster Defender-Mode morph AND +50% move speed, BOTH baked into the
+    // LiberatorSiegeSpeed CUpgrade (Unit,Liberator,Speed x1.5). Do NOT re-add the "Speed" behavior:
+    // its research button (ResearchSpeed2, zerg-speed icon) collides with LiberatorSiegeSpeed2's
+    // button on the Fusion Core and wins the cell, hiding the real icon. (WA-054)
+    addUpgradeToUpgrade("LiberatorSiegeSpeed", "LiberatorSiegeSpeed");
     addUpgradeRequirementTag("LiberatorSiegeSpeed", logicType_AnyOf, "unitTag", "Liberator");
 
     addBehaviorToUpgrade("Speed", "Speed");
