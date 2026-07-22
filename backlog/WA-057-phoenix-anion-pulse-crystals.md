@@ -1,11 +1,14 @@
 ---
 id: WA-057
-status: todo
+status: done
 size: S
 phase: 1-game-readiness
 priority: 25
 ---
 # Phoenix: replace generic Range with Anion Pulse-Crystals
+
+## ✅ Done 2026-07-20 (PR)
+Reused the stock `AnionPulseCrystals` id, overriding its range to **+2.5** (stock +2). Phoenix now rolls it instead of generic `Range` (`Range` → `NoneOf Phoenix`), at Starport slot 1 → Fusion Core col 0 (`AnionPulseCrystals1`, stock phoenix-range icon). Added to the **Range family**. **Verify in-game:** the beam should turn purple (that recolor rides on the stock upgrade's own actor — granting the real id is what triggers it).
 
 ## What
 Swap the generic `Range` on the **Phoenix** (Starport slot 1) for the flavored **Anion Pulse-Crystals** upgrade: same +2.5 range, the proper Phoenix-range icon, and — per known MP behavior — the Phoenix beam turns **purple instead of blue**. Add it to the **Range family** (WA-050).

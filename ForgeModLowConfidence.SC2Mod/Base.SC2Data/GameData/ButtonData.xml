@@ -379,6 +379,11 @@
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Column="1"/>
     </CButton>
+    <CButton id="AnionPulseCrystals1">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-phoenixrange.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-phoenixrange.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
     <CButton id="LurkerRange2">
         <Icon value="Assets\Textures\btn-upgrade-kerrigan-seismicspines.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-kerrigan-seismicspines.dds"/>
