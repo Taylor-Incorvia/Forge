@@ -39,8 +39,8 @@ void initializeUpgrades() {
 
     addAbilityToUpgrade("CorsairMPDisruptionWeb", "F_CorsairMPDisruptionWeb");
     addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_AllOf, "unitTag", "caster");
-    // addUpgradeRequirementTag("CorsairMPDisruptionWeb",  logicType_NoneOf, "unitTag", starport +"3"); // I don't really know how good this ability is. Might need to restrict slots.
-    // addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", rax +"4");
+    addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", starport +"3"); // low-tier caster spell: not worth 100 energy over slot-3/4 options (Psi Storm is 75)
+    addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", rax +"4");
     addUpgradeRequirementTag("CorsairMPDisruptionWeb", logicType_NoneOf, "unitTag", "CorsairMP"); // Corsair already has this ability
 
     // addAbilityToUpgrade("DefensiveMatrix", "F_DefensiveMatrix"); // super lame -- not obvious what is happening if you cast it at full HP. Also I don't want my spell casters to spend energy on surviving. Just cast your spells and die lol
@@ -203,7 +203,7 @@ void initializeUpgrades() {
 
     addAbilityToUpgrade("Yamato", "F_Yamato");
     addUpgradeRequirementTag("Yamato", logicType_NoneOf, "unitTag", "pureCaster");
-    // WA-058: BC may roll Yamato even though it has native Yamato (accepted the second button). Capped at 1 (getUpgradeCap).
+    // Capped at 1 (getUpgradeCap).
     addUpgradeRequirementTag("Yamato", logicType_AnyOf, "unitTag", factory +"3");
     addUpgradeRequirementTag("Yamato", logicType_AnyOf, "unitTag", starport +"3");
 
@@ -245,7 +245,8 @@ void initializeUpgrades() {
 
     addUpgradeToUpgrade("zerglingattackspeed", "zerglingattackspeed");
     addUpgradeRequirementTag("zerglingattackspeed", logicType_AnyOf, "unitTag", "Zergling");
-    addUpgradeRequirementTag("zerglingattackspeed", logicType_AnyOf, "unitTag", "Zealot");
+    // Zealot removed: attack-cooldown reduction barely matters on the Zealot (its attack animation is long anyway) -- feels weak and unnoticeable
+    // addUpgradeRequirementTag("zerglingattackspeed", logicType_AnyOf, "unitTag", "Zealot");
 
     addUpgradeToUpgrade("zerglingmovementspeed", "zerglingmovementspeed");
     addUpgradeRequirementTag("zerglingmovementspeed", logicType_AnyOf, "unitTag", "Zergling");

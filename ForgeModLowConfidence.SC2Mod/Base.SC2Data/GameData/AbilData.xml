@@ -744,7 +744,7 @@
         <Effect index="0" value="IrradiateSet"/>
         <Flags index="AllowMovement" value="1"/>
         <Cost>
-            <Vital index="Energy" value="25"/>
+            <Vital index="Energy" value="40"/>
         </Cost>
         <TargetFilters value="-;Structure,RawResource,HarvestableResource,Item,Dead,Hidden,Invulnerable"/>
         <Range value="9"/>
