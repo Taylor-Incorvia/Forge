@@ -6,31 +6,28 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 
 ## 🔨 In progress
 - [WA-035](./WA-035-lifesteal-upgrade.md) — Lifesteal **slice 1 (Marine, 15%)** merged (PR #8). Slice 2+ **parked** (decided lifesteal is less fun than the other upgrades) — resume if desired.
-- [WA-024](./WA-024-ghost-academy-nuke.md) — Nuke diagnosed: `TrainNuke` Use node had a stale **Factory** requirement blocking the silo-arm. Removed it (gates now: Ghost rolled + no nuke armed). Abilities/buttons verified intact. **PR open — needs a published test** of the full arm→calldown→detonate loop + Ghost Academy card button rendering.
 - [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) — Tectonic Destabilizers (`TempestGroundAttackUpgrade`) passive button hidden via a Show-node requirement override (index-independent). **Merged to main (PR #2)** — one open AC: eyeball the Tempest card in-game to confirm it's gone + nothing else disturbed.
 - [WA-014](./WA-014-verify-stalker-blink-range.md) — stalker blink range re-enabled in galaxy (root cause: first push missed the `PlacementRange` line; data complete since b40c4e6). **Awaiting production test** — roll it onto a Stalker, confirm range grows.
 
 ---
 
 ## ✅ Ready to grab (`todo`)
-Groomed, scoped, has acceptance criteria. Pull from the top.
+Groomed, scoped, has acceptance criteria. **⭐ = current top priority** (editor caching → Planetary → the Faction modal). Pull from the top.
 
 | ID | Ticket | Size | Phase |
 |----|--------|------|-------|
-| [WA-053](./WA-053-firebat-stalker-concussive.md) | Add Firebat + Stalker to the concussive pool | S | 1 |
-| [WA-054](./WA-054-liberator-transform-speed-upgrade.md) | Liberator transform-speed upgrade (Digging Claws equiv; replaces Speed) | M | 1 |
-| [WA-056](./WA-056-projectile-count-upgrades.md) | Projectile-count upgrades — Phoenix (scalar ✅) + Liberator (array append ⚠️) | M | 1 |
-| [WA-057](./WA-057-phoenix-anion-pulse-crystals.md) | Phoenix: Anion Pulse-Crystals replaces Range (proj. color change not free) | S | 1 |
-| [WA-044](./WA-044-transfuse-targeting.md) | Transfuse any unit — bio gate is a heal-effect validator (TargetFilters fix didn't do it); needs editor merged-view | S | 1 |
-| [WA-045](./WA-045-editor-caching-settings.md) | Investigate if editor Documents-prefs settings fix the caching pain | S | 1 |
-| [WA-036](./WA-036-overseer-hotkey.md) | Overseer hotkey won't render (cursed F_Blink class) | S | 1 |
-| [WA-039](./WA-039-arsenal-paper-design.md) | Arsenal modal — paper design + info spec (design-first; epic WA-001) | S | 1 |
-| [WA-047](./WA-047-gameplay-clips.md) | Play + capture gameplay clips (every Reddit post needs one) | M | 4 (parallel) |
-| [WA-059](./WA-059-ember-github-identity.md) | Give Ember its own GitHub identity so you can review/approve its PRs (workflow) | S | 1 |
-| [WA-060](./WA-060-auto-mine-after-race-replace.md) | Auto-mine after race replacement — workers gather at 0:00 regardless of picked race (post-first-push) | M | 1 |
-| [WA-061](./WA-061-orbital-to-planetary-upgrade.md) | Orbital → Planetary Fortress upgrade — costly, footprint-limited anti-drop static defense (post-first-push) | M | 1 |
+| ⭐ [WA-045](./WA-045-editor-caching-settings.md) | Investigate if editor Documents-prefs settings fix the caching pain (stop the stale-data scares) | S | 1 |
+| ⭐ [WA-061](./WA-061-orbital-to-planetary-upgrade.md) | Orbital → Planetary Fortress upgrade — costly, footprint-limited anti-drop static defense | M | 1 |
+| ⭐ [WA-039](./WA-039-arsenal-paper-design.md) | "Your Faction" modal — paper design + info spec (design-first; epic WA-001; **may rename** from "Your Arsenal") | S | 1 |
+| [WA-056](./WA-056-projectile-count-upgrades.md) | Projectile-count upgrades — Phoenix (scalar ✅) + Liberator (array append ⚠️); home of the Valkyrie-Liberator idea | M | 1 |
+| [WA-044](./WA-044-transfuse-targeting.md) | Transfuse any unit — bio gate is a heal-effect validator; needs editor merged-view | S | 1 |
+| [WA-060](./WA-060-auto-mine-after-race-replace.md) | Auto-mine after race replacement — workers gather at 0:00 regardless of picked race | M | 1 |
 | [WA-063](./WA-063-ultralisk-concussive-no-slow.md) | Ultralisk concussive applies no slow (KaiserBlades set override not merging?) — pulled from pool | M | 1 |
-| [WA-064](./WA-064-neural-parasite-tube-lingers.md) | Neural Parasite tube doesn't disappear after effect ends (cosmetic; rolled F_NeuralParasite on Viper) | S | 1 |
+| [WA-064](./WA-064-neural-parasite-tube-lingers.md) | Neural Parasite tube doesn't disappear after effect ends (cosmetic) | S | 1 |
+| [WA-036](./WA-036-overseer-hotkey.md) | Overseer hotkey won't render (cursed F_Blink class) | S | 1 |
+| [WA-053](./WA-053-firebat-stalker-concussive.md) | **Stalker** concussive (Firebat half shipped; Stalker deferred — weapon-id risk) | S | 1 |
+| [WA-059](./WA-059-ember-github-identity.md) | Give Ember its own GitHub identity so you can review/approve its PRs (workflow) | S | 1 |
+| [WA-047](./WA-047-gameplay-clips.md) | Play + capture gameplay clips (every Reddit post needs one) | M | 4 (parallel) |
 
 ---
 
@@ -39,7 +36,7 @@ Real work, but not ready to grab — needs a decision or a problem statement fir
 
 | ID | Ticket | Size | Phase | Blocked on |
 |----|--------|------|-------|------------|
-| [WA-001](./WA-001-arsenal-modal.md) | Your Arsenal modal (**EPIC**) — design-first plan captured; grab WA-039 to start | L | 1 | Build phases (2–7) groom after the design lands |
+| [WA-001](./WA-001-arsenal-modal.md) | "Your Faction" modal (**EPIC**) — design-first plan captured; grab WA-039 to start (**may rename** from "Your Arsenal") | L | 1 | Build phases (2–7) groom after the design lands |
 
 ---
 
@@ -71,6 +68,12 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ---
 
 ## 🏁 Done
+- [WA-024](./WA-024-ghost-academy-nuke.md) — Nuke **verified on prod**: full arm→calldown→detonate loop + Ghost Academy card button all work · 2026-07-23
+- Balance pass — Irradiate 25→40, Disruption Web low-tier only (off rax s4 + starport s3), Zealot ✗zerglingattackspeed, Armory 150/50→150/75; Missile Pods confirmed 75 on prod (the 125 was Battle.net catalog lag) · 2026-07-23
+- [WA-051](./WA-051-prepatch-economy.md) — Command Center back to 400 minerals (prepatch economy override) · 2026-07-22 (PR #15)
+- [WA-054](./WA-054-liberator-transform-speed-upgrade.md) — Liberator Smart Servos: +50% move speed + faster Defender-Mode transform (both baked into the CUpgrade; the `InfoArray[0]` fix); transformationservos icon · 2026-07-22 (PR)
+- [WA-057](./WA-057-phoenix-anion-pulse-crystals.md) — Phoenix rolls `PhoenixRangeUpgrade` (+2.5, displayed "Anion Pulse-Crystals"); purple beam confirmed on prod · 2026-07-22 (PR)
+- Concussive extended — Firebat (WA-053 Firebat half) + Hellbat (transformed Hellion keeps it); Ultralisk cleave pulled → [WA-063](./WA-063-ultralisk-concussive-no-slow.md) · 2026-07-22
 - [WA-062](./WA-062-autoturret-cast-range.md) — `F_BuildAutoTurret` cast range 2→5 so ground units can actually place it (rolled `F_` only; Raven native untouched) · 2026-07-22
 - [WA-055](./WA-055-goliath-range-upgrade.md) — Goliath range upgrade (`GoliathRange`, +3 air / +1 ground, replaces generic Range for Goliath); in the Range family · 2026-07-20 (PR)
 - [WA-058](./WA-058-battlecruiser-roll-yamato.md) — Battlecruiser can roll Yamato (0 native → 1 from the upgrade; tested); Yamato capped at 1 like Corrosive Bile · 2026-07-20 (PR)
