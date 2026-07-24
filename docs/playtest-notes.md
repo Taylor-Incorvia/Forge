@@ -27,7 +27,18 @@ A running journal of play sessions — half **balance/design observations**, hal
 
 **Self-critique:** Read the *situation*, not just "always expand." When the opponent is passive and not taking bases, the fast-expand doesn't automatically win — sometimes you consolidate and punish, not sprawl.
 
+### Game — Twin-Linked Flamethrower Hellions → **LOSS** (probably Ultralisks + more)
+- Committed to Twin-Linked Flamethrower Hellions. It was **terrible**. Big caveat: I threw my entire Hellion count away *right before* the upgrade finished, and I was already so far behind by then that there wasn't much else to do — so not a fair read of the upgrade.
+- **The third-base interaction (interesting):** I was the more-aggressive/faster-expanding player again. Just threw all my Hellions, started rebuilding, and sent the new batch to his side the second Twin-Linked finished — and *then* 3–4 Hydralisks showed up at my undefended third. All I had was a Queen and a Goliath on the way. The Queen nearly died before the Goliath arrived; I *won* the fight (his Hydras left at ~1 HP each, my returning Hellions cleaned up) — but he'd already sniped the SCV building my CC. **Won the fight, lost the momentum** because my army was scattered all over the map.
+- He walled his third (CC + 2 bunkers + supply depot + CC) on a ramp map — my Hellions couldn't get in. A gap opened later but he had enough units by then, and I didn't micro them well.
+- Tried to transition into **Void Rays with Concussive Shells** — the concussive beam was **totally useless**. Heavy caveat: I was so far behind that Void Rays with *any* upgrade would've been bad, and I was using them for chip harass with no muta support — not a real test. Maybe good off a proxy; not a clean data point.
+
+**Self-critique:** Threw the Hellions away right before their upgrade landed (terrible timing). Over-aggressive/over-expanding again. Scattered units cost me even a fight I won.
+
 ### Balance / design observations
 - **Firebat + Leap** — first time rolling it; felt **strong**. Watch it.
 - **Auto-turret range 5** (WA-062) — did **not** feel oppressive. The "can't place them up a ramp without vision" limiter keeps it honest. Feels like the change landed right. (Could imagine someone spamming them from afar, but the vision requirement caps it.)
 - **Blink on Zealots** — excellent; blinking onto a Colossus to kill it was a highlight.
+- **Queen feels too slow — recurring concern (came up twice).** Legitimately unsure if the Queen is *good*. She's slow enough that a Hydralisk player just out-micros her, and there isn't much micro to do with her. Maybe I'm over-relying on Select-All-Army; maybe I'm under-building them (few transfuses landed). **Worth revisiting her speed / role.**
+- **Twin-Linked Flamethrower Hellions** — felt terrible, but confounded (threw them pre-upgrade + already way behind). Needs a clean test before judging.
+- **Concussive Shells on Void Ray** — felt useless, but confounded (far behind, harass-only, no muta support). Not a clean read; retest when even.
