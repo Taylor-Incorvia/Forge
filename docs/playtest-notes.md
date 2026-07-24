@@ -35,8 +35,13 @@ A running journal of play sessions — half **balance/design observations**, hal
 
 **Self-critique:** Threw the Hellions away right before their upgrade landed (terrible timing). Over-aggressive/over-expanding again. Scattered units cost me even a fight I won.
 
+### Game — Blink Stalker w/ Blink-Cooldown-Reduction → **LOSS** (behind, self-inflicted)
+- Went Blink Stalker with the cooldown-reduction upgrade. Didn't feel OP. Bad opener (didn't commit to it until late), and he walked off the natural's low ground so harass was hard even with Blink.
+- Whole game I kept thinking "I'd really like to blink *now*" — the **3.5s recharge felt longer than I expected** for the upgraded cooldown. Can't tell if Blink Stalkers just aren't good or I slowed myself down with the bad opener. Not a clean read.
+
 ### Balance / design observations
-- **Firebat + Leap** — first time rolling it; felt **strong**. Watch it.
+- **Firebat + Leap** — felt **strong** two games running now (called it out both times, unprompted). Likely genuinely good — worth a real look / possible tuning target.
+- **Blink cooldown reduction (`stalkerblinkcooldown`)** — did *not* feel OP; the **3.5s recharge felt longer than expected** (kept wanting to blink and couldn't). Confounded (behind, uncommitted opener, he walled the natural). Open question: is the CD upgrade under-tuned, or were Blink Stalkers just bad *this* game?
 - **Auto-turret range 5** (WA-062) — did **not** feel oppressive. The "can't place them up a ramp without vision" limiter keeps it honest. Feels like the change landed right. (Could imagine someone spamming them from afar, but the vision requirement caps it.)
 - **Blink on Zealots** — excellent; blinking onto a Colossus to kill it was a highlight.
 - **Queen feels too slow — recurring concern (came up twice).** Legitimately unsure if the Queen is *good*. She's slow enough that a Hydralisk player just out-micros her, and there isn't much micro to do with her. Maybe I'm over-relying on Select-All-Army; maybe I'm under-building them (few transfuses landed). **Worth revisiting her speed / role.**
