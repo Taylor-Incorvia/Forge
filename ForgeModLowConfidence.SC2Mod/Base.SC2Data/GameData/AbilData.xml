@@ -1643,7 +1643,7 @@
             <Button DefaultButtonFace="Goliath" Requirements="factory2goliath"/>
             <Unit value="Goliath"/>
         </InfoArray>
-        <InfoArray index="Train22" Time="25">
+        <InfoArray index="Train22" Time="18">
             <Button DefaultButtonFace="Stalker" Requirements="factory1stalker"/>
             <Unit value="Stalker"/>
         </InfoArray>
