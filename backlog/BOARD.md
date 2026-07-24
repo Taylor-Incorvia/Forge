@@ -28,6 +28,7 @@ Groomed, scoped, has acceptance criteria. **⭐ = current top priority** (editor
 | [WA-053](./WA-053-firebat-stalker-concussive.md) | **Stalker** concussive (Firebat half shipped; Stalker deferred — weapon-id risk) | S | 1 |
 | [WA-059](./WA-059-ember-github-identity.md) | Give Ember its own GitHub identity so you can review/approve its PRs (workflow) | S | 1 |
 | [WA-047](./WA-047-gameplay-clips.md) | Play + capture gameplay clips (every Reddit post needs one) | M | 4 (parallel) |
+| [WA-065](./WA-065-replay-stats-tool.md) | Replay stats/analysis tool (sc2reader) — winner, rolls-from-chat, unit-death map, upgrades-used (someday) | M | 4 |
 
 ---
 
