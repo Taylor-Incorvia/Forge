@@ -11,6 +11,33 @@ string smallestPoolProductionFacility = "";
 int smallestPoolSlotIndex = 0;
 int smallestPoolSize = 0;
 
+// Attach the CasterEnergyRegen behavior (+25% energy regen) to every caster-spell upgrade: any upgrade
+// that requires the "caster" tag (AllOf) and does not exclude pure casters (NoneOf pureCaster). Because
+// the behavior rides on the UPGRADE, any unit that researches a caster spell -- pure caster or hybrid --
+// gets the regen; fighter buffs never carry it. New caster spells inherit this automatically. Must run
+// after every addAbilityToUpgrade/addUpgradeRequirementTag call so the tag lists are fully populated.
+void attachEnergyRegenToCasterUpgrades() {
+    int i;
+    string upg;
+    string allOfListName;
+    string noneOfListName;
+    bool requiresCaster;
+    bool excludesPureCaster;
+
+    for (i = 0; i < getStringListSize(allUpgradesListKey); i += 1) {
+        upg = getStringAtIndex(allUpgradesListKey, i);
+        allOfListName = getUpgradeTagsListName(upg, logicType_AllOf, upgradeTagType_unitTag);
+        noneOfListName = getUpgradeTagsListName(upg, logicType_NoneOf, upgradeTagType_unitTag);
+
+        requiresCaster = stringListExists(allOfListName) && stringListContains(allOfListName, "caster");
+        excludesPureCaster = stringListExists(noneOfListName) && stringListContains(noneOfListName, "pureCaster");
+
+        if (requiresCaster && !excludesPureCaster) {
+            addBehaviorToUpgrade(upg, "CasterEnergyRegen");
+        }
+    }
+}
+
 void initializeUpgrades() {
     // ==================== CASTER UPGRADES (require caster tag) ====================
 
@@ -376,6 +403,9 @@ void initializeUpgrades() {
     // WA-050: register upgrade families (defined in upgradeFamilyHelpers). Called last so every upgrade
     // is already in the allUpgrades list before its family is set.
     initializeUpgradeFamilies();
+
+    // Bundle +25% energy regen onto every caster-spell upgrade (must run after all tags are registered).
+    attachEnergyRegenToCasterUpgrades();
 
     
 
