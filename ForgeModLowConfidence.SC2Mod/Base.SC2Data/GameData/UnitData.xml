@@ -274,6 +274,7 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="Infestor">
+        <CostResource index="Minerals" value="50"/>
         <CardLayouts index="0">
             <LayoutButtons index="7" Face="Cancel" AbilCmd="NeuralParasite,Cancel" Row="1" Column="2"/>
             <LayoutButtons index="8" Face="NeuralParasite" AbilCmd="NeuralParasite,Execute" Row="2"/>
@@ -446,6 +447,7 @@
         <CostResource index="Vespene" value="50"/>
     </CUnit>
     <CUnit id="Raven">
+        <CostResource index="Minerals" value="75"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="RavenShredderMissile" Type="AbilCmd" AbilCmd="RavenShredderMissile,Execute" Column="1"/>
             <LayoutButtons index="7" Face="RavenScramblerMissile" Type="AbilCmd" AbilCmd="RavenScramblerMissile,Execute" Column="2"/>
@@ -610,6 +612,7 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="Viper">
+        <CostResource index="Minerals" value="75"/>
         <CardLayouts index="0">
             <LayoutButtons index="9" Column="4"/>
         </CardLayouts>
