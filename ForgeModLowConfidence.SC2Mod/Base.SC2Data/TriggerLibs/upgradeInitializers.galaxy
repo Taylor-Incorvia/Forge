@@ -195,6 +195,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "pureCaster");
     addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "VoidRay");
     addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "Archon");
+    addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "Zergling"); // useless on Zerglings (playtest feedback)
 
     // addAbilityToUpgrade("TempestDisruptionBlast", "F_TempestDisruptionBlast"); // this still doesn't work -- the channel time of 4 seconds makes it suck. tried to reduce it but it didn't work. 
     // addUpgradeRequirementTag("TempestDisruptionBlast", logicType_NoneOf, "unitTag", "pureCaster");
@@ -255,8 +256,10 @@ void initializeUpgrades() {
     addUpgradeToUpgrade("ClusterWarheads", "ClusterWarheads");
     addUpgradeRequirementTag("ClusterWarheads", logicType_AnyOf, "unitTag", "DuskWing");
 
-    addUpgradeToUpgrade("TwinLinkedFlameThrowers", "TwinLinkedFlameThrowers");
-    addUpgradeRequirementTag("TwinLinkedFlameThrowers", logicType_AnyOf, "unitTag", "Hellion");
+    // WA-066: removed -- it's a WoL campaign upgrade that only widens flame splash 0.15->0.3 (a dud that
+    // felt terrible + diluted the odds of rolling blue flame). To be reworked into the "flame wall" upgrade.
+    // addUpgradeToUpgrade("TwinLinkedFlameThrowers", "TwinLinkedFlameThrowers");
+    // addUpgradeRequirementTag("TwinLinkedFlameThrowers", logicType_AnyOf, "unitTag", "Hellion");
 
     // WA-014: re-enabled. First prod push (a001b4d) shipped the CUpgrade with only Effect,Blink,Range doubled and
     // NOT Effect,Blink,PlacementRange -- so the click range never grew and the extra teleport range was unreachable.
