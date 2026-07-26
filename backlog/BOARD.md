@@ -30,6 +30,7 @@ Groomed, scoped, has acceptance criteria. **⭐ = current top priority** (editor
 | [WA-047](./WA-047-gameplay-clips.md) | Play + capture gameplay clips (every Reddit post needs one) | M | 4 (parallel) |
 | [WA-065](./WA-065-replay-stats-tool.md) | Replay stats/analysis tool (sc2reader) — winner, rolls-from-chat, unit-death map, upgrades-used (someday) | M | 4 |
 | [WA-066](./WA-066-hellion-flame-wall-upgrade.md) | Hellion "flame wall" upgrade — blue flame + big visually-matched splash (replaces removed Twin-Linked; needs actor work) | M | 1 |
+| [WA-070](./WA-070-scout-enemy-rolls-floating-icons.md) | Scout enemy rolls — floating unit icons above production structures (text tags; fog-gated; Faction family) | M | 1 |
 
 ---
 
