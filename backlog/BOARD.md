@@ -48,6 +48,9 @@ _Lowest priority. Ordered bottom-up toward "never" (other races — see icebox).
 |----|--------|------|-------|
 | [WA-030](./WA-030-ability-telegraph.md) | Ability telegraph — icon/name above caster (upgrade abilities) | M | 1 |
 | [WA-046](./WA-046-ultralisk-chitinous-visual.md) | Ultralisk looks different when it has Chitinous Plating (readability) | M | 1 |
+| [WA-067](./WA-067-sentry-force-field-size-upgrade.md) | Sentry force-field size upgrade — one giant wall (grow the small Sentry pool) · **post-Faction-modal** | S | 1 |
+| [WA-069](./WA-069-sentry-guardian-shield-shockwave.md) | Sentry Guardian Shield casts a mini shockwave (enemy-only = a `SearchFilters` fix) · **post-Faction-modal** | M | 1 |
+| [WA-068](./WA-068-ravager-barracks-slot3-bile-upgrades.md) | Ravager → Barracks s3 + Corrosive Bile buff upgrades (splash/damage) · **post-Faction-modal** | M | 1 |
 
 ---
 
