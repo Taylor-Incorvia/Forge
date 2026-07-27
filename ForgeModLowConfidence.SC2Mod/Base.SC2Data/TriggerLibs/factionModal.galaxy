@@ -1,0 +1,56 @@
+include "TriggerLibs/NativeLib"
+
+// ============================================================================
+// "Your Faction" modal -- PROOF OF CONCEPT (epic WA-001 / design WA-039)
+// ============================================================================
+// The most basic version: a centered modal box with ONE icon and an X button
+// that closes it. This only proves the plumbing -- a dialog can be created,
+// shown at game start, and dismissed. The real content (the facility / unit /
+// upgrade icon grid) comes in the build phases; this is just the shell.
+//
+// EDITOR TRIGGER WIRING (script only provides the functions; you wire the
+// triggers in the editor, per the CLAUDE.md split):
+//
+//   Trigger 1 -- pop it up at 0:00:
+//     Event:  Game - Map initialization   (or Timer - Elapsed 0.0 game seconds)
+//     Action: General - Custom Script  ->  showFactionModalPoc();
+//
+//   Trigger 2 -- close it when the X is clicked:
+//     Event:  UI - Dialog item is used by any player   (Any dialog item, Clicked)
+//     Action: General - Custom Script  ->  onFactionModalClose();
+//
+// Notes:
+//   - The icon path below is a stock SC2 command-card icon. If it renders blank,
+//     swap it for any dds you know exists; the modal + X still prove out.
+//   - Shown to PlayerGroupAll() for simplicity. The real modal will show each
+//     player only their own faction.
+// ============================================================================
+
+int factionModalDialog;
+int factionModalCloseButton;
+
+void showFactionModalPoc() {
+    int icon;
+
+    factionModalDialog = DialogCreate(400, 300, c_anchorCenter, 0, 0, false);
+
+    // One placeholder icon in the middle.
+    icon = DialogControlCreate(factionModalDialog, c_triggerControlTypeImage);
+    DialogControlSetSize(icon, PlayerGroupAll(), 128, 128);
+    DialogControlSetPosition(icon, PlayerGroupAll(), c_anchorCenter, 0, -30);
+    DialogControlSetPropertyAsString(icon, c_triggerControlPropertyImage, PlayerGroupAll(), "Assets\\Textures\\btn-unit-terran-marine.dds");
+
+    // The X close button, top-right of the box.
+    factionModalCloseButton = DialogControlCreate(factionModalDialog, c_triggerControlTypeButton);
+    DialogControlSetSize(factionModalCloseButton, PlayerGroupAll(), 44, 44);
+    DialogControlSetPosition(factionModalCloseButton, PlayerGroupAll(), c_anchorCenter, 170, -120);
+    DialogControlSetPropertyAsText(factionModalCloseButton, c_triggerControlPropertyText, PlayerGroupAll(), StringToText("X"));
+
+    DialogSetVisible(factionModalDialog, PlayerGroupAll(), true);
+}
+
+void onFactionModalClose() {
+    if (EventDialogControl() == factionModalCloseButton) {
+        DialogSetVisible(factionModalDialog, PlayerGroupAll(), false);
+    }
+}
