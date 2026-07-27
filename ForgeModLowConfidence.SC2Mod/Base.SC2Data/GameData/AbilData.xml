@@ -2271,9 +2271,34 @@
                 <DurationArray index="Delay" value="0"/>
             </SectionArray>
         </InfoArray>
-        <AutoCastValidatorArray value="IsCasterCommandCenterOrPlanetaryFortress"/>
+        <AutoCastValidatorArray value="IsCasterCommandCenter"/>
         <AutoCastRange value="1000"/>
         <AutoCastCountMax value="500"/>
+    </CAbilMorph>
+    <CAbilMorph id="MorphOrbitalToPlanetary">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:MorphsandBurrows"/>
+        <Alert value="UpgradeComplete"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MorphOrbitalToPlanetary" Requirements=""/>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="CancelUpgradeMorph"/>
+        <Flags index="BestUnit" value="1"/>
+        <Flags index="Birth" value="1"/>
+        <Flags index="DisableAbils" value="1"/>
+        <Flags index="FastBuild" value="1"/>
+        <Flags index="Interruptible" value="1"/>
+        <Flags index="Produce" value="1"/>
+        <Flags index="ShowProgress" value="1"/>
+        <InfoArray Score="1" Unit="PlanetaryFortress">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="50"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="50"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="50"/>
+            </SectionArray>
+        </InfoArray>
+        <ValidatorArray value="HasNoCargo"/>
     </CAbilMorph>
     <CAbilResearch id="Yoink1">
         <EditorCategories value="AbilityorEffectType:Units"/>

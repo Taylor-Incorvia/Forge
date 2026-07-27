@@ -73,4 +73,5 @@ Button/Hotkey/VoidRay=G
 Button/Hotkey/WarHound=S
 Button/Hotkey/YamatoGun2=G
 Button/Hotkey/Yoink=G
+Button/Hotkey/MorphOrbitalToPlanetary=P
 G=G

@@ -397,10 +397,15 @@
     <CUnit id="OrbitalCommand">
         <CostResource index="Minerals" value="400"/>
         <AbilArray Link="ChronoBoostEnergyCost"/>
+        <AbilArray Link="MorphOrbitalToPlanetary"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="SupplyDrop" AbilCmd="SupplyDrop,Execute" Column="1"/>
             <LayoutButtons index="7" Face="ChronoBoostEnergyCost" AbilCmd="ChronoBoostEnergyCost,Execute" Column="0"/>
+            <LayoutButtons index="8" Face="MorphOrbitalToPlanetary" AbilCmd="MorphOrbitalToPlanetary,Execute" Column="2"/>
         </CardLayouts>
+    </CUnit>
+    <CUnit id="PlanetaryFortress">
+        <CostResource index="Minerals" value="750"/>
     </CUnit>
     <CUnit id="OrbitalCommandFlying">
         <CostResource index="Minerals" value="400"/>
