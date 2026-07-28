@@ -1,0 +1,108 @@
+// Icon-path resolution for the "Your Faction" modal (and, later, the WA-070 scout icons).
+// unitId / upgradeId -> command-card .dds path. Shared "asset layer" both features use.
+// Paths extracted from the mod's ButtonData + the reference base-game button data.
+// Stand-ins: CorsairMP uses the same placeholder its in-game card uses; ScienceVessel->Raven,
+// DuskWing->Banshee (buffed variants with no dedicated icon). Swap any if a better asset exists.
+
+string getUnitIconPath(string unitId) {
+    if (unitId == "Zergling")      { return "Assets\\Textures\\btn-unit-zerg-zergling.dds"; }
+    if (unitId == "Zealot")        { return "Assets\\Textures\\btn-unit-protoss-zealot.dds"; }
+    if (unitId == "Hydralisk")     { return "Assets\\Textures\\btn-unit-zerg-hydralisk.dds"; }
+    if (unitId == "Marine")        { return "Assets\\Textures\\btn-unit-terran-marine.dds"; }
+    if (unitId == "Queen")         { return "Assets\\Textures\\btn-unit-zerg-queen.dds"; }
+    if (unitId == "Firebat")       { return "Assets\\Textures\\btn-unit-terran-firebat.dds"; }
+    if (unitId == "Marauder")      { return "Assets\\Textures\\btn-unit-terran-marauder.dds"; }
+    if (unitId == "Sentry")        { return "Assets\\Textures\\btn-unit-protoss-sentry.dds"; }
+    if (unitId == "Medic")         { return "Assets\\Textures\\btn-unit-terran-medic.dds"; }
+    if (unitId == "Ghost")         { return "Assets\\Textures\\btn-unit-terran-ghost.dds"; }
+    if (unitId == "Infestor")      { return "Assets\\Textures\\btn-unit-zerg-infestor.dds"; }
+    if (unitId == "HighTemplar")   { return "Assets\\Textures\\btn-unit-protoss-hightemplar.dds"; }
+    if (unitId == "Vulture")       { return "Assets\\Textures\\btn-unit-terran-vulture.dds"; }
+    if (unitId == "Hellion")       { return "Assets\\Textures\\btn-unit-terran-hellion.dds"; }
+    if (unitId == "Stalker")       { return "Assets\\Textures\\btn-unit-protoss-stalker.dds"; }
+    if (unitId == "Diamondback")   { return "Assets\\Textures\\btn-unit-terran-cobra.dds"; }
+    if (unitId == "Immortal")      { return "Assets\\Textures\\BTN-Unit-Protoss-Immortal.dds"; }
+    if (unitId == "SiegeTank")     { return "Assets\\Textures\\btn-unit-terran-siegetank.dds"; }
+    if (unitId == "WarHound")      { return "Assets\\Textures\\btn-unit-terran-warhound.dds"; }
+    if (unitId == "Archon")        { return "Assets\\Textures\\btn-unit-protoss-archon.dds"; }
+    if (unitId == "LurkerMP")      { return "Assets\\Textures\\btn-unit-zerg-lurker.dds"; }
+    if (unitId == "Goliath")       { return "Assets\\Textures\\btn-unit-terran-goliath.dds"; }
+    if (unitId == "ThorAP")        { return "Assets\\Textures\\btn-unit-terran-thor.dds"; }
+    if (unitId == "Colossus")      { return "Assets\\Textures\\btn-unit-protoss-colossus.dds"; }
+    if (unitId == "Ultralisk")     { return "Assets\\Textures\\btn-unit-zerg-ultralisk.dds"; }
+    if (unitId == "CorsairMP")     { return "Assets\\Textures\\btn-missing-kaeo.dds"; }
+    if (unitId == "Phoenix")       { return "Assets\\Textures\\btn-unit-protoss-phoenix.dds"; }
+    if (unitId == "Wraith")        { return "Assets\\Textures\\btn-unit-terran-wraith.dds"; }
+    if (unitId == "VikingFighter") { return "Assets\\Textures\\btn-unit-terran-vikingfighter.dds"; }
+    if (unitId == "Liberator")     { return "Assets\\Textures\\btn-unit-terran-liberator.dds"; }
+    if (unitId == "Mutalisk")      { return "Assets\\Textures\\btn-unit-zerg-mutalisk.dds"; }
+    if (unitId == "DuskWing")      { return "Assets\\Textures\\btn-unit-terran-banshee.dds"; }
+    if (unitId == "VoidRay")       { return "Assets\\Textures\\btn-unit-protoss-warpray.dds"; }
+    if (unitId == "ArbiterMP")     { return "Assets\\Textures\\btn-unit-protoss-frigate.dds"; }
+    if (unitId == "Raven")         { return "Assets\\Textures\\btn-unit-terran-raven.dds"; }
+    if (unitId == "ScienceVessel") { return "Assets\\Textures\\btn-unit-terran-raven.dds"; }
+    if (unitId == "Tempest")       { return "Assets\\Textures\\btn-unit-protoss-tempest.dds"; }
+    if (unitId == "Viper")         { return "Assets\\Textures\\btn-unit-zerg-viper.dds"; }
+    if (unitId == "Battlecruiser") { return "Assets\\Textures\\btn-unit-terran-battlecruiser.dds"; }
+    return "Assets\\Textures\\btn-missing-kaeo.dds";
+}
+
+string getUpgradeIconPath(string upgradeId) {
+    if (upgradeId == "ArbiterMPRecall")        { return "Assets\\Textures\\btn-ability-protoss-massrecall.dds"; }
+    if (upgradeId == "BlindingCloud")          { return "Assets\\Textures\\btn-ability-zerg-blindingcloud.dds"; }
+    if (upgradeId == "BuildAutoTurret")        { return "Assets\\Textures\\btn-building-terran-autoturret.dds"; }
+    if (upgradeId == "CorsairMPDisruptionWeb") { return "Assets\\Textures\\btn-ability-protoss-disruptionweb.dds"; }
+    if (upgradeId == "ForceField")             { return "Assets\\Textures\\btn-ability-protoss-forcefield-color.dds"; }
+    if (upgradeId == "FungalGrowth")           { return "Assets\\Textures\\btn-ability-zerg-fungalgrowth-color.dds"; }
+    if (upgradeId == "GuardianShield")         { return "Assets\\Textures\\btn-ability-protoss-shieldbattery-color.dds"; }
+    if (upgradeId == "GravitonBeam")           { return "Assets\\Textures\\btn-ability-protoss-gravitonbeam-color.dds"; }
+    if (upgradeId == "Irradiate")              { return "Assets\\Textures\\btn-ability-terran-irradiate.dds"; }
+    if (upgradeId == "MissilePods")            { return "Assets\\Textures\\btn-ability-terran-hurricane.dds"; }
+    if (upgradeId == "NeuralParasite")         { return "Assets\\Textures\\btn-ability-zerg-neuralparasite-color.dds"; }
+    if (upgradeId == "ParasiticBomb")          { return "Assets\\Textures\\btn-ability-zerg-parasiticbomb.dds"; }
+    if (upgradeId == "RavenScramblerMissile")  { return "Assets\\Textures\\btn-upgrade-terran-interferencematrix.dds"; }
+    if (upgradeId == "SeekerMissile")          { return "Assets\\Textures\\btn-techupgrade-terran-seekermissile.dds"; }
+    if (upgradeId == "Yoink")                  { return "Assets\\Textures\\btn-ability-zerg-abduct.dds"; }
+    if (upgradeId == "Blink")                  { return "Assets\\Textures\\btn-ability-protoss-blink-color.dds"; }
+    if (upgradeId == "Charge")                 { return "Assets\\Textures\\btn-ability-protoss-charge-color.dds"; }
+    if (upgradeId == "D8Charge")               { return "Assets\\Textures\\BTN-Ability-Terran-D8Charge.dds"; }
+    if (upgradeId == "Hyperjump")              { return "Assets\\Textures\\btn-ability-terran-warpjump.dds"; }
+    if (upgradeId == "Yamato")                 { return "Assets\\Textures\\btn-ability-terran-yamatogun-color.dds"; }
+    if (upgradeId == "Stimpack")               { return "Assets\\Textures\\btn-ability-terran-stimpack-color.dds"; }
+    if (upgradeId == "RavagerCorrosiveBile")   { return "Assets\\Textures\\btn-ability-zerg-corrosivebile.dds"; }
+    if (upgradeId == "HotSRaptorCharge2")      { return "Assets\\Textures\\btn-ability-zerg-cliffjump-zergling.dds"; }
+    if (upgradeId == "Range")                  { return "Assets\\Textures\\btn-upgrade-zerg-hotsgroovedspines.dds"; }
+    if (upgradeId == "Speed")                  { return "Assets\\Textures\\btn-upgrade-zerg-metabolicboost.dds"; }
+    if (upgradeId == "LurkerRange")            { return "Assets\\Textures\\btn-upgrade-kerrigan-seismicspines.dds"; }
+    if (upgradeId == "DiggingClaws")           { return "Assets\\Textures\\btn-upgrade-zerg-adaptivetalons.dds"; }
+    if (upgradeId == "LiberatorSiegeSpeed")    { return "Assets\\Textures\\btn-upgrade-terran-transformationservos.dds"; }
+    if (upgradeId == "HighCapacityBarrels")    { return "Assets\\Textures\\btn-upgrade-terran-infernalpreigniter.dds"; }
+    if (upgradeId == "zerglingattackspeed")    { return "Assets\\Textures\\btn-upgrade-zerg-adrenalglands.dds"; }
+    if (upgradeId == "zerglingmovementspeed")  { return "Assets\\Textures\\btn-upgrade-zerg-metabolicboost.dds"; }
+    if (upgradeId == "ClusterWarheads")        { return "Assets\\Textures\\btn-upgrade-swann-pulsecannon.dds"; }
+    if (upgradeId == "stalkerblinkrange")      { return "Assets\\Textures\\btn-ability-zeratul-darktemplar-blink.dds"; }
+    if (upgradeId == "stalkerblinkcooldown")   { return "Assets\\Textures\\btn-ability-zeratul-topbar-voidblink.dds"; }
+    if (upgradeId == "ChitinousPlating")       { return "Assets\\Textures\\btn-upgrade-zerg-chitinousplating.dds"; }
+    if (upgradeId == "LifestealMarine")        { return "Assets\\Textures\\btn-ability-zerg-transfusion-color.dds"; }
+    if (upgradeId == "PunisherGrenades")       { return "Assets\\Textures\\btn-ability-terran-punishergrenade-color.dds"; }
+    if (upgradeId == "TempestRange")           { return "Assets\\Textures\\btn-upgrade-zerg-hotsgroovedspines.dds"; }
+    if (upgradeId == "SiegeTankRange")         { return "Assets\\Textures\\btn-upgrade-zerg-hotsgroovedspines.dds"; }
+    if (upgradeId == "GoliathRange")           { return "Assets\\Textures\\btn-techupgrade-terran-charonboosters.dds"; }
+    if (upgradeId == "PhoenixRangeUpgrade")    { return "Assets\\Textures\\btn-upgrade-protoss-phoenixrange.dds"; }
+    if (upgradeId == "WraithCloak")            { return "Assets\\Textures\\btn-ability-terran-cloak-color.dds"; }
+    if (upgradeId == "BansheeCloak")           { return "Assets\\Textures\\btn-ability-terran-cloak-color.dds"; }
+    if (upgradeId == "PersonalCloaking")       { return "Assets\\Textures\\btn-ability-terran-cloak-color.dds"; }
+    if (upgradeId == "ConcussiveVoidRay")      { return "Assets\\Textures\\btn-ability-terran-punishergrenade-color.dds"; }
+    if (upgradeId == "ConcussiveVulture")      { return "Assets\\Textures\\btn-ability-terran-punishergrenade-color.dds"; }
+    if (upgradeId == "ConcussiveHellion")      { return "Assets\\Textures\\btn-ability-terran-punishergrenade-color.dds"; }
+    if (upgradeId == "ConcussiveZealot")       { return "Assets\\Textures\\btn-ability-terran-punishergrenade-color.dds"; }
+    if (upgradeId == "ConcussiveZergling")     { return "Assets\\Textures\\btn-ability-terran-punishergrenade-color.dds"; }
+    if (upgradeId == "ConcussiveDiamondback")  { return "Assets\\Textures\\btn-ability-terran-punishergrenade-color.dds"; }
+    if (upgradeId == "ConcussiveArchon")       { return "Assets\\Textures\\btn-ability-terran-punishergrenade-color.dds"; }
+    if (upgradeId == "ConcussiveColossus")     { return "Assets\\Textures\\btn-ability-terran-punishergrenade-color.dds"; }
+    if (upgradeId == "ConcussiveMutalisk")     { return "Assets\\Textures\\btn-ability-terran-punishergrenade-color.dds"; }
+    if (upgradeId == "ConcussiveWraith")       { return "Assets\\Textures\\btn-ability-terran-punishergrenade-color.dds"; }
+    if (upgradeId == "ConcussiveSentry")       { return "Assets\\Textures\\btn-ability-terran-punishergrenade-color.dds"; }
+    if (upgradeId == "ConcussiveFirebat")      { return "Assets\\Textures\\btn-ability-terran-punishergrenade-color.dds"; }
+    return "Assets\\Textures\\btn-missing-kaeo.dds";
+}

@@ -2,6 +2,7 @@ include "TriggerLibs/listHelpers"
 include "TriggerLibs/upgradeHelpers"
 include "TriggerLibs/upgradeFamilyHelpers"
 include "TriggerLibs/upgradeCapHelpers"
+include "TriggerLibs/factionModal"
 
 // Number of unit/upgrade slots across all 3 production facilities (Barracks 4 + Factory 3 + Starport 3).
 int totalProductionSlotCount = 10;
@@ -569,4 +570,6 @@ void assignUpgradesToAllSlotsWithinCaps(int player) {
 void initializeUpgradePoolsForPlayer(int player) {
     assignUpgradesToAllSlotsWithinCaps(player);
     grantInitialUpgrades(player);
+    // Both units (set earlier) and upgrades (just set) are ready -> show this player their faction.
+    showFactionModalForPlayer(player);
 }
