@@ -106,3 +106,35 @@ string getUpgradeIconPath(string upgradeId) {
     if (upgradeId == "ConcussiveFirebat")      { return "Assets\\Textures\\btn-ability-terran-punishergrenade-color.dds"; }
     return "Assets\\Textures\\btn-missing-kaeo.dds";
 }
+
+// Game-string key for an upgrade's command-card tooltip (fed to StringExternal in the modal).
+// Ability upgrades: tooltip on the F_ button face (a few use non-obvious ids). Count/stat upgrades:
+// slot-numbered on the research button. Returns "" for upgrades with no tooltip string in the data;
+// the modal treats "" as "no tooltip". Extracted + verified against GameStrings.txt.
+string getUpgradeTooltipKey(string upgradeId, int slot) {
+    if (upgradeId == "")                       { return ""; }
+    if (upgradeId == "BuildAutoTurret")        { return "Button/Tooltip/F_AutoTurret"; }
+    if (upgradeId == "SeekerMissile")          { return "Button/Tooltip/F_HunterSeekerMissile"; }
+    if (upgradeId == "Yoink")                  { return "Button/Tooltip/F_FaceEmbrace"; }
+    if (upgradeId == "Stimpack")               { return "Button/Tooltip/Stimpack"; }
+    if (upgradeId == "Yamato")                 { return "Button/Tooltip/YamatoGun"; }
+    if (upgradeId == "CorsairMPDisruptionWeb") { return ""; }
+    if (upgradeId == "HotSRaptorCharge2")      { return ""; }
+    if (upgradeId == "ArbiterMPRecall")        { return "Button/Tooltip/F_ArbiterMPRecall"; }
+    if (upgradeId == "BlindingCloud")          { return "Button/Tooltip/F_BlindingCloud"; }
+    if (upgradeId == "ForceField")             { return "Button/Tooltip/F_ForceField"; }
+    if (upgradeId == "FungalGrowth")           { return "Button/Tooltip/F_FungalGrowth"; }
+    if (upgradeId == "GuardianShield")         { return "Button/Tooltip/F_GuardianShield"; }
+    if (upgradeId == "GravitonBeam")           { return "Button/Tooltip/F_GravitonBeam"; }
+    if (upgradeId == "Irradiate")              { return "Button/Tooltip/F_Irradiate"; }
+    if (upgradeId == "MissilePods")            { return "Button/Tooltip/F_MissilePods"; }
+    if (upgradeId == "NeuralParasite")         { return "Button/Tooltip/F_NeuralParasite"; }
+    if (upgradeId == "ParasiticBomb")          { return "Button/Tooltip/F_ParasiticBomb"; }
+    if (upgradeId == "RavenScramblerMissile")  { return "Button/Tooltip/F_RavenScramblerMissile"; }
+    if (upgradeId == "Blink")                  { return "Button/Tooltip/F_Blink"; }
+    if (upgradeId == "D8Charge")               { return "Button/Tooltip/F_D8Charge"; }
+    if (upgradeId == "Charge")                 { return "Button/Tooltip/F_Charge"; }
+    if (upgradeId == "RavagerCorrosiveBile")   { return "Button/Tooltip/F_RavagerCorrosiveBile"; }
+    if (upgradeId == "Hyperjump")              { return "Button/Tooltip/F_Hyperjump"; }
+    return "Button/Tooltip/" + upgradeId + IntToString(slot);
+}
