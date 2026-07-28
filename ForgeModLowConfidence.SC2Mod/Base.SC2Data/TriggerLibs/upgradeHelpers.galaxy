@@ -156,27 +156,17 @@ void setSlotSelectedUpgrade(int player, int slotIndex, string facilityid, string
     int upgradeBehaviorListSize = getStringListSize(upgradeBehaviorListName);
     string upgradeUpgradeListName = getUpgradeUpgradeListName(upgradeId);
     int upgradeUpgradeListSize = getStringListSize(upgradeUpgradeListName);
-    int index;
     DataTableSetString(true, getSlotSelectedUpgradeKey(player, slotIndex, facilityid), upgradeId);
-    
-    if(!upgradAbilityListSize == 0) {
-        // The research ability name is based on the upgradeId (e.g., "Blink"), not the ability name (e.g., "F_Blink").
-        // So for slot 1, we add "Blink1" to the facility, not "F_Blink1".
+
+    // The research button/ability is always <upgradeKey><slot> (e.g. "Blink1", "Speed1") -- the same
+    // id onGenericUpgradeCompleted blocks re-research on via realCompletedUpgradeFromSlot + slot. Add it
+    // once if the upgrade grants anything: an ability, a behavior, or a count upgrade. (Previously the
+    // behavior/count branches keyed the button off the behavior/count NAME, which only worked because
+    // key==name for every such upgrade; Charge/HotSRaptorCharge2 leaked a stray/phantom research button,
+    // and a behavior whose name has no <name><slot> research entry -- like CasterEnergyRegen -- couldn't
+    // ride on an upgrade at all.)
+    if (upgradAbilityListSize != 0 || upgradeBehaviorListSize != 0 || upgradeUpgradeListSize != 0) {
         addToAbilityListForUnit(upgradeId + IntToString(slotIndex), upgradeFacilityId, player);
-    }
-
-    
-    if(!upgradeBehaviorListSize == 0){
-        // this is bad code. It relies on the id for ability for researching a behavior upgrade having the name of the behavior followed by the slot id
-        for(index = 0; index < upgradeBehaviorListSize; index+=1) {
-            addToAbilityListForUnit(getStringAtIndex(upgradeBehaviorListName, index) + IntToString(slotIndex), upgradeFacilityId, player);
-        }
-    }
-
-    if(!upgradeUpgradeListSize == 0){
-        for(index = 0; index < upgradeUpgradeListSize; index+=1) {
-            addToAbilityListForUnit(getStringAtIndex(upgradeUpgradeListName, index) + IntToString(slotIndex), upgradeFacilityId, player);
-        }
     }
 }
 

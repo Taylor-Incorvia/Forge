@@ -96,12 +96,9 @@
     <!-- Corsair ........................................................................... -->
     <!--                                                                                         -->
     <CUnit id="CorsairMP">
-        <EnergyStart value="25"/>
-        <EnergyMax value="150"/>
-        <EnergyRegenRate value="1"/>
-        <!--EnergyStart value="50"/>
+        <EnergyStart value="50"/>
         <EnergyMax value="200"/>
-        <EnergyRegenRate value="0.5625"/-->
+        <EnergyRegenRate value="0.5625"/>
     </CUnit>
     <!--                                                                                         -->
     <!-- Defiler ............................................................................... -->
