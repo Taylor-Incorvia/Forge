@@ -160,6 +160,7 @@ void initializeUpgrades() {
 
     addAbilityToUpgrade("Blink", "F_Blink");
     addUpgradeRequirementTag("Blink", logicType_NoneOf, "unitTag", "pureCaster"); // casters with blink sounds underwhelming 90% of the time and completely abusive 10% of the time
+    addUpgradeRequirementTag("Blink", logicType_NoneOf, "unitTag", "Stalker"); // Stalker starts with Blink (BlinkTech) -- don't roll a redundant second one
     // WA-015: removed addAltFormBannedAbility (never worked -- "LurkerBurrowed" != the real alt-form id "LurkerMPBurrowed").
     // Burrowed Lurkers / sieged Tanks now blink, then auto-transform back via onBlinkUsed() (unitInitializers.galaxy) + an editor trigger.
 

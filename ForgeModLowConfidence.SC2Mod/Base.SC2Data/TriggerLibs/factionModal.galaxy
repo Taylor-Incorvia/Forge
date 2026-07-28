@@ -54,13 +54,14 @@ int fm_colX(int col) {
     return fm_col0X + col * fm_colStep;
 }
 
-// A facility building icon, shown to everyone (same for all players).
-void fm_addFacilityIcon(string iconPath, int y) {
+// A facility building icon, shown to everyone (same for all players). Its tooltip explains the modal.
+void fm_addFacilityIcon(string iconPath, text tip, int y) {
     int c;
     c = DialogControlCreate(factionDialog, c_triggerControlTypeImage);
     DialogControlSetSize(c, PlayerGroupAll(), fm_facIcon, fm_facIcon);
     DialogControlSetPosition(c, PlayerGroupAll(), c_anchorCenter, fm_facX, y);
     DialogControlSetPropertyAsString(c, c_triggerControlPropertyImage, PlayerGroupAll(), iconPath);
+    DialogControlSetPropertyAsText(c, c_triggerControlPropertyTooltip, PlayerGroupAll(), tip);
 }
 
 // An item icon (unit or upgrade) shown ONLY to one player, with its command-card tooltip.
@@ -88,11 +89,13 @@ void fm_ensureTab() {
     if (factionTabDialog != 0) {
         return;
     }
-    factionTabDialog = DialogCreate(96, 44, c_anchorLeft, 0, 0, false);
+    // Tall, narrow tab on the left edge. Text is stacked vertically via <n/> line breaks, with a
+    // small arrow at the bottom to read as clickable.
+    factionTabDialog = DialogCreate(46, 230, c_anchorLeft, 0, 0, false);
     factionTabButton = DialogControlCreate(factionTabDialog, c_triggerControlTypeButton);
-    DialogControlSetSize(factionTabButton, PlayerGroupAll(), 96, 44);
+    DialogControlSetSize(factionTabButton, PlayerGroupAll(), 46, 230);
     DialogControlSetPosition(factionTabButton, PlayerGroupAll(), c_anchorCenter, 0, 0);
-    DialogControlSetPropertyAsText(factionTabButton, c_triggerControlPropertyText, PlayerGroupAll(), StringToText("FACTION"));
+    DialogControlSetPropertyAsText(factionTabButton, c_triggerControlPropertyText, PlayerGroupAll(), StringToText("F<n/>A<n/>C<n/>T<n/>I<n/>O<n/>N<n/><n/>&gt;"));
     DialogSetVisible(factionTabDialog, PlayerGroupAll(), true);
 }
 
@@ -104,12 +107,12 @@ void fm_ensureShell() {
     factionDialog = DialogCreate(620, 500, c_anchorCenter, 0, 0, false);
 
     fm_addSharedTitle();
-    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-barracks.dds",    fm_yRax);
-    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-ghostacademy.dds", fm_yGhost);
-    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-factory.dds",      fm_yFactory);
-    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-armory.dds",       fm_yArmory);
-    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-starport.dds",     fm_yStarport);
-    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-fusioncore.dds",   fm_yFusion);
+    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-barracks.dds",    StringToText("Barracks - the units you rolled for the Barracks. The icon directly below each unit is that unit's rolled upgrade, researched at the Ghost Academy."), fm_yRax);
+    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-ghostacademy.dds", StringToText("Ghost Academy - research the upgrade shown below each Barracks unit here."), fm_yGhost);
+    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-factory.dds",      StringToText("Factory - the units you rolled for the Factory. The icon below each unit is its rolled upgrade, researched at the Armory."), fm_yFactory);
+    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-armory.dds",       StringToText("Armory - research the upgrade shown below each Factory unit here."), fm_yArmory);
+    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-starport.dds",     StringToText("Starport - the units you rolled for the Starport. The icon below each unit is its rolled upgrade, researched at the Fusion Core."), fm_yStarport);
+    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-fusioncore.dds",   StringToText("Fusion Core - research the upgrade shown below each Starport unit here."), fm_yFusion);
 
     factionCloseButton = DialogControlCreate(factionDialog, c_triggerControlTypeButton);
     DialogControlSetSize(factionCloseButton, PlayerGroupAll(), 40, 40);
