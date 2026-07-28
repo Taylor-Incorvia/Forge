@@ -1,11 +1,35 @@
 ---
 id: WA-061
-status: todo
+status: in-progress
 size: M
 phase: 1-game-readiness
 priority: 40
 ---
 # Orbital Command → Planetary Fortress upgrade — a self-limiting anti-drop static defense
+
+## STATUS (2026-07-27) — implemented on a branch, UNMERGED, blocked on prod verification
+Full data implementation is done on branch **`wa-061-planetary-fortress`** / **PR #22** (not merged). Do NOT assume it works — the morph itself has never been verified in-game.
+
+**What's implemented (5 files, data-only, no galaxy):**
+- `AbilData.xml` — new `MorphOrbitalToPlanetary` (`CAbilMorph`, `InfoArray Unit="PlanetaryFortress"`, `Requirements=""`, cloned field-for-field from stock `UpgradeToPlanetaryFortress` found in `reference/mods/liberty.sc2mod`). Plus the footgun fix: `UpgradeToOrbital`'s `AutoCastValidatorArray` swapped from `IsCasterCommandCenterOrPlanetaryFortress` → `IsCasterCommandCenter` (CC-only) so a finished Planetary won't auto-revert to Orbital.
+- `UnitData.xml` — `OrbitalCommand` gets `AbilArray Link="MorphOrbitalToPlanetary"` + a card button; new `PlanetaryFortress` cost override (750 minerals).
+- `ButtonData.xml` — `MorphOrbitalToPlanetary` button (planetaryfortress icon, hotkey **P**).
+- `GameStrings.txt` / `GameHotkeys.txt` — name/tooltip + hotkey P.
+
+**Where it's stuck: the button does not render in the local editor Test Document.**
+- First placement was `Column="2"`, which collided with the stock merged Orbital card's Scanner Sweep (bottom row: MULE col0 / SupplyDrop col1 / **ScannerSweep col2** / LiftOff col3). Moved to an empty cell **`Row="1" Column="0"`** (commit `ce86d05`) — still not showing locally.
+- **Leading theory:** this is the known command-card caching / "publish-to-verify" gotcha (see CLAUDE.md dev-testing note + [[WA-045]]). Command-card buttons for added abilities/morphs frequently DON'T render in the local Test Document but DO on a published build; the editor also caches card state badly after one test. So "not showing locally" is *expected* and not proof the placement is wrong.
+- Secondary theory (less likely): the morph ability is being culled because `PlanetaryFortress` isn't resolving in the merged catalog — would need the editor merged-view to rule out.
+
+**To resume:** publish the branch to Battle.net and check the Orbital card in-game. Then verify, in order:
+1. **Button appears** on the Orbital card (Row 1 Col 0, hotkey P). If it does, the local no-show was just the caching gotcha.
+2. **Morph works** — press it → Orbital becomes a functioning Planetary (cannon fires, high armor, can't lift).
+3. **Footgun holds** — the finished Planetary STAYS a Planetary (no auto-revert), AND fresh Command Centers still auto-upgrade to Orbital.
+4. **Cost** — confirm whether 750 charges the full amount or the difference (750−400), then tune. This is the main balance knob.
+
+Confidence: medium. Footgun fix is high-confidence (uses the confirmed stock CC-only validator); the morph mechanics are the real risk (built without the editor merged-view).
+
+
 
 ## Why
 Drops are hard to answer without static defense — I lost units to a Medivac shuttling Ultras/etc. around my bases. But I **hate** cheap spammable static defense (turrets/cannons/spines): it costs **no supply**, so a supply-capped player with spare minerals just carpets the base with it. Planetary Fortress is the exception worth allowing:

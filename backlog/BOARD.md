@@ -4,6 +4,23 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 
 ---
 
+## 🚀 Launch scope — build these, then go get attention
+**Locked 2026-07-26.** The full pre-attention build. Nothing else is in scope before launch — new units/upgrades, Sentry/Ravager ideas, and all "nice to have" work wait for a post-launch **"1.5."**
+
+| # | Item | Note |
+|---|------|------|
+| 1 | [WA-060](./WA-060-auto-mine-after-race-replace.md) — workers auto-mine at 0:00 | bad first impression if broken |
+| 2 | **"Your Faction" modal** — [WA-039](./WA-039-arsenal-paper-design.md) design → [WA-001](./WA-001-arsenal-modal.md) build | the headline; makes the mod legible to newcomers; the long pole |
+| 3 | [WA-070](./WA-070-scout-enemy-rolls-floating-icons.md) — scout enemy rolls (floating icons) | produces the shared icon/label layer the modal reuses → do around/before the modal build |
+| 4 | [WA-061](./WA-061-orbital-to-planetary-upgrade.md) — Orbital → Planetary Fortress | anti-drop static defense · **implemented on PR #22, unmerged — button not rendering locally, needs a prod publish to verify (likely the command-card caching gotcha)** |
+| 5 | **PR #19** — caster energy regen | merge after the test sweep (high blast radius) |
+
+**Then, before marketing:** a round of live playtesting + dev-mode testing — which also confirms the recent merges (Hydra range, caster costs, PR #19) and closes the in-game eyeballs on WA-014 (Stalker blink range) and WA-038 (Tempest tectonic) — and **publish `main` to Battle.net** (recent balance work isn't live yet).
+
+**Then marketing:** social · website (Phase 3) · streaming setup (Phase 6) · YouTube + clips (Phase 4 / [WA-047](./WA-047-gameplay-clips.md)). See *Later phases* below.
+
+---
+
 ## 🔨 In progress
 - [WA-035](./WA-035-lifesteal-upgrade.md) — Lifesteal **slice 1 (Marine, 15%)** merged (PR #8). Slice 2+ **parked** (decided lifesteal is less fun than the other upgrades) — resume if desired.
 - [WA-038](./WA-038-tempest-remove-tectonic-destabilizers.md) — Tectonic Destabilizers (`TempestGroundAttackUpgrade`) passive button hidden via a Show-node requirement override (index-independent). **Merged to main (PR #2)** — one open AC: eyeball the Tempest card in-game to confirm it's gone + nothing else disturbed.
@@ -12,7 +29,7 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 ---
 
 ## ✅ Ready to grab (`todo`)
-Groomed, scoped, has acceptance criteria. **⭐ = current top priority** (editor caching → Planetary → the Faction modal). Pull from the top.
+Groomed, scoped, has acceptance criteria. **The 🚀 Launch lane above is the authoritative pre-attention scope** — items listed here that aren't in it are post-launch. (WA-045 editor-caching is optional dev QoL that could speed the modal build.)
 
 | ID | Ticket | Size | Phase |
 |----|--------|------|-------|
@@ -30,6 +47,7 @@ Groomed, scoped, has acceptance criteria. **⭐ = current top priority** (editor
 | [WA-047](./WA-047-gameplay-clips.md) | Play + capture gameplay clips (every Reddit post needs one) | M | 4 (parallel) |
 | [WA-065](./WA-065-replay-stats-tool.md) | Replay stats/analysis tool (sc2reader) — winner, rolls-from-chat, unit-death map, upgrades-used (someday) | M | 4 |
 | [WA-066](./WA-066-hellion-flame-wall-upgrade.md) | Hellion "flame wall" upgrade — blue flame + big visually-matched splash (replaces removed Twin-Linked; needs actor work) | M | 1 |
+| [WA-070](./WA-070-scout-enemy-rolls-floating-icons.md) | Scout enemy rolls — floating unit icons above production structures (text tags; fog-gated; Faction family) | M | 1 |
 
 ---
 
@@ -48,6 +66,9 @@ _Lowest priority. Ordered bottom-up toward "never" (other races — see icebox).
 |----|--------|------|-------|
 | [WA-030](./WA-030-ability-telegraph.md) | Ability telegraph — icon/name above caster (upgrade abilities) | M | 1 |
 | [WA-046](./WA-046-ultralisk-chitinous-visual.md) | Ultralisk looks different when it has Chitinous Plating (readability) | M | 1 |
+| [WA-067](./WA-067-sentry-force-field-size-upgrade.md) | Sentry force-field size upgrade — one giant wall (grow the small Sentry pool) · **post-Faction-modal** | S | 1 |
+| [WA-069](./WA-069-sentry-guardian-shield-shockwave.md) | Sentry Guardian Shield casts a mini shockwave (enemy-only = a `SearchFilters` fix) · **post-Faction-modal** | M | 1 |
+| [WA-068](./WA-068-ravager-barracks-slot3-bile-upgrades.md) | Ravager → Barracks s3 + Corrosive Bile buff upgrades (splash/damage) · **post-Faction-modal** | M | 1 |
 
 ---
 

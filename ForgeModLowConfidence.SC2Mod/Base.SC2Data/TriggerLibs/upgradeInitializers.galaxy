@@ -440,8 +440,11 @@ void grantInitialUpgrades(int player) {
     //Marine
     grantUpgrade(player, "ShieldWall"); // Marines seemed super cost efficient with this. Idk, I don't really want the simplest game play to always be the best. // update 7/11/2026 --I increased the price. Hopefully this doesn't make them too strong again. 
 
-    // hydra
-    grantUpgrade(player, "EvolveGroovedSpines");
+    // hydra -- Grooved Spines start REMOVED. It put the Hydra at range 6 vs Marine's 5, and the Hydra
+    // already out-fights 2 Marines (= same cost/supply) on damage-per-hit, splash resistance, and
+    // focus-fire attrition. Now range 5 (parity with Marine). The Hydra can still ROLL the generic Range
+    // upgrade for a situational edge, so range becomes a reward instead of a free flat start.
+    // grantUpgrade(player, "EvolveGroovedSpines");
 
     // high templars -- I am giving them storm to start, which might be too much. 
     //For right now I am trying to buff splash damage so the game doesn't become deathball wars
