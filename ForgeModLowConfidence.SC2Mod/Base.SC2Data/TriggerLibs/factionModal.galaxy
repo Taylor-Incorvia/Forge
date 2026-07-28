@@ -32,6 +32,13 @@ int factionModalCloseButton;
 void showFactionModalPoc() {
     int icon;
 
+    // Idempotent: the auto-fire hook runs once per player, so bail if the dialog already exists.
+    // Otherwise we'd stack a dialog per player and the close-button handle would point at the last
+    // one, making the X behave erratically.
+    if (factionModalDialog != 0) {
+        return;
+    }
+
     factionModalDialog = DialogCreate(400, 300, c_anchorCenter, 0, 0, false);
 
     // One placeholder icon in the middle.
