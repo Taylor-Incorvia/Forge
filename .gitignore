@@ -4,3 +4,6 @@
 /reference/**
 !/reference/
 !/reference/README.md
+
+# Claude Code agent worktrees (temporary, per-session; never commit)
+.claude/worktrees/
