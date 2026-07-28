@@ -147,7 +147,7 @@ void fm_addUpgradeRow(int player, string facility, int slotCount, int facY) {
         upgId = getSlotSelectedUpgrade(player, slot, facility);
         tipKey = getUpgradeTooltipKey(upgId, slot);
         if (tipKey == "") {
-            tip = StringToText("");
+            tip = StringToText(getUpgradeFallbackTooltip(upgId));
         } else {
             tip = StringExternal(tipKey);
         }
