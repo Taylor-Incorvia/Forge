@@ -12,7 +12,7 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 | 1 | [WA-060](./WA-060-auto-mine-after-race-replace.md) — workers auto-mine at 0:00 | bad first impression if broken |
 | 2 | **"Your Faction" modal** — [WA-039](./WA-039-arsenal-paper-design.md) design → [WA-001](./WA-001-arsenal-modal.md) build | the headline; makes the mod legible to newcomers; the long pole |
 | 3 | [WA-070](./WA-070-scout-enemy-rolls-floating-icons.md) — scout enemy rolls (floating icons) | produces the shared icon/label layer the modal reuses → do around/before the modal build |
-| 4 | [WA-061](./WA-061-orbital-to-planetary-upgrade.md) — Orbital → Planetary Fortress | anti-drop static defense (kept in scope per 2026-07-26) |
+| 4 | [WA-061](./WA-061-orbital-to-planetary-upgrade.md) — Orbital → Planetary Fortress | anti-drop static defense · **implemented on PR #22, unmerged — button not rendering locally, needs a prod publish to verify (likely the command-card caching gotcha)** |
 | 5 | **PR #19** — caster energy regen | merge after the test sweep (high blast radius) |
 
 **Then, before marketing:** a round of live playtesting + dev-mode testing — which also confirms the recent merges (Hydra range, caster costs, PR #19) and closes the in-game eyeballs on WA-014 (Stalker blink range) and WA-038 (Tempest tectonic) — and **publish `main` to Battle.net** (recent balance work isn't live yet).

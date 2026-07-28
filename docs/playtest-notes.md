@@ -4,6 +4,34 @@ A running journal of play sessions — half **balance/design observations**, hal
 
 ---
 
+## 2026-07-27 — 2 games (only game 1 dictated)
+
+### Game — held a Zealot/Marine rush, then threw the macro game → **LOSS** (vs Colossus/Void Ray/Marine)
+**The defense was the highlight, the rest was self-inflicted.**
+
+- Opponent went a **Zealot + Marine rush**. I don't usually scout much, but I'd rolled **Zerglings in Barracks slot 1** — so cheap and so fast to build that there was no reason *not* to send one over as a scout. Saw a pile of zealots and marines (not a super-optimized rush).
+- **Held it clean:** my CC was just finishing on the low ground, so I **lifted it and dropped it on the high ground**, threw down **2 bunkers**, pulled SCVs to repair, and held. Ended in a phenomenal spot — I'm fairly sure a simple counter-attack just wins from there. I didn't really need to play a whole game out.
+- I'd also rolled **Zealots with Leap**, and I wanted *so badly* to wait for it to finish before attacking. Leap is really cool — it lets you jump to the enemy **and hop cliffs**. I sent zealots into the main by cliff-jumping while also hitting the natural.
+- **Where it fell apart (all me):**
+  - The two-prong attack didn't line up in time — bungled the micro, so it did nothing.
+  - Worse, I'd **forgotten to build gas at my natural** the whole time → came back to a giant bank of *pure minerals*.
+  - So I leaned into more Zealots (all I could afford) — i.e. kept doing the thing that wasn't working — even though I'd **scouted Void Rays** and knew I had to answer them.
+  - Then even after I built the gas geysers, I **forgot to put SCVs on them**, so I was still gas-starved.
+- Plan vs the Void Rays was **Corsairs** (I thought they were Light, so Void Rays wouldn't bonus them — wasn't sure). But I didn't have the gas for enough Starports to make it happen.
+- Opponent came with an unusual army — **Colossus + a few Void Rays + a few Marines**. My defensive position almost carried me, but I just didn't have enough anti-air. I didn't want to mass Marines (fine vs Void Ray, bad vs Colossus).
+- His Void Rays had **Concussive Shells** — did it feel strong? No. But it at least *did something*.
+- All in all, a fun game.
+
+**Self-critique:** classic macro sloppiness — forgot to build gas, then forgot to *mine* the gas I built, and kept forcing a mineral-only plan (mass Zealot) into a matchup I'd already scouted as needing air/anti-air. Won the hard part (the defense) and lost on fundamentals. The lesson isn't tactical, it's discipline: build gas, mine it, and actually pivot to what I scouted.
+
+### Balance / design observations
+- **Cheap Barracks-slot-1 units enable free scouting (emergent, positive).** Rolling Zerglings made scouting *free* — a 25-min, ~6s-build throwaway unit lowered my scouting cost to nothing, so I scouted when I normally wouldn't. Nice knock-on effect of the cheap/fast roll; worth being aware of (a slot-1 Zealot is a pricier scout — the roll subtly changes how much info you gather).
+- **Zealot + Leap (cliff-jump) — great flavor, hard to execute.** The cliff-hop harass is exciting and opens attack angles, but a clean two-prong needs real micro. Felt cool even when I botched it. Keep.
+- **Concussive Shells on Void Ray — "does something, not strong."** Second data point (7-23 read was "useless" but confounded by being far behind). Trending toward *underwhelming-but-functional* rather than useless. Watch.
+- **Corsair vs Void Ray — my instinct was RIGHT (verified in the data):** Corsair is **Light** (+ Mechanical), *not* Armored, so the Void Ray's anti-**Armored** bonus does **not** apply to it. Corsairs are a legit anti-Void-Ray pick. My problem wasn't the target choice — it was not having the gas to field enough of them. So: the strategy was sound, the economy execution wasn't.
+
+---
+
 ## 2026-07-23 — ~5 games vs an even-skill opponent (won ~2: games 1 & 4)
 
 **The big takeaway:** this session *was* the design working. I scouted mass Marines, thought "straight Zealots + Firebats might actually beat this," and got to play my hand out. You can't bring a build order into this game — you react to what you're dealt. That's the whole point, and it delivered.

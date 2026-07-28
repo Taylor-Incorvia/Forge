@@ -1,4 +1,5 @@
 include "TriggerLibs/forgeUnitHelpers"
+include "TriggerLibs/stringHelpers"
 
 // Unit tag scheme for the upgrade-pool system (see WA-018):
 //   "caster"     = eligible for caster/energy-ability upgrades (Storm, Fungal, ...)
@@ -60,6 +61,39 @@ void initializeAlternateForms() { // if a lurker is burrowed when an upgrade com
     setUnitAltForm("Liberator", "LiberatorAG");
 }
 
+// WA-060: send a freshly-created (race-swapped) SCV to mine. SCVHarvest needs a target unit (an
+// untargeted order errors "missing a target"), so target the NEAREST mineral patch. Every worker
+// spawns clustered at the CC, so they all pick the same closest patch and then fan out on their own --
+// exactly like a standard Terran melee start (a perfect split is a manual skill we don't hand out).
+void orderReplacedScvToMine(unit scv) {
+    point pos;
+    unitgroup nearby;
+    unitgroup minerals;
+    int nearbyCount;
+    int i;
+    unit candidate;
+    unit target;
+
+    pos = UnitGetPosition(scv);
+    nearby = UnitGroup(null, c_playerAny, RegionCircle(pos, 16.0), null, c_noMaxCount);
+    nearbyCount = UnitGroupCount(nearby, c_unitCountAll);
+    minerals = UnitGroupEmpty();
+
+    i = 1;
+    while (i <= nearbyCount) {
+        candidate = UnitGroupUnit(nearby, i);
+        if (stringStartsWith(UnitGetType(candidate), "MineralField")) {
+            UnitGroupAdd(minerals, candidate);
+        }
+        i += 1;
+    }
+
+    target = UnitGroupNearestUnit(minerals, pos);
+    if (target != null) {
+        UnitIssueOrder(scv, OrderTargetingUnit(AbilityCommand("SCVHarvest", 0), target), c_orderQueueReplace);
+    }
+}
+
 // Converts non-Terran starting units to their Terran equivalents.
 // Call this at the TOP of the onUnitCreated trigger, before applyBehaviorListToUnit etc.
 // When a unit is replaced, the original is removed and a new Terran unit is created,
@@ -82,6 +116,7 @@ void convertNonTerranUnit(unit u) {
         pos = UnitGetPosition(u);
         UnitRemove(u);
         UnitCreate(1, "SCV", 0, owner, pos, 270.0);
+        orderReplacedScvToMine(UnitLastCreated());
     }
     else if (unitType == "Overlord" || unitType == "Larva") {
         UnitRemove(u);

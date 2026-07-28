@@ -500,7 +500,7 @@
         <Effect index="0" value="AutoTurretRelease"/>
         <Flags index="AllowMovement" value="1"/>
         <Cost>
-            <Vital index="Energy" value="40"/>
+            <Vital index="Energy" value="50"/>
             <Charge Link="Abil/AutoTurret"/>
             <Cooldown Link="Raven Build Link" Location="Unit"/>
         </Cost>
@@ -744,7 +744,7 @@
         <Effect index="0" value="IrradiateSet"/>
         <Flags index="AllowMovement" value="1"/>
         <Cost>
-            <Vital index="Energy" value="40"/>
+            <Vital index="Energy" value="50"/>
         </Cost>
         <TargetFilters value="-;Structure,RawResource,HarvestableResource,Item,Dead,Hidden,Invulnerable"/>
         <Range value="9"/>
@@ -762,7 +762,7 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Effect index="0" value="ForceField"/>
         <Cost>
-            <Vital index="Energy" value="40"/>
+            <Vital index="Energy" value="50"/>
         </Cost>
         <Range value="9"/>
         <Marker>
@@ -783,7 +783,7 @@
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Effect index="0" value="FungalGrowthLaunchMissile"/>
         <Cost>
-            <Vital index="Energy" value="50"/>
+            <Vital index="Energy" value="75"/>
             <Cooldown Link="Abil/Leech" Location="Unit"/>
         </Cost>
         <Range value="10"/>
@@ -802,7 +802,7 @@
         <Flags index="NoDeceleration" value="1"/>
         <Flags index="Transient" value="1"/>
         <Cost>
-            <Vital index="Energy" value="50"/>
+            <Vital index="Energy" value="75"/>
             <Cooldown Link="GuardianShieldGuardianShield5GuardianShieldF_GuardianShield" TimeUse="18"/>
         </Cost>
         <AINotifyEffect value=""/>
@@ -864,7 +864,7 @@
         <Flags index="NoDeceleration" value="1"/>
         <Flags index="ReExecutable" value="1"/>
         <Cost>
-            <Vital index="Energy" value="40"/>
+            <Vital index="Energy" value="50"/>
         </Cost>
         <TargetFilters value="Ground,Visible;Self,Neutral,Massive,Structure,Destructible,Invulnerable"/>
         <Range value="6"/>
@@ -1033,7 +1033,7 @@
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Effect index="0" value="ParasiticBombLM"/>
         <Cost>
-            <Vital index="Energy" value="100"/>
+            <Vital index="Energy" value="125"/>
         </Cost>
         <TargetFilters value="Air,Visible;Self,Player,Ally,Neutral,Structure,Stasis,Invulnerable"/>
         <Range value="8"/>
@@ -1047,7 +1047,7 @@
         <Effect index="0" value="NeuralParasiteLaunchMissile"/>
         <Flags index="AbortOnAllianceChange" value="0"/>
         <Cost>
-            <Vital index="Energy" value="75"/>
+            <Vital index="Energy" value="100"/>
             <Cooldown Link="Abil/Leech" Location="Unit"/>
         </Cost>
         <TargetFilters value="Visible;Self,Player,Ally,Neutral,Structure,Heroic,Stasis,Invulnerable"/>
@@ -3001,7 +3001,7 @@
         <Flags index="AllowMovement" value="1"/>
         <Flags index="NoDeceleration" value="1"/>
         <Cost>
-            <Vital index="Energy" value="50"/>
+            <Vital index="Energy" value="75"/>
         </Cost>
         <TargetFilters value="-;Self,Neutral,Structure,Heroic,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="9"/>
