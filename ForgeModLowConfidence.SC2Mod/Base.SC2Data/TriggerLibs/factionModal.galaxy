@@ -37,8 +37,8 @@ int factionTabButton;
 // ---- layout constants (tweak these to iterate on the design) ----
 int fm_facIcon    = 60;    // facility building icon size
 int fm_itemIcon   = 44;    // unit / upgrade icon size
-int fm_facX       = -250;  // x of the facility icons (left column)
-int fm_col0X      = -175;  // x of the first item icon
+int fm_facX       = -110;  // x of the facility icons (left column)
+int fm_col0X      = -44;   // x of the first item icon
 int fm_colStep    = 54;    // x gap between item columns
 int fm_alignNudge = 8;     // units nudged DOWN / upgrades nudged UP so they hug the facility icon
 
@@ -80,8 +80,8 @@ void fm_addPlayerIcon(int player, string iconPath, text tip, int x, int y) {
 void fm_addSharedTitle() {
     int c;
     c = DialogControlCreate(factionDialog, c_triggerControlTypeLabel);
-    DialogControlSetSize(c, PlayerGroupAll(), 240, 26);
-    DialogControlSetPosition(c, PlayerGroupAll(), c_anchorCenter, 0, fm_yTitle);
+    DialogControlSetSize(c, PlayerGroupAll(), 200, 26);
+    DialogControlSetPosition(c, PlayerGroupAll(), c_anchorCenter, -10, fm_yTitle);
     DialogControlSetPropertyAsText(c, c_triggerControlPropertyText, PlayerGroupAll(), StringToText("YOUR FACTION"));
 }
 
@@ -107,7 +107,7 @@ void fm_ensureShell() {
     }
     // Anchored to the LEFT edge, just past the tab (46 wide), so the panel opens right next to the
     // FACTION> tab instead of screen-center. offsetY 0 = vertically centered, same as the tab.
-    factionDialog = DialogCreate(620, 500, c_anchorLeft, 50, 0, false);
+    factionDialog = DialogCreate(340, 500, c_anchorLeft, 50, 0, false);
 
     fm_addSharedTitle();
     fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-barracks.dds",    StringToText("Barracks - the units you rolled for the Barracks. The icon directly below each unit is that unit's rolled upgrade, researched at the Ghost Academy."), fm_yRax);
@@ -119,7 +119,7 @@ void fm_ensureShell() {
 
     factionCloseButton = DialogControlCreate(factionDialog, c_triggerControlTypeButton);
     DialogControlSetSize(factionCloseButton, PlayerGroupAll(), 40, 40);
-    DialogControlSetPosition(factionCloseButton, PlayerGroupAll(), c_anchorCenter, 275, -225);
+    DialogControlSetPosition(factionCloseButton, PlayerGroupAll(), c_anchorCenter, 140, -215);
     DialogControlSetPropertyAsText(factionCloseButton, c_triggerControlPropertyText, PlayerGroupAll(), StringToText("X"));
 
     fm_ensureTab();
