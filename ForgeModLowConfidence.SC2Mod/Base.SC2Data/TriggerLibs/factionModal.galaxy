@@ -42,13 +42,14 @@ int fm_col0X      = -175;  // x of the first item icon
 int fm_colStep    = 54;    // x gap between item columns
 int fm_alignNudge = 8;     // units nudged DOWN / upgrades nudged UP so they hug the facility icon
 
-// facility-icon center Y for each of the 6 rows
-int fm_yRax       = -195;
-int fm_yGhost     = -130;
-int fm_yFactory   = -40;
-int fm_yArmory    = 25;
-int fm_yStarport  = 115;
-int fm_yFusion    = 180;
+// facility-icon center Y for each of the 6 rows (shifted down so the title isn't jammed at the top edge)
+int fm_yTitle     = -208;
+int fm_yRax       = -175;
+int fm_yGhost     = -110;
+int fm_yFactory   = -20;
+int fm_yArmory    = 45;
+int fm_yStarport  = 135;
+int fm_yFusion    = 200;
 
 int fm_colX(int col) {
     return fm_col0X + col * fm_colStep;
@@ -80,7 +81,7 @@ void fm_addSharedTitle() {
     int c;
     c = DialogControlCreate(factionDialog, c_triggerControlTypeLabel);
     DialogControlSetSize(c, PlayerGroupAll(), 240, 26);
-    DialogControlSetPosition(c, PlayerGroupAll(), c_anchorCenter, 0, -228);
+    DialogControlSetPosition(c, PlayerGroupAll(), c_anchorCenter, 0, fm_yTitle);
     DialogControlSetPropertyAsText(c, c_triggerControlPropertyText, PlayerGroupAll(), StringToText("YOUR FACTION"));
 }
 
@@ -90,12 +91,12 @@ void fm_ensureTab() {
         return;
     }
     // Tall, narrow tab on the left edge. Text is stacked vertically via <n/> line breaks, with a
-    // small arrow at the bottom to read as clickable.
-    factionTabDialog = DialogCreate(46, 230, c_anchorLeft, 0, 0, false);
+    // '>' arrow to read as clickable. The dialog is tall enough that no line clips (top or bottom).
+    factionTabDialog = DialogCreate(46, 320, c_anchorLeft, 0, 0, false);
     factionTabButton = DialogControlCreate(factionTabDialog, c_triggerControlTypeButton);
-    DialogControlSetSize(factionTabButton, PlayerGroupAll(), 46, 230);
+    DialogControlSetSize(factionTabButton, PlayerGroupAll(), 46, 320);
     DialogControlSetPosition(factionTabButton, PlayerGroupAll(), c_anchorCenter, 0, 0);
-    DialogControlSetPropertyAsText(factionTabButton, c_triggerControlPropertyText, PlayerGroupAll(), StringToText("F<n/>A<n/>C<n/>T<n/>I<n/>O<n/>N<n/><n/>&gt;"));
+    DialogControlSetPropertyAsText(factionTabButton, c_triggerControlPropertyText, PlayerGroupAll(), StringToText("F<n/>A<n/>C<n/>T<n/>I<n/>O<n/>N<n/>&gt;"));
     DialogSetVisible(factionTabDialog, PlayerGroupAll(), true);
 }
 
@@ -122,6 +123,16 @@ void fm_ensureShell() {
     fm_ensureTab();
 }
 
+// Unit display name for the tooltip. Most units resolve via Unit/Name/<id>, but a few internal ids
+// have no such string (StringExternal would return the raw key), so override those.
+text fm_unitName(string unitId) {
+    if (unitId == "ThorAP")        { return StringToText("Thor"); }
+    if (unitId == "DuskWing")      { return StringToText("Dusk Wing"); }
+    if (unitId == "ScienceVessel") { return StringToText("Science Vessel"); }
+    if (unitId == "Diamondback")   { return StringToText("Diamondback"); }
+    return StringExternal("Unit/Name/" + unitId);
+}
+
 // One facility's UNIT row: icons nudged DOWN so their bottoms hug the facility icon's bottom.
 void fm_addUnitRow(int player, string facility, int slotCount, int facY) {
     int slot;
@@ -130,7 +141,7 @@ void fm_addUnitRow(int player, string facility, int slotCount, int facY) {
     slot = 1;
     while (slot <= slotCount) {
         unitId = getPlayerSlotUnitId(facility, slot, player);
-        fm_addPlayerIcon(player, getUnitIconPath(unitId), StringExternal("Unit/Name/" + unitId), fm_colX(slot - 1), facY + fm_alignNudge);
+        fm_addPlayerIcon(player, getUnitIconPath(unitId), fm_unitName(unitId), fm_colX(slot - 1), facY + fm_alignNudge);
         slot += 1;
     }
 }
