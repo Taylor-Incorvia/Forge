@@ -213,4 +213,10 @@ void setProductionSlotsForPlayer(int playerIndex) {
     setSlotsForFacility(rax, 4, playerIndex);
     setSlotsForFacility(factory, 3, playerIndex);
     setSlotsForFacility(starport, 3, playerIndex);
+
+    // POC auto-fire: pop the faction modal at game start with no extra trigger wiring.
+    // This function already runs per-player at start (it prints the slot-roll message), so
+    // it's a reliable hook to SEE the modal without the Map-init trigger. The X close still
+    // needs the "Dialog item is used" trigger. (faction-modal-poc branch only.)
+    showFactionModalPoc();
 }
