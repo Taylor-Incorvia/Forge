@@ -1,12 +1,4 @@
 include "TriggerLibs/forgeUnitHelpers"
-include "TriggerLibs/stringHelpers"
-
-// WA-060: per-player round-robin cursor (stored in the data table, like the rest of the mod's state)
-// so replaced (non-Terran) SCVs spread across the base's mineral patches instead of all queuing on
-// one -- a non-Terran pick should ramp economy like a Terran start.
-string mineralCursorKey(int player) {
-    return "wa060.mineralCursor.player." + IntToString(player);
-}
 
 // Unit tag scheme for the upgrade-pool system (see WA-018):
 //   "caster"     = eligible for caster/energy-ability upgrades (Storm, Fungal, ...)
@@ -68,47 +60,11 @@ void initializeAlternateForms() { // if a lurker is burrowed when an upgrade com
     setUnitAltForm("Liberator", "LiberatorAG");
 }
 
-// WA-060: send a freshly-created (race-swapped) SCV to mine, distributing across the base's
-// mineral patches round-robin so non-Terran pickers ramp economy like a Terran start rather than
-// queuing every worker onto the nearest patch. Falls back to an untargeted harvest if no patch is
-// found near the SCV (shouldn't happen at a start location).
+// WA-060: send a freshly-created (race-swapped) SCV to mine. An untargeted SCVHarvest lets the engine
+// auto-pick a patch -- workers pile onto the nearest one and fan out on their own, exactly like a
+// standard Terran melee start (a perfect split is a manual skill; we don't want to hand it out for free).
 void orderReplacedScvToMine(unit scv) {
-    int owner;
-    point pos;
-    unitgroup nearby;
-    unitgroup minerals;
-    int nearbyCount;
-    int mineralCount;
-    int i;
-    int cursor;
-    unit candidate;
-    unit target;
-
-    owner = UnitGetOwner(scv);
-    pos = UnitGetPosition(scv);
-    nearby = UnitGroup(null, c_playerAny, RegionCircle(pos, 12.0), null, c_noMaxCount);
-    nearbyCount = UnitGroupCount(nearby, c_unitCountAll);
-    minerals = UnitGroupEmpty();
-
-    i = 1;
-    while (i <= nearbyCount) {
-        candidate = UnitGroupUnit(nearby, i);
-        if (stringStartsWith(UnitGetType(candidate), "MineralField")) {
-            UnitGroupAdd(minerals, candidate);
-        }
-        i += 1;
-    }
-
-    mineralCount = UnitGroupCount(minerals, c_unitCountAll);
-    if (mineralCount == 0) {
-        UnitIssueOrder(scv, Order(AbilityCommand("SCVHarvest", 0)), c_orderQueueReplace);
-        return;
-    }
-
-    cursor = StringToInt(DataTableGetString(true, mineralCursorKey(owner)));
-    target = UnitGroupUnit(minerals, (cursor % mineralCount) + 1);
-    DataTableSetString(true, mineralCursorKey(owner), IntToString(cursor + 1));
-    UnitIssueOrder(scv, OrderTargetingUnit(AbilityCommand("SCVHarvest", 0), target), c_orderQueueReplace);
+    UnitIssueOrder(scv, Order(AbilityCommand("SCVHarvest", 0)), c_orderQueueReplace);
 }
 
 // Converts non-Terran starting units to their Terran equivalents.
