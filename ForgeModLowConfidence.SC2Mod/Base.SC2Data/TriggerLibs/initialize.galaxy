@@ -1,6 +1,7 @@
 include "TriggerLibs/forgeUnitHelpers"
 include "TriggerLibs/forgeProductionFacilityHeplers"
 include "TriggerLibs/factionModal"
+include "TriggerLibs/scoutTags"
 
 void initializeUnitUnlockUpgradeMapping() {
     // ############### RAX #############################

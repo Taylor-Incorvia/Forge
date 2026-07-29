@@ -1,0 +1,95 @@
+include "TriggerLibs/NativeLib"
+include "TriggerLibs/forgeProductionFacilityHeplers"
+include "TriggerLibs/factionIcons"
+
+// ============================================================================
+// Scout enemy rolls — floating unit icons above production structures (WA-070)
+// ============================================================================
+// When you have vision of an enemy Barracks / Factory / Starport, a row of icons
+// floats above it showing the units that structure can build (that player's roll).
+// Reuses the shared icon layer (getUnitIconPath) built for the Your Faction modal.
+//
+// Per-player + fog: the tag is created for the owner's ENEMIES only
+// (PlayerGroupAlliance(c_playerGroupEnemy)) and fog-gated (useFogofWar = true), so
+// each opponent sees it only while they currently have vision of the structure.
+// Rolls are per-player, so every one of a player's Barracks shows the same icons --
+// scouting one reveals the whole Barracks lineup.
+//
+// Each structure stores its tag id in a unit custom value so it can be destroyed on
+// death. Wire TWO editor triggers (script only provides the functions):
+//   Event: Unit - Any Unit Enters Play  -> Custom Script: onProductionStructureCreated();
+//   Event: Unit - Any Unit dies         -> Custom Script: onProductionStructureRemoved();
+// ============================================================================
+
+int scoutTagCustomIndex = 7;   // unit custom-value slot holding the tag id (all slots were free)
+
+// Facility constant for a production-structure unit type, or "" if it isn't one.
+string scoutFacilityOf(string unitType) {
+    if (unitType == "Barracks") { return rax; }
+    if (unitType == "Factory")  { return factory; }
+    if (unitType == "Starport") { return starport; }
+    return "";
+}
+
+int scoutSlotCountOf(string facility) {
+    if (facility == rax) {
+        return 4;
+    }
+    return 3;
+}
+
+// <img> markup for a facility's rolled units (owner's roll), one icon per slot.
+string scoutTagMarkup(string facility, int slotCount, int owner) {
+    string txt;
+    int slot;
+    string unitId;
+
+    txt = "";
+    slot = 1;
+    while (slot <= slotCount) {
+        unitId = getPlayerSlotUnitId(facility, slot, owner);
+        txt = txt + "<img path=\"" + getUnitIconPath(unitId) + "\" width=\"26\" height=\"26\"/>";
+        slot += 1;
+    }
+    return txt;
+}
+
+// Wire to: Unit - Any Unit Enters Play -> onProductionStructureCreated();
+void onProductionStructureCreated() {
+    unit u;
+    string facility;
+    int owner;
+    int tag;
+
+    u = EventUnit();
+    facility = scoutFacilityOf(UnitGetType(u));
+    if (facility == "") {
+        return;
+    }
+    owner = UnitGetOwner(u);
+    tag = TextTagCreate(
+        StringToText(scoutTagMarkup(facility, scoutSlotCountOf(facility), owner)),
+        18,
+        UnitGetPosition(u),
+        2.0,
+        true,
+        true,
+        PlayerGroupAlliance(c_playerGroupEnemy, owner));
+    TextTagAttachToUnit(tag, u, 2.0);
+    UnitSetCustomValue(u, scoutTagCustomIndex, IntToFixed(tag));
+}
+
+// Wire to: Unit - Any Unit dies -> onProductionStructureRemoved();
+void onProductionStructureRemoved() {
+    unit u;
+    int tag;
+
+    u = EventUnit();
+    if (scoutFacilityOf(UnitGetType(u)) == "") {
+        return;
+    }
+    tag = FixedToInt(UnitGetCustomValue(u, scoutTagCustomIndex));
+    if (tag != 0) {
+        TextTagDestroy(tag);
+    }
+}
