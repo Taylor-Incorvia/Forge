@@ -125,17 +125,45 @@ void fm_ensureShell() {
     fm_ensureTab();
 }
 
-// Unit display name for the tooltip. Most units resolve via Unit/Name/<id>, but a few internal ids
-// have no such string (StringExternal would return the raw key), so override those.
-text fm_unitName(string unitId) {
-    if (unitId == "ThorAP")        { return StringToText("Thor"); }
-    if (unitId == "DuskWing")      { return StringToText("Dusk Wing"); }
-    if (unitId == "ScienceVessel") { return StringToText("Science Vessel"); }
-    if (unitId == "Diamondback")   { return StringToText("Diamondback"); }
-    return StringExternal("Unit/Name/" + unitId);
+// Unit display name (string, so it can be concatenated with the Build line). Most match the unit id;
+// override the multi-word / odd internal ids. (Hardcoded English rather than localized Unit/Name so the
+// whole tooltip can be built as one string; fine for an English-only mod.)
+string fm_unitDisplayName(string unitId) {
+    if (unitId == "HighTemplar")   { return "High Templar"; }
+    if (unitId == "SiegeTank")     { return "Siege Tank"; }
+    if (unitId == "WarHound")      { return "War Hound"; }
+    if (unitId == "LurkerMP")      { return "Lurker"; }
+    if (unitId == "ThorAP")        { return "Thor"; }
+    if (unitId == "CorsairMP")     { return "Corsair"; }
+    if (unitId == "VikingFighter") { return "Viking"; }
+    if (unitId == "DuskWing")      { return "Dusk Wing"; }
+    if (unitId == "VoidRay")       { return "Void Ray"; }
+    if (unitId == "ArbiterMP")     { return "Arbiter"; }
+    if (unitId == "ScienceVessel") { return "Science Vessel"; }
+    return unitId;
+}
+
+// The building chain required to produce a unit at (facility, slot). The mod's tech tree is inverted
+// from stock SC2 (the upgrade facility comes BEFORE the add-on), which confuses new players -- so the
+// tooltip spells the order out with arrows. Derived from facility + slot (which the modal already has).
+string fm_buildReq(string facility, int slot) {
+    if (facility == rax) {
+        if (slot >= 4) { return "Barracks &gt; Ghost Academy &gt; Tech Lab"; }
+        if (slot >= 3) { return "Barracks &gt; Ghost Academy"; }
+        return "Barracks";
+    }
+    if (facility == factory) {
+        if (slot >= 3) { return "Factory &gt; Armory &gt; Reactor"; }
+        if (slot >= 2) { return "Factory &gt; Armory"; }
+        return "Factory";
+    }
+    if (slot >= 3) { return "Starport &gt; Fusion Core &gt; Tech Reactor"; }
+    if (slot >= 2) { return "Starport &gt; Fusion Core"; }
+    return "Starport";
 }
 
 // One facility's UNIT row: icons nudged DOWN so their bottoms hug the facility icon's bottom.
+// Tooltip = unit name + a "Build:" line showing the (inverted) building chain to produce it.
 void fm_addUnitRow(int player, string facility, int slotCount, int facY) {
     int slot;
     string unitId;
@@ -143,7 +171,7 @@ void fm_addUnitRow(int player, string facility, int slotCount, int facY) {
     slot = 1;
     while (slot <= slotCount) {
         unitId = getPlayerSlotUnitId(facility, slot, player);
-        fm_addPlayerIcon(player, getUnitIconPath(unitId), fm_unitName(unitId), fm_colX(slot - 1), facY + fm_alignNudge);
+        fm_addPlayerIcon(player, getUnitIconPath(unitId), StringToText(fm_unitDisplayName(unitId) + "<n/>Build: " + fm_buildReq(facility, slot)), fm_colX(slot - 1), facY + fm_alignNudge);
         slot += 1;
     }
 }
