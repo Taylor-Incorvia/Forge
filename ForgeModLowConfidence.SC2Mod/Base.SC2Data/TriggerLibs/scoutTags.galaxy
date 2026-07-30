@@ -68,12 +68,23 @@ void onProductionStructureCreated(unit u) {
     string facility;
     int owner;
     int tag;
+    playergroup viewers;
 
     facility = scoutFacilityOf(UnitGetType(u));
     if (facility == "") {
         return;
     }
     owner = UnitGetOwner(u);
+
+    // Production: enemies only (fog-gated). devMode: show to EVERYONE (incl. the owner) so you can lift
+    // your own building and watch the tag follow. Only active while devMode is true, so it's inert in
+    // shipped builds -- no need to remove it.
+    if (devMode) {
+        viewers = PlayerGroupAll();
+    } else {
+        viewers = PlayerGroupAlliance(c_playerGroupEnemy, owner);
+    }
+
     tag = TextTagCreate(
         StringToText(scoutTagMarkup(facility, scoutSlotCountOf(facility), owner)),
         scoutFontSize,
@@ -81,7 +92,7 @@ void onProductionStructureCreated(unit u) {
         2.0,
         true,
         true,
-        PlayerGroupAlliance(c_playerGroupEnemy, owner));
+        viewers);
     TextTagAttachToUnit(tag, u, 2.0);
     UnitSetCustomValue(u, scoutTagCustomIndex, IntToFixed(tag));
 }
