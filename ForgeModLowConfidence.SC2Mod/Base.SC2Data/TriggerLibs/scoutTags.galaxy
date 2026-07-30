@@ -54,14 +54,13 @@ string scoutTagMarkup(string facility, int slotCount, int owner) {
     return txt;
 }
 
-// Wire to: Unit - Any Unit Enters Play -> onProductionStructureCreated();
-void onProductionStructureCreated() {
-    unit u;
+// Add to your existing "Unit Created" trigger (the one that calls convertNonTerranUnit), passing the
+// created unit:  onProductionStructureCreated(EventUnitCreatedUnit());
+void onProductionStructureCreated(unit u) {
     string facility;
     int owner;
     int tag;
 
-    u = EventUnit();
     facility = scoutFacilityOf(UnitGetType(u));
     if (facility == "") {
         return;
@@ -79,12 +78,11 @@ void onProductionStructureCreated() {
     UnitSetCustomValue(u, scoutTagCustomIndex, IntToFixed(tag));
 }
 
-// Wire to: Unit - Any Unit dies -> onProductionStructureRemoved();
-void onProductionStructureRemoved() {
-    unit u;
+// Wire to a new "Unit Died" trigger (Any Unit), passing the dying unit:
+//   onProductionStructureRemoved(EventUnit());
+void onProductionStructureRemoved(unit u) {
     int tag;
 
-    u = EventUnit();
     if (scoutFacilityOf(UnitGetType(u)) == "") {
         return;
     }
