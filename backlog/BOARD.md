@@ -4,20 +4,20 @@ Season 1. See [README](./README.md) for how we work. Say **"give me a ticket"** 
 
 ---
 
-## 🚀 Launch scope — build these, then go get attention
-**Locked 2026-07-26.** The full pre-attention build. Nothing else is in scope before launch — new units/upgrades, Sentry/Ravager ideas, and all "nice to have" work wait for a post-launch **"1.5."**
+## 🚀 Season 1 / v3.0 — DEPLOYING
+**The full pre-attention build is complete**, bundled + tested on branch `faction-modal-poc` (the 3.0 release branch).
 
-| # | Item | Note |
-|---|------|------|
-| 1 | [WA-060](./WA-060-auto-mine-after-race-replace.md) — workers auto-mine at 0:00 | bad first impression if broken |
-| 2 | **"Your Faction" modal** — [WA-039](./WA-039-arsenal-paper-design.md) design → [WA-001](./WA-001-arsenal-modal.md) build | the headline; makes the mod legible to newcomers; the long pole |
-| 3 | [WA-070](./WA-070-scout-enemy-rolls-floating-icons.md) — scout enemy rolls (floating icons) | produces the shared icon/label layer the modal reuses → do around/before the modal build |
-| 4 | [WA-061](./WA-061-orbital-to-planetary-upgrade.md) — Orbital → Planetary Fortress | anti-drop static defense · **implemented on PR #22, unmerged — button not rendering locally, needs a prod publish to verify (likely the command-card caching gotcha)** |
-| 5 | **PR #19** — caster energy regen | merge after the test sweep (high blast radius) |
+| # | Item | Status |
+|---|------|--------|
+| 1 | Workers auto-mine at 0:00 ([WA-060](./WA-060-auto-mine-after-race-replace.md)) | ✅ merged |
+| 2 | "Your Faction" modal ([WA-001](./WA-001-arsenal-modal.md) / [WA-039](./WA-039-arsenal-paper-design.md)) | ✅ done — on 3.0 branch |
+| 3 | Scout enemy rolls — floating icons ([WA-070](./WA-070-scout-enemy-rolls-floating-icons.md)) | ✅ done — on 3.0 branch |
+| 4 | Caster energy regen (PR #19) | ✅ merged |
+| — | Orbital → Planetary Fortress ([WA-061](./WA-061-orbital-to-planetary-upgrade.md)) | ⏸ deferred (PR #22, not in 3.0) |
 
-**Then, before marketing:** a round of live playtesting + dev-mode testing — which also confirms the recent merges (Hydra range, caster costs, PR #19) and closes the in-game eyeballs on WA-014 (Stalker blink range) and WA-038 (Tempest tectonic) — and **publish `main` to Battle.net** (recent balance work isn't live yet).
+**Deploy checklist:** `devMode = false` ✅ · dev hacks removed ✅ · **merge `faction-modal-poc` → main** · **publish to Battle.net as v3.0** (confirm devMode false in the built copy) · then the Discord test.
 
-**Then marketing:** social · website (Phase 3) · streaming setup (Phase 6) · YouTube + clips (Phase 4 / [WA-047](./WA-047-gameplay-clips.md)). See *Later phases* below.
+**Then marketing:** Discord bots · website (Phase 3, `wildcardarena.com`) · social · streaming (Phase 6) · YouTube + clips (Phase 4 / [WA-047](./WA-047-gameplay-clips.md)) · tournament (co-cast with a caster). See *Later phases* below.
 
 ---
 
@@ -34,29 +34,23 @@ Groomed, scoped, has acceptance criteria. **The 🚀 Launch lane above is the au
 | ID | Ticket | Size | Phase |
 |----|--------|------|-------|
 | ⭐ [WA-045](./WA-045-editor-caching-settings.md) | Investigate if editor Documents-prefs settings fix the caching pain (stop the stale-data scares) | S | 1 |
-| ⭐ [WA-061](./WA-061-orbital-to-planetary-upgrade.md) | Orbital → Planetary Fortress upgrade — costly, footprint-limited anti-drop static defense | M | 1 |
-| ⭐ [WA-039](./WA-039-arsenal-paper-design.md) | "Your Faction" modal — paper design + info spec (design-first; epic WA-001; **may rename** from "Your Arsenal") | S | 1 |
+| ⭐ [WA-061](./WA-061-orbital-to-planetary-upgrade.md) | Orbital → Planetary Fortress upgrade — costly, footprint-limited anti-drop static defense (PR #22, deferred past 3.0) | M | 1 |
 | [WA-056](./WA-056-projectile-count-upgrades.md) | Projectile-count upgrades — Phoenix (scalar ✅) + Liberator (array append ⚠️); home of the Valkyrie-Liberator idea | M | 1 |
 | [WA-044](./WA-044-transfuse-targeting.md) | Transfuse any unit — bio gate is a heal-effect validator; needs editor merged-view | S | 1 |
-| [WA-060](./WA-060-auto-mine-after-race-replace.md) | Auto-mine after race replacement — workers gather at 0:00 regardless of picked race | M | 1 |
 | [WA-063](./WA-063-ultralisk-concussive-no-slow.md) | Ultralisk concussive applies no slow (KaiserBlades set override not merging?) — pulled from pool | M | 1 |
 | [WA-064](./WA-064-neural-parasite-tube-lingers.md) | Neural Parasite tube doesn't disappear after effect ends (cosmetic) | S | 1 |
-| [WA-036](./WA-036-overseer-hotkey.md) | Overseer hotkey won't render (cursed F_Blink class) | S | 1 |
 | [WA-053](./WA-053-firebat-stalker-concussive.md) | **Stalker** concussive (Firebat half shipped; Stalker deferred — weapon-id risk) | S | 1 |
 | [WA-059](./WA-059-ember-github-identity.md) | Give Ember its own GitHub identity so you can review/approve its PRs (workflow) | S | 1 |
 | [WA-047](./WA-047-gameplay-clips.md) | Play + capture gameplay clips (every Reddit post needs one) | M | 4 (parallel) |
 | [WA-065](./WA-065-replay-stats-tool.md) | Replay stats/analysis tool (sc2reader) — winner, rolls-from-chat, unit-death map, upgrades-used (someday) | M | 4 |
 | [WA-066](./WA-066-hellion-flame-wall-upgrade.md) | Hellion "flame wall" upgrade — blue flame + big visually-matched splash (replaces removed Twin-Linked; needs actor work) | M | 1 |
-| [WA-070](./WA-070-scout-enemy-rolls-floating-icons.md) | Scout enemy rolls — floating unit icons above production structures (text tags; fog-gated; Faction family) | M | 1 |
 
 ---
 
 ## 🧊 Needs grooming (`backlog`)
 Real work, but not ready to grab — needs a decision or a problem statement first.
 
-| ID | Ticket | Size | Phase | Blocked on |
-|----|--------|------|-------|------------|
-| [WA-001](./WA-001-arsenal-modal.md) | "Your Faction" modal (**EPIC**) — design-first plan captured; grab WA-039 to start (**may rename** from "Your Arsenal") | L | 1 | Build phases (2–7) groom after the design lands |
+_(empty — the "Your Faction" modal epic WA-001 shipped in v3.0.)_
 
 ---
 
@@ -91,6 +85,9 @@ We'll turn these into tickets when Phase 1 winds down. Listed so nothing's forgo
 ---
 
 ## 🏁 Done
+- [WA-001](./WA-001-arsenal-modal.md) / [WA-039](./WA-039-arsenal-paper-design.md) — **"Your Faction" modal**: facility-paired icon grid of your rolled units + upgrades, per-unit tooltips (incl. inverted tech-tree "Build:" chain), left-edge FACTION tab toggle, auto-opens once. Shipped in v3.0 · 2026-07-30
+- [WA-070](./WA-070-scout-enemy-rolls-floating-icons.md) — **Scout enemy rolls**: floating icons above enemy production + upgrade facilities (units / upgrades they can build/research), enemy-scoped + fog-gated, follows lift-off, cleans up on death. Shares the modal's icon layer. Shipped in v3.0 · 2026-07-30
+- [WA-036](./WA-036-overseer-hotkey.md) — Overseer hotkey renders locally now (self-resolved) · 2026-07-30
 - [WA-024](./WA-024-ghost-academy-nuke.md) — Nuke **verified on prod**: full arm→calldown→detonate loop + Ghost Academy card button all work · 2026-07-23
 - Balance pass — Irradiate 25→40, Disruption Web low-tier only (off rax s4 + starport s3), Zealot ✗zerglingattackspeed, Armory 150/50→150/75; Missile Pods confirmed 75 on prod (the 125 was Battle.net catalog lag) · 2026-07-23
 - [WA-051](./WA-051-prepatch-economy.md) — Command Center back to 400 minerals (prepatch economy override) · 2026-07-22 (PR #15)

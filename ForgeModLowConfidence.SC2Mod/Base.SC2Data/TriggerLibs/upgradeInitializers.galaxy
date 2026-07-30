@@ -2,6 +2,7 @@ include "TriggerLibs/listHelpers"
 include "TriggerLibs/upgradeHelpers"
 include "TriggerLibs/upgradeFamilyHelpers"
 include "TriggerLibs/upgradeCapHelpers"
+include "TriggerLibs/factionModal"
 
 // Number of unit/upgrade slots across all 3 production facilities (Barracks 4 + Factory 3 + Starport 3).
 int totalProductionSlotCount = 10;
@@ -159,6 +160,7 @@ void initializeUpgrades() {
 
     addAbilityToUpgrade("Blink", "F_Blink");
     addUpgradeRequirementTag("Blink", logicType_NoneOf, "unitTag", "pureCaster"); // casters with blink sounds underwhelming 90% of the time and completely abusive 10% of the time
+    addUpgradeRequirementTag("Blink", logicType_NoneOf, "unitTag", "Stalker"); // Stalker starts with Blink (BlinkTech) -- don't roll a redundant second one
     // WA-015: removed addAltFormBannedAbility (never worked -- "LurkerBurrowed" != the real alt-form id "LurkerMPBurrowed").
     // Burrowed Lurkers / sieged Tanks now blink, then auto-transform back via onBlinkUsed() (unitInitializers.galaxy) + an editor trigger.
 
@@ -599,4 +601,6 @@ void assignUpgradesToAllSlotsWithinCaps(int player) {
 void initializeUpgradePoolsForPlayer(int player) {
     assignUpgradesToAllSlotsWithinCaps(player);
     grantInitialUpgrades(player);
+    // Both units (set earlier) and upgrades (just set) are ready -> show this player their faction.
+    showFactionModalForPlayer(player);
 }

@@ -25,7 +25,7 @@ _Generated 2026-07-13. Review artifact — no game data changed. Feeds the Arsen
 |---|---|---|---|
 | 1 | Vulture | Blink, Range, Speed, Stimpack, RavagerCorrosiveBile | 5 |
 | 1 | Hellion | Blink, Speed, Stimpack, RavagerCorrosiveBile, HighCapacityBarrels, TwinLinkedFlameThrowers | 6 |
-| 1 | Stalker | Blink, Range, Speed, Stimpack, RavagerCorrosiveBile, stalkerblinkcooldown | 6 |
+| 1 | Stalker | Range, Speed, Stimpack, RavagerCorrosiveBile, stalkerblinkcooldown | 5 |
 | 2 | Diamondback | Blink, Range, Speed, Stimpack, RavagerCorrosiveBile | 5 |
 | 2 | Immortal | Blink, D8Charge, Range, Speed, Stimpack, RavagerCorrosiveBile | 6 |
 | 2 | SiegeTank | Blink, Range, DiggingClaws, Stimpack, RavagerCorrosiveBile | 5 |

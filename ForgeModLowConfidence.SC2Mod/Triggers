@@ -2,6 +2,9 @@
 <TriggerData>
     <Library Id="13DECF19">
         <Root>
+            <Item Type="Trigger" Library="13DECF19" Id="BEA83D50"/>
+            <Item Type="Trigger" Library="13DECF19" Id="568A584A"/>
+            <Item Type="Trigger" Library="13DECF19" Id="AC49AB85"/>
             <Item Type="Trigger" Library="13DECF19" Id="DB00F84C"/>
             <Item Type="Trigger" Library="13DECF19" Id="3B7B71A9"/>
             <Item Type="Trigger" Library="13DECF19" Id="5F4CC85B"/>
@@ -12,6 +15,57 @@
             <Item Type="Trigger" Library="13DECF19" Id="94630347"/>
             <Item Type="Trigger" Library="13DECF19" Id="157E4740"/>
         </Root>
+        <Element Type="Trigger" Id="BEA83D50">
+            <Identifier>onUnitDeath</Identifier>
+            <Event Type="FunctionCall" Library="13DECF19" Id="ECCE6046"/>
+            <Action Type="FunctionCall" Library="13DECF19" Id="E9356623"/>
+        </Element>
+        <Element Type="FunctionCall" Id="ECCE6046">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000090"/>
+            <Parameter Type="Param" Library="13DECF19" Id="D1D4F0AD"/>
+        </Element>
+        <Element Type="Param" Id="D1D4F0AD">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="00000159"/>
+            <Preset Type="PresetValue" Library="Ntve" Id="C84C7A78"/>
+        </Element>
+        <Element Type="FunctionCall" Id="E9356623">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000123"/>
+            <ScriptCode>
+                onProductionStructureRemoved(EventUnit());
+            </ScriptCode>
+        </Element>
+        <Element Type="Trigger" Id="568A584A">
+            <Identifier>unitEntersPlay</Identifier>
+        </Element>
+        <Element Type="Trigger" Id="AC49AB85">
+            <Identifier>dialogItemUsed</Identifier>
+            <Event Type="FunctionCall" Library="13DECF19" Id="D4675E89"/>
+            <Action Type="FunctionCall" Library="13DECF19" Id="86E12E97"/>
+        </Element>
+        <Element Type="FunctionCall" Id="D4675E89">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="B5222B7D"/>
+            <Parameter Type="Param" Library="13DECF19" Id="AB8AB75B"/>
+            <Parameter Type="Param" Library="13DECF19" Id="BEFD169E"/>
+            <Parameter Type="Param" Library="13DECF19" Id="2E888A6C"/>
+        </Element>
+        <Element Type="Param" Id="AB8AB75B">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="47F2C8FB"/>
+            <Preset Type="PresetValue" Library="Ntve" Id="2999701E"/>
+        </Element>
+        <Element Type="Param" Id="BEFD169E">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="01D07B8F"/>
+            <Preset Type="PresetValue" Library="Ntve" Id="F13E3BA1"/>
+        </Element>
+        <Element Type="Param" Id="2E888A6C">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="B371ABF2"/>
+            <Preset Type="PresetValue" Library="Ntve" Id="9D6C743C"/>
+        </Element>
+        <Element Type="FunctionCall" Id="86E12E97">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000123"/>
+            <ScriptCode>
+                onFactionModalClose();
+            </ScriptCode>
+        </Element>
         <Element Type="Trigger" Id="DB00F84C">
             <Identifier>onBlink</Identifier>
             <Event Type="FunctionCall" Library="13DECF19" Id="F694C1DD"/>
@@ -279,6 +333,7 @@
                 applyBehaviorListToUnit(EventUnitCreatedUnit());
                 applyAbilityListToUnit(EventUnitCreatedUnit());
                 checkForNewAddons(EventUnitCreatedUnit());
+                onProductionStructureCreated(EventUnitCreatedUnit());
             </ScriptCode>
         </Element>
         <Element Type="Trigger" Id="2034D9FB">

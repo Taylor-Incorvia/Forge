@@ -1,0 +1,230 @@
+include "TriggerLibs/NativeLib"
+include "TriggerLibs/upgradeHelpers"
+include "TriggerLibs/factionIcons"
+
+// ============================================================================
+// "Your Faction" modal (epic WA-001 / design WA-039)
+// ============================================================================
+// Shows each player their rolled faction: every production slot's unit with its
+// rolled upgrade beneath it, grouped by facility. Each facility group is a big
+// building icon on the left + its row of unit/upgrade icons to the right:
+//
+//   [BARRACKS]  u u u u      (unit BOTTOMS aligned to the Barracks-icon bottom)
+//   [GHOST AC]  g g g g      (upgrade TOPS aligned to the Ghost-Academy-icon top)
+//   [FACTORY ]  u u u
+//   [ARMORY  ]  g g g
+//   [STARPORT]  u u u
+//   [FUSION  ]  g g g
+//
+// Per-player: one dialog, each player's ICON controls shown only to them
+// (DialogControlSetVisible scoped to PlayerGroupSingle) so everyone sees their
+// own roll on the same layout. The shell (title / facility icons / X) is shared.
+// Hover an icon -> its real command-card tooltip (via StringExternal).
+//
+// A separate always-visible LEFT-EDGE TAB toggles the modal open/closed.
+// Auto-opens once at game start (from initializeUpgradePoolsForPlayer).
+//
+// Close/toggle needs ONE editor trigger:
+//   Event:  UI - Used Dialog Item  (Any Dialog Item, Clicked)
+//   Action: Custom Script -> onFactionModalClose();
+// ============================================================================
+
+int factionDialog;        // 0 until the shell is created
+int factionCloseButton;
+int factionTabDialog;     // the always-visible left-edge tab
+int factionTabButton;
+
+// ---- layout constants (tweak these to iterate on the design) ----
+int fm_facIcon    = 60;    // facility building icon size
+int fm_itemIcon   = 44;    // unit / upgrade icon size
+int fm_facX       = -110;  // x of the facility icons (left column)
+int fm_col0X      = -44;   // x of the first item icon
+int fm_colStep    = 54;    // x gap between item columns
+int fm_alignNudge = 8;     // units nudged DOWN / upgrades nudged UP so they hug the facility icon
+
+// facility-icon center Y for each of the 6 rows (shifted down so the title isn't jammed at the top edge)
+int fm_yTitle     = -208;
+int fm_yRax       = -175;
+int fm_yGhost     = -110;
+int fm_yFactory   = -20;
+int fm_yArmory    = 45;
+int fm_yStarport  = 135;
+int fm_yFusion    = 200;
+
+int fm_colX(int col) {
+    return fm_col0X + col * fm_colStep;
+}
+
+// A facility building icon, shown to everyone (same for all players). Its tooltip explains the modal.
+void fm_addFacilityIcon(string iconPath, text tip, int y) {
+    int c;
+    c = DialogControlCreate(factionDialog, c_triggerControlTypeImage);
+    DialogControlSetSize(c, PlayerGroupAll(), fm_facIcon, fm_facIcon);
+    DialogControlSetPosition(c, PlayerGroupAll(), c_anchorCenter, fm_facX, y);
+    DialogControlSetPropertyAsString(c, c_triggerControlPropertyImage, PlayerGroupAll(), iconPath);
+    DialogControlSetPropertyAsText(c, c_triggerControlPropertyTooltip, PlayerGroupAll(), tip);
+}
+
+// An item icon (unit or upgrade) shown ONLY to one player, with its command-card tooltip.
+void fm_addPlayerIcon(int player, string iconPath, text tip, int x, int y) {
+    int c;
+    c = DialogControlCreate(factionDialog, c_triggerControlTypeImage);
+    DialogControlSetSize(c, PlayerGroupSingle(player), fm_itemIcon, fm_itemIcon);
+    DialogControlSetPosition(c, PlayerGroupSingle(player), c_anchorCenter, x, y);
+    DialogControlSetPropertyAsString(c, c_triggerControlPropertyImage, PlayerGroupSingle(player), iconPath);
+    DialogControlSetPropertyAsText(c, c_triggerControlPropertyTooltip, PlayerGroupSingle(player), tip);
+    DialogControlSetVisible(c, PlayerGroupAll(), false);
+    DialogControlSetVisible(c, PlayerGroupSingle(player), true);
+}
+
+void fm_addSharedTitle() {
+    int c;
+    c = DialogControlCreate(factionDialog, c_triggerControlTypeLabel);
+    DialogControlSetSize(c, PlayerGroupAll(), 200, 26);
+    DialogControlSetPosition(c, PlayerGroupAll(), c_anchorCenter, -10, fm_yTitle);
+    DialogControlSetPropertyAsText(c, c_triggerControlPropertyText, PlayerGroupAll(), StringToText("YOUR FACTION"));
+}
+
+// The always-visible left-edge tab that opens/closes the modal.
+void fm_ensureTab() {
+    if (factionTabDialog != 0) {
+        return;
+    }
+    // Tall, narrow tab on the left edge. Text is stacked vertically via <n/> line breaks, with a
+    // '>' arrow to read as clickable. The dialog is tall enough that no line clips (top or bottom).
+    factionTabDialog = DialogCreate(46, 320, c_anchorLeft, 0, 0, false);
+    factionTabButton = DialogControlCreate(factionTabDialog, c_triggerControlTypeButton);
+    DialogControlSetSize(factionTabButton, PlayerGroupAll(), 46, 320);
+    DialogControlSetPosition(factionTabButton, PlayerGroupAll(), c_anchorCenter, 0, 0);
+    DialogControlSetPropertyAsText(factionTabButton, c_triggerControlPropertyText, PlayerGroupAll(), StringToText("F<n/>A<n/>C<n/>T<n/>I<n/>O<n/>N<n/>&gt;"));
+    DialogSetVisible(factionTabDialog, PlayerGroupAll(), true);
+}
+
+// Create the shared shell once: dialog, title, facility icons, close button, tab.
+void fm_ensureShell() {
+    if (factionDialog != 0) {
+        return;
+    }
+    // Anchored to the LEFT edge, just past the tab (46 wide), so the panel opens right next to the
+    // FACTION> tab instead of screen-center. offsetY 0 = vertically centered, same as the tab.
+    factionDialog = DialogCreate(370, 500, c_anchorLeft, 50, 0, false);
+
+    fm_addSharedTitle();
+    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-barracks.dds",    StringToText("Barracks - the units you rolled for the Barracks. The icon directly below each unit is that unit's rolled upgrade, researched at the Ghost Academy."), fm_yRax);
+    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-ghostacademy.dds", StringToText("Ghost Academy - research the upgrade shown below each Barracks unit here."), fm_yGhost);
+    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-factory.dds",      StringToText("Factory - the units you rolled for the Factory. The icon below each unit is its rolled upgrade, researched at the Armory."), fm_yFactory);
+    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-armory.dds",       StringToText("Armory - research the upgrade shown below each Factory unit here."), fm_yArmory);
+    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-starport.dds",     StringToText("Starport - the units you rolled for the Starport. The icon below each unit is its rolled upgrade, researched at the Fusion Core."), fm_yStarport);
+    fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-fusioncore.dds",   StringToText("Fusion Core - research the upgrade shown below each Starport unit here."), fm_yFusion);
+
+    factionCloseButton = DialogControlCreate(factionDialog, c_triggerControlTypeButton);
+    DialogControlSetSize(factionCloseButton, PlayerGroupAll(), 40, 40);
+    DialogControlSetPosition(factionCloseButton, PlayerGroupAll(), c_anchorCenter, 140, -215);
+    DialogControlSetPropertyAsText(factionCloseButton, c_triggerControlPropertyText, PlayerGroupAll(), StringToText("X"));
+
+    fm_ensureTab();
+}
+
+// Unit display name (string, so it can be concatenated with the Build line). Most match the unit id;
+// override the multi-word / odd internal ids. (Hardcoded English rather than localized Unit/Name so the
+// whole tooltip can be built as one string; fine for an English-only mod.)
+string fm_unitDisplayName(string unitId) {
+    if (unitId == "HighTemplar")   { return "High Templar"; }
+    if (unitId == "SiegeTank")     { return "Siege Tank"; }
+    if (unitId == "WarHound")      { return "War Hound"; }
+    if (unitId == "LurkerMP")      { return "Lurker"; }
+    if (unitId == "ThorAP")        { return "Thor"; }
+    if (unitId == "CorsairMP")     { return "Corsair"; }
+    if (unitId == "VikingFighter") { return "Viking"; }
+    if (unitId == "DuskWing")      { return "Dusk Wing"; }
+    if (unitId == "VoidRay")       { return "Void Ray"; }
+    if (unitId == "ArbiterMP")     { return "Arbiter"; }
+    if (unitId == "ScienceVessel") { return "Science Vessel"; }
+    return unitId;
+}
+
+// The building chain required to produce a unit at (facility, slot). The mod's tech tree is inverted
+// from stock SC2 (the upgrade facility comes BEFORE the add-on), which confuses new players -- so the
+// tooltip spells the order out with arrows. Derived from facility + slot (which the modal already has).
+string fm_buildReq(string facility, int slot) {
+    if (facility == rax) {
+        if (slot >= 4) { return "Barracks &gt; Ghost Academy &gt; Tech Lab"; }
+        if (slot >= 3) { return "Barracks &gt; Ghost Academy"; }
+        return "Barracks";
+    }
+    if (facility == factory) {
+        if (slot >= 3) { return "Factory &gt; Armory &gt; Reactor"; }
+        if (slot >= 2) { return "Factory &gt; Armory"; }
+        return "Factory";
+    }
+    if (slot >= 3) { return "Starport &gt; Fusion Core &gt; Tech Reactor"; }
+    if (slot >= 2) { return "Starport &gt; Fusion Core"; }
+    return "Starport";
+}
+
+// One facility's UNIT row: icons nudged DOWN so their bottoms hug the facility icon's bottom.
+// Tooltip = unit name + a "Build:" line showing the (inverted) building chain to produce it.
+void fm_addUnitRow(int player, string facility, int slotCount, int facY) {
+    int slot;
+    string unitId;
+
+    slot = 1;
+    while (slot <= slotCount) {
+        unitId = getPlayerSlotUnitId(facility, slot, player);
+        fm_addPlayerIcon(player, getUnitIconPath(unitId), StringToText(fm_unitDisplayName(unitId) + "<n/>Build: " + fm_buildReq(facility, slot)), fm_colX(slot - 1), facY + fm_alignNudge);
+        slot += 1;
+    }
+}
+
+// One facility's UPGRADE row: icons nudged UP so their tops hug the upgrade-facility icon's top.
+void fm_addUpgradeRow(int player, string facility, int slotCount, int facY) {
+    int slot;
+    string upgId;
+    string tipKey;
+    text tip;
+
+    slot = 1;
+    while (slot <= slotCount) {
+        upgId = getSlotSelectedUpgrade(player, slot, facility);
+        tipKey = getUpgradeTooltipKey(upgId, slot);
+        if (tipKey == "") {
+            tip = StringToText(getUpgradeFallbackTooltip(upgId));
+        } else {
+            tip = StringExternal(tipKey);
+        }
+        fm_addPlayerIcon(player, getUpgradeIconPath(upgId), tip, fm_colX(slot - 1), facY - fm_alignNudge);
+        slot += 1;
+    }
+}
+
+// Build (if needed) and show the faction modal for one player, populated with THEIR roll.
+void showFactionModalForPlayer(int player) {
+    fm_ensureShell();
+    fm_addUnitRow(player,    rax,      4, fm_yRax);
+    fm_addUpgradeRow(player, rax,      4, fm_yGhost);
+    fm_addUnitRow(player,    factory,  3, fm_yFactory);
+    fm_addUpgradeRow(player, factory,  3, fm_yArmory);
+    fm_addUnitRow(player,    starport, 3, fm_yStarport);
+    fm_addUpgradeRow(player, starport, 3, fm_yFusion);
+    DialogSetVisible(factionDialog, PlayerGroupSingle(player), true);
+}
+
+// Handle the X (close) and the left-edge tab (toggle). Wire to "Used Dialog Item".
+void onFactionModalClose() {
+    int ctrl;
+    int p;
+
+    ctrl = EventDialogControl();
+    p = EventPlayer();
+
+    if (ctrl == factionCloseButton) {
+        DialogSetVisible(factionDialog, PlayerGroupSingle(p), false);
+    }
+    if (ctrl == factionTabButton) {
+        if (DialogIsVisible(factionDialog, p)) {
+            DialogSetVisible(factionDialog, PlayerGroupSingle(p), false);
+        } else {
+            DialogSetVisible(factionDialog, PlayerGroupSingle(p), true);
+        }
+    }
+}
