@@ -22,6 +22,8 @@ include "TriggerLibs/factionIcons"
 // ============================================================================
 
 int scoutTagCustomIndex = 7;   // unit custom-value slot holding the tag id (all slots were free)
+int scoutIconSize = 48;        // px size of each floating unit icon (tweak to taste)
+int scoutFontSize = 24;        // text-tag font size (scales the tag overall)
 
 // Facility constant for a production-structure unit type, or "" if it isn't one.
 string scoutFacilityOf(string unitType) {
@@ -48,7 +50,7 @@ string scoutTagMarkup(string facility, int slotCount, int owner) {
     slot = 1;
     while (slot <= slotCount) {
         unitId = getPlayerSlotUnitId(facility, slot, owner);
-        txt = txt + "<img path=\"" + getUnitIconPath(unitId) + "\" width=\"26\" height=\"26\"/>";
+        txt = txt + "<img path=\"" + getUnitIconPath(unitId) + "\" width=\"" + IntToString(scoutIconSize) + "\" height=\"" + IntToString(scoutIconSize) + "\"/>";
         slot += 1;
     }
     return txt;
@@ -68,7 +70,7 @@ void onProductionStructureCreated(unit u) {
     owner = UnitGetOwner(u);
     tag = TextTagCreate(
         StringToText(scoutTagMarkup(facility, scoutSlotCountOf(facility), owner)),
-        18,
+        scoutFontSize,
         UnitGetPosition(u),
         2.0,
         true,
