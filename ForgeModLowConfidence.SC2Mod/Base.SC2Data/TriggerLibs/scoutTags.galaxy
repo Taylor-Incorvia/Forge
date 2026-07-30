@@ -25,11 +25,17 @@ int scoutTagCustomIndex = 7;   // unit custom-value slot holding the tag id (all
 int scoutIconSize = 48;        // px size of each floating unit icon (tweak to taste)
 int scoutFontSize = 24;        // text-tag font size (scales the tag overall)
 
-// Facility constant for a production-structure unit type, or "" if it isn't one.
+// Facility constant for a production-structure unit type, or "" if it isn't one. Includes the
+// lifted-off (Flying) variants: lift-off is a morph that keeps the same unit handle, so the tag
+// follows the flying building -- but the death-cleanup must still recognize the Flying type, or a
+// building that dies while airborne would orphan its tag.
 string scoutFacilityOf(string unitType) {
-    if (unitType == "Barracks") { return rax; }
-    if (unitType == "Factory")  { return factory; }
-    if (unitType == "Starport") { return starport; }
+    if (unitType == "Barracks")       { return rax; }
+    if (unitType == "BarracksFlying") { return rax; }
+    if (unitType == "Factory")        { return factory; }
+    if (unitType == "FactoryFlying")  { return factory; }
+    if (unitType == "Starport")       { return starport; }
+    if (unitType == "StarportFlying") { return starport; }
     return "";
 }
 
