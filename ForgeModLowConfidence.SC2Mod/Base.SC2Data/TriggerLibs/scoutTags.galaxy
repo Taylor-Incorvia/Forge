@@ -88,7 +88,6 @@ void onProductionStructureCreated(unit u) {
     string unitType;
     int owner;
     int tag;
-    playergroup viewers;
 
     unitType = UnitGetType(u);
     if (!scoutIsScoutableBuilding(unitType)) {
@@ -96,14 +95,7 @@ void onProductionStructureCreated(unit u) {
     }
     owner = UnitGetOwner(u);
 
-    // Production: enemies only (fog-gated). devMode: show to EVERYONE (incl. the owner) so you can lift
-    // your own building and watch the tag follow. Inert in shipped builds (devMode false).
-    if (devMode) {
-        viewers = PlayerGroupAll();
-    } else {
-        viewers = PlayerGroupAlliance(c_playerGroupEnemy, owner);
-    }
-
+    // Shown to the owner's ENEMIES only, fog-gated -- each opponent sees it only while it has vision.
     tag = TextTagCreate(
         StringToText(scoutMarkupFor(unitType, owner)),
         scoutFontSize,
@@ -111,7 +103,7 @@ void onProductionStructureCreated(unit u) {
         2.0,
         true,
         true,
-        viewers);
+        PlayerGroupAlliance(c_playerGroupEnemy, owner));
     TextTagAttachToUnit(tag, u, 2.0);
     UnitSetCustomValue(u, scoutTagCustomIndex, IntToFixed(tag));
 }

@@ -4,6 +4,9 @@ include "TriggerLibs/natives"
 // Library: Forge
 //--------------------------------------------------------------------------------------------------
 // Trigger Declarations
+trigger lib13DECF19_gt_onUnitDeath;
+trigger lib13DECF19_gt_unitEntersPlay;
+trigger lib13DECF19_gt_dialogItemUsed;
 trigger lib13DECF19_gt_onBlink;
 trigger lib13DECF19_gt_onCcCompleted;
 trigger lib13DECF19_gt_onUpgradeCompleted;
