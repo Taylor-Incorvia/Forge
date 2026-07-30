@@ -3,51 +3,33 @@ include "TriggerLibs/forgeProductionFacilityHeplers"
 include "TriggerLibs/factionIcons"
 
 // ============================================================================
-// Scout enemy rolls — floating unit icons above production structures (WA-070)
+// Scout enemy rolls — floating icons above facilities (WA-070)
 // ============================================================================
-// When you have vision of an enemy Barracks / Factory / Starport, a row of icons
-// floats above it showing the units that structure can build (that player's roll).
-// Reuses the shared icon layer (getUnitIconPath) built for the Your Faction modal.
+// When you have vision of an enemy facility, a row of icons floats above it:
+//   - Production facility (Barracks/Factory/Starport): the UNITS it can build.
+//   - Upgrade facility (Ghost Academy/Armory/Fusion Core): the UPGRADES it can
+//     research (the upgrades for that facility's paired production slots).
+// Reuses the shared icon layer (getUnitIconPath / getUpgradeIconPath) from the
+// Your Faction modal.
 //
-// Per-player + fog: the tag is created for the owner's ENEMIES only
-// (PlayerGroupAlliance(c_playerGroupEnemy)) and fog-gated (useFogofWar = true), so
-// each opponent sees it only while they currently have vision of the structure.
-// Rolls are per-player, so every one of a player's Barracks shows the same icons --
-// scouting one reveals the whole Barracks lineup.
+// Per-player + fog: the tag is created for the owner's ENEMIES only and fog-gated
+// (useFogofWar), so an opponent sees it only while it has vision. Rolls are
+// per-player, so scouting one building reveals the whole facility's lineup.
 //
-// Each structure stores its tag id in a unit custom value so it can be destroyed on
-// death. Wire TWO editor triggers (script only provides the functions):
-//   Event: Unit - Any Unit Enters Play  -> Custom Script: onProductionStructureCreated();
-//   Event: Unit - Any Unit dies         -> Custom Script: onProductionStructureRemoved();
+// Production facilities can lift off (a morph that keeps the same unit handle, so
+// the tag follows) -- hence the Flying variants below. Upgrade facilities can't fly.
+//
+// Wiring (no NEW triggers needed beyond what production facilities already use):
+//   In the existing "Unit Created" trigger:  onProductionStructureCreated(EventUnitCreatedUnit());
+//   In a "Unit Died" trigger:                onProductionStructureRemoved(EventUnit());
 // ============================================================================
 
 int scoutTagCustomIndex = 7;   // unit custom-value slot holding the tag id (all slots were free)
-int scoutIconSize = 48;        // px size of each floating unit icon (tweak to taste)
+int scoutIconSize = 48;        // px size of each floating icon (tweak to taste)
 int scoutFontSize = 24;        // text-tag font size (scales the tag overall)
 
-// Facility constant for a production-structure unit type, or "" if it isn't one. Includes the
-// lifted-off (Flying) variants: lift-off is a morph that keeps the same unit handle, so the tag
-// follows the flying building -- but the death-cleanup must still recognize the Flying type, or a
-// building that dies while airborne would orphan its tag.
-string scoutFacilityOf(string unitType) {
-    if (unitType == "Barracks")       { return rax; }
-    if (unitType == "BarracksFlying") { return rax; }
-    if (unitType == "Factory")        { return factory; }
-    if (unitType == "FactoryFlying")  { return factory; }
-    if (unitType == "Starport")       { return starport; }
-    if (unitType == "StarportFlying") { return starport; }
-    return "";
-}
-
-int scoutSlotCountOf(string facility) {
-    if (facility == rax) {
-        return 4;
-    }
-    return 3;
-}
-
-// <img> markup for a facility's rolled units (owner's roll), one icon per slot.
-string scoutTagMarkup(string facility, int slotCount, int owner) {
+// <img> markup for a production facility's rolled UNITS (owner's roll), one per slot.
+string scoutUnitMarkup(string facility, int slotCount, int owner) {
     string txt;
     int slot;
     string unitId;
@@ -62,23 +44,60 @@ string scoutTagMarkup(string facility, int slotCount, int owner) {
     return txt;
 }
 
-// Add to your existing "Unit Created" trigger (the one that calls convertNonTerranUnit), passing the
-// created unit:  onProductionStructureCreated(EventUnitCreatedUnit());
+// <img> markup for an upgrade facility's rolled UPGRADES (owner's roll), one per slot. Takes the
+// PRODUCTION facility the upgrades belong to (Ghost Academy -> Barracks, Armory -> Factory, ...).
+string scoutUpgradeMarkup(string facility, int slotCount, int owner) {
+    string txt;
+    int slot;
+    string upgId;
+
+    txt = "";
+    slot = 1;
+    while (slot <= slotCount) {
+        upgId = getSlotSelectedUpgrade(owner, slot, facility);
+        txt = txt + "<img path=\"" + getUpgradeIconPath(upgId) + "\" width=\"" + IntToString(scoutIconSize) + "\" height=\"" + IntToString(scoutIconSize) + "\"/>";
+        slot += 1;
+    }
+    return txt;
+}
+
+// True if this building gets a scout tag (production facility, its flying form, or upgrade facility).
+bool scoutIsScoutableBuilding(string unitType) {
+    if (unitType == "Barracks" || unitType == "BarracksFlying") { return true; }
+    if (unitType == "Factory"  || unitType == "FactoryFlying")  { return true; }
+    if (unitType == "Starport" || unitType == "StarportFlying") { return true; }
+    if (unitType == "GhostAcademy" || unitType == "Armory" || unitType == "FusionCore") { return true; }
+    return false;
+}
+
+// The <img> row for a scoutable building: unit icons for production facilities, upgrade icons for
+// upgrade facilities. "" if the unit type isn't a scoutable building.
+string scoutMarkupFor(string unitType, int owner) {
+    if (unitType == "Barracks" || unitType == "BarracksFlying") { return scoutUnitMarkup(rax, 4, owner); }
+    if (unitType == "Factory"  || unitType == "FactoryFlying")  { return scoutUnitMarkup(factory, 3, owner); }
+    if (unitType == "Starport" || unitType == "StarportFlying") { return scoutUnitMarkup(starport, 3, owner); }
+    if (unitType == "GhostAcademy") { return scoutUpgradeMarkup(rax, 4, owner); }
+    if (unitType == "Armory")       { return scoutUpgradeMarkup(factory, 3, owner); }
+    if (unitType == "FusionCore")   { return scoutUpgradeMarkup(starport, 3, owner); }
+    return "";
+}
+
+// Add to your existing "Unit Created" trigger, passing the created unit:
+//   onProductionStructureCreated(EventUnitCreatedUnit());
 void onProductionStructureCreated(unit u) {
-    string facility;
+    string unitType;
     int owner;
     int tag;
     playergroup viewers;
 
-    facility = scoutFacilityOf(UnitGetType(u));
-    if (facility == "") {
+    unitType = UnitGetType(u);
+    if (!scoutIsScoutableBuilding(unitType)) {
         return;
     }
     owner = UnitGetOwner(u);
 
     // Production: enemies only (fog-gated). devMode: show to EVERYONE (incl. the owner) so you can lift
-    // your own building and watch the tag follow. Only active while devMode is true, so it's inert in
-    // shipped builds -- no need to remove it.
+    // your own building and watch the tag follow. Inert in shipped builds (devMode false).
     if (devMode) {
         viewers = PlayerGroupAll();
     } else {
@@ -86,7 +105,7 @@ void onProductionStructureCreated(unit u) {
     }
 
     tag = TextTagCreate(
-        StringToText(scoutTagMarkup(facility, scoutSlotCountOf(facility), owner)),
+        StringToText(scoutMarkupFor(unitType, owner)),
         scoutFontSize,
         UnitGetPosition(u),
         2.0,
@@ -97,12 +116,12 @@ void onProductionStructureCreated(unit u) {
     UnitSetCustomValue(u, scoutTagCustomIndex, IntToFixed(tag));
 }
 
-// Wire to a new "Unit Died" trigger (Any Unit), passing the dying unit:
+// Add to a "Unit Died" trigger (Any Unit), passing the dying unit:
 //   onProductionStructureRemoved(EventUnit());
 void onProductionStructureRemoved(unit u) {
     int tag;
 
-    if (scoutFacilityOf(UnitGetType(u)) == "") {
+    if (!scoutIsScoutableBuilding(UnitGetType(u))) {
         return;
     }
     tag = FixedToInt(UnitGetCustomValue(u, scoutTagCustomIndex));
