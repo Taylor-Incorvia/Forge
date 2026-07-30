@@ -21,7 +21,7 @@ BARRACKS
 FACTORY
  s1  Vulture       [5]  Blink, Range, Speed, Stimpack, ConcussiveVulture
  s1  Hellion       [6]  Blink, Speed, Stimpack, HighCapacityBarrels, TwinLinkedFlameThrowers, ConcussiveHellion
- s1  Stalker       [7]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile, stalkerblinkcooldown, stalkerblinkrange
+ s1  Stalker       [6]  Range, Speed, Stimpack, RavagerCorrosiveBile, stalkerblinkcooldown, stalkerblinkrange
  s2  Diamondback   [6]  Blink, Range, Speed, Stimpack, RavagerCorrosiveBile, ConcussiveDiamondback
  s2  Immortal      [5]  Blink, D8Charge, Range, Speed, Stimpack
  s2  SiegeTank     [4]  Blink, DiggingClaws, Stimpack, SiegeTankRange
