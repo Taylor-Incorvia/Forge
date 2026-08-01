@@ -107,7 +107,7 @@ void fm_ensureShell() {
     }
     // Anchored to the LEFT edge, just past the tab (46 wide), so the panel opens right next to the
     // FACTION> tab instead of screen-center. offsetY 0 = vertically centered, same as the tab.
-    factionDialog = DialogCreate(370, 500, c_anchorLeft, 50, 0, false);
+    factionDialog = DialogCreate(370, 500, c_anchorLeft, 50, -50, false);
 
     fm_addSharedTitle();
     fm_addFacilityIcon("Assets\\Textures\\btn-building-terran-barracks.dds",    StringToText("Barracks - the units you rolled for the Barracks. The icon directly below each unit is that unit's rolled upgrade, researched at the Ghost Academy."), fm_yRax);
