@@ -418,9 +418,11 @@ void grantInitialUpgrades(int player) {
     // ultralisk -- WA-023: Chitinous Plating is now a ROLLED research at the Armory (slot 3), not free.
     // Registered in initializeUpgrades(). Leaving disabled here so Ultras must research it (and only when rolled).
     // grantUpgrade(player, "ChitinousPlating");
-    // WA-023: re-enabled as the replacement free start upgrade. Chitinous armor moved to a roll (above), so Ultras
-    // now start with speed instead of free armor -- was disabled 3/9 for being too strong WHEN STACKED with free armor.
-    grantUpgrade(player, "AnabolicSynthesis");
+    // WA-023: gave Ultras a free AnabolicSynthesis (speed) instead of free Chitinous armor. REMOVED 2026-08:
+    // Anabolic's +0.42 speed stacked multiplicatively with a rolled Charge (+50%) -> ~5.06 move speed, absurd.
+    // Removing it reverts the Ultra to its LotV base speed (2.9531 -- the speed it had when it felt fine), so a
+    // Charge roll now tops out ~4.43. Chitinous stays a roll (not re-added as a free start). Price stays 325.
+    // grantUpgrade(player, "AnabolicSynthesis");
     // increasing colossus range from 7 -> 9 doesn't seem completely essesntial, 
     // but I am trying to buff splash damage to counter deathball comps.
     grantUpgrade(player, "ExtendedThermalLance");
