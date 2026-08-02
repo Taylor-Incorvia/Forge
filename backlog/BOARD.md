@@ -44,6 +44,7 @@ Groomed, scoped, has acceptance criteria. **The 🚀 Launch lane above is the au
 | [WA-047](./WA-047-gameplay-clips.md) | Play + capture gameplay clips (every Reddit post needs one) | M | 4 (parallel) |
 | [WA-065](./WA-065-replay-stats-tool.md) | Replay stats/analysis tool (sc2reader) — winner, rolls-from-chat, unit-death map, upgrades-used (someday) | M | 4 |
 | [WA-066](./WA-066-hellion-flame-wall-upgrade.md) | Hellion "flame wall" upgrade — blue flame + big visually-matched splash (replaces removed Twin-Linked; needs actor work) | M | 1 |
+| [WA-073](./WA-073-melee-leap-bonus-range.md) | Melee units get brief +range after leap (anti-kite) — fixes leap-then-get-kited; Zealot-only whitelist, `onBlinkUsed`-style trigger | M | 1 |
 
 ---
 
