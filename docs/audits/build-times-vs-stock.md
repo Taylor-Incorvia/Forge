@@ -103,7 +103,7 @@ Because build times live on each facility's train ability, the **same unit build
 
 ## Suggested build times (v1 — to playtest)
 
-*Catalog (standard-speed) seconds; real-game ≈ ÷1.4. Starting points to test, not final values. Changed values in **bold**.*
+*Build times as **catalog (real)** seconds — catalog is the raw XML value, real is in-game "Faster" (÷1.4). Starting points to test, not final values. Changed values in **bold**.*
 
 **Design logic:**
 - **Raise the cheap early openers** toward ~70–85% of stock so one production building no longer saturates opening income — the lever that restores the "how many buildings before you expand/tech" branch.
@@ -111,56 +111,60 @@ Because build times live on each facility's train ability, the **same unit build
 - **Leave everything already at ~78–100% of stock alone** — the mod stays faster than stock across the board, so transitions still feel quick.
 - **Relationship rules applied:** Zergling ≈ ¼ Zealot · Hydralisk ≈ 2× Marine.
 
+**Income columns (%Min / %Gas):** *"if one production facility makes this unit non-stop, what share of a fully-staffed one-base economy does it eat?"* Basis: **16 mineral workers ≈ 925/min, 6 gas workers ≈ 325/min**. Computed at the **Suggested** build time (rows with no change = live values). A **gas % over 100%** means a single facility out-drains one base's gas — you can't build it back-to-back on one base's gas alone. The *relative* ordering between units is exact; only the absolute anchoring depends on those income figures.
+
 ### Barracks
-| Unit | Current | Suggested | Stock | Why |
-|------|---------|-----------|-------|-----|
-| Zergling | 5.6 | **7** | 24 (pair) | ≈ ¼ Zealot (your rule) |
-| Zealot | 21 | **28** | 38 | key opener → ~74% stock (your anchor) |
-| Marine | 15 | **20** | 25 | opener → 80% stock (your anchor) |
-| Hydralisk | 26 | **40** | 33 | ≈ 2× Marine (your rule) — lands slightly *above* stock; see note |
-| Queen | 32 | 32 | 50 | keep — support, not a masser (64%) |
-| Firebat | 21 | 21 | — | keep — slot-3 gas bio |
-| Marauder | 28 | 28 | 30 | keep — already 93% |
-| Sentry | 21 | **26** | 32.66 | opener → ~80% stock |
-| Medic | 26.6 | 26.6 | — | keep — support |
-| Ghost | 40 | 40 | 40 | keep — already stock |
-| Infestor | 37.8 | 37.8 | 50 | keep — caster, 76% |
-| HighTemplar | 42 | 42 | 60.66 | keep — caster, 69% |
+| Unit | Cost (m/g) | Current | Suggested | %Min | %Gas | Why |
+|------|-----------|---------|-----------|------|------|-----|
+| Zergling | 25/0 | 5.6 (4.0) | **7 (5.0)** | 32% | — | ≈ ¼ Zealot (your rule) |
+| Zealot | 100/0 | 21 (15.0) | **28 (20.0)** | 32% | — | key opener → ~74% stock (your anchor) |
+| Marine | 50/25 | 15 (10.7) | **20 (14.3)** | 23% | 32% | opener → 80% stock (your anchor) |
+| Hydralisk | 100/50 | 26 (18.6) | **40 (28.6)** | 23% | 32% | ≈ 2× Marine (your rule) — see note |
+| Queen | 175/50 | 32 (22.9) | 32 (22.9) | 50% | 40% | keep — support, not a masser |
+| Firebat | 100/50 | 21 (15.0) | 21 (15.0) | 43% | 62% | keep — slot-3 gas bio |
+| Marauder | 100/25 | 28 (20.0) | 28 (20.0) | 32% | 23% | keep — already 93% |
+| Sentry | 50/100 | 21 (15.0) | **26 (18.6)** | 17% | 99% | opener → ~80% stock |
+| Medic | 75/50 | 26.6 (19.0) | 26.6 (19.0) | 26% | 49% | keep — support |
+| Ghost | 150/125 | 40 (28.6) | 40 (28.6) | 34% | 81% | keep — already stock |
+| Infestor | 50/150 | 37.8 (27.0) | 37.8 (27.0) | 12% | 103% | keep — caster, 76% |
+| HighTemplar | 50/150 | 42 (30.0) | 42 (30.0) | 11% | 92% | keep — caster, 69% |
 
 ### Factory
-| Unit | Current | Suggested | Stock | Why |
-|------|---------|-----------|-------|-----|
-| Stalker | 18 | **21.6** | 38 | +20% nudge only — Gateway≈Barracks, not Factory (which costs more to build), so it's fine that it stays fast; stock not a target for a Factory unit |
-| Vulture | 21 | **26** | — | cheap opener; keep in line with Hellion |
-| Hellion | 21 | **26** | 30 | opener → ~87% stock |
-| Diamondback | 38 | 38 | — | keep |
-| Immortal | 72.8 | **55** | 55 | → stock (your call) |
-| SiegeTank | 45 | 45 | 45 | keep — already stock |
-| WarHound | 72.8 | 72.8 | — | keep — but high for a supply-3 unit; consider the Thor/Immortal tier |
-| Archon | 70 | 70 | (merge) | keep — single canonical value now |
-| Lurker | 37.8 | 37.8 | (morph) | keep |
-| Goliath | 43 | 43 | — | keep |
-| Thor | 67.2 | **60** | 60 | → stock (your call) |
-| Colossus | 67.2 | 67.2 | 75 | keep — already 90% |
-| Ultralisk | 67.2 | 67.2 | 55 | keep — but same logic as Thor/Immortal would put it at 55 (your call) |
+| Unit | Cost (m/g) | Current | Suggested | %Min | %Gas | Why |
+|------|-----------|---------|-----------|------|------|-----|
+| Stalker | 125/50 | 18 (12.9) | **21.6 (15.4)** | 53% | 60% | +20% nudge — Factory unit, fine to stay fast (Gateway≈Barracks) |
+| Vulture | 100/0 | 21 (15.0) | **26 (18.6)** | 35% | — | cheap opener; matches Hellion |
+| Hellion | 100/0 | 21 (15.0) | **26 (18.6)** | 35% | — | opener → ~87% stock |
+| Diamondback | 150/150 | 38 (27.1) | 38 (27.1) | 36% | 102% | keep |
+| Immortal | 250/100 | 72.8 (52.0) | **55 (39.3)** | 41% | 47% | → stock (your call) |
+| SiegeTank | 150/125 | 45 (32.1) | 45 (32.1) | 30% | 72% | keep — already stock |
+| WarHound | 200/75 | 72.8 (52.0) | 72.8 (52.0) | 25% | 27% | keep — high for a supply-3 unit |
+| Archon | 225/150 | 70 (50.0) | 70 (50.0) | 29% | 55% | keep — single canonical value |
+| Lurker | 150/150 | 37.8 (27.0) | 37.8 (27.0) | 36% | 103% | keep |
+| Goliath | 150/50 | 43 (30.7) | 43 (30.7) | 32% | 30% | keep |
+| Thor | 300/150 | 67.2 (48.0) | **60 (42.9)** | 45% | 65% | → stock (your call) |
+| Colossus | 300/200 | 67.2 (48.0) | 67.2 (48.0) | 41% | 77% | keep — already 90% |
+| Ultralisk | 325/200 | 67.2 (48.0) | 67.2 (48.0) | 44% | 77% | keep — or 55 to match Thor/Immortal |
 
 ### Starport
-| Unit | Current | Suggested | Stock | Why |
-|------|---------|-----------|-------|-----|
-| Corsair | 30.8 | 30.8 | — | keep |
-| Phoenix | 30.8 | 30.8 | 35 | keep — 88% |
-| Wraith | 30.8 | 30.8 | — | keep |
-| Viking | 42 | 42 | 42 | keep — stock |
-| Liberator | 49 | 49 | 60 | keep — 82% |
-| Mutalisk | 20 | **28** | 33 | fastest flier at 61%; raise to ~85% |
-| DuskWing | 39.2 | 39.2 | (Banshee 60) | keep |
-| VoidRay | 49 | 49 | 60.2 | keep — 81% |
-| Raven | 48 | 48 | 48 | keep — stock |
-| Tempest | 58.8 | 58.8 | 75 | keep — 78% |
-| Viper | 39.2 | 39.2 | 40 | keep — 98% |
-| Battlecruiser | 70 | 70 | 90 | keep — 78% |
+| Unit | Cost (m/g) | Current | Suggested | %Min | %Gas | Why |
+|------|-----------|---------|-----------|------|------|-----|
+| Corsair | 150/100 | 30.8 (22.0) | 30.8 (22.0) | 44% | 84% | keep |
+| Phoenix | 150/100 | 30.8 (22.0) | 30.8 (22.0) | 44% | 84% | keep — 88% |
+| Wraith | 100/100 | 30.8 (22.0) | 30.8 (22.0) | 29% | 84% | keep |
+| Viking | 125/75 | 42 (30.0) | 42 (30.0) | 27% | 46% | keep — stock |
+| Liberator | 150/125 | 49 (35.0) | 49 (35.0) | 28% | 66% | keep — 82% |
+| Mutalisk | 100/100 | 20 (14.3) | **28 (20.0)** | 32% | 92% | fastest flier at 61%; raise to ~85% |
+| DuskWing | 200/150 | 39.2 (28.0) | 39.2 (28.0) | 46% | 99% | keep |
+| VoidRay | 250/150 | 49 (35.0) | 49 (35.0) | 46% | 79% | keep — 81% |
+| Raven | 75/150 | 48 (34.3) | 48 (34.3) | 14% | 81% | keep — stock |
+| Tempest | 250/175 | 58.8 (42.0) | 58.8 (42.0) | 39% | 77% | keep — 78% |
+| Viper | 75/200 | 39.2 (28.0) | 39.2 (28.0) | 17% | 132% | keep — 98% |
+| Battlecruiser | 400/300 | 70 (50.0) | 70 (50.0) | 52% | 111% | keep — 78% |
 
 **Note on Hydralisk:** the 2×-Marine rule lands it at 40 (~121% of stock), i.e. slightly *slower* than a stock Hydra. Defensible — it's a robust slot-2 generalist and this is anti-saturation — but if you'd rather keep it under stock, use Marine 18 → Hydra 36 (109%). Flagging so the number is a choice, not an accident.
+
+**Reading the income columns:** most *mineral* %s land in the 25–50% band — a single facility never eats a whole base's minerals, which is exactly why one base can feed several production buildings (and why the opening-building count matters). *Gas* is the real bottleneck: everything at/over 100% gas (Infestor, Lurker, Diamondback, Viper, Battlecruiser — with Sentry, DuskWing right at the line) can't be produced back-to-back on a single base's gas. That's the natural brake on the gas-heavy tech units, working as intended.
 
 This keeps the mod **faster than stock across the board** (the lone exception is Hydralisk, and only if you take the 2× rule literally), so transitions stay quick — PiG's "too long" feeling lives in the tech/upgrade gating, a separate knob.
 
