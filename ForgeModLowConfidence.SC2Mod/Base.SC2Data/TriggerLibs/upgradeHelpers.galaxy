@@ -179,44 +179,6 @@ void setSlotResearchPrice(int player, string upgradeKey, int slot, string amount
     CatalogFieldValueSet(c_gameCatalogAbil, researchAbilityName, "InfoArray[Research1].Resource[Vespene]", player, amount);
 }
 
-// Per-(player, slot, facility) "this upgrade has been researched" flag. Completion is the ONE state
-// transition we can catch reliably, so we record it and re-derive the correct price from it later
-// (see onUpgradeFacilityDied) instead of trusting transient unlock events.
-string getSlotUpgradeCompletedKey(int player, int slot, string facilityId) {
-    return "player." + IntToString(player) + ".slot." + IntToString(slot) + ".productionFacility." + facilityId + ".upgradeCompleted";
-}
-
-bool isSlotUpgradeCompleted(int player, int slot, string facilityId) {
-    string key = getSlotUpgradeCompletedKey(player, slot, facilityId);
-    if (!DataTableValueExists(true, key)) { return false; }
-    return DataTableGetString(true, key) == "1";
-}
-
-void setSlotUpgradeCompleted(int player, int slot, string facilityId) {
-    DataTableSetString(true, getSlotUpgradeCompletedKey(player, slot, facilityId), "1");
-}
-
-// Re-assert the correct price for every slot of a facility: locked (999999) only if that slot's
-// upgrade has actually completed, otherwise the normal 150. Used on facility death so a destroyed
-// (or rebuilt) upgrade facility never leaves a mid-research slot stuck locked.
-void reassertSlotResearchPrices(int player, string productionFacility) {
-    int slot;
-    string upgradeKey;
-
-    slot = 1;
-    while (slot <= 4) {
-        upgradeKey = getSlotSelectedUpgrade(player, slot, productionFacility);
-        if (upgradeKey != "") {
-            if (isSlotUpgradeCompleted(player, slot, productionFacility)) {
-                setSlotResearchPrice(player, upgradeKey, slot, "999999");
-            } else {
-                setSlotResearchPrice(player, upgradeKey, slot, "150");
-            }
-        }
-        slot += 1;
-    }
-}
-
 // Research STARTED (queued): lock the price so the SAME upgrade can't be queued a second time while
 // the first is in progress (the "re-queue does nothing" trap that confused players). This is the
 // primary lock. Wire to: Unit - Unit Research Progress (Start stage) -> onResearchStarted();
@@ -242,11 +204,6 @@ void onResearchCancelled(){
     int player = EventPlayer();
     int slot;
     string upgradeKey;
-
-    // DEBUG (devMode-gated): confirm the Cancel stage fires at all and what slot it reports.
-    // If you cancel a research and DON'T see this line, the event/stage isn't firing -> we switch
-    // cancel detection to an "issued Cancel order" trigger. Remove before merge.
-    showMessage("onResearchCancelled fired; ObjectType=" + cancelledUpgrade);
 
     if(cancelledUpgrade == "1" || cancelledUpgrade == "2" || cancelledUpgrade == "3" || cancelledUpgrade == "4") {
         slot = StringToInt(cancelledUpgrade);
@@ -274,9 +231,6 @@ void onGenericUpgradeCompleted(){
         // Keep the price locked after completion (insurance; the primary re-queue lock is now on start).
         setSlotResearchPrice(player, realCompletedUpgradeFromSlot, slot, "999999");
 
-        // Record completion so a later facility death can tell "keep locked" from "should reopen".
-        setSlotUpgradeCompleted(player, slot, productionFacilityName);
-
         showMessage("playerId" + IntToString(player));
         showMessage("slot" + IntToString(slot));
         showMessage("realCompletedUpgradeFromSlot: " + realCompletedUpgradeFromSlot);
@@ -284,29 +238,6 @@ void onGenericUpgradeCompleted(){
         showMessage("productionFacilityName: " + productionFacilityName);
         showMessage("unitName: " + unitName);
     }
-}
-
-// An upgrade facility (Ghost Academy / Armory / Fusion Core) died. If a research was in progress it
-// was silently cancelled by the engine with NO cancel event, which would leave that slot's price
-// stuck at 999999 forever (even for a rebuilt facility, since the price is per-player). Re-assert
-// every slot's price from the completed flag: still-locked only where it actually finished.
-// Wire this into the SAME "Unit Died" trigger the scout tags already use (it also reads EventUnit),
-// or a dedicated Unit Died event -> onUpgradeFacilityDied();
-void onUpgradeFacilityDied(){
-    unit deadFacility = EventUnit();
-    string facilityType = UnitGetType(deadFacility);
-    int player = UnitGetOwner(deadFacility);
-    string productionFacility;
-
-    // Bail on anything that isn't one of the three upgrade facilities. (Guarding by type here
-    // avoids getProductionFacilityFromUpgradeFacility's null return + WARNING showMessage, which
-    // would otherwise fire for every unrelated unit death if this shares a broad Unit Died trigger.)
-    if (facilityType != ghostAcademy && facilityType != armory && facilityType != fusionCore) {
-        return;
-    }
-
-    productionFacility = getProductionFacilityFromUpgradeFacility(facilityType);
-    reassertSlotResearchPrices(player, productionFacility);
 }
 
 
