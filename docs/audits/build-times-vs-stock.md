@@ -130,7 +130,7 @@ Because build times live on each facility's train ability, the **same unit build
 ### Factory
 | Unit | Current | Suggested | Stock | Why |
 |------|---------|-----------|-------|-----|
-| Stalker | 18 | **27** | 38 | key opener → ~71% stock; your favorite pressure unit |
+| Stalker | 18 | **21.6** | 38 | +20% nudge only — Gateway≈Barracks, not Factory (which costs more to build), so it's fine that it stays fast; stock not a target for a Factory unit |
 | Vulture | 21 | **26** | — | cheap opener; keep in line with Hellion |
 | Hellion | 21 | **26** | 30 | opener → ~87% stock |
 | Diamondback | 38 | 38 | — | keep |
