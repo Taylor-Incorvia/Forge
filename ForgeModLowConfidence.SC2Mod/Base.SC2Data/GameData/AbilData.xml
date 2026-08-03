@@ -576,14 +576,6 @@
             <Button DefaultButtonFace="Zealot" Requirements="barracksZealot"/>
             <Unit value="Zealot"/>
         </InfoArray>
-        <InfoArray index="Train7" Time="25.2">
-            <Button DefaultButtonFace="Stalker" Requirements="barracks2stalkerreq"/>
-            <Unit value="Stalker"/>
-        </InfoArray>
-        <InfoArray index="Train9" Time="45">
-            <Button DefaultButtonFace="Archon" Requirements="barracks4archonreq"/>
-            <Unit value="Archon"/>
-        </InfoArray>
         <InfoArray index="Train10" Time="42">
             <Button DefaultButtonFace="HighTemplar" Requirements="barracks4hightemplarreq"/>
             <Unit value="HighTemplar"/>
