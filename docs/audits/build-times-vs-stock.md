@@ -1,6 +1,6 @@
 # Build Times — Wildcard Arena vs. Stock LotV
 
-Snapshot **2026-08-02**. Purpose: decide whether the mod's fast build times are *flattening the opening* — specifically the "how many production buildings before you expand/tech" branch that gives standard SC2 its opening variety.
+Snapshot **2026-08-02** · updated **2026-08-03** (added *Suggested build times*; Stalker/Archon dual-facility entries removed, PR #28 merged). Purpose: decide whether the mod's fast build times are *flattening the opening* — specifically the "how many production buildings before you expand/tech" branch that gives standard SC2 its opening variety.
 
 > **Units.** All numbers are **catalog (standard-speed)** `Time` values — the raw XML attribute. The game runs on **"Faster" (≈ ÷1.4)**, so a *real-game* second column is included for intuition. **Ratios are speed-independent** (÷1.4 hits both sides equally), so "Mod % of stock" is the same whether you read catalog or real seconds.
 >
@@ -42,17 +42,17 @@ So in the mod, **one production building ≈ 1.8 stock buildings** of early thro
 | Unit | Mod cat (real) | Stock cat (real) | Mod % of stock | Notes |
 |------|----------------|------------------|----------------|-------|
 | Zealot | 21 (15.0) | 38 (27.1) | **55%** | stock warp-in 30.8 |
-| Stalker | **18 (12.9)** F / 25.2 (18.0) B | 38 (27.1) | **47% / 66%** | warp-in 30.8; **same unit, two speeds by facility** |
+| Stalker | **18 (12.9)** | 38 (27.1) | **47%** | Factory-only; warp-in 30.8 |
 | Sentry | 21 (15.0) | 32.66 (23.3) | **64%** | warp-in 30.8 |
-| Adept | 25 (17.9) | 42 (30.0) | **60%** | warp-in 30.8 |
+| Adept | 25 (17.9) | 42 (30.0) | 60% | *not in any roll pool* (train entry only) |
 | HighTemplar | 42 (30.0) | 60.66 (43.3) | 69% | warp-in 49 |
 | Immortal | 72.8 (52.0) | 55 (39.3) | **132%** | *slower than stock* |
 | Colossus | 67.2 (48.0) | 75 (53.6) | 90% | |
-| Observer | 25 (17.9) | 25 (17.9) | 100% | identical |
+| Observer | 25 (17.9) | 25 (17.9) | 100% | *not in any roll pool* (utility) |
 | Phoenix | 30.8 (22.0) | 35 (25.0) | 88% | |
 | VoidRay | 49 (35.0) | 60.2 (43.0) | 81% | |
 | Tempest | 58.8 (42.0) | 75 (53.6) | 78% | |
-| Archon | 45 B / 70 F | (2 templar + 12s merge) | — | **not comparable** — mod direct-trains it; stock is a merge |
+| Archon | 70 (50.0) | (2 templar + 12s merge) | — | **not comparable** — mod direct-trains it; stock is a merge |
 
 ## Terran
 
@@ -94,33 +94,74 @@ So in the mod, **one production building ≈ 1.8 stock buildings** of early thro
 ## Secondary finding: a unit's build time changes with which facility rolls it
 
 Because build times live on each facility's train ability, the **same unit builds at different speeds depending on the random roll**:
-- **Stalker:** 18s from Factory, 25.2s from Barracks (a 40% swing)
-- **Archon:** 45s from Barracks, 70s from Factory
-- **Lurker:** 37.8s from Barracks *and* Factory (consistent — so it's not automatic)
+- **Stalker:** was 18s from Factory, 25.2s from Barracks (a 40% swing)
+- **Archon:** was 45s from Barracks, 70s from Factory
 
-If openings are meant to feel deliberate, this is a subtle problem: your "gateway pressure" arrives at an unpredictable time set by the roll, not by your decision. Worth deciding whether a unit should have **one canonical build time** regardless of facility.
-
-**Resolved (2026-08-02):** each unit rolls from exactly one facility, so the *second* entry is always dead config. Stalker rolls only from **Factory** (Barracks entry commented out in `initialize.galaxy`), Archon only from **Factory**. The stale `BarracksTrain` Stalker (25.2s) and Archon (45s) InfoArrays are being removed — the canonical times are the **Factory** values (Stalker 18, Archon 70).
+**Resolved — merged 2026-08-03 (PR #28):** each unit rolls from exactly one facility, so the second entry was always dead config. The stale `BarracksTrain` Stalker (25.2s) and Archon (45s) InfoArrays have been **removed**. Canonical times are the **Factory** values: **Stalker 18, Archon 70**.
 
 ---
 
-## Recommended direction (to playtest, not prescribe)
+## Suggested build times (v1 — to playtest)
 
-The goal you stated — *make the number of production buildings in your opening matter* — points at one lever: **lengthen the cheap early combat units toward (but still under) stock**, so one building no longer saturates opening income. Leave the heavy/tech tier alone (already at/above stock — that's your "faster transitions than standard" and shouldn't be touched to fix openings).
+*Catalog (standard-speed) seconds; real-game ≈ ÷1.4. Starting points to test, not final values. Changed values in **bold**.*
 
-Candidate starting points (cheap openers only), aiming for ~70–80% of stock instead of ~55–65%:
+**Design logic:**
+- **Raise the cheap early openers** toward ~70–85% of stock so one production building no longer saturates opening income — the lever that restores the "how many buildings before you expand/tech" branch.
+- **Bring the two over-stock heavies down to stock** (Immortal 72.8 → 55, Thor 67.2 → 60) — your call; they were slower than stock for no reason.
+- **Leave everything already at ~78–100% of stock alone** — the mod stays faster than stock across the board, so transitions still feel quick.
+- **Relationship rules applied:** Zergling ≈ ¼ Zealot · Hydralisk ≈ 2× Marine.
 
-| Unit | Now (cat) | Try (cat) | Rationale |
-|------|-----------|-----------|-----------|
-| Zealot | 21 | ~28–30 | biggest offender; restores 2-gateway tension |
-| Stalker | 18 F / 25.2 B | ~26–28 (both) | also fixes the facility inconsistency |
-| Marine | 15 | ~20 | |
-| Sentry | 21 | ~26 | |
-| Adept | 25 | ~30 | |
-| Hellion | 21 | ~26 | |
-| Mutalisk | 20 | ~26 | |
-| Queen | 32 | keep-ish | already 64%, and it's support not a masser |
+### Barracks
+| Unit | Current | Suggested | Stock | Why |
+|------|---------|-----------|-------|-----|
+| Zergling | 5.6 | **7** | 24 (pair) | ≈ ¼ Zealot (your rule) |
+| Zealot | 21 | **28** | 38 | key opener → ~74% stock (your anchor) |
+| Marine | 15 | **20** | 25 | opener → 80% stock (your anchor) |
+| Hydralisk | 26 | **40** | 33 | ≈ 2× Marine (your rule) — lands slightly *above* stock; see note |
+| Queen | 32 | 32 | 50 | keep — support, not a masser (64%) |
+| Firebat | 21 | 21 | — | keep — slot-3 gas bio |
+| Marauder | 28 | 28 | 30 | keep — already 93% |
+| Sentry | 21 | **26** | 32.66 | opener → ~80% stock |
+| Medic | 26.6 | 26.6 | — | keep — support |
+| Ghost | 40 | 40 | 40 | keep — already stock |
+| Infestor | 37.8 | 37.8 | 50 | keep — caster, 76% |
+| HighTemplar | 42 | 42 | 60.66 | keep — caster, 69% |
 
-This keeps the mod **faster than stock across the board** (so it still transitions quicker and doesn't re-introduce PiG's "too long" feeling — that complaint lives in the tech/heavy tier and the add-on/upgrade gating, which are separate knobs), while pulling early throughput down enough that a second production building is a real choice again.
+### Factory
+| Unit | Current | Suggested | Stock | Why |
+|------|---------|-----------|-------|-----|
+| Stalker | 18 | **27** | 38 | key opener → ~71% stock; your favorite pressure unit |
+| Vulture | 21 | **26** | — | cheap opener; keep in line with Hellion |
+| Hellion | 21 | **26** | 30 | opener → ~87% stock |
+| Diamondback | 38 | 38 | — | keep |
+| Immortal | 72.8 | **55** | 55 | → stock (your call) |
+| SiegeTank | 45 | 45 | 45 | keep — already stock |
+| WarHound | 72.8 | 72.8 | — | keep — but high for a supply-3 unit; consider the Thor/Immortal tier |
+| Archon | 70 | 70 | (merge) | keep — single canonical value now |
+| Lurker | 37.8 | 37.8 | (morph) | keep |
+| Goliath | 43 | 43 | — | keep |
+| Thor | 67.2 | **60** | 60 | → stock (your call) |
+| Colossus | 67.2 | 67.2 | 75 | keep — already 90% |
+| Ultralisk | 67.2 | 67.2 | 55 | keep — but same logic as Thor/Immortal would put it at 55 (your call) |
 
-**Do not tune blind** — this is a hypothesis with math behind it, but it needs replays. The single highest-value follow-up is getting replay analysis working (WA-065) so opening-building counts and first-army timings can be measured, not eyeballed.
+### Starport
+| Unit | Current | Suggested | Stock | Why |
+|------|---------|-----------|-------|-----|
+| Corsair | 30.8 | 30.8 | — | keep |
+| Phoenix | 30.8 | 30.8 | 35 | keep — 88% |
+| Wraith | 30.8 | 30.8 | — | keep |
+| Viking | 42 | 42 | 42 | keep — stock |
+| Liberator | 49 | 49 | 60 | keep — 82% |
+| Mutalisk | 20 | **28** | 33 | fastest flier at 61%; raise to ~85% |
+| DuskWing | 39.2 | 39.2 | (Banshee 60) | keep |
+| VoidRay | 49 | 49 | 60.2 | keep — 81% |
+| Raven | 48 | 48 | 48 | keep — stock |
+| Tempest | 58.8 | 58.8 | 75 | keep — 78% |
+| Viper | 39.2 | 39.2 | 40 | keep — 98% |
+| Battlecruiser | 70 | 70 | 90 | keep — 78% |
+
+**Note on Hydralisk:** the 2×-Marine rule lands it at 40 (~121% of stock), i.e. slightly *slower* than a stock Hydra. Defensible — it's a robust slot-2 generalist and this is anti-saturation — but if you'd rather keep it under stock, use Marine 18 → Hydra 36 (109%). Flagging so the number is a choice, not an accident.
+
+This keeps the mod **faster than stock across the board** (the lone exception is Hydralisk, and only if you take the 2× rule literally), so transitions stay quick — PiG's "too long" feeling lives in the tech/upgrade gating, a separate knob.
+
+**Do not tune blind** — math-backed hypothesis, but it needs replays. Highest-value follow-up: get replay analysis working (WA-065) so opening-building counts and first-army timings are measured, not eyeballed.
