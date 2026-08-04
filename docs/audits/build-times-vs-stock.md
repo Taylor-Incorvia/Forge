@@ -323,3 +323,24 @@ Computed at the **suggested** build times. **Compare within a slot** — same-sl
 - **Goliath is *not* a throughput outlier** — bottom of F2 on Cp/min (37/33). This reconfirms its edge is **versatility** (air+ground, cheap gas), not value-per-minute. Good sanity check against the earlier /Gas scare.
 
 Use Sc/min to ask *"is this unit's build time fair for its cost-tier?"* and Cp/min to ask *"how fast does this facility crank raw army power?"* — both read best down a single slot.
+
+### Current → suggested (only the units whose build time changes)
+Everything else is unchanged, so its value/min is identical to the table above. (Sentry's build also changes 21→26 but it's excluded as a caster.)
+
+| Slot | Unit | Weapon | Build (real) | Sc/min | Cp/min |
+|:----:|------|--------|:------------:|:------:|:------:|
+| B1 | Zergling | Claws | 4.0 → 5.0 | 23.2 → 18.6 | 37.8 → 30.2 |
+| B1 | Zealot | Psi Blades | 15.0 → 20.0 | 14.5 → 10.8 | 83.8 → 62.8 |
+| B2 | Marine | Gauss | 10.7 → 14.3 | 13.4 → 10.1 | 17.6 → 13.2 |
+| B2 | Hydralisk | Needle | 18.6 → 28.6 | 15.9 → 10.3 | 42.2 → 27.4 |
+| F1 | Stalker | Particle | 12.9 → 15.4 | 23.5 → 19.5 | 54.9 → 45.7 |
+| F1 | Vulture | Spikes | 15.0 → 18.6 | 13.8 → 11.2 | 18.6 → 15.0 |
+| F1 | Hellion | Infernal | 15.0 → 18.6 | 10.6 → 8.6 | 11.5 → 9.3 |
+| F2 | Immortal | Phase | 52.0 → 39.3 | 10.0 → 13.2 | 45.4 → 60.1 |
+| F3 | Thor | Hammer (grd) | 48.0 → 42.9 | 24.9 → 27.9 | 246.2 → 275.8 |
+| F3 | Thor | Lance (air) | 48.0 → 42.9 | 19.9 → 22.3 | 102.4 → 114.7 |
+| S2 | Mutalisk | Glaive | 14.3 → 20.0 | 13.7 → 9.8 | 29.7 → 21.2 |
+
+**Two directions here — the second is a heads-up:**
+- **Openers drop (intended).** All eight cheap openers lose value/min — that *is* the anti-saturation goal: slower openers mean one building no longer floods the map, restoring the opening-building decision.
+- **Immortal & Thor *rise* — that's a throughput buff, not just a "fix."** "Bring them to stock" actually *shortens* their build (they were slower than stock), so their value/min goes **up** (Immortal 10.0 → 13.2 Sc/min; Thor 24.9 → 27.9). If the goal was just "stop them being weirdly slow," fine — but be aware it makes them come out *faster*, not merely feel cheaper. If you didn't want to speed up Thor/Immortal production, leave those two at their current times.
