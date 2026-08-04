@@ -146,6 +146,60 @@ void lib13DECF19_gt_onUpgradeCompleted_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Untitled Trigger 003
+//--------------------------------------------------------------------------------------------------
+bool lib13DECF19_gt_onUpgradeCanceled_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!(((UnitGetType(EventUnit()) == "Forge") || (UnitGetType(EventUnit()) == "GhostAcademy") || (UnitGetType(EventUnit()) == "Armory") || (UnitGetType(EventUnit()) == "FusionCore")))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    onResearchCancelled();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib13DECF19_gt_onUpgradeCanceled_Init () {
+    lib13DECF19_gt_onUpgradeCanceled = TriggerCreate("lib13DECF19_gt_onUpgradeCanceled_Func");
+    TriggerAddEventUnitResearchProgress(lib13DECF19_gt_onUpgradeCanceled, null, c_unitProgressStageCancel);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Untitled Trigger 002
+//--------------------------------------------------------------------------------------------------
+bool lib13DECF19_gt_onUpgradeStarted_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!(((UnitGetType(EventUnit()) == "Forge") || (UnitGetType(EventUnit()) == "GhostAcademy") || (UnitGetType(EventUnit()) == "Armory") || (UnitGetType(EventUnit()) == "FusionCore")))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    onResearchStarted();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib13DECF19_gt_onUpgradeStarted_Init () {
+    lib13DECF19_gt_onUpgradeStarted = TriggerCreate("lib13DECF19_gt_onUpgradeStarted_Func");
+    TriggerAddEventUnitResearchProgress(lib13DECF19_gt_onUpgradeStarted, null, c_unitProgressStageStart);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Untitled Trigger 001
 //--------------------------------------------------------------------------------------------------
 bool lib13DECF19_gt_onUnitCreated_Func (bool testConds, bool runActions) {
@@ -261,6 +315,8 @@ void lib13DECF19_InitTriggers () {
     lib13DECF19_gt_onBlink_Init();
     lib13DECF19_gt_onCcCompleted_Init();
     lib13DECF19_gt_onUpgradeCompleted_Init();
+    lib13DECF19_gt_onUpgradeCanceled_Init();
+    lib13DECF19_gt_onUpgradeStarted_Init();
     lib13DECF19_gt_onUnitCreated_Init();
     lib13DECF19_gt_ForgeUpgradecompletion_Init();
     lib13DECF19_gt_ModInit_Init();
