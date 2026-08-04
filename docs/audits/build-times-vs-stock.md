@@ -254,3 +254,72 @@ A rough, transparent heuristic for *"how strong are this unit's raw combat stats
 - **Liberator-Defender** tops /Min and /Gas but the score can't see it's **immobile and ground-only** in that mode. Discount heavily.
 
 **CmbtPwr is the deathball lens** (cost-neutral clash): **Battlecruiser (225 grd / 140 air), Thor (197 grd), Ultralisk (193)** dominate — which is exactly why supply, production time, and focus-fire vulnerability are the balancing brakes, not price. Compare *that* column unit-to-unit for "who wins the fight"; compare the /Min column for "who's an efficiency outlier."
+
+---
+
+## Combat value per production-minute (by slot) — added 2026-08-04
+
+The bridge between the two halves of this doc: **how much combat value one facility pumps out per minute** = score × 60 ÷ build-time(real). Two flavors:
+- **Sc/min** — the *cost-aware* linear Score per minute (rewards cheap-fast units by design).
+- **Cp/min** — the *raw fight-power* (DPS×EHP) per minute.
+
+Computed at the **suggested** build times. **Compare within a slot** — same-slot units are roughly the same size, so no cost-normalizing is needed and a big gap = a build-time (or stat) outlier. Caveat: slots aren't *perfectly* uniform in cost (B1 Zergling 25 vs Zealot 100; B2 Marine 50 vs Queen 175), so within-slot reads cleanest in F1/F2/F3/S3 where costs are closer. And **base DPS only** — splash/bonus specialists (Colossus, Hellion, Firebat, Marauder, Lurker) are understated here.
+
+### Barracks
+| Slot | Unit | Weapon | Build (real) | Score | Sc/min | CmbtPwr | Cp/min |
+|:----:|------|--------|-------------:|------:|-------:|--------:|-------:|
+| B1 | Zergling | Claws | 5.0 | 1.5 | 18.6 | 2.5 | 30.2 |
+| B1 | Zealot | Psi Blades | 20.0 | 3.6 | 10.8 | 20.9 | 62.8 |
+| B2 | Hydralisk | Needle | 28.6 | 4.9 | 10.3 | 13.1 | 27.4 |
+| B2 | Marine | Gauss | 14.3 | 2.4 | 10.1 | 3.1 | 13.2 |
+| B2 | Queen | Talons (grd) | 22.9 | 4.7 | 12.3 | 14.7 | 38.6 |
+| B2 | Queen | Acid (air) | 22.9 | 5.7 | 14.9 | 16.5 | 43.4 |
+| B3 | Firebat | Flame | 15.0 | 2.4 | 9.4 | 6.0 | 23.9 |
+| B3 | Marauder | Punisher | 20.0 | 4.0 | 12.0 | 8.8 | 26.4 |
+| B4 | Ghost | C10 Rifle | 28.6 | 4.5 | 9.5 | 10.0 | 21.0 |
+
+### Factory
+| Slot | Unit | Weapon | Build (real) | Score | Sc/min | CmbtPwr | Cp/min |
+|:----:|------|--------|-------------:|------:|-------:|--------:|-------:|
+| F1 | Vulture | Spikes | 18.6 | 3.5 | 11.2 | 4.6 | 15.0 |
+| F1 | Hellion | Infernal | 18.6 | 2.6 | 8.6 | 2.9 | 9.3 |
+| F1 | Stalker | Particle | 15.4 | 5.0 | **19.5** | 11.8 | **45.7** |
+| F2 | Diamondback | Railgun | 27.1 | 6.6 | 14.6 | 21.0 | 46.4 |
+| F2 | Immortal | Phase | 39.3 | 8.6 | 13.2 | 39.4 | 60.1 |
+| F2 | Siege Tank | 90mm (tank) | 32.1 | 7.4 | 13.7 | 26.5 | 49.4 |
+| F2 | Siege Tank | Crucio (sieged) | 32.1 | 9.8 | 18.3 | 24.4 | 45.6 |
+| F2 | War Hound | Haywire | 52.0 | 9.6 | 11.1 | 40.9 | 47.2 |
+| F2 | Archon | Psi Shockwave | 50.0 | 8.3 | 9.9 | 51.5 | 61.8 |
+| F2 | Lurker | Spines | 27.0 | 7.6 | 16.9 | 19.9 | 44.3 |
+| F2 | Goliath | Goliath (grd) | 30.7 | 6.1 | 11.8 | 18.9 | 36.9 |
+| F2 | Goliath | Goliath (air) | 30.7 | 5.7 | 11.2 | 16.9 | 32.9 |
+| F3 | Thor | Hammer (grd) | 42.9 | 19.9 | **27.9** | 197.0 | **275.8** |
+| F3 | Thor | Lance (air) | 42.9 | 15.9 | 22.3 | 81.9 | 114.7 |
+| F3 | Ultralisk | Kaiser Blades | 48.0 | 12.9 | 16.1 | 192.5 | 240.6 |
+| F3 | Colossus | Thermal Lance | 48.0 | 11.8 | 14.7 | 48.9 | 61.1 |
+
+### Starport
+| Slot | Unit | Weapon | Build (real) | Score | Sc/min | CmbtPwr | Cp/min |
+|:----:|------|--------|-------------:|------:|-------:|--------:|-------:|
+| S1 | Corsair | Neutron Flare | 22.0 | 5.9 | 16.0 | 20.0 | 54.6 |
+| S1 | Phoenix | Ion Cannons | 22.0 | 6.1 | 16.6 | 16.4 | 44.7 |
+| S1 | Wraith | Laser (air) | 22.0 | 4.8 | 13.0 | 11.2 | 30.5 |
+| S1 | Wraith | Burst (grd) | 22.0 | 3.9 | 10.6 | 6.6 | 17.9 |
+| S1 | Viking | Lanzer (air) | 30.0 | 6.2 | 12.4 | 13.5 | 27.0 |
+| S2 | Liberator | AA missiles | 35.0 | 4.3 | 7.3 | 10.1 | 17.3 |
+| S2 | Liberator | Defender (grd) | 35.0 | 19.7 | 33.8 | 84.4 | 144.7 |
+| S2 | Mutalisk | Glaive | 20.0 | 3.3 | 9.8 | 7.1 | 21.2 |
+| S2 | DuskWing | Banshee | 28.0 | 11.0 | **23.5** | 50.4 | **108.0** |
+| S2 | Void Ray | Swarm | 35.0 | 7.8 | 13.3 | 30.0 | 51.4 |
+| S3 | Tempest | Tempest (air) | 42.0 | 11.9 | 17.1 | 30.0 | 42.9 |
+| S3 | Tempest | Tempest (grd) | 42.0 | 11.3 | 16.1 | 39.9 | 57.0 |
+| S3 | Battlecruiser | ATA (air) | 50.0 | 16.0 | 19.2 | 140.4 | 168.5 |
+| S3 | Battlecruiser | ATS (grd) | 50.0 | 19.3 | 23.2 | 225.2 | 270.2 |
+
+### Within-slot flags
+- **F1 — Stalker runs away with the slot.** ~**2×** its slotmates on both Sc/min (19.5 vs Vulture 11.2 / Hellion 8.6) and Cp/min (45.7 vs 15.0 / 9.3), *even after* the +20% build nerf. Either its build time has room to go higher, or it earns it as the gas-costed premium option. (Vulture's KD8 + speed and Hellion's splash + vs-Light aren't in these numbers, so they're a bit understated.)
+- **F3 — Thor tops the slot and builds fastest.** Highest Sc/min (27.9) and Cp/min (275.8) of F3, at a 60 build vs Ultra/Colossus 67.2. Worth eyeing Thor's build time *up* (or Colossus's *down*). Colossus's line-splash value is understated here.
+- **S2 — DuskWing is the "buffed Banshee" you flagged.** Sc/min 23.5 / Cp/min 108 lead the slot (ignoring mode-locked Liberator-Defender). Mutalisk is the slot's floor (9.8 / 21.2). 
+- **Goliath is *not* a throughput outlier** — bottom of F2 on Cp/min (37/33). This reconfirms its edge is **versatility** (air+ground, cheap gas), not value-per-minute. Good sanity check against the earlier /Gas scare.
+
+Use Sc/min to ask *"is this unit's build time fair for its cost-tier?"* and Cp/min to ask *"how fast does this facility crank raw army power?"* — both read best down a single slot.
