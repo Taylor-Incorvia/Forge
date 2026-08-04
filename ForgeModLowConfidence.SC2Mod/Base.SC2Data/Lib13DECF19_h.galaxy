@@ -10,6 +10,8 @@ trigger lib13DECF19_gt_dialogItemUsed;
 trigger lib13DECF19_gt_onBlink;
 trigger lib13DECF19_gt_onCcCompleted;
 trigger lib13DECF19_gt_onUpgradeCompleted;
+trigger lib13DECF19_gt_onUpgradeCanceled;
+trigger lib13DECF19_gt_onUpgradeStarted;
 trigger lib13DECF19_gt_onUnitCreated;
 trigger lib13DECF19_gt_ForgeUpgradecompletion;
 trigger lib13DECF19_gt_ModInit;

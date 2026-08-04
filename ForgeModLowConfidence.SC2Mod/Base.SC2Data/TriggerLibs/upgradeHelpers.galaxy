@@ -170,6 +170,48 @@ void setSlotSelectedUpgrade(int player, int slotIndex, string facilityid, string
     }
 }
 
+// Set the per-player research price (both minerals + vespene) for a rolled upgrade's research ability.
+// "999999" locks it (can't research); "150" is the normal price. All upgrades cost 150/150 for now.
+void setSlotResearchPrice(int player, string upgradeKey, int slot, string amount) {
+    string researchAbilityName;
+    researchAbilityName = upgradeKey + IntToString(slot);
+    CatalogFieldValueSet(c_gameCatalogAbil, researchAbilityName, "InfoArray[Research1].Resource[Minerals]", player, amount);
+    CatalogFieldValueSet(c_gameCatalogAbil, researchAbilityName, "InfoArray[Research1].Resource[Vespene]", player, amount);
+}
+
+// Research STARTED (queued): lock the price so the SAME upgrade can't be queued a second time while
+// the first is in progress (the "re-queue does nothing" trap that confused players). This is the
+// primary lock. Wire to: Unit - Unit Research Progress (Start stage) -> onResearchStarted();
+void onResearchStarted(){
+    unit upgradeFacillity = EventUnit();
+    string startedUpgrade = EventUnitProgressObjectType();
+    int player = EventPlayer();
+    int slot;
+    string upgradeKey;
+
+    if(startedUpgrade == "1" || startedUpgrade == "2" || startedUpgrade == "3" || startedUpgrade == "4") {
+        slot = StringToInt(startedUpgrade);
+        upgradeKey = getSlotSelectedUpgrade(player, slot, getProductionFacilityFromUpgradeFacility(UnitGetType(upgradeFacillity)));
+        setSlotResearchPrice(player, upgradeKey, slot, "999999");
+    }
+}
+
+// Research CANCELLED: restore the normal 150/150 price so the upgrade can be researched again.
+// Wire to: Unit - Unit Research Progress (Cancel stage) -> onResearchCancelled();
+void onResearchCancelled(){
+    unit upgradeFacillity = EventUnit();
+    string cancelledUpgrade = EventUnitProgressObjectType();
+    int player = EventPlayer();
+    int slot;
+    string upgradeKey;
+
+    if(cancelledUpgrade == "1" || cancelledUpgrade == "2" || cancelledUpgrade == "3" || cancelledUpgrade == "4") {
+        slot = StringToInt(cancelledUpgrade);
+        upgradeKey = getSlotSelectedUpgrade(player, slot, getProductionFacilityFromUpgradeFacility(UnitGetType(upgradeFacillity)));
+        setSlotResearchPrice(player, upgradeKey, slot, "150");
+    }
+}
+
 void onGenericUpgradeCompleted(){
     unit upgradeFacillity = EventUnit();
     string completedUpgrade = EventUnitProgressObjectType();
@@ -179,7 +221,6 @@ void onGenericUpgradeCompleted(){
     string upgradeFacilityName = UnitGetType(upgradeFacillity);
     string productionFacilityName = getProductionFacilityFromUpgradeFacility(upgradeFacilityName);
     string unitName;
-    string researchAbilityName;
 
     if(completedUpgrade == "1" || completedUpgrade == "2" || completedUpgrade == "3" || completedUpgrade == "4") {
         slot = StringToInt(completedUpgrade);
@@ -187,9 +228,8 @@ void onGenericUpgradeCompleted(){
         realCompletedUpgradeFromSlot = getSlotSelectedUpgrade(player, slot, productionFacilityName);
         grantGenericUpgrade(player, realCompletedUpgradeFromSlot, unitName);
 
-        researchAbilityName = realCompletedUpgradeFromSlot + IntToString(slot);
-        CatalogFieldValueSet(c_gameCatalogAbil, researchAbilityName, "InfoArray[Research1].Resource[Minerals]", player, "999999");
-        CatalogFieldValueSet(c_gameCatalogAbil, researchAbilityName, "InfoArray[Research1].Resource[Vespene]", player, "999999");
+        // Keep the price locked after completion (insurance; the primary re-queue lock is now on start).
+        setSlotResearchPrice(player, realCompletedUpgradeFromSlot, slot, "999999");
 
         showMessage("playerId" + IntToString(player));
         showMessage("slot" + IntToString(slot));
