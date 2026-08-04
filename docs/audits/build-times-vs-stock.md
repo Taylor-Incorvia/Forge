@@ -169,3 +169,84 @@ Because build times live on each facility's train ability, the **same unit build
 This keeps the mod **faster than stock across the board** (the lone exception is Hydralisk, and only if you take the 2× rule literally), so transitions stay quick — PiG's "too long" feeling lives in the tech/upgrade gating, a separate knob.
 
 **Do not tune blind** — math-backed hypothesis, but it needs replays. Highest-value follow-up: get replay analysis working (WA-065) so opening-building counts and first-army timings are measured, not eyeballed.
+
+---
+
+## Stat score (raw combat value) — added 2026-08-04
+
+A rough, transparent heuristic for *"how strong are this unit's raw combat stats?"* — meant to catch **A-move cost outliers**, not to be a balance verdict. It ignores abilities, bonus damage, micro, and role.
+
+**Formula (per weapon):**
+
+> **StatScore = ( 15 × DPS + effEHP ) × rangeFactor × speedFactor ÷ 100**
+> - **effEHP** = (Health + Shields) × (1 + 0.05 × Armor)
+> - **rangeFactor** = 1 + 0.12 × Range
+> - **speedFactor** = 1 + 0.10 × (Speed − 2.25)   *(2.25 = standard ground speed)*
+
+**Why this shape:** a **linear** blend on purpose — *not* DPS × EHP. A product makes big units look quadratically cost-efficient and buries the outliers; a linear blend keeps a fairly-priced unit near a *constant* score/cost, so the outliers are the rows that deviate. Weights are set so DPS and EHP contribute about equally for a typical unit (~10 DPS, ~150 EHP), i.e. **1 DPS ≈ 15 EHP**. Range and speed are multipliers because they're force-multipliers, not raw output. All constants are tunable — say the word if a weight feels off.
+
+**Rules & caveats:**
+- **Base DPS only** (no +vs-armored/light bonus) — so anti-armored/anti-light specialists (Marauder, Goliath-air, Immortal-in-practice) are *under*-scored vs their niche.
+- **Multiple weapons → one score each** (Goliath grd/air, Siege Tank tank/sieged, Thor/BC/Tempest/Wraith). **/Min** and **/Gas** divide each weapon's score by the unit's *full* cost — so a versatile 2-weapon unit reads strong on both lines (that versatility *is* value).
+- **Casters excluded** (Sentry, Medic, Infestor, High Templar, Raven, Viper). **Ghost, Queen, Corsair included** (real attacks) though they also have abilities.
+- **Not captured:** abilities, mode-lock drawbacks (Liberator siege immobility, Tank siege setup, Lurker must burrow), shield regen, and versatility beyond the two booleans. Smell test, not a ruling.
+
+### Barracks
+| Unit | Weapon | Air | Grd | Splash | Score | /Min | /Gas |
+|------|--------|:---:|:---:|:------:|------:|-----:|-----:|
+| Zergling | Claws | – | Y | – | 1.5 | 0.062 | — |
+| Zealot | Psi Blades | – | Y | – | 3.6 | 0.036 | — |
+| Marine | Gauss | Y | Y | – | 2.4 | 0.048 | 0.096 |
+| Hydralisk | Needle Spines | Y | Y | – | 4.9 | 0.049 | 0.098 |
+| Queen | Talons (grd) | – | Y | – | 4.7 | 0.027 | 0.094 |
+| Queen | Acid (air) | Y | – | – | 5.7 | 0.032 | 0.113 |
+| Marauder | Punisher | – | Y | – | 4.0 | 0.040 | 0.159 |
+| Ghost | C10 Rifle | Y | Y | – | 4.5 | 0.030 | 0.036 |
+| Firebat | Flamethrower | – | Y | Y | 2.4 | 0.024 | 0.047 |
+
+### Factory
+| Unit | Weapon | Air | Grd | Splash | Score | /Min | /Gas |
+|------|--------|:---:|:---:|:------:|------:|-----:|-----:|
+| Vulture | Spikes | – | Y | – | 3.5 | 0.035 | — |
+| Hellion | Infernal | – | Y | Y | 2.6 | 0.026 | — |
+| Stalker | Particle | Y | Y | – | 5.0 | 0.040 | 0.101 |
+| Diamondback | Railgun | – | Y | – | 6.6 | 0.044 | 0.044 |
+| Immortal | Phase | – | Y | – | 8.6 | 0.035 | 0.086 |
+| Siege Tank | 90mm (tank) | – | Y | – | 7.4 | 0.049 | 0.059 |
+| Siege Tank | Crucio (sieged) | – | Y | Y | 9.8 | 0.065 | 0.078 |
+| War Hound | Haywire | – | Y | – | 9.6 | 0.048 | **0.129** |
+| Archon | Psi Shockwave | Y | Y | Y | 8.3 | 0.037 | 0.055 |
+| Lurker | Spines | – | Y | Y | 7.6 | 0.051 | 0.051 |
+| Goliath | Goliath (grd) | – | Y | – | 6.1 | 0.040 | **0.121** |
+| Goliath | Goliath (air) | Y | – | – | 5.7 | 0.038 | **0.114** |
+| Thor | Hammer (grd) | – | Y | – | 19.9 | 0.066 | 0.099 |
+| Thor | Lance (air) | Y | – | – | 15.9 | 0.053 | 0.080 |
+| Ultralisk | Kaiser Blades | – | Y | Y | 12.9 | 0.040 | 0.064 |
+| Colossus | Thermal Lance | – | Y | Y | 11.8 | 0.039 | 0.059 |
+
+### Starport
+| Unit | Weapon | Air | Grd | Splash | Score | /Min | /Gas |
+|------|--------|:---:|:---:|:------:|------:|-----:|-----:|
+| Corsair | Neutron Flare | Y | – | Y | 5.9 | 0.039 | 0.059 |
+| Phoenix | Ion Cannons | Y | – | – | 6.1 | 0.041 | 0.061 |
+| Wraith | Laser (air) | Y | – | – | 4.8 | 0.048 | 0.048 |
+| Wraith | Burst (grd) | – | Y | – | 3.9 | 0.039 | 0.039 |
+| Viking | Lanzer (air) | Y | – | – | 6.2 | 0.050 | 0.083 |
+| Liberator | AA missiles | Y | – | – | 4.3 | 0.029 | 0.034 |
+| Liberator | Defender (grd) | – | Y | – | 19.7 | **0.132** | **0.158** |
+| Mutalisk | Glaive | Y | Y | – | 3.3 | 0.033 | 0.033 |
+| DuskWing | Banshee | – | Y | – | 11.0 | 0.055 | 0.073 |
+| Void Ray | Swarm | Y | Y | – | 7.8 | 0.031 | 0.052 |
+| Tempest | Tempest (air) | Y | – | – | 11.9 | 0.048 | 0.068 |
+| Tempest | Tempest (grd) | – | Y | – | 11.3 | 0.045 | 0.064 |
+| Battlecruiser | ATA (air) | Y | – | – | 16.0 | 0.040 | 0.053 |
+| Battlecruiser | ATS (grd) | – | Y | – | 19.3 | 0.048 | 0.064 |
+
+### Outliers this surfaces (read /Gas — gas is usually the constraint)
+- **Goliath (0.121 grd / 0.114 air)** — your hunch, confirmed. Not extreme on any *single* line, but it's efficient on **both** weapons **and** covers air+ground for only **150/50**. That combined versatility-per-gas is the outlier — a real "just make Goliaths" candidate.
+- **War Hound (0.129 gas)** — genuinely high on both DPS and EHP for 200/75; worth an eyeball, though it's ground-only and anti-mech-flavored.
+- **Liberator – Defender mode (0.132 min / 0.158 gas)** — tops both charts, but the score can't see that it's **immobile and ground-only** in that mode. Discount heavily.
+- **Marauder (0.159 gas)** — an *artifact*: cheap gas (25) + base-DPS-only scoring. Its real value is +vs-armored, which the formula omits. Not a true outlier.
+- **Queen – air (0.113 gas)** — hybrid/support, gas-light (50); flag but not an army-core concern.
+
+The clean read: most single-role units cluster around **0.04–0.10 /gas**. The things poking above that with *no offsetting drawback* are **Goliath** and **War Hound** — exactly where I'd point a balance eye first.
