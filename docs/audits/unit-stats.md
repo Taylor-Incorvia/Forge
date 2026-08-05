@@ -1,6 +1,6 @@
 # Wildcard Arena — Per-Unit Merged Stats
 
-Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time changes. Companion to [`upgrade-pools-by-unit.md`](./upgrade-pools-by-unit.md) (who can roll what) and [`unit-costs.md`](./unit-costs.md).
+Snapshot **2026-08-04** — costs & build times refreshed to current (post build-time pass PR #29 + Goliath 150/75; HP/armor/speed/weapon/DPS stats unchanged since the 2026-07-16 pass). Regenerate after unit cost/stat/weapon/build-time changes. Companion to [`upgrade-pools-by-unit.md`](./upgrade-pools-by-unit.md) (who can roll what), [`unit-costs.md`](./unit-costs.md), and [`build-times-vs-stock.md`](./build-times-vs-stock.md).
 
 > **Reading these numbers:** all values are merged from two layers — the **ForgeMod** override files (authoritative when present) and the **base game** (voidmulti = LotV multiplayer, authoritative; Wraith/Firebat/Medic/Vulture/Diamondback/Goliath/DuskWing from the Liberty campaign; CorsairMP/WarHound from Void). **`(MOD)`** marks a value set in ForgeMod's own GameData; everything else is base.
 >
@@ -14,13 +14,13 @@ Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time ch
 
 **Zergling**
 - Cost: 25 min / 0 gas — Supply 0.5 (base)
-- Build: **5.6s (MOD)**
+- Build: **6s (MOD)**
 - Life 35 | Armor 0 | Speed 2.9531 (×1.3 on creep)
 - Weapon — Claws (ground, melee): 5 dmg ×1, period 0.696, range 0.1 → **DPS 7.2**
 
 **Zealot**
 - Cost: 100 min / 0 gas — Supply 2 (base)
-- Build: **21s (MOD)**
+- Build: **28s (MOD)**
 - Life 100 | Shields 50 | Armor 1 | Speed 2.25
 - Weapon — PsiBlades (ground, melee): 8 dmg ×2, period 1.2, range 0.1 → **DPS 13.3**
 
@@ -28,13 +28,13 @@ Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time ch
 
 **Hydralisk**
 - Cost: 100 min / 50 gas — Supply 2 (base)
-- Build: **26s (MOD)**
+- Build: **35s (MOD)**
 - Life 90 (base voidmulti; liberty was 80) | Armor 0 | Speed 2.25 (×1.5 on creep)
 - Weapon — NeedleSpines (ground + air): 12 dmg ×1, period 0.825, range 5 → **DPS 14.5**
 
 **Marine**
 - Cost: 50 min / **25 gas (MOD)** — Supply 1  *(stock Marine is 50/0; mod adds 25 gas)*
-- Build: **15s (MOD)**
+- Build: **20s (MOD)**
 - Life 45 | Armor 0 | Speed 2.25
 - Weapon — GaussRifle (ground + air): 6 dmg ×1, period 0.861, range 5 → **DPS 7.0**
 
@@ -82,7 +82,7 @@ Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time ch
 - *Note: voidmulti sets a flat 15 (stock/liberty was 10 +10 vs Light) — same vs Light, +50% vs everything else.*
 
 **Infestor**
-- Cost: 100 min / 150 gas — Supply 2 (base)
+- Cost: **50 min (MOD)** / 150 gas — Supply 2 *(stock 100/150)*
 - Build: **37.8s (MOD)**
 - Life 90 | Armor 0 | Speed 2.25 | Energy 75/200
 - Weapon — Acid Spores (ground only): 4 dmg ×1, period 1.754, range 6 → **DPS 2.3**
@@ -102,20 +102,20 @@ Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time ch
 
 **Vulture**
 - Cost: **100 min (MOD)** / 0 gas — Supply 2 *(campaign base is 75 min)*
-- Build: **21s (MOD)**
+- Build: **26s (MOD)**
 - Life 75 | Armor 1 | Speed 4.25 | Attributes: Light, Mechanical
 - Weapon — Vulture (ground): 10 dmg **(+10 vs Light — MOD; campaign base is +15)** ×1, period 1.694, range 6 → **DPS 5.9 (11.8 vs Light)**
 - *Has a native **KD8 Charge** — a thrown grenade (12 dmg, `KD8ChargeExplodeDamage` in mod `EffectData`; button on the card). **Not** a spider mine: the mod removes the mine — there are no traps anywhere in the mod.*
 
 **Hellion**
 - Cost: 100 min / 0 gas — Supply 2 (base)
-- Build: **21s (MOD)**
+- Build: **26s (MOD)**
 - Life 90 | Armor 0 | Speed 4.25 | Attributes: Light, Mechanical
 - Weapon — InfernalFlameThrower (ground, line splash): 8 dmg (+6 vs Light) ×1, period 2.5, range ~5 → **DPS 3.2 (5.6 vs Light)**
 
 **Stalker**
 - Cost: 125 min / 50 gas — Supply 2 (base)
-- Build: **25s (MOD)** *(Factory slot; the Barracks Stalker roll is 25.2s)*
+- Build: **21.6s (MOD)** *(Factory slot 1 only; +20% from 18)*
 - Life 80 | Shields 80 | Armor 1 | Speed 2.9531 | Attributes: Armored, Mechanical | has Blink
 - Weapon — ParticleDisruptors (ground + air): 13 dmg (+5 vs Armored) ×1, period 1.87, range 6 → **DPS 7.0 (9.6 vs Armored)**
 
@@ -123,13 +123,13 @@ Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time ch
 
 **Diamondback**
 - Cost: 150 min / 150 gas — Supply 4 (base)
-- Build: **38s (MOD)**
+- Build: **40s (MOD)**
 - Life 200 | Armor 1 | Speed 2.9531 | Attributes: Armored, Mechanical | fires while moving
 - Weapon — Diamondback (ground): 20 dmg (+20 vs Armored) ×1, period 2, range 6 → **DPS 10 (20 vs Armored)**
 
 **Immortal**
 - Cost: 250 min / 100 gas — Supply 4 (base)
-- Build: **72.8s (MOD)**
+- Build: **55s (MOD)** *(to stock)*
 - Life 200 | Shields 100 | Armor 1 | Speed 2.25 | Attributes: Armored, Mechanical | Barrier
 - Weapon — PhaseDisruptors (ground): 20 dmg ×1 (ArmorReduction 1), period 1.6, range 6 → **DPS 12.5**
 - *Note: catalog shows flat 20 with no +Armored bonus anywhere in the chain (live SC2 commonly cites 20 +30 vs Armored) — 20 is the data value.*
@@ -142,14 +142,14 @@ Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time ch
 - Weapon (**sieged** / combat form) — CrucioShockCannon (ground, splash): 40 dmg (+30 vs Armored) ×1, period 3, range 13 (min 2) → **DPS 13.3 (23.3 vs Armored)**
 
 **WarHound**
-- Cost: **175 min / 125 gas (MOD)** — Supply 3 *(base is 150/75)*
-- Build: **72.8s (MOD)**
+- Cost: **200 min / 75 gas (MOD)** — Supply 3 *(base is 150/75)*
+- Build: **52s (MOD)** *(was 72.8 — it built slower than a supply-6 Thor)*
 - Life 220 | Armor 1 | Speed 2.8125 | Attributes: Armored, Mechanical
 - Weapon — WarHound (ground missile): 23 dmg ×1 (ArmorReduction 1), period 1.3, range 7 → **DPS 17.7** (has Haywire anti-mech missile)
 
 **Archon**
 - Cost: **225 min / 150 gas (MOD)** — Supply 4 *(base is 175/275)*
-- Build: **70s (MOD)** *(Factory slot; the Barracks Archon roll is 45s)*
+- Build: **65s (MOD)** *(Factory slot 2 only)*
 - Life 10 | Shields 350 | Armor 0 | Speed 2.8125 | Attributes: Psionic, Massive
 - Weapon — PsionicShockwave (ground + air, splash): 25 dmg (+10 vs Biological) ×1, period 1.754, range 3 → **DPS 14.3 (20.0 vs Biological)**
 
@@ -160,7 +160,7 @@ Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time ch
 - Weapon — LurkerMP (ground, burrowed, line splash): 20 dmg (+10 vs Armored) ×1, period 2, range 8 → **DPS 10 (15 vs Armored)**
 
 **Goliath** *(air + ground)*
-- Cost: 150 min / 50 gas — Supply 2 (base)
+- Cost: 150 min / **75 gas (MOD)** — Supply 2 *(stock 150/50; gas raised for air+ground versatility)*
 - Build: **43s (MOD)**
 - Life 150 | Armor 1 | Speed 2.6875 | Attributes: Armored, Mechanical
 - Weapon — GoliathG (ground): 18 dmg ×1, period 1.5, range 6 → **DPS 12**
@@ -169,18 +169,18 @@ Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time ch
 ### Slot 3
 
 **ThorAP** *(air + ground; anti-air precision variant)*
-- Cost: 300 min / 200 gas — Supply 6 (base)
-- Build: **67.2s (MOD)**
+- Cost: 300 min / **150 gas (MOD)** — Supply 6 *(stock 300/200)*
+- Build: **60s (MOD)** *(to stock)*
 - Life 400 | Armor 1 | Speed 1.875 | Attributes: Armored, Mechanical, Massive
 - Weapon — ThorsHammer (ground): 30 dmg ×2, period 1.28, range 7 → **DPS 46.9**
 - Weapon — LanceMissileLaunchers (air, high-impact): 25 dmg (+10 vs Massive) ×1, period 1.28, range 11 → **DPS 19.5 (27.3 vs Massive)**
 
 **Ultralisk**
-- Cost: 275 min / 200 gas — Supply 6 (base)
+- Cost: **325 min (MOD)** / 200 gas — Supply 6 *(stock 275/200)*
 - Build: **67.2s (MOD)**
-- Life 500 | Armor 2 | Speed 2.9531 base → **3.375 (MOD: starts with AnabolicSynthesis)** | Attributes: Armored, Biological, Massive
+- Life 500 | Armor 2 | Speed **2.9531** (Anabolic Synthesis no longer free — now a rolled upgrade) | Attributes: Armored, Biological, Massive
 - Weapon — KaiserBlades (ground, melee cleave): 35 dmg ×1, period 1, range ~1 → **DPS 35**
-- *Note: mod grants AnabolicSynthesis at spawn (`Unit,Ultralisk,Speed +0.4219`, raising off-creep speed to the on-creep value); also has Frenzy.*
+- *Note: Anabolic Synthesis (Speed +0.4219 → ~3.375) is now a **rolled upgrade**, not granted at spawn; also has Frenzy.*
 
 **Colossus**
 - Cost: 300 min / 200 gas — Supply 6 (base)
@@ -232,13 +232,13 @@ Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time ch
 
 **Mutalisk**
 - Cost: 100 min / 100 gas — Supply 2 (base)
-- Build: **20s (MOD)**
+- Build: **28s (MOD)**
 - Life 120 | Armor 0 | Speed 3.75
 - Weapon — GlaiveWurm (air + ground, bounces 3×): 9 / 3 / 1 dmg, period 1.525, range 3 → **DPS ~5.9 single-target (~8.5 full bounce)**
 
 **DuskWing** *(Banshee-derived merc)*
 - Cost: **200 min / 150 gas (MOD)** — Supply 3 *(campaign base is 175/100)*
-- Build: **39.2s (MOD)**
+- Build: **48s (MOD)** *(was 39.2; a buffed Banshee shouldn't build faster than a stock one)*
 - Life 175 | Armor 0 | Speed 2.75
 - Weapon (ground) — DuskWingBanshee: 18 dmg ×2, period 1.25, range 6 → **DPS ~28.8**
 - Weapon (anti-air) — Hurricane Missile Pods (energy ability, Energy 75, range 7): **6 dmg (MOD) ×10 missiles = 60 flat vs air** *(campaign base was 4 +5 vs Light; mod flattens to 6 with Light bonus zeroed)*
@@ -252,7 +252,7 @@ Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time ch
 ### Slot 3
 
 **Raven**
-- Cost: 100 min / 150 gas — Supply 2 (base)
+- Cost: **75 min (MOD)** / 150 gas — Supply 2 *(stock 100/150)*
 - Build: **48s (base fallback — voidmulti value)**
 - Life 140 | Armor 1 | Speed 2.9492 (base voidmulti)
 - **No attack** (detector/caster: Auto-Turret, Seeker/Shredder/Scrambler missiles)
@@ -265,7 +265,7 @@ Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time ch
 - Weapon — TempestGround (ground only): 40 dmg ×1, period 3.3, range 10 → **DPS 12.1**
 
 **Viper**
-- Cost: 100 min / 200 gas — Supply 3 (base)
+- Cost: **75 min (MOD)** / 200 gas — Supply 3 *(stock 100/200)*
 - Build: **39.2s (MOD)**
 - Life 150 (base void) | Armor 1 | Speed 2.9531
 - **No attack** (spellcaster: Abduct, Blinding Cloud, Consume)
@@ -286,14 +286,20 @@ Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time ch
 - **Firebat** — gas → **50** (100 / 50), campaign base 100 / 25
 - **Queen** — gas → **50** and **supply 2 → 3** (175 / 50); minerals 175 is base
 - **Vulture** — minerals **75 → 100** (100 / 0)
-- **WarHound** — **150 / 75 → 175 / 125**
+- **Goliath** — gas **50 → 75** (150 / 75)
+- **WarHound** — **150 / 75 → 200 / 75**
 - **Archon** — **175 / 275 → 225 / 150**
 - **DuskWing** — **175 / 100 → 200 / 150**
 - **Wraith** — **150 / 150 → 100 / 100**
+- **Infestor** — minerals **100 → 50** (50 / 150)
+- **Raven** — minerals **100 → 75** (75 / 150)
+- **Viper** — minerals **100 → 75** (75 / 200)
+- **Thor** — gas **200 → 150** (300 / 150)
+- **Ultralisk** — minerals **275 → 325** (325 / 200)
 
 **Unit stats / behaviors (ForgeMod):**
 - **Queen** — Speed → **1.8984** (`UnitData.xml`)
-- **Ultralisk** — spawns with **AnabolicSynthesis** (speed 2.9531 → ~3.375), granted via upgrade/trigger init
+- **Ultralisk** — Anabolic Synthesis (speed 2.9531 → ~3.375) is now a **rolled upgrade**, no longer granted at spawn
 - **Colossus** — spawns with **Extended Thermal Lance** (weapon range 7 → 9), granted via trigger init
 - **Vulture** — spider mine removed; gains a native **KD8 Charge** thrown grenade (`AbilArray Link="KD8Charge"` + card button)
 
@@ -303,9 +309,9 @@ Snapshot **2026-07-16** — regenerate after unit cost/stat/weapon/build-time ch
 - **Vulture** native **KD8 Charge** thrown grenade (`KD8ChargeExplodeDamage` = 12) — replaces the removed spider mine (mod has no traps).
 
 **Build times (ForgeMod `AbilData.xml` train InfoArrays) — MOD unless noted:**
-- Barracks: Zergling 5.6, Zealot 21, Hydralisk 26, Marine 15, Queen 32, Firebat 21, Marauder 28, Sentry 21, Medic 26.6, Infestor 37.8, HighTemplar 42; **Ghost 40 = base fallback**
-- Factory: Vulture 21, Hellion 21, Stalker 25, Diamondback 38, Immortal 72.8, WarHound 72.8, Archon 70, LurkerMP 37.8, Goliath 43, ThorAP 67.2, Ultralisk 67.2, Colossus 67.2; **SiegeTank 45 = base fallback**
-- Starport: CorsairMP 30.8, Phoenix 30.8, Wraith 30.8, Liberator 49, Mutalisk 20, DuskWing 39.2, VoidRay 49, Tempest 58.8, Viper 39.2, Battlecruiser 70; **VikingFighter 42 & Raven 48 = base fallback**
+- Barracks: Zergling 6, Zealot 28, Hydralisk 35, Marine 20, Queen 32, Firebat 21, Marauder 28, Sentry 21, Medic 26.6, Infestor 37.8, HighTemplar 42; **Ghost 40 = base fallback**
+- Factory: Vulture 26, Hellion 26, Stalker 21.6, Diamondback 40, Immortal 55, WarHound 52, Archon 65, LurkerMP 37.8, Goliath 43, ThorAP 60, Ultralisk 67.2, Colossus 67.2; **SiegeTank 45 = base fallback**
+- Starport: CorsairMP 30.8, Phoenix 30.8, Wraith 30.8, Liberator 49, Mutalisk 28, DuskWing 48, VoidRay 49, Tempest 58.8, Viper 39.2, Battlecruiser 70; **VikingFighter 42 & Raven 48 = base fallback**
 
 ---
 
