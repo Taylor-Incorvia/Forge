@@ -222,6 +222,7 @@
     </CUnit>
     <CUnit id="Goliath">
         <Collide index="ForceField" value="1"/>
+        <CostResource index="Vespene" value="75"/>
     </CUnit>
     <CUnit id="Hatchery">
         <BehaviorArray index="0" Link="ZergBuildingDies9"/>
