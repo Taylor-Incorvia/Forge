@@ -17,7 +17,7 @@ Ravager was tried at **Factory slot 2** and felt weak vs the other factory-s2 op
 ## Part B — Corrosive Bile buff upgrade(s) (the fun part)
 Per-unit catalog upgrades gated `AnyOf Ravager` (families so caps count them as one). Prefer the **visible** ones:
 - **Bigger bile splash radius** — most visible (matches "obvious upgrades"); also slightly offsets how hard bile is to land. Top pick.
-- **Double bile damage** — keeps it hard to hit but devastating ("leave it hard to hit, just have it fuck shit up"). Strong second.
+- **Double bile damage** — keeps it hard to hit but devastating (leave it hard to hit, just have it wreck things). Strong second.
 - **Longer bile range** — least visible; skip unless the others aren't enough.
 - Catalog refs: the bile effect's `AreaArray[0].Radius` (splash), the damage effect `Amount` (damage), the launch/ability `Range`. Same `CUpgrade` mechanics as the other stat upgrades.
 

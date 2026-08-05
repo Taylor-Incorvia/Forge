@@ -21,7 +21,15 @@ Wildcard Arena is a deliberate bet *against* two RTS conventions — maximal pla
 
 ## Play it
 
-Search **"Wildcard Arena"** on the StarCraft II Arcade. Community, patch notes, and tournament info: **[wildcardarena.com](https://wildcardarena.com)** *(in progress)*.
+Wildcard Arena is a **melee mod**, so it lives under Custom games, not the Arcade:
+
+1. **Custom** → **Melee** (not Arcade)
+2. Select any melee map
+3. Click **Create with Mod**
+4. Search **Wildcard Arena** and select it
+5. **Create Game**
+
+Community, patch notes, and tournament info: **[wildcardarena.com](https://wildcardarena.com)** *(in progress)*.
 
 ## How it's built
 
