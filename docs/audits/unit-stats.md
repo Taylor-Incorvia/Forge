@@ -176,7 +176,7 @@ Snapshot **2026-08-04** — costs & build times refreshed to current (post build
 - Weapon — LanceMissileLaunchers (air, high-impact): 25 dmg (+10 vs Massive) ×1, period 1.28, range 11 → **DPS 19.5 (27.3 vs Massive)**
 
 **Ultralisk**
-- Cost: **325 min (MOD)** / 200 gas — Supply 6 *(stock 275/200)*
+- Cost: 275 min / 200 gas — Supply 6 (base) *(reverted to stock 2026-08-06 — the 325 was set when it started with free Anabolic + Chitinous, both now rolls)*
 - Build: **67.2s (MOD)**
 - Life 500 | Armor 2 | Speed **2.9531** (Anabolic Synthesis no longer free — now a rolled upgrade) | Attributes: Armored, Biological, Massive
 - Weapon — KaiserBlades (ground, melee cleave): 35 dmg ×1, period 1, range ~1 → **DPS 35**
@@ -295,8 +295,6 @@ Snapshot **2026-08-04** — costs & build times refreshed to current (post build
 - **Raven** — minerals **100 → 75** (75 / 150)
 - **Viper** — minerals **100 → 75** (75 / 200)
 - **Thor** — gas **200 → 150** (300 / 150)
-- **Ultralisk** — minerals **275 → 325** (325 / 200)
-
 **Unit stats / behaviors (ForgeMod):**
 - **Queen** — Speed → **1.8984** (`UnitData.xml`)
 - **Ultralisk** — Anabolic Synthesis (speed 2.9531 → ~3.375) is now a **rolled upgrade**, no longer granted at spawn
