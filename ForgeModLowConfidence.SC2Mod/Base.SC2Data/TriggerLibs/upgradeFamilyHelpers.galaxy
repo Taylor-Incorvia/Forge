@@ -51,4 +51,5 @@ void initializeUpgradeFamilies() {
     setUpgradeFamily("TempestRange", "Range");
     setUpgradeFamily("GoliathRange", "Range");
     setUpgradeFamily("PhoenixRangeUpgrade", "Range");
+    setUpgradeFamily("LurkerRange", "Range");
 }
