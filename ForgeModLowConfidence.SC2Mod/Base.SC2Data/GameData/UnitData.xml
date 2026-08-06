@@ -579,7 +579,7 @@
         <CostResource index="Vespene" value="150"/>
     </CUnit>
     <CUnit id="Ultralisk">
-        <CostResource index="Minerals" value="325"/>
+        <CostResource index="Minerals" value="275"/>
         <CardLayouts index="0">
             <LayoutButtons index="5" Face="Frenzied" Type="Passive" AbilCmd="" Behavior="Frenzy" Column="0"/>
             <LayoutButtons index="6" Face="EvolveAnabolicSynthesis2" Behavior="" Row="1" Column="1"/>
