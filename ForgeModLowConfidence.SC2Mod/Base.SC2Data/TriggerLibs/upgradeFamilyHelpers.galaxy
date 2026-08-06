@@ -52,4 +52,9 @@ void initializeUpgradeFamilies() {
     setUpgradeFamily("GoliathRange", "Range");
     setUpgradeFamily("PhoenixRangeUpgrade", "Range");
     setUpgradeFamily("LurkerRange", "Range");
+    // Cloak family: the three unit-specific cloak upgrades share one cap, so only ONE of a player's
+    // units can roll cloak in a game (WA-049 cap set to 1 for the "Cloak" family in upgradeCapHelpers).
+    setUpgradeFamily("PersonalCloaking", "Cloak");
+    setUpgradeFamily("WraithCloak", "Cloak");
+    setUpgradeFamily("BansheeCloak", "Cloak");
 }
