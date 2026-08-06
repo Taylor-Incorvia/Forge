@@ -1,6 +1,6 @@
 # Wildcard Arena
 
-**A StarCraft II arcade mod where you don't pick your army — you're dealt one, and you win by adapting to the hand.**
+**A StarCraft II melee mod where you don't pick your army — you're dealt one, and you win by adapting to the hand.**
 
 Every game, your production buildings roll **randomized units** into their build slots and your tech buildings roll **randomized upgrades** from tag-filtered pools. No standard build order, no matchup to memorize, no optimal opening to grind — just the faction you were dealt and the decisions you make with it.
 
