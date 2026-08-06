@@ -432,7 +432,7 @@ void grantInitialUpgrades(int player) {
     // grantUpgrade(player, "FirebatJuggernautPlating"); // if the firebats end up being bad, lets add this in. 
     grantUpgrade(player, "BearclawNozzles"); // this did make the firebats OP, so I had to increase the price on the firebat
 
-    //wraith -- I reduced the starting energy to 25. Hoping this won't be too annoying.
+    //wraith
     // grantUpgrade(player, "WraithCloak"); // WA-020: cloak is now a rollable upgrade, not a start-with
 
     //DuskWing - just a buffed banshee
