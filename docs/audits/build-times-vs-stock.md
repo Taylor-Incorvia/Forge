@@ -144,7 +144,7 @@ Because build times live on each facility's train ability, the **same unit build
 | Goliath | 150/50 | 43 (30.7) | 43 (30.7) | 32% | 15% | keep |
 | Thor | 300/150 | 67.2 (48.0) | **60 (42.9)** | 45% | 32% | → stock (your call) |
 | Colossus | 300/200 | 67.2 (48.0) | 67.2 (48.0) | 41% | 38% | keep — already 90% |
-| Ultralisk | 325/200 | 67.2 (48.0) | 67.2 (48.0) | 44% | 38% | keep — or 55 to match Thor/Immortal |
+| Ultralisk | 275/200 | 67.2 (48.0) | 67.2 (48.0) | 37% | 38% | keep — or 55 to match Thor/Immortal |
 
 ### Starport
 | Unit | Cost (m/g) | Current | Suggested | %Min | %Gas | Why |
@@ -223,7 +223,7 @@ A rough, transparent heuristic for *"how strong are this unit's raw combat stats
 | Goliath | Goliath (air) | Y | – | – | 16.9 | 5.7 | 0.038 | 0.114 |
 | Thor | Hammer (grd) | – | Y | – | 197.0 | 19.9 | 0.066 | 0.099 |
 | Thor | Lance (air) | Y | – | – | 81.9 | 15.9 | 0.053 | 0.080 |
-| Ultralisk | Kaiser Blades | – | Y | Y | 192.5 | 12.9 | 0.040 | 0.064 |
+| Ultralisk | Kaiser Blades | – | Y | Y | 192.5 | 12.9 | 0.047 | 0.064 |
 | Colossus | Thermal Lance | – | Y | Y | 48.9 | 11.8 | 0.039 | 0.059 |
 
 ### Starport
