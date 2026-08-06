@@ -210,7 +210,7 @@ Snapshot **2026-08-04** — costs & build times refreshed to current (post build
 **Wraith**
 - Cost: **100 min / 100 gas (MOD)** — Supply 2 *(campaign base is 150/150)*
 - Build: **30.8s (MOD)**
-- Life 140 | Armor 0 | Speed 3.75 | permanent cloak, Energy 50/200
+- Life 140 | Armor 0 | Speed 3.75 | Energy 50/200 — *no longer starts cloaked; cloak is now a rolled upgrade (WraithCloak, WA-020)*
 - Weapon (air) — WraithA: 5 dmg (+5 vs Armored) ×2, period 1.25, range on launch effect → **DPS 8 (16 vs Armored)**
 - Weapon (ground) — WraithG: 8 dmg ×1, period 1.694, range on launch effect → **DPS 4.7**
 
