@@ -121,3 +121,70 @@ void onProductionStructureRemoved(unit u) {
         TextTagDestroy(tag);
     }
 }
+
+// ============================================================================
+// WA-074 -- vision-gate the tags (fog-of-war leak fix)
+// ----------------------------------------------------------------------------
+// TextTagCreate's useFogofWar flag only tests whether the spot has been EXPLORED,
+// not whether the viewer currently has vision -- so a tag leaks over a structure
+// whose ground the viewer scouted earlier but never actually saw the building on
+// (e.g. it was built after the scout left). We gate it ourselves: every tick, for
+// each scoutable building, show its tag to an enemy player ONLY while that player
+// currently has active vision of the building's position (VisIsVisibleForPlayer).
+// That matches the "you only see it while you have vision" promise.
+//
+// Additive: onProductionStructureCreated/Removed are unchanged, so if the timer
+// trigger below isn't wired the feature just degrades to the old behavior.
+//
+// Wiring (one NEW editor trigger): Event = Timer - Every 0.5 seconds of Game Time;
+// Action = Custom Script -> updateScoutTagVisibility();
+// ============================================================================
+
+// Gate every building of one unit type: for each owner, show/hide its tag per
+// enemy viewer based on that viewer's CURRENT vision of the building.
+void gateScoutTagForType(string unitType) {
+    int owner;
+    unitgroup g;
+    int gCount;
+    int gi;
+    unit u;
+    int tag;
+    playergroup enemies;
+    int pCount;
+    int pi;
+    int viewer;
+
+    for (owner = 1; owner <= 15; owner += 1) {
+        g = UnitGroup(unitType, owner, null, null, c_noMaxCount);
+        gCount = UnitGroupCount(g, c_unitCountAlive);
+        if (gCount > 0) {
+            enemies = PlayerGroupAlliance(c_playerGroupEnemy, owner);
+            pCount = PlayerGroupCount(enemies);
+            for (gi = 1; gi <= gCount; gi += 1) {
+                u = UnitGroupUnit(g, gi);
+                tag = FixedToInt(UnitGetCustomValue(u, scoutTagCustomIndex));
+                if (tag != 0) {
+                    // Per-player: different enemies have different vision, so each
+                    // viewer needs its own show/hide (can't pass the group + one bool).
+                    for (pi = 1; pi <= pCount; pi += 1) {
+                        viewer = PlayerGroupPlayer(enemies, pi);
+                        TextTagShow(tag, PlayerGroupSingle(viewer), VisIsVisibleForPlayer(viewer, UnitGetPosition(u)));
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Call every ~0.5s from an editor timer trigger (see wiring note above).
+void updateScoutTagVisibility() {
+    gateScoutTagForType("Barracks");
+    gateScoutTagForType("BarracksFlying");
+    gateScoutTagForType("Factory");
+    gateScoutTagForType("FactoryFlying");
+    gateScoutTagForType("Starport");
+    gateScoutTagForType("StarportFlying");
+    gateScoutTagForType("GhostAcademy");
+    gateScoutTagForType("Armory");
+    gateScoutTagForType("FusionCore");
+}
