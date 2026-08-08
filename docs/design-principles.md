@@ -45,3 +45,12 @@ Both are needed to force thinking at both layers.
 
 ## Corollary: noticeable upgrades over invisible ones
 Generic +1/+1 attack/armor upgrades add little strategic depth — you rarely *know* you're losing to an upgrade disadvantage until you watch the replay. Wildcard Arena drops them for **visible, decision-driving** rolled upgrades (Blink, blue flame, range, transform speed…). An upgrade should change **how a unit micros or what it's good against** — something a player can see and react to. This also feeds the north star: a situational upgrade rewards reading the game.
+
+---
+
+## Economic clarity: what you see is what they've got
+You should be able to look at an opponent's base and *know* their economy — no mystery income. This is the economic face of the north star (read what's in front of you), and it's why **MULEs are removed.** MULE income is a burst of minerals that appears from nowhere — the economic version of a hidden roll ("where the hell did they get all that?") — and it lets a player spike income without a readable investment. Both cut against reading the game.
+
+The Orbital keeps its "speed up my economy" job but does it **transparently**: it grants **Chrono Boost** instead of MULEs. Chrono is visible (the glow on a building) and accelerates *what the opponent is already, visibly producing* — so you read the boost off their base instead of being surprised by a mineral pile.
+
+**Expect pushback; hold the line.** Players see a Command Center / Orbital and reach for the MULE out of muscle memory, and some are disappointed it's gone. That's an *expectation gap, not a design flaw* — the same comfort-food reflex as wanting a rehearsed build order, and the same crowd this mod already trades away to win the react-and-read crowd. Decision made (raised by players 2026-08; reasoning held): **no MULEs.** If the confusion is worth pre-empting, do it via the how-to / website ("no MULEs — the Orbital gives Chrono Boost; economy here is transparent by design"), **not** the character-limited in-game description.
