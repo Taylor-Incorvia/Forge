@@ -41,7 +41,7 @@ Snapshot **2026-08-04** — costs & build times refreshed to current (post build
 **Queen**
 - Cost: 175 min (base) / **50 gas (MOD)** — **Supply 3 (MOD)** *(stock Queen is 150/0, supply 2)*
 - Build: **32s (MOD)**
-- Life 175 | Armor 1 | Speed **1.8984 (MOD)** (base chain 1.5; needs creep for full speed)
+- Life 175 | Armor 1 | Speed **2.25 (MOD)** (matches the Hydralisk; set to a flat value since the mod has no creep — stock is 0.9375 off-creep / 2.5 on-creep)
 - Weapon — Talons (ground): 4 dmg ×2, period 1, range ~5 → **DPS 8**
 - Weapon — AcidSpines (air): 9 dmg ×1, period 1, range 7 → **DPS 9**
 - *Note: catalog Period is 1 here (external refs often cite 0.71).*
