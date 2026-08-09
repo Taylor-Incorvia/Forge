@@ -1,0 +1,29 @@
+include "TriggerLibs/NativeLib"
+
+// =====================================
+// UNIT GROUP HELPERS
+// =====================================
+// Convenience wrappers so callers can keep a unitgroup global UNINITIALIZED (null) and have it
+// created lazily on first use -- no separate init function, no bool "ready" flag.
+//
+// IMPORTANT: Galaxy passes the group handle by value, so a null group can't be initialized in place.
+// unitGroupAddOrCreate therefore RETURNS the (possibly newly created) group and the caller MUST
+// reassign the result back:
+//     myGroup = unitGroupAddOrCreate(myGroup, someUnit);
+// Removal never needs to create anything, so unitGroupRemoveSafe mutates in place and returns nothing.
+
+// Add unitToAdd to group, creating an empty group first if group is null. Returns the group to assign back.
+unitgroup unitGroupAddOrCreate(unitgroup group, unit unitToAdd) {
+    if (group == null) {
+        group = UnitGroupEmpty();
+    }
+    UnitGroupAdd(group, unitToAdd);
+    return group;
+}
+
+// Remove unitToRemove from group if the group exists; a null group has nothing to remove.
+void unitGroupRemoveSafe(unitgroup group, unit unitToRemove) {
+    if (group != null) {
+        UnitGroupRemove(group, unitToRemove);
+    }
+}

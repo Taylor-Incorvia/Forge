@@ -1,6 +1,7 @@
 include "TriggerLibs/NativeLib"
 include "TriggerLibs/forgeProductionFacilityHeplers"
 include "TriggerLibs/factionIcons"
+include "TriggerLibs/unitGroupHelpers"
 
 // ============================================================================
 // Scout enemy rolls — floating icons above facilities (WA-070)
@@ -27,6 +28,11 @@ include "TriggerLibs/factionIcons"
 int scoutTagCustomIndex = 7;   // unit custom-value slot holding the tag id (all slots were free)
 int scoutIconSize = 48;        // px size of each floating icon (tweak to taste)
 int scoutFontSize = 24;        // text-tag font size (scales the tag overall)
+
+// WA-074: every building that currently has a scout tag. Maintained on create/remove so the poll
+// iterates only these -- never a full-map search. Stays null until the first building is created;
+// unitGroupAddOrCreate makes the empty group on demand (see unitGroupHelpers).
+unitgroup buildingsWithScoutTags;
 
 // <img> markup for a production facility's rolled UNITS (owner's roll), one per slot.
 string scoutUnitMarkup(string facility, int slotCount, int owner) {
@@ -84,40 +90,92 @@ string scoutMarkupFor(string unitType, int owner) {
 
 // Add to your existing "Unit Created" trigger, passing the created unit:
 //   onProductionStructureCreated(EventUnitCreatedUnit());
-void onProductionStructureCreated(unit u) {
+void onProductionStructureCreated(unit building) {
     string unitType;
-    int owner;
-    int tag;
+    int owningPlayer;
+    int tagId;
 
-    unitType = UnitGetType(u);
+    unitType = UnitGetType(building);
     if (!scoutIsScoutableBuilding(unitType)) {
         return;
     }
-    owner = UnitGetOwner(u);
+    owningPlayer = UnitGetOwner(building);
 
     // Shown to the owner's ENEMIES only, fog-gated -- each opponent sees it only while it has vision.
-    tag = TextTagCreate(
-        StringToText(scoutMarkupFor(unitType, owner)),
+    tagId = TextTagCreate(
+        StringToText(scoutMarkupFor(unitType, owningPlayer)),
         scoutFontSize,
-        UnitGetPosition(u),
+        UnitGetPosition(building),
         2.0,
         true,
         true,
-        PlayerGroupAlliance(c_playerGroupEnemy, owner));
-    TextTagAttachToUnit(tag, u, 2.0);
-    UnitSetCustomValue(u, scoutTagCustomIndex, IntToFixed(tag));
+        PlayerGroupAlliance(c_playerGroupEnemy, owningPlayer));
+    TextTagAttachToUnit(tagId, building, 2.0);
+    UnitSetCustomValue(building, scoutTagCustomIndex, IntToFixed(tagId));
+
+    buildingsWithScoutTags = unitGroupAddOrCreate(buildingsWithScoutTags, building);   // WA-074
 }
 
 // Add to a "Unit Died" trigger (Any Unit), passing the dying unit:
 //   onProductionStructureRemoved(EventUnit());
-void onProductionStructureRemoved(unit u) {
-    int tag;
+void onProductionStructureRemoved(unit building) {
+    int tagId;
 
-    if (!scoutIsScoutableBuilding(UnitGetType(u))) {
+    if (!scoutIsScoutableBuilding(UnitGetType(building))) {
         return;
     }
-    tag = FixedToInt(UnitGetCustomValue(u, scoutTagCustomIndex));
-    if (tag != 0) {
-        TextTagDestroy(tag);
+    tagId = FixedToInt(UnitGetCustomValue(building, scoutTagCustomIndex));
+    if (tagId != 0) {
+        TextTagDestroy(tagId);
+    }
+
+    unitGroupRemoveSafe(buildingsWithScoutTags, building);   // WA-074: keep the maintained set accurate
+}
+
+// ============================================================================
+// WA-074 -- vision-gate the tags (fog-of-war leak fix, poll version)
+// ----------------------------------------------------------------------------
+// The bug: TextTagCreate's fog flag tests whether the ground has been EXPLORED,
+// not whether the viewer currently has vision -- so a tag leaked over a building
+// whose ground the viewer scouted earlier but never actually saw.
+//
+// This branch gates the tags ourselves: show each tagged building's tag to an
+// enemy player only while that player CURRENTLY has active vision of the building
+// (VisIsVisibleForPlayer). It iterates ONLY buildingsWithScoutTags -- the set we
+// maintain on create/remove -- so the cost is O(tagged buildings x enemies), a
+// handful, with no full-map searches.
+//
+// Wiring (one editor trigger): Event = Timer - Every 0.5 seconds of Game Time;
+// Action = Custom Script -> updateScoutTagVisibility();
+// ============================================================================
+void updateScoutTagVisibility() {
+    int taggedBuildingCount;
+    int taggedBuildingIndex;
+    unit building;
+    int owningPlayer;
+    int tagId;
+    playergroup enemyPlayers;
+    int enemyPlayerCount;
+    int enemyPlayerIndex;
+    int viewingPlayer;
+
+    if (buildingsWithScoutTags == null) {
+        return;   // no buildings tagged yet
+    }
+    taggedBuildingCount = UnitGroupCount(buildingsWithScoutTags, c_unitCountAlive);
+    for (taggedBuildingIndex = 1; taggedBuildingIndex <= taggedBuildingCount; taggedBuildingIndex += 1) {
+        building = UnitGroupUnit(buildingsWithScoutTags, taggedBuildingIndex);
+        tagId = FixedToInt(UnitGetCustomValue(building, scoutTagCustomIndex));
+        if (tagId != 0) {
+            owningPlayer = UnitGetOwner(building);
+            enemyPlayers = PlayerGroupAlliance(c_playerGroupEnemy, owningPlayer);
+            enemyPlayerCount = PlayerGroupCount(enemyPlayers);
+            // Per-player: different enemies have different vision, so each viewer
+            // needs its own show/hide (can't pass the group + one bool).
+            for (enemyPlayerIndex = 1; enemyPlayerIndex <= enemyPlayerCount; enemyPlayerIndex += 1) {
+                viewingPlayer = PlayerGroupPlayer(enemyPlayers, enemyPlayerIndex);
+                TextTagShow(tagId, PlayerGroupSingle(viewingPlayer), VisIsVisibleForPlayer(viewingPlayer, UnitGetPosition(building)));
+            }
+        }
     }
 }

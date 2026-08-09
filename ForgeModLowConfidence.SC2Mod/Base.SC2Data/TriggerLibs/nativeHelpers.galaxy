@@ -42,3 +42,38 @@ void showMessageToPlayer(int player, string message){
         StringToText(message)
     );
 }
+
+// ============================================================================
+// WA-074 test harness (devMode only)
+// ----------------------------------------------------------------------------
+// To verify the scout-tag vision gate you need to fly a unit in and out of an
+// enemy's base without dying. A truly passive AI won't work: the tags only show
+// to ENEMIES of the building's owner, so if the AI stops treating you as an enemy
+// the tags vanish. Instead we keep the enemy relationship intact and just remove
+// the lethality -- make the tester's own units invulnerable. Real enemy AI, real
+// buildings, real tags; you simply can't be killed while you scout.
+//
+// Wiring: add scoutTestMakeSafe(); to a "Every 0.5 seconds" timer trigger.
+// Reapplied each tick so newly built units stay invulnerable too. No-ops unless
+// devMode = true. Assumes the tester is player 1.
+// ============================================================================
+void scoutTestMakeSafe() {
+    int testerPlayer;
+    unitgroup testerUnits;
+    int testerUnitCount;
+    int testerUnitIndex;
+    unit testerUnit;
+
+    if (!devMode) {
+        return;
+    }
+
+    testerPlayer = 1;
+    // c_unitAllianceAlly includes the player's own units (a player allies itself).
+    testerUnits = UnitGroupAlliance(testerPlayer, c_unitAllianceAlly, RegionEntireMap(), null, c_noMaxCount);
+    testerUnitCount = UnitGroupCount(testerUnits, c_unitCountAlive);
+    for (testerUnitIndex = 1; testerUnitIndex <= testerUnitCount; testerUnitIndex += 1) {
+        testerUnit = UnitGroupUnit(testerUnits, testerUnitIndex);
+        UnitSetState(testerUnit, c_unitStateInvulnerable, true);
+    }
+}
