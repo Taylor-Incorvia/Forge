@@ -5,28 +5,33 @@ size: S
 phase: 1-game-readiness
 priority: 55
 ---
-# Look into a custom mod icon (currently a missile turret)
+# Use a custom mod icon (currently a stock icon picked from the list)
 
 ## Why
-In the client, the icon shown above the mod's description is a **missile turret** — a stock placeholder, not chosen. For Season 1 presentation / branding (this is the first thing a player sees next to "Wildcard Arena"), a **custom icon** would look far more legit. Cosmetic, not a blocker, but cheap polish with outsized first-impression value.
+The icon shown above the mod's description is a **missile turret** — deliberately chosen from the editor's built-in icon list, not a placeholder, but a stock game icon. For Season 1 presentation / branding (it's the first thing a player sees next to "Wildcard Arena"), we want a **custom** image instead. The blocker is purely "how do you supply your own icon rather than pick a stock one." Cosmetic, not a launch blocker, but cheap polish with outsized first-impression value.
 
 ## What we know
-- The mod has **no custom image assets checked in** — `find` for `.dds/.tga/.png` under `ForgeModLowConfidence.SC2Mod/` returns nothing. So there is no custom icon today; the turret is a default.
-- Mod metadata (Name, DescLong, HowToPlay, Website) lives in `DocumentHeader` / `DocumentInfo`. The icon/preview is most likely **publish-time metadata set in the editor**, not a normal repo asset — confirm whether it's stored in the document or only in the Battle.net publish record.
+- The turret was **selected from a long list of built-in icons** in the editor (likely the standard button-icon set). Those stock icons are almost certainly `.dds` files that ship with the base game.
+- Because it's a **stock** asset, nothing is imported into the mod — a `find` for `.dds/.tga/.png` under `ForgeModLowConfidence.SC2Mod/` returns nothing. A *custom* icon would be the first imported image asset.
+- The selection persisted across sessions, so the icon reference is stored in the document (`DocumentInfo` / `DocumentHeader`) — meaning once we point it at a custom asset, it should be version-controllable in the repo.
 
-## To investigate
-1. **Where the turret comes from** — is it a true default (no preview set), or is something referencing a stock turret icon? Open the editor's publishing / map (document) info and check the Preview Image / Icon field.
-2. **How to set a custom one** — most likely: Editor → File → Publish (or Document Info) → set a custom **Preview Image / Arcade Icon**. Determine:
-   - Required **format** (`.dds`/`.tga`?) and **dimensions** (arcade preview/icon has specific specs — verify; don't guess).
-   - Whether the image must be **imported into the mod** (Import module) and referenced, or uploaded separately at publish time.
-   - Whether the setting is captured in the repo (so it survives / is version-controlled) or lives only in the publish dialog.
-3. **Icon vs preview** — clarify if "above the description" is the same asset as the arcade/library thumbnail, or two separate images that both may need setting.
+## The actual question
+How to make the icon field point at **our own image** instead of a stock list entry. Most likely path:
+1. Create the icon image and export as **`.dds`** (match whatever format/dimensions the stock icons use — verify, don't guess; the button-icon set is small, e.g. ~76x76, but the "icon above the description" may be a larger preview — confirm which field the turret actually is).
+2. **Import** the `.dds` into the mod via the editor's **Import module** (this is what adds a custom asset to `ForgeModLowConfidence.SC2Mod`).
+3. In the same publish / Document Info dialog where the turret was picked, point the icon field at the **imported** asset instead of a stock one (confirm the field lets you browse to imported assets, vs. only offering the stock list — this is the crux unknown).
+
+## To confirm
+- **Which field / dialog** the icon lives in (the one where the turret was selected) and whether it accepts a custom/imported path or only the stock list.
+- **Format + exact dimensions** required (verify against a stock icon's specs; `.dds` compression type — DXT1/DXT5 — matters for transparency).
+- **Icon vs. preview** — is "above the description" the same asset as the arcade/library thumbnail, or two separate images?
+- Whether the final reference is captured in `DocumentInfo` (committable) or only in the Battle.net publish record (must be re-set on publish).
 
 ## Deliverable
-- A custom icon image (source + exported format), imported/set so the turret is gone.
-- Note the exact steps + specs in this ticket (or `docs/`) so it's repeatable.
-- If the setting can be committed to the repo, do so; if it's publish-only metadata, document that it must be re-set on publish.
+- A custom `.dds` icon imported into the mod and set as the icon (turret gone).
+- The exact steps + specs written down (here or in `docs/`) so it's repeatable.
+- Commit the imported asset + any `DocumentInfo` change if they live in the repo.
 
 ## Notes
-- Art: a simple "Forge"/anvil-or-ember mark fits the project's identity (Ember, the Forge). Doesn't need to be fancy for S1 — anything intentional beats the turret.
-- Related: WA-006 (mod description), and the branding surfaces the website agent owns.
+- Art: a simple "Forge"/anvil-or-ember mark fits the project identity (Ember, the Forge). Doesn't need to be fancy for S1 — anything custom beats a stock turret. ffmpeg is available if a source image needs conversion, though `.dds` export may need an image tool / editor plugin.
+- Related: WA-006 (mod description) and the branding surfaces the website agent owns.
