@@ -74,3 +74,6 @@ Button/Hotkey/WarHound=S
 Button/Hotkey/YamatoGun2=G
 Button/Hotkey/Yoink=G
 G=G
+UI/Cancel_Hotkey=Escape
+UI/Cancel_Hotkey_USD=Escape
+UI/Cancel_Hotkey_USDL=Escape
