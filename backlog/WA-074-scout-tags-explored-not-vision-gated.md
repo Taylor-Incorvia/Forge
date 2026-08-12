@@ -1,14 +1,22 @@
 ---
 id: WA-074
-status: todo
+status: done
 size: M
 phase: 1-game-readiness
 priority: 5
-blocks: season-1-launch
 ---
 # Scout roll-icons are explored-gated, not vision-gated (fog leak)
 
-## 🚫 Season 1 launch blocker
+## ✅ RESOLVED (2026-08-11)
+Fixed with the "ideal" zero-poll approach: **`TextTagSetFogVisibility(tagId, c_visTypeFog)`**
+at tag creation (`scoutTags.galaxy`), which re-gates each tag on the fog (grey) layer so it
+requires **current** vision instead of merely-explored ground. Confirmed in-game: icons show
+**only while you have active vision** of the enemy structure and **disappear when you leave** —
+no polling, no timer trigger. The fallback (maintained group + 0.5s poll) was not needed.
+Merged in PR #38; the fallback PR #39 was closed. The devMode/AI test harness was stripped
+before merge.
+
+## 🚫 Season 1 launch blocker (original)
 The scout-roll feature (WA-070) is a headline 3.0 selling point, and it currently
 does something **weaker and jankier than advertised**. The 3.0 patch note promises
 *"Fog-gated — you only see it while you have vision, so send a scout."* The code
