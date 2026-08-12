@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton id="Cancel">
+        <Hotkey value="Escape"/>
+    </CButton>
+    <CButton id="CancelSlot">
+        <Hotkey value="Escape"/>
+    </CButton>
+    <CButton id="CancelBuilding">
+        <Hotkey value="Escape"/>
+    </CButton>
     <CButton id="Arbiter">
         <HotkeyAlias value="Raven"/>
     </CButton>
