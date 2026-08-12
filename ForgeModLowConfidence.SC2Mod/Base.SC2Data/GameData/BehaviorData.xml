@@ -64,7 +64,4 @@
             <VitalRegenArray index="Energy" value="0.140625"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="NeuralParasiteEffect">
-        <Duration value="15"/>
-    </CBehaviorBuff>
 </Catalog>
