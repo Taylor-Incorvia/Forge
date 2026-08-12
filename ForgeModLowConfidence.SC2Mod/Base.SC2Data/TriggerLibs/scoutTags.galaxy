@@ -84,40 +84,46 @@ string scoutMarkupFor(string unitType, int owner) {
 
 // Add to your existing "Unit Created" trigger, passing the created unit:
 //   onProductionStructureCreated(EventUnitCreatedUnit());
-void onProductionStructureCreated(unit u) {
+void onProductionStructureCreated(unit building) {
     string unitType;
-    int owner;
-    int tag;
+    int owningPlayer;
+    int tagId;
 
-    unitType = UnitGetType(u);
+    unitType = UnitGetType(building);
     if (!scoutIsScoutableBuilding(unitType)) {
         return;
     }
-    owner = UnitGetOwner(u);
+    owningPlayer = UnitGetOwner(building);
 
     // Shown to the owner's ENEMIES only, fog-gated -- each opponent sees it only while it has vision.
-    tag = TextTagCreate(
-        StringToText(scoutMarkupFor(unitType, owner)),
+    tagId = TextTagCreate(
+        StringToText(scoutMarkupFor(unitType, owningPlayer)),
         scoutFontSize,
-        UnitGetPosition(u),
+        UnitGetPosition(building),
         2.0,
         true,
         true,
-        PlayerGroupAlliance(c_playerGroupEnemy, owner));
-    TextTagAttachToUnit(tag, u, 2.0);
-    UnitSetCustomValue(u, scoutTagCustomIndex, IntToFixed(tag));
+        PlayerGroupAlliance(c_playerGroupEnemy, owningPlayer));
+    TextTagAttachToUnit(tagId, building, 2.0);
+    UnitSetCustomValue(building, scoutTagCustomIndex, IntToFixed(tagId));
+
+    // WA-074 fix: TextTagCreate's fog flag only checks whether the ground has been EXPLORED, not
+    // whether the viewer currently has vision -- so tags leaked over buildings the viewer scouted
+    // the ground near but never saw. Re-gate the tag on the FOG (grey) layer so it requires CURRENT
+    // vision. Done once here at creation: no polling, the engine does the vision check itself.
+    TextTagSetFogVisibility(tagId, c_visTypeFog);
 }
 
 // Add to a "Unit Died" trigger (Any Unit), passing the dying unit:
 //   onProductionStructureRemoved(EventUnit());
-void onProductionStructureRemoved(unit u) {
-    int tag;
+void onProductionStructureRemoved(unit building) {
+    int tagId;
 
-    if (!scoutIsScoutableBuilding(UnitGetType(u))) {
+    if (!scoutIsScoutableBuilding(UnitGetType(building))) {
         return;
     }
-    tag = FixedToInt(UnitGetCustomValue(u, scoutTagCustomIndex));
-    if (tag != 0) {
-        TextTagDestroy(tag);
+    tagId = FixedToInt(UnitGetCustomValue(building, scoutTagCustomIndex));
+    if (tagId != 0) {
+        TextTagDestroy(tagId);
     }
 }
