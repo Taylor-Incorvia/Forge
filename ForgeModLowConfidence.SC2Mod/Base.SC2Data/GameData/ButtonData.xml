@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton id="MorphOrbitalToPlanetary">
+        <Icon value="Assets\Textures\btn-building-terran-planetaryfortress.dds"/>
+        <Hotkey value="P"/>
+    </CButton>
     <CButton id="Arbiter">
         <HotkeyAlias value="Raven"/>
     </CButton>

@@ -512,3 +512,5 @@ Weapon/Name/WarHound=F_Railgun
 Weapon/Name/WarHoundMelee=F_War Hound Melee
 Weapon/Name/WraithA=F_Gemini Missiles
 Weapon/Name/WraithG=F_Burst Lasers
+Button/Name/MorphOrbitalToPlanetary=Upgrade to Planetary Fortress
+Button/Tooltip/MorphOrbitalToPlanetary=Morphs this Orbital Command into a Planetary Fortress: a heavily armored base defense with an anti-ground cannon. Expensive and cannot lift off. The deliberate answer to drops.
