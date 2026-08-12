@@ -1,11 +1,14 @@
 ---
 id: WA-061
-status: in-progress
+status: done
 size: M
 phase: 1-game-readiness
 priority: 40
 ---
 # Orbital Command → Planetary Fortress upgrade — a self-limiting anti-drop static defense
+
+## ✅ RESOLVED (PR #22, merged 2026-08-12)
+Shipped: `MorphOrbitalToPlanetary` ability + Orbital command-card button (hotkey **P**, Row 1 / Col 0), Planetary Fortress at **750 minerals**. Hotkey P verified free mod-wide and the card slot verified clean (no shadowed buttons) before merge.
 
 ## STATUS (2026-07-27) — implemented on a branch, UNMERGED, blocked on prod verification
 Full data implementation is done on branch **`wa-061-planetary-fortress`** / **PR #22** (not merged). Do NOT assume it works — the morph itself has never been verified in-game.
