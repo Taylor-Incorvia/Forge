@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CActorModel id="NeuralParasiteTentacle">
+        <On Terms="Abil.F_NeuralParasite.SourceFinishStop" Send="Destroy"/>
+    </CActorModel>
     <CActorModel id="BlinkOriginModel2" parent="ModelAnimationStyleOneShot">
         <InheritType value="OneShot"/>
         <Inherits index="BaseModelScale" value="1"/>
