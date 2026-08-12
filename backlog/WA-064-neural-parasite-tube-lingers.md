@@ -1,11 +1,19 @@
 ---
 id: WA-064
-status: todo
+status: done
 size: S
 phase: 1-game-readiness
 priority: 25
 ---
 # Neural Parasite tube lingers after the effect ends (visual only)
+
+## ✅ RESOLVED (PR #35, merged)
+Fixed. Correction to the guess below: the tube is **`NeuralParasiteTentacle`** (model `Infestor_Ex3_Tentacle`), confirmed in-editor — NOT `NeuralParasiteEffect` (that's the Infestor's head-glow, and voidmulti never applies that behavior, so the first attempt's `Duration` was inert dead code). `NeuralParasiteTentacle` has **no lifecycle terms of its own**; LotV gates its cleanup to a **burrowed Infestor casting the stock `NeuralParasite`** (`Abil.NeuralParasite.SourceFinishStop → Destroy`, on a host actor). A Viper casting the mod's copy `F_NeuralParasite`, non-burrowed, matches neither condition → the tentacle is created but never told to die → lingers.
+
+**Fix:** a mod `ActorData` override adds `<On Terms="Abil.F_NeuralParasite.SourceFinishStop" Send="Destroy"/>` to `NeuralParasiteTentacle` — the F_ mirror of the Infestor's cleanup. Confirmed in-game: the tube clears when the channel ends, and a second cast recreates + cleans up correctly.
+
+### Edge case noted (not investigated — super rare, low priority)
+Neural Parasite'd an enemy SCV, then used the SCV to build a structure; on the structure's **completion the neural parasite control ended**. Unclear whether this generalizes to other channeled abilities or ever happens in a standard ladder game (parasiting a worker and building with it basically never comes up). Not caused by this fix (visual-only) — a separate control-mechanics quirk. Parked here in case it recurs.
 
 ## Symptom
 When a unit that **rolled** Neural Parasite (a Viper, in testing) casts it, the little tube/beam that attaches caster→target **does not disappear** when the parasite wears off. Purely cosmetic — no gameplay impact — but it looks 10/10 weird (dangling tube with nothing happening).
