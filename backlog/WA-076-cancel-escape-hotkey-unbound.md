@@ -7,6 +7,9 @@ priority: 25
 ---
 # Cancel command ships UNBOUND on the Standard hotkey profile (Escape doesn't cancel)
 
+## Status: root cause confirmed; real fix is WA-078
+Confirmed root cause: the **Liberty (Campaign) dependency** forces a campaign hotkey context that leaves Cancel unbound on Standard — proven, since data-layer overrides (GameHotkeys `UI/Cancel_Hotkey` + `Button/Hotkey/Cancel`, and ButtonData `<Hotkey>`) all loaded in-game and still couldn't bind it. Can't remove the dep while ~7 units reference it. **The real fix is [[WA-078]]** (extract those units into our own data, then drop the dependency → Cancel binds to Escape natively). Until then, the per-player workaround below stands. Abandoned data-only attempt: branch `wa-076-cancel-escape-hotkey` / PR #40 (loads but can't win against the campaign context).
+
 ## Symptom (confirmed by Taylor, in-game)
 Open the mod for the first time on **Standard hotkeys** and the **Cancel** command is bound to **nothing** (shows red / "no hotkey" in Options → Hotkeys). Consequences: you can't cancel an SCV's building, a production order, or e.g. a Void Ray's Prismatic Alignment with a key — the *only* way to cancel is clicking the command-card / UI button.
 
