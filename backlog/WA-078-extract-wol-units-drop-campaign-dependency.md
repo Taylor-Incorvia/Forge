@@ -1,11 +1,27 @@
 ---
 id: WA-078
-status: todo
+status: in-progress
 size: L
 phase: 1-game-readiness
 priority: 40
 ---
 # Extract WoL-dependent units into our own data, drop the Liberty (Campaign) dependency
+
+## ✅ SPIKE VALIDATED (Goliath, 2026-08-12) — recipe proven
+The Goliath was extracted (simplified — no multi-lock, see WA-079) and **renders + fights on VoidMulti alone, no campaign dependency**, in a throwaway staging mod. This confirms the core unknown: **asset files (`.m3`, textures) resolve from the game's shared CASC regardless of dependencies** — only catalog *data* is dependency-gated. Recipe is now mechanical; repeat for the remaining 6.
+
+### The proven recipe (per unit)
+1. **Pull raw XML from the reference dump**, not the editor's Duplicate (which mis-repoints refs). Source: `reference/campaigns/liberty.sc2campaign/base.sc2data/gamedata/*.xml`. **Keep ORIGINAL ids** — the target mod drops the campaign dep, so ids are free and every reference resolves with zero re-pointing.
+2. **Include campaign-only objects; exclude shared ones.** An id defined in voidmulti/void/swarm/liberty(mod)/core is shared — leave it referenced. Only copy ids that exist ONLY in the campaign dump. (Follow the unit's ref graph: CUnit → weapons → effects → actors → models → turret → attach method → light → mover → sounds → buttons.)
+3. **Trim cross-unit tangles** (shared campaign behaviors drag in other units — strip Spartan/Vulture/Scout-type refs; simplify per WA-079).
+4. **ADD the explicit `.m3` model path — this is the one non-obvious step.** Campaign unit `CModel`s have **no `<Model>` path** (they bind via base-game asset data that does NOT follow into a non-campaign mod). Add `<Model value="Assets\Units\<Race>\<Unit>\<Unit>.m3"/>` — the retail convention (confirmed working for Goliath). Verify per unit (portrait/death models may need theirs too).
+5. **Split into `GameData/*.xml`** (UnitData, WeaponData, EffectData, ModelData, ActorData, TurretData, AttachMethodData, LightData, MoverData, SoundData, ButtonData), each `<?xml?>`+`<Catalog>`-wrapped. Auto-loaded by convention (no manifest needed).
+6. **Render-test** in a throwaway VoidMulti-only staging mod. Zerg-isolated test hook (mod is Terran-only): add a `LarvaTrain` Train entry + a Larva card button in a FREE slot (bottom-right / Row2 Col4) — morph a Larva → the unit. Confirm it renders/animates/attacks.
+
+### Remaining
+- [x] Goliath (spike)
+- [ ] 6 more WoL units (agent-assisted now that the pattern's proven; Ember reviews the XML)
+- [ ] Paste all 7 into Wildcard Arena, then **drop the Liberty (Campaign) dependency** → resolves WA-076 (Cancel hotkey) as a side effect.
 
 ## Why
 Wildcard Arena depends on **Liberty (Campaign)** for ~7 Wings-of-Liberty units. That dependency costs us three things:
