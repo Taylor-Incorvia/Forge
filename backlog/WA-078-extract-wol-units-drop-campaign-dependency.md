@@ -18,6 +18,14 @@ The Goliath was extracted (simplified — no multi-lock, see WA-079) and **rende
 5. **Split into `GameData/*.xml`** (UnitData, WeaponData, EffectData, ModelData, ActorData, TurretData, AttachMethodData, LightData, MoverData, SoundData, ButtonData), each `<?xml?>`+`<Catalog>`-wrapped. Auto-loaded by convention (no manifest needed).
 6. **Render-test** in a throwaway VoidMulti-only staging mod. Zerg-isolated test hook (mod is Terran-only): add a `LarvaTrain` Train entry + a Larva card button in a FREE slot (bottom-right / Row2 Col4) — morph a Larva → the unit. Confirm it renders/animates/attacks.
 
+### Per-unit Wildcard overrides to re-apply (the currently-live CUnit overrides that sit on top of the campaign unit)
+When the campaign dep is dropped, the extracted data BECOMES the base unit — so Wildcard's existing per-unit tweaks must be folded in. Check each unit's current `<CUnit id="…">` override in Wildcard `UnitData.xml`. Two known ones for Goliath (verify per unit):
+- **`<Collide index="ForceField" value="1"/>` — REQUIRED on every WoL unit.** Campaign units ship WITHOUT force-field collision, so they phase through Force Fields (bug). This is the "same fix for each unit" Taylor applied.
+- **Cost tweaks** (e.g., Goliath gas 50→**75**). Fold in whatever the current override sets.
+
+### Wildcard-integration gotcha: dangling refs to dropped weapons
+The **simplified** extraction drops the `*Upgraded` multi-lock weapon variants (e.g. `GoliathAUpgraded`, `GoliathGUpgraded`), but Wildcard features may reference them — e.g. the **`GoliathRange` upgrade** (`UpgradeData.xml`) has `EffectArray` refs to `GoliathAUpgraded`/`GoliathGUpgraded`. After pasting the simplified unit + dropping the dep, those refs dangle. **Trim them** (keep only the base-weapon refs). Sweep each unit's Wildcard upgrades/abilities for refs to anything the simplified extraction dropped.
+
 ### Remaining
 - [x] Goliath (spike)
 - [ ] 6 more WoL units (agent-assisted now that the pattern's proven; Ember reviews the XML)
