@@ -26,6 +26,9 @@ When the campaign dep is dropped, the extracted data BECOMES the base unit — s
 ### Wildcard-integration gotcha: dangling refs to dropped weapons
 The **simplified** extraction drops the `*Upgraded` multi-lock weapon variants (e.g. `GoliathAUpgraded`, `GoliathGUpgraded`), but Wildcard features may reference them — e.g. the **`GoliathRange` upgrade** (`UpgradeData.xml`) has `EffectArray` refs to `GoliathAUpgraded`/`GoliathGUpgraded`. After pasting the simplified unit + dropping the dep, those refs dangle. **Trim them** (keep only the base-weapon refs). Sweep each unit's Wildcard upgrades/abilities for refs to anything the simplified extraction dropped.
 
+### Dep-drop cleanup: leftover refs to REMOVED campaign units
+Campaign units pulled from the pools but still leaving data behind: **WarPig, Science Vessel, Predator** (all campaign-only; confirmed present in `UnitData`/`AbilData`/`ButtonData`). They are NOT being extracted — so at the dep-drop, **delete their leftover data** (CUnit overrides, abilities, buttons, any pool/upgrade wiring), or they dangle once their campaign base units vanish. (WarHound is NOT one of these — it's a HotS unit defined in Void/Swarm, fully multiplayer-safe, needs nothing.)
+
 ### Remaining — DEFINITIVE list (audited 2026-08-13 against active pools)
 Campaign-only units in the active pools = **7**: Goliath, Wraith, Diamondback, DuskWing, Firebat, Medic, Vulture. (Audit method: every `addUnitToSlotPool` unit that's defined in `liberty.sc2campaign` and NOT in voidmulti/void/swarm/liberty-mod/core. Science Vessel & Predator were removed from the pools → excluded. No units fell into an "unknown" bucket, so the scope is complete — miss any one and the dep can't be dropped.)
 - [x] Goliath (spike — renders + fights)
