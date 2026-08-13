@@ -20,7 +20,7 @@ The Goliath was extracted (simplified — no multi-lock, see WA-079) and **rende
 
 ### Per-unit Wildcard overrides to re-apply (the currently-live CUnit overrides that sit on top of the campaign unit)
 When the campaign dep is dropped, the extracted data BECOMES the base unit — so Wildcard's existing per-unit tweaks must be folded in. Check each unit's current `<CUnit id="…">` override in Wildcard `UnitData.xml`. Two known ones for Goliath (verify per unit):
-- **`<Collide index="ForceField" value="1"/>` — REQUIRED on every WoL unit.** Campaign units ship WITHOUT force-field collision, so they phase through Force Fields (bug). This is the "same fix for each unit" Taylor applied.
+- **`<Collide index="ForceField" value="1"/>` — REQUIRED on every WoL GROUND unit** (air units are NOT blocked by Force Fields — skip it for them, e.g. Wraith/air fighters). Campaign ground units ship WITHOUT force-field collision, so they phase through Force Fields (bug). This is the "same fix for each ground unit" Taylor applied.
 - **Cost tweaks** (e.g., Goliath gas 50→**75**). Fold in whatever the current override sets.
 
 ### Wildcard-integration gotcha: dangling refs to dropped weapons
