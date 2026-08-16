@@ -6,6 +6,10 @@
     </CUnit>
     <CUnit id="CommandCenter">
         <CostResource index="Minerals" value="400"/>
+        <Food value="15"/>
+    </CUnit>
+    <CUnit id="CommandCenterFlying">
+        <Food value="15"/>
     </CUnit>
     <!-- Balance change for balance patch of Nov 11th 2013 (combined Air/Ground vehicle upgrades)-->
     <!-- Balance test 3/12 (separate Air/Ground vehicle upgrades)-->
@@ -394,6 +398,7 @@
     </CUnit>
     <CUnit id="OrbitalCommand">
         <CostResource index="Minerals" value="400"/>
+        <Food value="15"/>
         <AbilArray Link="ChronoBoostEnergyCost"/>
         <AbilArray Link="MorphOrbitalToPlanetary"/>
         <CardLayouts index="0">
@@ -404,9 +409,11 @@
     </CUnit>
     <CUnit id="PlanetaryFortress">
         <CostResource index="Minerals" value="750"/>
+        <Food value="15"/>
     </CUnit>
     <CUnit id="OrbitalCommandFlying">
         <CostResource index="Minerals" value="400"/>
+        <Food value="15"/>
     </CUnit>
     <CUnit id="Overseer">
         <Food value="-1"/>
