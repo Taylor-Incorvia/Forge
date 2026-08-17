@@ -1833,7 +1833,7 @@
             <Button DefaultButtonFace="Arbiter" Requirements="starport3arbiterreq"/>
             <Unit value="ArbiterMP"/>
         </InfoArray>
-        <InfoArray index="Train15" Time="48">
+        <InfoArray index="Train15" Time="65">
             <Button DefaultButtonFace="HireDuskWing" Requirements="starport2duskwingreq"/>
             <Unit value="DuskWing"/>
         </InfoArray>

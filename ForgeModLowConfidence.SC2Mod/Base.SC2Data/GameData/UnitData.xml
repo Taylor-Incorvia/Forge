@@ -122,8 +122,8 @@
         <Collide index="ForceField" value="1"/>
     </CUnit>
     <CUnit id="DuskWing">
-        <CostResource index="Minerals" value="200"/>
-        <CostResource index="Vespene" value="150"/>
+        <CostResource index="Minerals" value="250"/>
+        <CostResource index="Vespene" value="175"/>
     </CUnit>
     <CUnit id="Factory">
         <CardLayouts index="0">
