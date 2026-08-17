@@ -3,9 +3,6 @@
     <CEffectEnumArea id="ArbiterMPRecallSearch">
         <AreaArray index="0" Radius="4.5"/>
     </CEffectEnumArea>
-    <CEffectEnumArea id="ArbiterMPStasisFieldSearch">
-        <AreaArray index="0" Radius="3.5"/>
-    </CEffectEnumArea>
     <CEffectTeleport id="Blink2">
         <ValidatorArray value="CasterNotFungalGrowthed"/>
         <EditorCategories value="Race:Protoss"/>

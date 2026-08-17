@@ -12,7 +12,6 @@ Abil/Name/D8Charge2=D8Charge2
 Abil/Name/D8Charge3=D8Charge3
 Abil/Name/D8Charge4=D8Charge4
 Abil/Name/F_ArbiterMPRecall=F_Recall
-Abil/Name/F_ArbiterMPStasisField=F_ArbiterMP Stasis Field
 Abil/Name/F_BlindingCloud=F_Blinding Cloud
 Abil/Name/F_Blink=F_Blink
 Abil/Name/F_BuildAutoTurret=F_Place Auto Turret
@@ -126,7 +125,6 @@ Abil/Name/stalkerblinkcooldown1=stalkerblinkcooldown1
 Abil/Name/stalkerblinkrange1=stalkerblinkrange1
 Behavior/Name/blink_test=blink_test
 Button/Name/ArbiterMPRecall=Recall
-Button/Name/ArbiterMPStasisField=Stasis Field
 Button/Name/AutoTurret=Build Auto-Turret
 Button/Name/BlindingCloud=Blinding Cloud
 Button/Name/Charge=Charge
@@ -199,7 +197,6 @@ Abil/Name/LiberatorSiegeSpeed2=LiberatorSiegeSpeed2
 Button/Name/LiberatorSiegeSpeed2=Smart Servos
 Button/Tooltip/LiberatorSiegeSpeed2=The Liberator (Starport slot 2) transforms to and from Defender Mode much faster and moves 50% faster. 
 Button/Tooltip/F_ArbiterMPRecall=Teleports all friendly units in the target area to the location of the Arbiter.
-Button/Tooltip/F_ArbiterMPStasisField=Puts enemies in target area into stasis. Units in Stasis cannot move, attack, or be attacked or be affected by spells for <d ref="Behavior,ArbiterMPStasisField,Duration"/> seconds.
 Button/Tooltip/F_AutoTurret=Automated defensive turret. Times out after <d ref="Behavior,AutoTurretTimedLife,Duration"/> seconds.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/F_BlindingCloud=Creates a cloud for <d ref="(Effect,BlindingCloudCP,PeriodCount + 1) * Effect,BlindingCloudCP,PeriodicPeriodArray[0]"/> seconds that reduces attack range of ground units and structures underneath to melee range.
 Button/Tooltip/F_Blink=Teleports the Stalker to a nearby target location. Ability can only be used once every <d ref="Abil,Blink,Cost[0].Cooldown.TimeUse"/> seconds.
@@ -229,7 +226,6 @@ Button/Tooltip/FusionCore=Contains randomized upgrades that each apply to a sing
 Button/Tooltip/GhostAcademy=Contains randomized upgrades that each apply to a single barracks unit slot.<n/>Enables barracks slot 3 units to be built from the Barracks. <n/>Enables add on to be built from the Barracks.  <n/>Requirements for building a starport are Engineering Academy or Factory. <n/> Upgrades remain available after research so players can easily track which randomized upgrades were rolled this game. Re-researching an upgrade has no effect. 
 Button/Tooltip/GhostAcademy2=Contains randomized upgrades that each apply to a single barracks unit slot.<n/>Enables barracks slot 3 units to be built from the Barracks. <n/>Enables add on to be built from the Barracks.  <n/>Requirements for building a starport are Engineering Academy or Factory. <n/> Upgrades remain available after research so players can easily track which randomized upgrades were rolled this game. Re-researching an upgrade has no effect. 
 Button/Tooltip/HighCapacityBarrels1=Increases the hellion's attack damage by +5 (to +11) vs light units and the hellbat's attack damage by +12 vs light units. The flame changes to a blue color.
-Button/Tooltip/HireKelmorianMiners=Build a War Pig elite marine. +65% health and +35% damage over marines
 Button/Tooltip/Colossus=Long-range area-damage strider; walks over cliffs. Armed with Extended Thermal Lance (+2 range, total 9). <n/><n/><c val="#ColorAttackInfo">Can attack ground units only.</c>
 Button/Tooltip/Hydralisk=Ranged attacker with heavy per-shot damage. <n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/LurkerFromHydraliskBurrowed=Fire-support ambusher. Must burrow to attack. <c val="ffff8a">Can attack ground units.</c>
@@ -242,10 +238,6 @@ Button/Tooltip/ResearchArbiterMPRecall1=Grants the Recall ability to the slot 1 
 Button/Tooltip/ResearchArbiterMPRecall2=Grants the Recall ability to the slot 2 unit. Teleports all allied units in the area of effect to the caster.
 Button/Tooltip/ResearchArbiterMPRecall3=Grants the Recall ability to the slot 3 unit. Teleports all allied units in the area of effect to the caster.
 Button/Tooltip/ResearchArbiterMPRecall4=Grants the Recall ability to the slot 4 unit. Teleports all allied units in the area of effect to the caster.
-Button/Tooltip/ResearchArbiterMPStasisField1=Grants the Stasis Field ability to the slot 1 unit. Traps enemies in the area of effect in stasis. Units in stasis cannot move, attack, be attacked, use abilities, or be affected by abilities.
-Button/Tooltip/ResearchArbiterMPStasisField2=Grants the Stasis Field ability to the slot 2 unit. Traps enemies in the area of effect in stasis. Units in stasis cannot move, attack, be attacked, use abilities, or be affected by abilities.
-Button/Tooltip/ResearchArbiterMPStasisField3=Grants the Stasis Field ability to the slot 3 unit. Traps enemies in the area of effect in stasis. Units in stasis cannot move, attack, be attacked, use abilities, or be affected by abilities.
-Button/Tooltip/ResearchArbiterMPStasisField4=Grants the Stasis Field ability to the slot 4 unit. Traps enemies in the area of effect in stasis. Units in stasis cannot move, attack, be attacked, use abilities, or be affected by abilities.
 Button/Tooltip/ResearchBlindingCloud1=Grants the Blinding Cloud ability to the slot 1 unit. Creates a cloud for 5.71 seconds that reduces the attack range of ground units and structures underneath to melee range.
 Button/Tooltip/ResearchBlindingCloud2=Grants the Blinding Cloud ability to the slot 2 unit. Creates a cloud for 5.71 seconds that reduces the attack range of ground units and structures underneath to melee range.
 Button/Tooltip/ResearchBlindingCloud3=Grants the Blinding Cloud ability to the slot 3 unit. Creates a cloud for 5.71 seconds that reduces the attack range of ground units and structures underneath to melee range.
@@ -493,7 +485,6 @@ Weapon/Name/JavelinMissileLaunchers=F_Javelin Missile Launchers
 Weapon/Name/KelmorianMinerGaussRifle=F_Gauss Rifle
 Weapon/Name/LanceMissileLaunchers=F_250mm Punisher Cannons
 Weapon/Name/LanzerTorpedoes=F_Lanzer Torpedoes
-Weapon/Name/Lurker=F_Spines
 Weapon/Name/NeedleSpines=F_Needle Spines
 Weapon/Name/NeutronFlare=F_Neutron Flare
 Weapon/Name/ParticleDisruptors=F_Particle Disruptors

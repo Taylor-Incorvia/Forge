@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CBehaviorBuff id="ArbiterMPStasisField">
-        <Duration value="25"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="ArbiterMPStasisFieldTimedLife">
-        <Duration value="25"/>
-    </CBehaviorBuff>
     <CBehaviorBuff id="HyperjumpindicatorTimedLife">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <DisplayDuration index="Enemy" value="1"/>
         <Duration value="25"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="DarkTemplarBlinkAttackDelay">
-        <Duration value="0"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="Range">
         <BehaviorFlags index="Permanent" value="1"/>
