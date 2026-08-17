@@ -1,56 +1,68 @@
 ---
 id: WA-076
 status: todo
-size: M
+size: L
 phase: 1-game-readiness
-priority: 25
+priority: 55
 ---
-# Cancel command ships UNBOUND on the Standard hotkey profile (Escape doesn't cancel)
+# Cancel/Escape unbinds when switching hotkey profiles IN-GAME (data-level command-card conflict)
 
-## Status: root cause PROVEN (A/B test); real fix is WA-078
-**Empirically confirmed 2026-08-12:** the GoliathTest staging mod (VoidMulti only, **same hotkey profile** that's broken in Wildcard) → **Escape cancels normally**. Wildcard (adds Liberty Campaign) with that identical profile → Cancel unbound. One variable = the campaign dependency. So dropping it (the end of WA-078) fixes Cancel, confirmed.
+## STATUS: root cause CORRECTED 2026-08-16 — deprioritized (narrow impact, has a one-click workaround)
+The original theory in this ticket (**the Liberty Campaign dependency causes it**) is **DISPROVEN**. So is every other clean hypothesis we tried. After a full A/B investigation (2026-08-12 → 2026-08-16), the real cause is a **data-level hotkey conflict inside this mod's own command-card content**: when the game re-resolves the **Standard** profile against the mod's command set on an **in-game profile switch**, it drops the Cancel binding.
 
-Confirmed root cause: the **Liberty (Campaign) dependency** forces a campaign hotkey context that leaves Cancel unbound on Standard — proven, since data-layer overrides (GameHotkeys `UI/Cancel_Hotkey` + `Button/Hotkey/Cancel`, and ButtonData `<Hotkey>`) all loaded in-game and still couldn't bind it. Can't remove the dep while ~7 units reference it. **The real fix is [[WA-078]]** (extract those units into our own data, then drop the dependency → Cancel binds to Escape natively). Until then, the per-player workaround below stands. Abandoned data-only attempt: branch `wa-076-cancel-escape-hotkey` / PR #40 (loads but can't win against the campaign context).
+It is **fixable** (it's our data, not the client, not the dependencies), but the impact is narrow and there's a trivial player workaround, so it's deprioritized behind Season 1 gameplay work. **Verify any future fix on a PUBLISHED build — the editor's Test Document shows a fake hotkey environment and lied to us for days.**
 
-## Symptom (confirmed by Taylor, in-game)
-Open the mod for the first time on **Standard hotkeys** and the **Cancel** command is bound to **nothing** (shows red / "no hotkey" in Options → Hotkeys). Consequences: you can't cancel an SCV's building, a production order, or e.g. a Void Ray's Prismatic Alignment with a key — the *only* way to cancel is clicking the command-card / UI button.
+## Symptom (corrected — this is the precise trigger)
+- Entering the mod with **Standard already selected** (from the main menu before the game) → **Escape cancels normally. No bug.**
+- The bug fires **only when a player changes hotkey profiles WHILE IN A GAME** — e.g. a player on a custom profile switches to **Standard** mid-match. That switch leaves **Cancel bound to nothing** (and reportedly scrambles some other keys too), so Escape no longer cancels building/production/abilities. The only cancel left is clicking the command-card button.
+- **Recovery is one click:** Options → Hotkeys → **Restore Race Defaults** → Accept. (Restore Race Defaults loads the mod's own hotkey defaults, which are correct — confirming the mod's *defaults* are fine and it's the *Standard re-resolution* that breaks.)
 
-- **Profile-specific.** It's the **Standard** profile that ships broken. **Classic is unaffected** — Winter Gaming played the mod on stream on Classic hotkeys and never hit it. (Open question: did Classic dodge it, or had he already fixed it via SC Evo — see below.)
-- **Correlated with a dependency.** Taylor recalls it started when he added the **Wings of Liberty (Campaign) dependency** — before that (VoidMulti only) Escape cancelled normally. Not 100% certain, but it's the strongest lead.
-- **Not unique to this mod.** Someone in the **SC: Evo Complete** Discord reported the same issue (and gave up without fixing). A shared root cause is likely, so a real fix here probably mirrors theirs (and vice-versa).
+## Who hits it / why it mattered
+Roughly the ~10% of players who change hotkeys mid-game — disproportionately Terran players who fiddle. **PiG hit it live:** he's left-handed and uses a custom profile, got into the mod, was told "you have to use Standard hotkeys for mods like this," switched to Standard **in-game**, and hit the dead-Escape bug — it noticeably hurt his experience. That stream moment is the origin of this whole investigation.
 
-## Per-player workaround (document this for players NOW — README/FAQ/Discord)
-Until it's fixed at the mod level, each player fixes it once:
-1. Options → Hotkeys.
-2. Select any unit that can cancel (Barracks, Armory, Void Ray, etc.).
-3. Click the **Cancel** command — it shows **red / no hotkey**.
-4. Set Hotkey → press **Escape** → Save.
-Escape now cancels for good (persists across games).
+## Root cause (PROVEN): a hotkey conflict in the mod's command-card data
+On an in-game switch to Standard, the client re-resolves all hotkeys against the mod's command set and **drops Cancel**. A blank Void Multi mod, Patches (also a melee extension mod), and standard multiplayer **all survive the exact same switch** with Escape intact — **only this mod's content triggers it.** Therefore the cause is in our `Base.SC2Data/GameData` command-card data, not the client, not the dependency stack, not GameHotkeys.txt.
 
-## What the data actually says (why this is confusing)
-Verified against `reference/`:
-- **All game-data layers bind card-Cancel to `C`, not Escape:** `UI/Cancel_Hotkey=C` in `core.sc2mod` (plus profile-variant keys `UI/Cancel_Hotkey_USD=C`, `UI/Cancel_Hotkey_USDL=C`). **VoidMulti and the Liberty campaign define NO Cancel lines and nothing on Escape** — they inherit core's `C`.
-- So the "Escape cancels" behavior in normal LotV multiplayer is **NOT in the mod data** — it comes from the **retail client's built-in "Standard" hotkey preset**, which remaps card-Cancel to Escape on top of the data default.
-- The mod's own `enUS.SC2Data/LocalizedData/GameHotkeys.txt` only defines `Button/Hotkey/*` for custom abilities — it **never touches `UI/Cancel_Hotkey`**. So Cancel resolution falls through entirely to the inherited layers + the client preset, and in this mod's dependency stack the Standard preset's Escape→Cancel mapping ends up **empty** (not even falling back to `C`).
-- Dependency stack (from `DocumentHeader`): **Liberty (Campaign) → Void (Mod) → Void Multi (Mod)**. The presence of the Liberty campaign dep is consistent with the "campaign vs ladder hotkeys differ" class of bug (community-confirmed: some commands correctly bound for Ladder are unbound under Campaign).
-- **Editor is misleading:** in the editor it *looks* like Cancel is bound to Escape, but the published build ships it unbound — which is why past fix attempts (Taylor has done a couple rounds) looked fine in-editor but didn't take. **Verify on a PUBLISHED build, not the editor view.**
+### The control experiment that proved it (2026-08-16)
+Published a **blank Void Multi mod** to production, entered with a custom profile, switched to Standard in-game → **Escape survived.** Same result for Patches and for standard MP. Wildcard is the only one that breaks → it's our data content.
 
-## Lead fix hypothesis (test this first)
-Explicitly set the Cancel hotkey in the **mod's own top-level `GameHotkeys.txt`** (highest precedence, so it overrides the messy inherited/preset resolution):
-```
-UI/Cancel_Hotkey=Escape
-UI/Cancel_Hotkey_USD=Escape      # + whichever profile-variant suffix = Standard
-```
-- Determine which `_USD` / `_USDL` / (Grid) `_GRS` suffix corresponds to the **Standard** preset and set that variant too — the base key alone may not cover the active profile. Enumerate the variants that exist and cover Standard.
-- Also check **`UI/CancelMulti_Hotkey`** (cancel-last-queued) and the dialog/menu cancels — set consistently if they're affected.
-- Risk: colliding with another Escape use (deselect/menu). Verify no collision after.
-- If the top-level override doesn't take, investigate **dependency order** (does giving VoidMulti precedence over Liberty for hotkeys restore it?) — but reordering deps is higher-risk, treat as plan B.
+## What it is NOT (full elimination log — do not re-try these)
+Every one of these was tested and ruled out; most were verified on **published** builds:
+1. **NOT the Liberty (Campaign) dependency.** Extracted the 7 WoL units into our own data and dropped the campaign dep (see [[WA-078]]); bug persisted.
+2. **NOT Void (Mod).** Removed it from `DocumentHeader` (Void Multi includes it transitively; `DocumentInfo` already listed Void Multi only); bug persisted. Note: `Void (Mod)` is base melee data, NOT a "story/campaign" layer.
+3. **NOT map-vs-mod structure.** Patches is *also* a melee extension mod and survives profile switches. So being an extension mod isn't the cause.
+4. **NOT the "Story" hotkey category.** The 6 extracted F_ units carried `<HotkeyCategory value="Unit/Category/TerranStory"/>` (a category *value*, not an id — the F_ rename never touched it), which is why they showed under "Terran Story" in the hotkey menu. Retargeted all 6 to `Unit/Category/TerranUnits` (commit `0b23a8e`); the "Terran Story" category disappeared from the menu **but the Escape bug persisted.** The Story category was cosmetic.
+5. **NOT GameHotkeys.txt.** Emptied the entire file to 0 bytes (diagnostic branch `wa-076-diag-empty-gamehotkeys`, commit `1deaa77`), published, tested the switch → **still broken.** So no custom `Button/Hotkey/*` entry (including the load-bearing `G=G` line) causes it.
+6. **NOT a data-layer Cancel override.** Setting `UI/Cancel_Hotkey=Escape` (+ `_USD` / `_USDL` variants) in the mod's GameHotkeys did nothing (commit `81439f1`). The client's **profile** system is authoritative for this, not mod data — which is also why "Escape cancels" in retail is a client Standard-preset remap, not anything in the game data (all data layers bind card-Cancel to `C`).
+7. **NOT the editor / not the client / not the account.** All early confusion came from the editor's Test Document faking the hotkey environment. On real published builds the blank mod / Patches / standard MP all work, so it isn't a universal client limitation and isn't the user's account or profile state.
 
-## Deliverable
-- Root-cause confirmed on a published build; Cancel bound to Escape out-of-the-box on **Standard** (and not broken on Classic/Grid).
-- Fix documented (which file/keys own it), collision check re-run.
-- Ship the per-player workaround in player-facing docs until the real fix lands.
+## Strongest lead for the actual fix (start here)
+It's a **hotkey collision in the command-card data.** Facts gathered on `main`:
+- The mod does **not** override the `Cancel` or `CancelBuilding` CButtons in `ButtonData.xml`, and there is **no** `Button/Hotkey/Cancel` in `GameHotkeys.txt` — so the Cancel command's own key is inherited from base and isn't remapped. The conflict is therefore **another custom button sharing Cancel's key/slot**, exposed only when Standard re-resolves.
+- The mod heavily customizes command cards: **13** card layouts define a `Face="Cancel"` button and **5** define `Face="CancelBuilding"` (`UnitData.xml`), e.g. Armory/Barracks with `Face="Cancel" AbilCmd="que5,CancelLast"` and `Face="CancelBuilding" AbilCmd="BuildInProgress,Cancel"`.
 
-## Notes / links
-- Community context: campaign-vs-ladder hotkey divergence is a known SC2 class of problem — s2editor-guides "Standard Dependencies", and a medium writeup on SC2's hotkey system.
-- Related: WA-005 (hotkey collisions), WA-033 (collision fix pass), hotkey-resolution notes (ButtonData `<Hotkey>` = source of truth; GameHotkeys.txt derived/can be stale). Publish-to-verify.
+Concrete fix procedure (all on a **PUBLISHED** build):
+1. Reproduce: enter on a custom profile, switch to Standard in-game.
+2. Open Options → Hotkeys on Standard and find the **RED (conflicted) commands** — whatever is fighting over Cancel's key is the culprit.
+3. Trace that button back to its `ButtonData.xml <Hotkey>` and/or the command-card `LayoutButtons` entry, and resolve the collision (rebind the offending custom button, or explicitly pin Cancel).
+4. Re-test the switch; confirm no regression to the other cancels (`CancelBuilding`, `CancelLast`/que5) or to deselect/menu Escape.
+- This is effectively a targeted collision hunt; related prior collision work: [[WA-005]] (collision audit), [[WA-033]] (collision fix pass).
+
+## Player-facing workaround (ship this in README / FAQ / Discord NOW)
+- **Prevent it:** pick **Standard** from the main menu **before** entering a game — it works perfectly this way.
+- **If it already happened** (you switched mid-game and Escape stopped cancelling): Options → Hotkeys → **Restore Race Defaults** → Accept. One click, persists.
+
+## Branches & evidence trail
+- `wa-076-diag-empty-gamehotkeys` — **KEEP.** Empty-GameHotkeys diagnostic that proved GameHotkeys is not the cause. Commit `1deaa77` (branches off the WA-078 branch).
+- `wa-078-integrate-wol-units-drop-campaign-dependency` — campaign extraction + dep drop + Story-category fix (`0b23a8e`) + Void (Mod) removal (`0ab4041`). **Has regressions — do NOT merge as-is:** Tech Reactor is broken (`Unable to create duplicate entry` / `Unable to find parent F_TechReactor` — from the insert-before extraction leaving duplicate ids), blank DuskWing icon, and duplicate-entry XML warnings. See [[WA-078]] for the shelved-until-needed decision.
+- `wa-076-cancel-escape-hotkey` / PR #40 — earlier abandoned data-only attempt (predates the corrected root cause).
+- Superseded/misleading commits based on the disproven campaign theory: `6b43d44` ("root cause PROVEN via A/B"), `65b2bf8`, `ce798f3`.
+
+## Acceptance
+- [ ] On a **published** build: switch custom → Standard **in-game** and Cancel stays bound to Escape.
+- [ ] No regression to CancelBuilding / CancelLast / deselect / menu-Escape.
+- [ ] Player workaround documented (README/FAQ/Discord) regardless of when the code fix lands.
+
+## Notes
+- **VERIFY ON PUBLISHED BUILDS ONLY.** The editor Test Document misrepresents hotkeys and cost this investigation several days of dead ends.
+- Everything above (the 7-point elimination + control experiment) is documented so nobody re-runs the dead ends. The remaining work is the command-card collision hunt in step "Strongest lead."

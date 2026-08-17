@@ -3,12 +3,6 @@
     <CAbilEffectTarget id="AmorphousArmorcloud">
         <CmdButtonArray index="Execute" Requirements=""/>
     </CAbilEffectTarget>
-    <CAbilEffectTarget id="ArbiterMPStasisField">
-        <CmdButtonArray index="Execute">
-            <Flags index="UseDefaultButton" value="1"/>
-            <Flags index="CreateDefaultButton" value="1"/>
-        </CmdButtonArray>
-    </CAbilEffectTarget>
     <CAbilResearch id="HighCapacityBarrels1">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Activity value="UI/Training"/>
@@ -467,19 +461,6 @@
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
     </CAbilEffectInstant>
-    <CAbilEffectTarget id="F_ArbiterMPStasisField">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Effect index="0" value="ArbiterMPStasisFieldSearch"/>
-        <Cost>
-            <Vital index="Energy" value="125"/>
-        </Cost>
-        <Range value="9"/>
-        <CursorEffect value="ArbiterMPStasisFieldSearch"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="F_ArbiterMPStasisField">
-            <Flags index="UseDefaultButton" value="1"/>
-            <Flags index="CreateDefaultButton" value="1"/>
-        </CmdButtonArray>
-    </CAbilEffectTarget>
     <CAbilEffectTarget id="F_CorsairMPDisruptionWeb">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Effect index="0" value="CorsairMPDisruptionWebCreatePersistent"/>
@@ -604,14 +585,6 @@
         <InfoArray index="Train16" Time="26.6">
             <Button DefaultButtonFace="Medic" Requirements="barracks2medicreq"/>
             <Unit value="Medic"/>
-        </InfoArray>
-        <InfoArray index="Train17" Time="37.8">
-            <Button DefaultButtonFace="LurkerFromHydraliskBurrowed" Requirements="barracks4lurkerreq"/>
-            <Unit value="Lurker"/>
-        </InfoArray>
-        <InfoArray index="Train18" Time="21">
-            <Button DefaultButtonFace="HireKelmorianMiners" Requirements="barracks2warpigtreq"/>
-            <Unit value="WarPig"/>
         </InfoArray>
         <InfoArray index="Train19" Time="45">
             <Button DefaultButtonFace="Siphon" Requirements="barracks4defilerreqreal"/>
@@ -1825,15 +1798,7 @@
             <Button DefaultButtonFace="Corsair" Requirements="starport1corsairreq"/>
             <Unit value="CorsairMP"/>
         </InfoArray>
-        <InfoArray index="Train13" Time="35">
-            <Button DefaultButtonFace="BuildScienceVessel" Requirements="starport3sciencevesselreq"/>
-            <Unit value="ScienceVessel"/>
-        </InfoArray>
-        <InfoArray index="Train14" Time="55">
-            <Button DefaultButtonFace="Arbiter" Requirements="starport3arbiterreq"/>
-            <Unit value="ArbiterMP"/>
-        </InfoArray>
-        <InfoArray index="Train15" Time="48">
+        <InfoArray index="Train15" Time="65">
             <Button DefaultButtonFace="HireDuskWing" Requirements="starport2duskwingreq"/>
             <Unit value="DuskWing"/>
         </InfoArray>
@@ -2527,54 +2492,6 @@
             <Resource index="Minerals" value="150"/>
             <Resource index="Vespene" value="150"/>
             <Button DefaultButtonFace="ResearchSeekerMissile4">
-                <Flags index="UseDefaultButton" value="1"/>
-                <Flags index="CreateDefaultButton" value="1"/>
-            </Button>
-        </InfoArray>
-    </CAbilResearch>
-    <CAbilResearch id="ArbiterMPStasisField1">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Activity value="UI/Training"/>
-        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="1">
-            <Resource index="Minerals" value="150"/>
-            <Resource index="Vespene" value="150"/>
-            <Button DefaultButtonFace="ResearchArbiterMPStasisField1">
-                <Flags index="UseDefaultButton" value="1"/>
-                <Flags index="CreateDefaultButton" value="1"/>
-            </Button>
-        </InfoArray>
-    </CAbilResearch>
-    <CAbilResearch id="ArbiterMPStasisField2">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Activity value="UI/Training"/>
-        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="2">
-            <Resource index="Minerals" value="150"/>
-            <Resource index="Vespene" value="150"/>
-            <Button DefaultButtonFace="ResearchArbiterMPStasisField2">
-                <Flags index="UseDefaultButton" value="1"/>
-                <Flags index="CreateDefaultButton" value="1"/>
-            </Button>
-        </InfoArray>
-    </CAbilResearch>
-    <CAbilResearch id="ArbiterMPStasisField3">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Activity value="UI/Training"/>
-        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="3">
-            <Resource index="Minerals" value="150"/>
-            <Resource index="Vespene" value="150"/>
-            <Button DefaultButtonFace="ResearchArbiterMPStasisField3">
-                <Flags index="UseDefaultButton" value="1"/>
-                <Flags index="CreateDefaultButton" value="1"/>
-            </Button>
-        </InfoArray>
-    </CAbilResearch>
-    <CAbilResearch id="ArbiterMPStasisField4">
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Activity value="UI/Training"/>
-        <InfoArray index="Research1" Time="120" Alert="ResearchComplete_Prot" Upgrade="4">
-            <Resource index="Minerals" value="150"/>
-            <Resource index="Vespene" value="150"/>
-            <Button DefaultButtonFace="ResearchArbiterMPStasisField4">
                 <Flags index="UseDefaultButton" value="1"/>
                 <Flags index="CreateDefaultButton" value="1"/>
             </Button>

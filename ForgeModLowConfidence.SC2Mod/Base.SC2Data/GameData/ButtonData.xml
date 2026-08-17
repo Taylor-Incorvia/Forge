@@ -4,9 +4,6 @@
         <Icon value="Assets\Textures\btn-building-terran-planetaryfortress.dds"/>
         <Hotkey value="P"/>
     </CButton>
-    <CButton id="Arbiter">
-        <HotkeyAlias value="Raven"/>
-    </CButton>
     <CButton id="Archon">
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="WidowMine"/>
@@ -20,14 +17,6 @@
         <Hotkey value="G"/>
         <TintRacially value="1"/>
         <DefaultButtonLayout Row="2" Column="3"/>
-    </CButton>
-    <CButton id="F_ArbiterMPStasisField">
-        <Icon value="Assets\Textures\btn-ability-protoss-forcefield-color.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-protoss-forcefield-color.dds"/>
-        <Hotkey value="G"/>
-        <DefaultButtonLayout Row="2" Column="3"/>
-        <Name value="Button/Name/ArbiterMPStasisField"/>
-        <AlertName value="Button/Name/ArbiterMPStasisField"/>
     </CButton>
     <CButton id="F_AutoTurret">
         <Icon value="Assets\Textures\btn-building-terran-autoturret.dds"/>
@@ -181,9 +170,6 @@
     </CButton>
     <CButton id="HireDuskWing">
         <HotkeyAlias value="Banshee"/>
-    </CButton>
-    <CButton id="HireKelmorianMiners">
-        <HotkeyAlias value="Reaper"/>
     </CButton>
     <CButton id="F_HunterSeekerMissile">
         <Icon value="Assets\Textures\BTN-Ability-Terran-HunterMissile-color.dds"/>
@@ -559,29 +545,6 @@
         <Icon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <DefaultButtonLayout Column="3"/>
-    </CButton>
-    <CButton id="ResearchArbiterMPStasisField1">
-        <Icon value="Assets\Textures\btn-ability-protoss-oracle-stasisward.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-protoss-intostasisfield.dds"/>
-        <EditorCategories value="Race:Protoss"/>
-    </CButton>
-    <CButton id="ResearchArbiterMPStasisField2">
-        <Icon value="Assets\Textures\btn-ability-protoss-oracle-stasisward.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-protoss-intostasisfield.dds"/>
-        <EditorCategories value="Race:Protoss"/>
-        <DefaultButtonLayout Column="1"/>
-    </CButton>
-    <CButton id="ResearchArbiterMPStasisField3">
-        <Icon value="Assets\Textures\btn-ability-protoss-oracle-stasisward.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-protoss-intostasisfield.dds"/>
-        <EditorCategories value="Race:Protoss"/>
-        <DefaultButtonLayout Column="2"/>
-    </CButton>
-    <CButton id="ResearchArbiterMPStasisField4">
-        <Icon value="Assets\Textures\btn-ability-protoss-oracle-stasisward.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-protoss-intostasisfield.dds"/>
-        <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Column="3"/>
     </CButton>
     <CButton id="ResearchBlindingCloud1">

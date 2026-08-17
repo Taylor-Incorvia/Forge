@@ -6,6 +6,10 @@
     </CUnit>
     <CUnit id="CommandCenter">
         <CostResource index="Minerals" value="400"/>
+        <Food value="15"/>
+    </CUnit>
+    <CUnit id="CommandCenterFlying">
+        <Food value="15"/>
     </CUnit>
     <!-- Balance change for balance patch of Nov 11th 2013 (combined Air/Ground vehicle upgrades)-->
     <!-- Balance test 3/12 (separate Air/Ground vehicle upgrades)-->
@@ -48,7 +52,6 @@
             <LayoutButtons Face="Sentry" Type="AbilCmd" AbilCmd="BarracksTrain,Train15" Row="0" Column="2"/>
             <LayoutButtons Face="Firebat" Type="AbilCmd" AbilCmd="BarracksTrain,Train12" Row="0" Column="2"/>
             <LayoutButtons Face="Hydralisk" Type="AbilCmd" AbilCmd="BarracksTrain,Train13" Row="0" Column="1"/>
-            <LayoutButtons Face="HireKelmorianMiners" Type="AbilCmd" AbilCmd="BarracksTrain,Train18" Row="0" Column="1"/>
             <LayoutButtons Face="Stalker" Type="AbilCmd" AbilCmd="BarracksTrain,Train7" Row="0" Column="1"/>
             <LayoutButtons Face="Marine2" Type="AbilCmd" AbilCmd="BarracksTrain,Train20" Row="0" Column="1"/>
             <LayoutButtons Face="Queen" Type="AbilCmd" AbilCmd="BarracksTrain,Train21" Row="0" Column="1"/>
@@ -57,7 +60,6 @@
             <LayoutButtons Face="Archon" Type="AbilCmd" AbilCmd="BarracksTrain,Train9" Row="0" Column="3"/>
             <LayoutButtons Face="Infestor" Type="AbilCmd" AbilCmd="BarracksTrain,Train11" Row="0" Column="3"/>
             <LayoutButtons Face="GhostAlternate" Type="AbilCmd" AbilCmd="BarracksTrain,Train3" Row="0" Column="3"/>
-            <LayoutButtons Face="LurkerFromHydraliskBurrowed" Type="AbilCmd" AbilCmd="BarracksTrain,Train17" Row="0" Column="3"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="BarracksFlying">
@@ -118,8 +120,8 @@
         <Collide index="ForceField" value="1"/>
     </CUnit>
     <CUnit id="DuskWing">
-        <CostResource index="Minerals" value="200"/>
-        <CostResource index="Vespene" value="150"/>
+        <CostResource index="Minerals" value="250"/>
+        <CostResource index="Vespene" value="175"/>
     </CUnit>
     <CUnit id="Factory">
         <CardLayouts index="0">
@@ -311,16 +313,6 @@
         </CardLayouts>
         <EnergyStart value="100"/>
     </CUnit>
-    <CUnit id="Lurker">
-        <CardLayouts index="0">
-            <LayoutButtons index="6" Face="BurrowLurkerMP"/>
-        </CardLayouts>
-    </CUnit>
-    <CUnit id="LurkerBurrowed">
-        <CardLayouts index="0">
-            <LayoutButtons index="2" Face="LurkerBurrowUp"/>
-        </CardLayouts>
-    </CUnit>
     <CUnit id="LurkerMP">
         <CardLayouts index="0">
             <LayoutButtons index="6" Column="4"/>
@@ -394,6 +386,7 @@
     </CUnit>
     <CUnit id="OrbitalCommand">
         <CostResource index="Minerals" value="400"/>
+        <Food value="15"/>
         <AbilArray Link="ChronoBoostEnergyCost"/>
         <AbilArray Link="MorphOrbitalToPlanetary"/>
         <CardLayouts index="0">
@@ -404,9 +397,11 @@
     </CUnit>
     <CUnit id="PlanetaryFortress">
         <CostResource index="Minerals" value="750"/>
+        <Food value="15"/>
     </CUnit>
     <CUnit id="OrbitalCommandFlying">
         <CostResource index="Minerals" value="400"/>
+        <Food value="15"/>
     </CUnit>
     <CUnit id="Overseer">
         <Food value="-1"/>
@@ -510,13 +505,6 @@
             <LayoutButtons index="8" removed="1"/>
         </CardLayouts>
     </CUnit>
-    <CUnit id="ScienceVessel">
-        <CardLayouts index="0">
-            <LayoutButtons index="6" Face="Irradiate" Type="AbilCmd" AbilCmd="Irradiate,Execute" Column="1"/>
-            <LayoutButtons index="7" Face="NanoRepair" AbilCmd="NanoRepair,Execute" Column="0"/>
-            <LayoutButtons index="8" removed="1"/>
-        </CardLayouts>
-    </CUnit>
     <CUnit id="Stalker"/>
     <CUnit id="Starport">
         <CardLayouts index="0">
@@ -537,8 +525,6 @@
             <LayoutButtons Face="Corsair" Type="AbilCmd" AbilCmd="StarportTrain,Train12" Row="0" Column="0"/>
             <LayoutButtons Face="Wraith" Type="AbilCmd" AbilCmd="StarportTrain,Train8" Row="0" Column="0"/>
             <LayoutButtons Face="Battlecruiser" Type="AbilCmd" AbilCmd="StarportTrain,Train4" Row="0" Column="2"/>
-            <LayoutButtons Face="Arbiter" Type="AbilCmd" AbilCmd="StarportTrain,Train14" Row="0" Column="2"/>
-            <LayoutButtons Face="BuildScienceVessel" Type="AbilCmd" AbilCmd="StarportTrain,Train13" Row="0" Column="2"/>
             <LayoutButtons Face="Tempest" Type="AbilCmd" AbilCmd="StarportTrain,Train10" Row="0" Column="2"/>
             <LayoutButtons Face="VoidRay" Type="AbilCmd" AbilCmd="StarportTrain,Train17" Row="0" Column="1"/>
             <LayoutButtons Face="HireDuskWing" Type="AbilCmd" AbilCmd="StarportTrain,Train15" Row="0" Column="1"/>
@@ -637,16 +623,6 @@
     <CUnit id="WarHound">
         <CostResource index="Minerals" value="200"/>
         <CostResource index="Vespene" value="75"/>
-    </CUnit>
-    <CUnit id="WarPig">
-        <CostResource index="Minerals" value="60"/>
-        <CostResource index="Vespene" value="30"/>
-        <AbilArray index="3" removed="1"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5" removed="1"/>
-            <LayoutButtons index="6" removed="1"/>
-        </CardLayouts>
-        <Collide index="ForceField" value="1"/>
     </CUnit>
     <CUnit id="Wraith">
         <CostResource index="Minerals" value="100"/>
