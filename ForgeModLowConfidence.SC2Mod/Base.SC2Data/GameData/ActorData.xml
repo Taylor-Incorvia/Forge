@@ -73,4 +73,24 @@
     <CActorModel id="StimpackStartImpact">
         <On Terms="Abil.F_Stimpack.SourceCastStart" Send="Create"/>
     </CActorModel>
+    <CActorModel id="F_CorsairAttackImpact" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.NeutronFlare.Start; At Target" Send="Create"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <Model value="ColossusAttackBeamImpact"/>
+        <Scale value="1.000000"/>
+        <On Terms="ActorCreation" Send="SetTintColor {80,140,255 1.500000}"/>
+    </CActorModel>
+    <CActorBeamSimple id="F_CorsairAttackBeam" parent="GenericAttackBeam">
+        <On Terms="Effect.NeutronFlare.Start; At Source" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostLaunchSiteOps Ops="SOpAttachWeapon01"/>
+        <HostImpact Subject="_Target"/>
+        <HostImpactSiteOps Ops="SOpAttachCenter"/>
+        <Model value="ColossusAttackBeam"/>
+        <Scale value="0.400000"/>
+        <On Terms="ActorCreation" Send="SetTintColor {80,140,255 2.500000}"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.120000 F_CorsairBeamLife"/>
+        <On Terms="TimerExpired; TimerName F_CorsairBeamLife" Send="Destroy"/>
+    </CActorBeamSimple>
 </Catalog>
