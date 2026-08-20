@@ -8,7 +8,14 @@ priority: 70
 # Corsair attack visual — add a punchy laser (Neutron Flare has no beam)
 
 ## What
-The Corsair's attack reads as "does nothing" — it fires with a launch **sound** but no visible beam or projectile. Add a punchy laser beam (and impact flash) so the attack lands with weight. Pure-visual, no gameplay change.
+The Corsair's attack reads as "does nothing" — it fires with a launch **sound** but no visible beam or projectile. Add a punchy laser beam **and a visible impact splash flash** so the attack lands with weight, and **update the tooltip to say it deals air splash**. Pure visual + text, no gameplay change.
+
+## Balance verdict — DO NOT buff damage (confirmed 2026-08-20)
+DPS across the Starport slot-1 air units (single-target):
+- **Corsair** (NeutronFlare): 5 / 0.47s = **~10.6 air DPS**, flat, **+ real splash (`AreaArray` r=0.5)**.
+- Phoenix 9.1 base / 18.2 vs Light · Viking(air) 10.0 / 14.0 vs Armored · Wraith(air) 8.0 / 16.0 vs Armored.
+- The Corsair has the **highest *flat* air DPS** of the four **and is the ONLY one with a real `AreaArray`** — Phoenix/Viking/Wraith are tagged `Kind="Splash"` but carry no AreaArray, so they don't actually splash. Against a clumped air ball the Corsair is the best in the slot by a mile.
+- **Conclusion:** the Corsair is already strong; it just doesn't *look* it. This ticket is **purely readability** — do NOT raise damage or add an attribute bonus. Buffing a real-splash air unit is how it becomes oppressive vs air.
 
 ## Why it looks broken (root cause)
 `CActorAction id="CorsairMPAttack"` (parent `GenericAttack`, `effectAttack="NeutronFlare"`) specifies only `LaunchAssets Sound="CorsairMP_AttackLaunch"` + an impact sound — **no launch/beam model.** So you hear it, see almost nothing. (Base Void data ships it this way.)
@@ -28,8 +35,10 @@ Moderate. The actor is small + self-contained (~15–30 lines of ActorData) and 
 
 ## Acceptance
 - [ ] Corsair's attack shows a visible, punchy beam (or bolt+flash) from unit to target, per shot.
+- [ ] A visible **impact splash flash** sells the AoE — you can see it hit multiple clumped air units.
+- [ ] **Corsair tooltip states it deals area/splash damage to air.**
 - [ ] Beam appears/disappears cleanly with each attack — no lingering/stuck beams.
-- [ ] No gameplay change (visual only). Verify on a published build.
+- [ ] **No damage or attribute-bonus change** — readability only. Verify on a published build.
 
 ## Notes
 Post-launch polish. Corsair is `CorsairMP` (restored BW unit, not WoL) — stays regardless of the WoL-dependency decision. Icon was already fixed (real `btn-unit-protoss-corsair.dds`); this ticket is the remaining "weapon looks weak" half.
