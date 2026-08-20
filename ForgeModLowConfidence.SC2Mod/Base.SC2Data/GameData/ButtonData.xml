@@ -89,6 +89,8 @@
         <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="Corsair">
+        <Icon value="Assets\Textures\btn-unit-protoss-corsair.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-protoss-corsair.dds"/>
         <HotkeyAlias value="VikingFighter"/>
     </CButton>
     <CButton id="F_CorsairMPDisruptionWeb">

@@ -1,8 +1,8 @@
 // Icon-path resolution for the "Your Faction" modal (and, later, the WA-070 scout icons).
 // unitId / upgradeId -> command-card .dds path. Shared "asset layer" both features use.
 // Paths extracted from the mod's ButtonData + the reference base-game button data.
-// Stand-ins: CorsairMP uses the same placeholder its in-game card uses; ScienceVessel->Raven,
-// DuskWing->Banshee (buffed variants with no dedicated icon). Swap any if a better asset exists.
+// Stand-ins: ScienceVessel->Raven, DuskWing->Banshee (buffed variants with no
+// dedicated icon). Swap any if a better asset exists.
 
 string getUnitIconPath(string unitId) {
     if (unitId == "Zergling")      { return "Assets\\Textures\\btn-unit-zerg-zergling.dds"; }
@@ -30,7 +30,7 @@ string getUnitIconPath(string unitId) {
     if (unitId == "ThorAP")        { return "Assets\\Textures\\btn-unit-terran-thor.dds"; }
     if (unitId == "Colossus")      { return "Assets\\Textures\\btn-unit-protoss-colossus.dds"; }
     if (unitId == "Ultralisk")     { return "Assets\\Textures\\btn-unit-zerg-ultralisk.dds"; }
-    if (unitId == "CorsairMP")     { return "Assets\\Textures\\btn-missing-kaeo.dds"; }
+    if (unitId == "CorsairMP")     { return "Assets\\Textures\\btn-unit-protoss-corsair.dds"; }
     if (unitId == "Phoenix")       { return "Assets\\Textures\\btn-unit-protoss-phoenix.dds"; }
     if (unitId == "Wraith")        { return "Assets\\Textures\\btn-unit-terran-wraith.dds"; }
     if (unitId == "VikingFighter") { return "Assets\\Textures\\btn-unit-terran-vikingfighter.dds"; }
