@@ -1,11 +1,14 @@
 ---
 id: WA-084
-status: todo
+status: done
 size: M
 phase: 2-polish
 priority: 70
 ---
 # Corsair attack visual — add a punchy laser (Neutron Flare has no beam)
+
+## ✅ DONE 2026-08-20 (PR #42, merged to main `8caa107`)
+Shipped a `GenericAttackBeam` laser (Corsair weapon → target, per shot) + a softened impact flash (`ColossusAttackBeamImpact`, scale 1.0, tint {80,140,255} @1.5). Both are additive cosmetic actors in `ActorData.xml` — confirmed rendering in the Test Document (attack visuals are NOT publish-gated; that caveat is only for command-card buttons of added abilities). Also widened the splash **0.5 → 0.82** for feel/readability (per playtest; a modest area buff, not per-hit damage — the DPS verdict to not buff damage still holds). Corsair build-button tooltip now states the air splash (shipped separately, `5d45bd2`). Icon fix also shipped (`6747186`). No new shockwave-ring model existed in base data, so the toned-down energy burst stands; revisit only if a truer ring is wanted later.
 
 ## What
 The Corsair's attack reads as "does nothing" — it fires with a launch **sound** but no visible beam or projectile. Add a punchy laser beam **and a visible impact splash flash** so the attack lands with weight, and **update the tooltip to say it deals air splash**. Pure visual + text, no gameplay change.
