@@ -78,7 +78,7 @@
         <Host Subject="_Unit"/>
         <HostSiteOps Ops="SOpAttachCenter"/>
         <Model value="ColossusAttackBeamImpact"/>
-        <Scale value="1.750000"/>
+        <Scale value="0.600000"/>
         <On Terms="ActorCreation" Send="SetTintColor {80,140,255 2.500000}"/>
     </CActorModel>
     <CActorBeamSimple id="F_CorsairAttackBeam" parent="GenericAttackBeam">
