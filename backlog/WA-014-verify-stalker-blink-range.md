@@ -1,13 +1,16 @@
 ---
 id: WA-014
-status: in-progress
+status: done
 size: S
 phase: 1-game-readiness
 priority: 8
 ---
 # Re-enable and test stalker blink range upgrade
 
-## 🔨 Code re-enabled 2026-07-16 — awaiting production verification
+## ✅ CONFIRMED WORKING on production 2026-08-19
+Taylor confirmed in a live production game (blink Stalkers with the increased blink-range upgrade vs mass Raven) that the upgrade works and feels good/useful. Closing.
+
+## 🔨 Code re-enabled 2026-07-16
 Uncommented the registration in `upgradeInitializers.galaxy` (`addUpgradeToUpgrade("stalkerblinkrange", ...)` + `AnyOf Stalker`). Stalker pool is now 7 (doc updated).
 
 **Root cause confirmed via git history** (answers the old "don't know why it doesn't work"): the first prod push **a001b4d** shipped the `stalkerblinkrange` CUpgrade with only `Effect,Blink,Range ×2` and **not** `Effect,Blink,PlacementRange ×2` — so the *click/placement* range never grew and the extra teleport range was unreachable. **b40c4e6** later added the missing PlacementRange line, so the data is complete now. Likely lost the second line originally by hitting Cancel instead of Save in the editor.
