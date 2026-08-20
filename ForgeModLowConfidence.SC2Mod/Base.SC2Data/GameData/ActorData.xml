@@ -78,8 +78,8 @@
         <Host Subject="_Unit"/>
         <HostSiteOps Ops="SOpAttachCenter"/>
         <Model value="ColossusAttackBeamImpact"/>
-        <Scale value="0.600000"/>
-        <On Terms="ActorCreation" Send="SetTintColor {80,140,255 2.500000}"/>
+        <Scale value="1.000000"/>
+        <On Terms="ActorCreation" Send="SetTintColor {80,140,255 1.500000}"/>
     </CActorModel>
     <CActorBeamSimple id="F_CorsairAttackBeam" parent="GenericAttackBeam">
         <On Terms="Effect.NeutronFlare.Start; At Source" Send="Create"/>
