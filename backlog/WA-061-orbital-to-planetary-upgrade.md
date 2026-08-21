@@ -1,13 +1,25 @@
 ---
 id: WA-061
-status: done
+status: todo
 size: M
 phase: 1-game-readiness
 priority: 40
 ---
 # Orbital Command → Planetary Fortress upgrade — a self-limiting anti-drop static defense
 
-## ✅ RESOLVED (PR #22, merged 2026-08-12)
+## ⚠️ REOPENED 2026-08-20 — confirmed does NOT work on prod
+The morph doesn't function in production. **The data wiring is complete and correct** (re-verified): `CAbilMorph MorphOrbitalToPlanetary` (target `PlanetaryFortress`, `ValidatorArray HasNoCargo`, morph flags + 50-tick durations), the `MorphOrbitalToPlanetary` CButton (icon + `P` hotkey), `Requirements=""` (nothing blocking), it's on the OrbitalCommand `AbilArray` + command card (index 8), strings set. It's a **data** ability (AbilArray, not a galaxy `UnitAbilityAdd`), so the "only renders when published" caveat does NOT apply.
+
+So it's not a hookup bug — most likely an **engine-level morph issue**: morphing from an **Orbital Command (itself a morph-result of a Command Center) → Planetary** is an unusual double-morph chain SC2 may not handle cleanly. Needs **live debugging** (try a variation → test in a real game → iterate), not a blind static edit.
+
+**Deferred — not S1-critical** (PF is a nice-to-have base defense). The [[WA-081]] `Food=15` on PlanetaryFortress is harmless dead weight while PF is unreachable — leave it; it's correct if the morph is ever fixed.
+
+**Debug approaches when picked up:**
+- Compare to the stock morph: base SC2 morphs CC→Orbital *or* CC→Planetary directly (a choice on the CommandCenter), never Orbital→Planetary. The chain off a morph-result is the suspect.
+- Options: (a) allow the branch off the CommandCenter instead (CC→PF as an alternative to CC→Orbital); (b) morph Orbital back to CC first; (c) make PF a direct build rather than a morph off the Orbital.
+- Check the in-game error/log the moment the button is clicked for a specific reason (invalid morph target / placement / tech).
+
+## ✅ ~~RESOLVED~~ (PR #22, merged 2026-08-12) — superseded by the reopen above
 Shipped: `MorphOrbitalToPlanetary` ability + Orbital command-card button (hotkey **P**, Row 1 / Col 0), Planetary Fortress at **750 minerals**. Hotkey P verified free mod-wide and the card slot verified clean (no shadowed buttons) before merge.
 
 ## STATUS (2026-07-27) — implemented on a branch, UNMERGED, blocked on prod verification
