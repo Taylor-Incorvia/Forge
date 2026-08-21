@@ -7,18 +7,16 @@ priority: 40
 ---
 # Orbital Command → Planetary Fortress upgrade — a self-limiting anti-drop static defense
 
-## ⚠️ REOPENED 2026-08-20 — confirmed does NOT work on prod
-The morph doesn't function in production. **The data wiring is complete and correct** (re-verified): `CAbilMorph MorphOrbitalToPlanetary` (target `PlanetaryFortress`, `ValidatorArray HasNoCargo`, morph flags + 50-tick durations), the `MorphOrbitalToPlanetary` CButton (icon + `P` hotkey), `Requirements=""` (nothing blocking), it's on the OrbitalCommand `AbilArray` + command card (index 8), strings set. It's a **data** ability (AbilArray, not a galaxy `UnitAbilityAdd`), so the "only renders when published" caveat does NOT apply.
+## ⚠️ REOPENED 2026-08-20 → 🔧 ROOT CAUSE FOUND & FIXED 2026-08-21 (pending in-game verify)
+**Real symptom (user-clarified):** the "Upgrade to Planetary Fortress" button never appeared on the Orbital command card *at all* — NOT a morph-execution failure; the button was simply invisible. (My earlier "engine morph-chain" theory was wrong — I'd assumed the button showed and the morph failed.)
 
-So it's not a hookup bug — most likely an **engine-level morph issue**: morphing from an **Orbital Command (itself a morph-result of a Command Center) → Planetary** is an unusual double-morph chain SC2 may not handle cleanly. Needs **live debugging** (try a variation → test in a real game → iterate), not a blind static edit.
+**Root cause:** the morph `LayoutButtons` was added at **card index 8 — a NEW index the base Orbital card (indices 0–7, all `Type="AbilCmd"`) doesn't have.** Overriding an *existing* index merges unspecified fields (incl. `Type`) from the base button; a *new* index inherits nothing, so `Type` defaulted to `Undefined` → the button renders as nothing. Position was never the issue (Row1/Col0 is free; only Rally sits in Row 1). **This is the general gotcha behind "my command-card button won't show": a new `LayoutButtons` index must set `Type="AbilCmd"` explicitly.**
 
-**Deferred — not S1-critical** (PF is a nice-to-have base defense). The [[WA-081]] `Food=15` on PlanetaryFortress is harmless dead weight while PF is unreachable — leave it; it's correct if the morph is ever fixed.
+**Fix:** added `Type="AbilCmd"` to the index-8 LayoutButtons (committed to main). One attribute.
 
-**Hard constraint (do not forget):** in this mod the **Command Center auto-morphs to Orbital for free on completion**, so there is NEVER a plain CC state to choose from. A CC→Planetary branch (the stock SC2 pattern) is therefore **impossible** here — Orbital→Planetary is the only viable morph path, and it must be made to work directly.
+**Verify on next Test Document** (data card buttons DO render locally): (1) the `P` Planetary button now appears on the Orbital card, and (2) clicking it actually morphs to a Planetary. If the button shows but the morph won't execute, that's a separate follow-up — but the ability def (`CAbilMorph`, target PlanetaryFortress, `HasNoCargo`) is complete, so it most likely just works now. Flip status to `done` once both are confirmed.
 
-**Two realistic routes when picked up:**
-1. **Fix the Orbital→Planetary morph (preferred — keeps the design).** Needs live debugging: check the in-game error the instant the button is clicked (invalid morph target / placement / tech), then try morph-setup variations (tech alias, MorphFrom, validators, footprint) and test each in a real game. May be a hard engine limit on morphing a morph-result; unknown until tried.
-2. **Standalone buildable Planetary (reliable fallback).** If the morph can't be made to work, make Planetary a constructed defensive structure instead of a base morph — sidesteps the morph engine entirely, at the cost of a different feel (build-a-turret vs upgrade-your-base).
+**Design note (keep):** CC auto-morphs to Orbital for free on completion → no plain-CC state exists, so Orbital→Planetary is the only path (a CC→Planetary branch is impossible). Keep it a command-card button — a standalone SCV-built Planetary is explicitly NOT wanted (it breaks the "feels like normal multiplayer, no muscle-memory change" goal). The [[WA-081]] `Food=15` on PlanetaryFortress is correct and ready.
 
 ## ✅ ~~RESOLVED~~ (PR #22, merged 2026-08-12) — superseded by the reopen above
 Shipped: `MorphOrbitalToPlanetary` ability + Orbital command-card button (hotkey **P**, Row 1 / Col 0), Planetary Fortress at **750 minerals**. Hotkey P verified free mod-wide and the card slot verified clean (no shadowed buttons) before merge.

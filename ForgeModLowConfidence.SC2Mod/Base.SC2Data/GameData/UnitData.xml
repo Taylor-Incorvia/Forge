@@ -404,7 +404,7 @@
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="SupplyDrop" AbilCmd="SupplyDrop,Execute" Column="1"/>
             <LayoutButtons index="7" Face="ChronoBoostEnergyCost" AbilCmd="ChronoBoostEnergyCost,Execute" Column="0"/>
-            <LayoutButtons index="8" Face="MorphOrbitalToPlanetary" AbilCmd="MorphOrbitalToPlanetary,Execute" Row="1" Column="0"/>
+            <LayoutButtons index="8" Face="MorphOrbitalToPlanetary" Type="AbilCmd" AbilCmd="MorphOrbitalToPlanetary,Execute" Row="1" Column="0"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="PlanetaryFortress">
