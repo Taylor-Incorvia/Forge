@@ -7,14 +7,20 @@ priority: 40
 ---
 # Orbital Command → Planetary Fortress upgrade — a self-limiting anti-drop static defense
 
-## ⚠️ REOPENED 2026-08-20 → 🔧 ROOT CAUSE FOUND & FIXED 2026-08-21 (pending in-game verify)
+## ⚠️ REOPENED 2026-08-20 → button-visibility fixed, MORE blockers found → REMOVED FROM SHIP 2026-08-22
 **Real symptom (user-clarified):** the "Upgrade to Planetary Fortress" button never appeared on the Orbital command card *at all* — NOT a morph-execution failure; the button was simply invisible. (My earlier "engine morph-chain" theory was wrong — I'd assumed the button showed and the morph failed.)
 
 **Root cause:** the morph `LayoutButtons` was added at **card index 8 — a NEW index the base Orbital card (indices 0–7, all `Type="AbilCmd"`) doesn't have.** Overriding an *existing* index merges unspecified fields (incl. `Type`) from the base button; a *new* index inherits nothing, so `Type` defaulted to `Undefined` → the button renders as nothing. Position was never the issue (Row1/Col0 is free; only Rally sits in Row 1). **This is the general gotcha behind "my command-card button won't show": a new `LayoutButtons` index must set `Type="AbilCmd"` explicitly.**
 
 **Fix:** added `Type="AbilCmd"` to the index-8 LayoutButtons (committed to main). One attribute.
 
-**Verify on next Test Document** (data card buttons DO render locally): (1) the `P` Planetary button now appears on the Orbital card, and (2) clicking it actually morphs to a Planetary. If the button shows but the morph won't execute, that's a separate follow-up — but the ability def (`CAbilMorph`, target PlanetaryFortress, `HasNoCargo`) is complete, so it most likely just works now. Flip status to `done` once both are confirmed.
+**Update 2026-08-22 — the button now shows (the `Type` fix worked) and the morph executes, but two more blockers surfaced in-game, so Planetary was pulled from the ship:**
+1. **No working hotkey.** The button has `<Hotkey value="P"/>` in ButtonData AND `Button/Hotkey/MorphOrbitalToPlanetary=P` in GameHotkeys, yet **P does nothing in-game** — you have to click the button. Likely another dynamic-button hotkey gotcha; unsolved.
+2. **Wrong model.** The morphed unit keeps rendering as an **Orbital Command**; only when it attacks does it briefly pop out the Planetary cannon, fire, then snap back to looking like an Orbital. The morph result isn't applying the PlanetaryFortress model/actor.
+
+**Removed for today's ship (2026-08-22):** deleted the `MorphOrbitalToPlanetary` entry from the Orbital's `AbilArray` and its LayoutButtons (index 8) so Planetary is inaccessible. Left inert for easy re-enable — the `CAbilMorph`, the `PlanetaryFortress` CUnit (+ `Food=15`), the `MorphOrbitalToPlanetary` CButton, hotkey entry, and strings all remain in the files, just unreferenced.
+
+**To re-enable, ALL of these must be solved:** (a) re-add the AbilArray link + the index-8 LayoutButtons **with `Type="AbilCmd"`**; (b) get the `P` hotkey to actually fire; (c) fix the model so the morphed unit renders as a Planetary Fortress, not an Orbital with a pop-out gun. Verify on a published build.
 
 **Design note (keep):** CC auto-morphs to Orbital for free on completion → no plain-CC state exists, so Orbital→Planetary is the only path (a CC→Planetary branch is impossible). Keep it a command-card button — a standalone SCV-built Planetary is explicitly NOT wanted (it breaks the "feels like normal multiplayer, no muscle-memory change" goal). The [[WA-081]] `Food=15` on PlanetaryFortress is correct and ready.
 
