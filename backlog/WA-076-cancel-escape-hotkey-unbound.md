@@ -66,3 +66,77 @@ Concrete fix procedure (all on a **PUBLISHED** build):
 ## Notes
 - **VERIFY ON PUBLISHED BUILDS ONLY.** The editor Test Document misrepresents hotkeys and cost this investigation several days of dead ends.
 - Everything above (the 7-point elimination + control experiment) is documented so nobody re-runs the dead ends. The remaining work is the command-card collision hunt in step "Strongest lead."
+
+
+# I am a human and the below seems quite suspicious in terms of something that will fix the escape key nonsense, but does expose something that maybe could be cleaned up separately. It was just an attempt to have a fresh agent take a look, but it doesn't look like it came up with anything promising. 
+---
+
+# ADDENDUM — 2026-08-21 (external review; NOT verified on a published build)
+
+Added by Claude during an unrelated website session, from a **read-only** review of
+`Base.SC2Data/GameData/UnitData.xml` against `reference/mods/liberty.sc2mod`. No mod
+code was changed. Everything below is a **lead**, not a fix — the ticket's own rule
+stands: only a published build proves anything.
+
+## The finding: this mod's `LayoutButtons` indices are shifted against the base card
+
+The Barracks command card, base vs mod:
+
+| base idx (Liberty, implicit order) | mod writes at that idx |
+| --- | --- |
+| 7  `Face="Reactor"` `BarracksAddOns,Build2` | **`Face="Cancel"` `que5,CancelLast`** |
+| 8  `Face="TechLabBarracks"` `BarracksAddOns,Build1` | **`Face="Cancel"` `BarracksAddOns,Halt`** |
+| 9  **`Face="Cancel"`** `que5,CancelLast` | `Face="CancelBuilding"` `BuildInProgress,Cancel` |
+| 10 **`Face="Cancel"`** `BarracksAddOns,Halt` | *(not specified — base entry survives)* |
+| 11 `Face="CancelBuilding"` | *(not specified — base entry survives)* |
+
+The mod removed the Reactor button (a Barracks only builds a Tech Lab here) and
+**renumbered everything after it**. So the overrides land on the *wrong* base entries.
+After the merge the card plausibly carries **two sets of Cancel commands**: the mod's
+new ones at indices 7/8, plus Liberty's originals at 10/11 which were never overridden.
+
+Same shape on **Factory** and **Starport** — both also drop an add-on button and
+renumber. Those two were not traced entry-by-entry; do that before fixing.
+
+## The attribute diff, on all six Cancel entries
+
+```
+LIBERTY:  <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5,CancelLast" Row="2" Column="4"/>
+MOD:      <LayoutButtons index="7" Face="Cancel"      AbilCmd="que5,CancelLast"         Column="4"/>
+```
+
+Both `Type="AbilCmd"` and `Row="2"` are dropped.
+
+## Why this is the strongest lead yet: WA-061 already proved the mechanism
+
+Commit `ccf45cf` (2026-08-21, hours before this addendum) fixed the invisible
+Orbital→Planetary button. Its own message:
+
+> "added at card index 8 (a new index), which inherits no Type from the base card;
+> it defaulted to Undefined"
+
+That is the same defect class, in the same file, already proven in this repo. WA-076
+and WA-061 look like the same bug wearing different clothes.
+
+## Honest caveats — do not over-read this
+
+- **Missing `Type=` is NOT itself the anomaly.** 101 `LayoutButtons` in this file have an
+  explicit index and no `Type`, and almost all of them work. The distinguishing factor for
+  Cancel is the *index shift* plus the dropped `Row`, not the missing `Type` alone.
+- The merge behaviour above is **inferred from the data**, not observed in a running game.
+  It fits every symptom (only this mod breaks; Restore Race Defaults recovers; entering
+  with Standard pre-selected is fine; unrelated to GameHotkeys / campaign dep / Story
+  category) but that is consistency, not proof.
+
+## Suggested test (cheapest first)
+
+1. On Barracks only, align the mod's Cancel/CancelBuilding entries with the base indices
+   (9/10/11 rather than 7/8/9) and restore `Type="AbilCmd"` and `Row="2"`.
+2. Publish. Enter on a custom profile, switch to Standard **in-game**, test Escape.
+3. If Barracks alone changes the behaviour, repeat for Factory and Starport.
+4. Regression check: Tech Lab still builds, add-on Halt still works, `CancelLast` on a
+   queued unit still works, deselect/menu Escape unaffected.
+
+A faster smoke test first: if the Barracks card visibly renders a Cancel button in the
+wrong slot (Row 0 rather than Row 2) while an add-on is building, that alone confirms the
+index shift without needing the profile switch at all.
