@@ -25,12 +25,15 @@ The mod grants research abilities via the **GrantAbility / `UnitAbilityAdd` API*
 ## The key enabling insight (why this is now feasible)
 The completed-research-lockout work failed because removing/swapping a dynamically-added ability **repacks the command card and shifts every later button left** (click slot N → slot N+1 actually researches). **But this nerf targets the FINAL research slot of each facility** — nothing sits to its right, so there's nothing to shift. Add/replace at the last slot is safe.
 
-## Design (preferred — telegraphs the lock)
-1. **At game start**, grant a **do-nothing ability with a greyed-out-looking button** to the final research slot of Ghost Academy / Armory / Fusion Core. Player sees a locked slot = "build the add-on to unlock this."
-2. **On add-on completion** (Tech Lab / Reactor / Tech Reactor finishes), **swap** the placeholder for the real research ability (remove placeholder → add real). Safe because it's the last button, and they're *different* ability ids so the "can't re-add the same ability in one frame" gotcha (attempts doc Approach 2) doesn't apply. Grant to **all** of that player's facilities of that type, and wire it into `applyAbilityListToUnit` so facilities built *later* also get the correct (locked/unlocked) version based on whether the add-on already exists.
+## Design (REQUIRED — the greyed placeholder is NOT optional)
+**Why the placeholder is mandatory:** the upgrade system's whole legibility rests on **positional parity** — Ghost Academy slot N is the upgrade for Barracks slot N; Armory slot N ↔ Factory slot N; Fusion Core slot N ↔ Starport slot N. A greyed slot 4 keeps all four slots visible so that mapping reads at a glance from turn 1. Leaving the slot **blank** until the add-on breaks that parity ("is there even a slot 4? which unit does it map to?") and undermines what makes the system make sense. The Your Faction modal helps, but the in-facility 1:1 parity is its own thing. So: placeholder always shown, swapped for the real button on unlock — **never a blank slot.**
 
-## Simpler fallback (lower risk — no removal at all)
-Skip the placeholder entirely: **just grant the real research ability on add-on completion**, leaving the final slot empty until then. Avoids `UnitAbilityRemove` (and all its shift/frame gotchas) completely. Downside: no greyed telegraph — the slot is simply blank until you build the add-on. If the swap-a-placeholder version fights the engine, drop to this.
+1. **At game start**, grant a **do-nothing ability with a greyed-out-looking button** to the final research slot of Ghost Academy / Armory / Fusion Core. Add it **last** (after the slot 1–3 real research abilities) so it occupies the rightmost/final card slot.
+2. **On add-on completion** (Tech Lab / Reactor / Tech Reactor finishes), **swap** the placeholder for the real research ability (remove placeholder → add real). Safe because the placeholder is the last button — removing it shifts nothing to its left (slots 1–3 stay put), and the real ability re-appends into the same final slot. They're *different* ability ids, so the "can't re-add the same ability in one frame" gotcha (attempts doc Approach 2) doesn't apply.
+3. Grant to **all** of that player's facilities of that type, and wire it into `applyAbilityListToUnit` so facilities built *later* also get the correct (locked/unlocked) version based on whether the add-on already exists.
+
+## If the same-frame swap misbehaves
+The fallback is **NOT** a blank slot (rejected — it breaks the slot parity above, which is the point of the whole feature). Instead: split the remove/add across a `Wait(0, c_timeGame)` frame yield, or use any swap that keeps the placeholder visible until the instant the real button replaces it. The greyed slot must always be present pre-unlock.
 
 ## Dependencies
 - A **greyed-out placeholder button icon** (the "locked" look). Real research icons already exist.
