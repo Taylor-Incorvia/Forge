@@ -764,4 +764,12 @@
     <CRequirementCountUpgrade id="CountUpgradeConcussiveFirebatCompleteOnly">
         <Count Link="ConcussiveFirebat" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradePFLockNeverCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="PFLockNever" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementGTE id="GTECountUpgradePFLockNeverCompleteOnly1">
+        <OperandArray index="0" value="CountUpgradePFLockNeverCompleteOnly"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
 </Catalog>

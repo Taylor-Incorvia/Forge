@@ -2270,7 +2270,7 @@
     <CAbilMorph id="MorphOrbitalToPlanetary">
         <EditorCategories value="Race:Terran,AbilityorEffectType:MorphsandBurrows"/>
         <Alert value="UpgradeComplete"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="MorphOrbitalToPlanetary" Requirements=""/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MorphOrbitalToPlanetary" Requirements="PFLockNeverReq"/>
         <CmdButtonArray index="Cancel" DefaultButtonFace="CancelUpgradeMorph"/>
         <Flags index="BestUnit" value="1"/>
         <Flags index="Birth" value="1"/>

@@ -191,4 +191,7 @@
     <CUpgrade id="PhoenixRangeUpgrade">
         <EffectArray index="0" Reference="Weapon,IonCannons,Range" Value="2.5"/>
     </CUpgrade>
+    <CUpgrade id="PFLockNever">
+        <EditorCategories value="Race:Terran"/>
+    </CUpgrade>
 </Catalog>

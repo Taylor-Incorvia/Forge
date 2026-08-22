@@ -300,4 +300,8 @@
     <CRequirement id="UseConcussiveFirebat">
         <NodeArray index="Use" Link="CountUpgradeConcussiveFirebatCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="PFLockNeverReq">
+        <NodeArray index="Show" Link="GTECountUpgradePFLockNeverCompleteOnly1"/>
+        <NodeArray index="Use" Link="GTECountUpgradePFLockNeverCompleteOnly1"/>
+    </CRequirement>
 </Catalog>
