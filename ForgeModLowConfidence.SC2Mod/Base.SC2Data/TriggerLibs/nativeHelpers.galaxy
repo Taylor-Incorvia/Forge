@@ -8,6 +8,10 @@ bool devMode = false;
 // Bump between test runs; 7 covers every unit. See backlog/WA-033. (Only active when devMode.)
 int testCaseNumber = 0;
 
+// Shown in chat at game start via announceVersion() (wire it to a game-start trigger in the editor).
+// Bump this each release. Reserve "v1.0" for the Season 1 launch.
+string wildcardVersion = "Wildcard Arena v0.9";
+
 void grantUpgrade(int playerIndex, string upgradeId) {
     libNtve_gf_SetUpgradeLevelForPlayer(playerIndex, upgradeId, 1);
 }
@@ -35,10 +39,19 @@ void showMessage(string message){
     }
 }
 
+// Wire this to a game-start trigger in the editor. Prints the mod name + version to the chat log.
+void announceVersion(){
+    UIDisplayMessage(
+        PlayerGroupAll(),
+        c_messageAreaChat,
+        StringToText(wildcardVersion)
+    );
+}
+
 void showMessageToPlayer(int player, string message){
     UIDisplayMessage(
         PlayerGroupSingle(player),
         c_messageAreaSubtitle,
         StringToText(message)
     );
-}
+}
