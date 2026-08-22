@@ -185,6 +185,7 @@ void initializeStarportSlot3Pool() {
 }
 
 void initializePools() {
+    announceVersion(); // prints "Wildcard Arena vX" to chat once at game start (runs once, globally)
     initializeBarracksSlot1Pool();
     initializeBarracksSlot2Pool();
     initializeBarracksSlot3Pool();
@@ -210,4 +211,4 @@ void setProductionSlotsForPlayer(int playerIndex) {
     setSlotsForFacility(rax, 4, playerIndex);
     setSlotsForFacility(factory, 3, playerIndex);
     setSlotsForFacility(starport, 3, playerIndex);
-}
+}
