@@ -3,6 +3,9 @@
     <CEffectDamage id="NeutronFlare">
         <AreaArray index="0" Radius="0.820000" Fraction="1"/>
     </CEffectDamage>
+    <CEffectDamage id="YamatoU">
+        <Amount value="240"/>
+    </CEffectDamage>
     <CEffectEnumArea id="ArbiterMPRecallSearch">
         <AreaArray index="0" Radius="4.5"/>
     </CEffectEnumArea>
