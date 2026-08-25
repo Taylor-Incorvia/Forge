@@ -132,7 +132,7 @@
     </CUpgrade>
     <CUpgrade id="LifestealMarine">
         <EditorCategories value="Race:Terran"/>
-        <EffectArray Reference="Effect,GuassRifle,LeechFraction[Life]" Value="0.15"/>
+        <EffectArray Reference="Effect,GuassRifle,LeechFraction[Life]" Value="0.4"/>
         <AffectedUnitArray value="Marine"/>
     </CUpgrade>
     <CUpgrade id="ConcussiveVoidRay">
