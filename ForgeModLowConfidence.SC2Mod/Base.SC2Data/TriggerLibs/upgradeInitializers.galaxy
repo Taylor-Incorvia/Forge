@@ -224,7 +224,6 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "pureCaster");
     addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "VoidRay");
     addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "Archon");
-    addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "Tempest"); // OP: stim costs 20% Life only (shields untouched), so it's near-free on a range-15 kiter -> no counterplay. WA-088
     addUpgradeRequirementTag("Stimpack", logicType_NoneOf, "unitTag", "Zergling"); // useless on Zerglings (playtest feedback)
 
     // addAbilityToUpgrade("TempestDisruptionBlast", "F_TempestDisruptionBlast"); // this still doesn't work -- the channel time of 4 seconds makes it suck. tried to reduce it but it didn't work. 
