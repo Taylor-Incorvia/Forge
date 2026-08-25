@@ -1813,7 +1813,7 @@
             <Button DefaultButtonFace="Mutalisk" Requirements="UnknownRequirement8"/>
             <Unit value="Mutalisk"/>
         </InfoArray>
-        <InfoArray index="Train10" Time="58.8">
+        <InfoArray index="Train10" Time="64.4">
             <Button DefaultButtonFace="Tempest" Requirements="starport3tempestreq"/>
             <Unit value="Tempest"/>
         </InfoArray>
