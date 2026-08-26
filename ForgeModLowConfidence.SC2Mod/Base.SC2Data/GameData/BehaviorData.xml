@@ -21,6 +21,12 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Modification WeaponRange="2.5"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="PostLeapRange">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="1"/>
+        <Modification WeaponRange="1"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="TempestDisruptionBlastStunBehavior">
         <Duration value="4.2"/>
     </CBehaviorBuff>

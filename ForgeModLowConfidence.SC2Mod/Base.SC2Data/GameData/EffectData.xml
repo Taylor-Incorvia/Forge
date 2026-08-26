@@ -310,7 +310,13 @@
         <EffectArray value="HotSRaptorLeapSwitch2"/>
         <EffectArray value="MakePrecursor"/>
         <EffectArray value="TempTimeout2"/>
+        <EffectArray value="PostLeapRangeApply"/>
     </CEffectSet>
+    <CEffectApplyBehavior id="PostLeapRangeApply">
+        <WhichUnit Value="CasterUnit"/>
+        <ValidatorArray value="LeapCasterNotFirebat"/>
+        <Behavior value="PostLeapRange"/>
+    </CEffectApplyBehavior>
     <CEffectSwitch id="HotSRaptorLeapSwitch2">
         <EditorCategories value="Race:Zerg"/>
         <CaseArray Validator="TargetIsPathable" Effect="HotSRaptorLeapLM2"/>
