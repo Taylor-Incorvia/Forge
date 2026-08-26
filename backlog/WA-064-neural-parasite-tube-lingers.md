@@ -1,13 +1,23 @@
 ---
 id: WA-064
-status: done
+status: todo
 size: S
 phase: 1-game-readiness
 priority: 25
 ---
 # Neural Parasite tube lingers after the effect ends (visual only)
 
-## ✅ RESOLVED (PR #35, merged)
+## 🔁 REOPENED (2026-08-25) — still reproduces on a Ghost
+Taylor rolled Neural Parasite on a **Ghost** and saw the tube linger again. The PR #35 fix keys the tube-destroy on `Abil.F_NeuralParasite.SourceFinishStop`, which worked for the tested Viper case but leaks here. Two leading hypotheses:
+1. **End-condition gap (most likely):** `SourceFinishStop` fires when the *channel* stops normally. If the parasite ended another way — target died, caster died/moved, the effect hit its duration cap, or control was interrupted — that term may not fire, so the destroy never triggers. **Fix direction: key the tube-destroy on the behavior turning OFF (`Behavior.<x>.Off`) instead of / in addition to `SourceFinishStop`** — behavior-off fires regardless of how control ends, covering every case in one term.
+2. **Second actor:** there may be more than one tube/tentacle/beam actor; PR #35 only overrode `NeuralParasiteTentacle`.
+
+### Next steps (this reopen)
+- Repro on a Ghost and note **how** the parasite ended (target died? duration expired? manual stop?).
+- Identify the behavior `F_NeuralParasite` applies to the caster/target and add a `Behavior.*.Off → Destroy` term to `NeuralParasiteTentacle` (and any sibling beam actor).
+- Re-verify on Viper (original), Ghost, and at least one death-of-target case.
+
+## ✅ RESOLVED (PR #35, merged) — PARTIAL, see reopen above
 Fixed. Correction to the guess below: the tube is **`NeuralParasiteTentacle`** (model `Infestor_Ex3_Tentacle`), confirmed in-editor — NOT `NeuralParasiteEffect` (that's the Infestor's head-glow, and voidmulti never applies that behavior, so the first attempt's `Duration` was inert dead code). `NeuralParasiteTentacle` has **no lifecycle terms of its own**; LotV gates its cleanup to a **burrowed Infestor casting the stock `NeuralParasite`** (`Abil.NeuralParasite.SourceFinishStop → Destroy`, on a host actor). A Viper casting the mod's copy `F_NeuralParasite`, non-burrowed, matches neither condition → the tentacle is created but never told to die → lingers.
 
 **Fix:** a mod `ActorData` override adds `<On Terms="Abil.F_NeuralParasite.SourceFinishStop" Send="Destroy"/>` to `NeuralParasiteTentacle` — the F_ mirror of the Infestor's cleanup. Confirmed in-game: the tube clears when the channel ends, and a second cast recreates + cleans up correctly.
