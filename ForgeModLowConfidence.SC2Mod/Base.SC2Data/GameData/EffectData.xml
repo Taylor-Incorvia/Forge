@@ -313,7 +313,7 @@
         <EffectArray value="PostLeapRangeApply"/>
     </CEffectSet>
     <CEffectApplyBehavior id="PostLeapRangeApply">
-        <WhichUnit Value="CasterUnit"/>
+        <WhichUnit Value="Caster"/>
         <ValidatorArray value="LeapCasterNotFirebat"/>
         <Behavior value="PostLeapRange"/>
     </CEffectApplyBehavior>
