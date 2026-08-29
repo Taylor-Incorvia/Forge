@@ -188,6 +188,7 @@ Button/Name/TwinLinkedFlameThrowers1=Twin-Linked Flamethrowers
 Button/Name/VoidMPImmortalRevive2=Immortal Revive
 Button/Name/Yamato=Yamato
 Button/Name/YamatoGun2=Yamato Cannon
+Button/Name/Stalker=Blink Stalker
 Button/Name/stalkerblinkcooldown1=Blink Cooldown
 Button/Name/stalkerblinkrange1=Blink Range
 Button/Tooltip/Armory=Contains randomized upgrades that each apply to a single factory unit slot.<n/>Enables Factory slot 2 units to be built from the Factory. <n/>Enables add on to be built from the factory. <n/> Upgrades remain available after research so players can easily track which randomized upgrades were rolled this game. Re-researching an upgrade has no effect. 

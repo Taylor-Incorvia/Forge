@@ -1,11 +1,14 @@
 ---
 id: WA-091
-status: todo
+status: done
 size: S
 phase: 2-post-launch
 priority: 40
 ---
 # Rename Stalker → "Blink Stalker" everywhere in the UI
+
+## ✅ DONE (2026-08-28)
+Added `Button/Name/Stalker=Blink Stalker` to GameStrings.txt (the missing train-button override; `Unit/Name/Stalker` was already "Blink Stalker"). Taylor to confirm the train button in the Test Document before the weekend patch deploy. Site `/units` rename is separate (website repo) — handled by the website agent's next sync.
 
 ## What
 Show the Stalker as **"Blink Stalker"** consistently in the UI (it's the mod's blink-centric Stalker; matches the flavor rename pattern like Roach → "Mech Roach").
