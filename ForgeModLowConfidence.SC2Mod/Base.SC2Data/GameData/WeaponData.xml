@@ -10,9 +10,7 @@
         <Effect value="ClawsConcussiveSet"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="CrucioShockCannon"/>
-    <CWeaponLegacy id="Diamondback">
-        <Range value="7"/>
-    </CWeaponLegacy>
+    <CWeaponLegacy id="Diamondback"/>
     <CWeaponLegacy id="Firebat"/>
     <CWeaponLegacy id="GuassRifle"/>
     <CWeaponLegacy id="HellionTank"/>

@@ -13,7 +13,7 @@ Single-glance state of everything on Taylor's radar for the upcoming patch. Livi
 - **Tempest cost 250/175 → 275/200** + **build time +4s on Faster** (58.8→64.4 catalog). *(Taylor said "I'm gonna do that" — it's already shipped.)*
 - **Tempest keeps Stim** — playtest showed stim is self-limiting on Protoss (20%-Life floor blocks casting below 20% HP; Protoss can't be repaired/healed → ~4 casts max). It's an upgrade *choice* (4 stims vs +2.5 range), not a free power-up. (WA-088 exclusion reverted.)
 - **Marine lifesteal 15% → 40%** — Taylor happy with it.
-- **Diamondback base range 6 → 7** (upgraded ceiling 8.5→9.5).
+- **Diamondback base range 6 → 7** — **REVERTED 2026-08-29** (back to base 6). Taylor wants more data before buffing. Moved to WATCHING.
 - **Seeker Missile hotkey R → G** (stale GameHotkeys override; was uncastable on G).
 - **Yamato (YamatoU) pinned to 240** (ladder value) in own data.
 
