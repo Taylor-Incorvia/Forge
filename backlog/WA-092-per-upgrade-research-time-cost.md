@@ -41,5 +41,21 @@ void setSlotResearchTime(int player, string upgradeKey, int slot, string timeVal
 - **(Yamato, starport slot 3)** → higher cost + time (premium late roll should cost accordingly). Ties to the recurring "Tempest + any upgrade feels strong" read — tune the *upgrade's research*, not the Tempest.
 - Add others as they scream. Do NOT try to tune all ~200 combos up front — only the outliers.
 
+## Granularity tiers Taylor wants (design expansion, 2026-08-29)
+Now that it's clearly doable via triggers, Taylor wants a *layered* config, cheapest-to-maintain first. Design the lookup so most ground is covered by broad rules and per-combo overrides are rare:
+1. **Global upgrade lists** — an "extended-research" list and a "shrunk-research" list keyed by upgrade. E.g. Concussive Shells → *shrunk* (fast); Yamato → *extended* (slow). One list membership tunes an upgrade everywhere it rolls. **This should cover most cases.**
+2. **Per-(upgrade, slot)** — as already scoped above.
+3. **Per-unit factor** — the same upgrade should cost more on a stronger host. "Range on a **Tempest** should take longer than range on a **Hydralisk**." Implies an optional per-unit multiplier/override layer on top of the upgrade's base time.
+4. **Per-(unit, upgrade)** — most granular. Taylor wants to **avoid** relying on this ("no time for 200 combos"); support it only as a rare escape hatch.
+
+Design goal: cover ~everything with tiers 1 + 3 (upgrade lists + a few per-unit bumps); use 2 and 4 sparingly.
+
+## Concrete targets identified
+- **Yamato Cannon → longer research (and likely costlier).** Also a *reputation* problem, not just balance: opponents facing **Thor + Yamato** have twice told Taylor "your mod sucks" in one hour. Yamato is a good upgrade — it just arrives too easily. (Ref: BC default build time in this mod = **70 catalog / 50s Faster**, StarportTrain Train4.)
+- **All Tempest upgrades → longer + costlier.** Taylor's thesis: it's Tempest *with upgrades* that's OP, not the Tempest itself.
+
+## Possible Tempest strategy pivot (do NOT do yet — needs this system first)
+Taylor is considering: **revert the just-shipped Tempest unit nerf** (v0.7.1 raised it 250/175 → 275/200) and instead nerf **all Tempest upgrades** via longer/costlier research, leaving the Tempest itself at its old 250/175. Rationale: raising the *unit* price is a band-aid — the upgrades are what's OP, so nerf the upgrades. **Sequencing (important): do not un-nerf the Tempest unit until this research-nerf system exists AND the Tempest-upgrade research nerfs are in place — otherwise you un-nerf the unit with no compensating nerf.** Tension to hold: earlier reasoning (see [[balance-for-forced-creativity]]) was "stock unit costs assume no upgrades exist, so a unit that gains upgrades is genuinely undercosted" — which argues the unit bump is *also* legitimate. Decide at build time whether to revert the unit nerf or keep both.
+
 ## Notes
-This is the granular lever Taylor flagged he wants to lean on going forward. Effort is MEDIUM (core plumbing already proven by setSlotResearchPrice); ongoing cost is just adding lookup lines. Related balance lens: [[balance-for-forced-creativity]] (tune the screamers, don't over-tune everything). Blink-Zealot context: [[WA-087]]. Tempest context: [[WA-090]].
+This is the granular lever Taylor flagged he wants to lean on going forward. Effort is MEDIUM (core plumbing already proven by setSlotResearchPrice); ongoing cost is just adding lookup/list lines. Related balance lens: [[balance-for-forced-creativity]] (tune the screamers, don't over-tune everything). Blink-Zealot context: [[WA-087]]. Tempest context: [[WA-090]].
