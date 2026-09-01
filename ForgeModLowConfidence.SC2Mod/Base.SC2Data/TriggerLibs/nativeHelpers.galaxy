@@ -10,7 +10,7 @@ int testCaseNumber = 0;
 
 // Shown in chat at game start via announceVersion() (wire it to a game-start trigger in the editor).
 // Bump this each release. Reserve "v1.0" for the Season 1 launch.
-string wildcardVersion = "Wildcard Arena v0.7.1 (8/29/2026)";
+string wildcardVersion = "Wildcard Arena v0.7.2 (8/31/2026)";
 
 void grantUpgrade(int playerIndex, string upgradeId) {
     libNtve_gf_SetUpgradeLevelForPlayer(playerIndex, upgradeId, 1);
