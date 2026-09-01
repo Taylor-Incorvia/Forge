@@ -7,6 +7,9 @@ priority: 65
 ---
 # Per-(upgrade, slot) research TIME + COST — a tuning lever for over/under-powered rolls
 
+## ✅ ENGINE MERGED (PR #43, on main, 2026-08-31) — verified in Test Document
+Taylor tested and confirmed the values apply correctly. NOTE: research abilities are `<upgradeKey><slot>`, shared across facilities (see [[reference-research-ability-per-slot-shared]]) — the roll system already blocks the same upgrade at the same slot in two facilities, so per-(upgrade,slot) overrides are safe. Only the modal-display companion (below) remains.
+
 ## 🟡 ENGINE IMPLEMENTED (branch wa-092-research-cost-time, PR pending review 2026-08-31)
 Built the dynamic research cost/time config (per (upgrade, unit, facility, slot), per-player):
 - `setSlotResearchTime` mirrors `setSlotResearchPrice` (targets `InfoArray[Research1].Time`).
