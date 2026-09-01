@@ -171,12 +171,58 @@ void setSlotSelectedUpgrade(int player, int slotIndex, string facilityid, string
 }
 
 // Set the per-player research price (both minerals + vespene) for a rolled upgrade's research ability.
-// "999999" locks it (can't research); "150" is the normal price. All upgrades cost 150/150 for now.
+// "999999" locks it (can't research); the normal price comes from getResearchCostAmount (default 150).
 void setSlotResearchPrice(int player, string upgradeKey, int slot, string amount) {
     string researchAbilityName;
     researchAbilityName = upgradeKey + IntToString(slot);
     CatalogFieldValueSet(c_gameCatalogAbil, researchAbilityName, "InfoArray[Research1].Resource[Minerals]", player, amount);
     CatalogFieldValueSet(c_gameCatalogAbil, researchAbilityName, "InfoArray[Research1].Resource[Vespene]", player, amount);
+}
+
+// Set the per-player research TIME for a rolled upgrade's research ability. Mirrors setSlotResearchPrice
+// but targets InfoArray[Research1].Time. `timeAmount` is CATALOG (normal-speed) seconds; in-game "Faster"
+// time = value / 1.4 (e.g. "120" catalog shows as ~87s; "60.2" shows as ~43s).
+void setSlotResearchTime(int player, string upgradeKey, int slot, string timeAmount) {
+    string researchAbilityName;
+    researchAbilityName = upgradeKey + IntToString(slot);
+    CatalogFieldValueSet(c_gameCatalogAbil, researchAbilityName, "InfoArray[Research1].Time", player, timeAmount);
+}
+
+// ===================== WA-092: per-(upgrade, unit, facility, slot) research cost/time =====================
+// Single source of truth for how much a rolled upgrade costs / how long it takes to research. Applied per
+// player at faction setup (applyAllResearchConfigForPlayer) and re-read by onResearchCancelled to restore
+// the correct price. Defaults: cost 150 (symmetric min+gas), time 120 catalog (~87s Faster). Only override
+// the screamers; everything else falls through to the default. Costs are speed-independent; times are
+// catalog seconds (Faster = /1.4). See backlog/WA-092.
+
+// Returns the research minerals+gas cost (symmetric) as a string.
+string getResearchCostAmount(string upgradeKey, string unitName, string facility, int slot) {
+    // Concussive Shells (per-unit keys "Concussive<Unit>") -- cheaper; allowed to be a bit better than
+    // ladder since Wildcard has no basic +attack upgrades.
+    if (getSubString(upgradeKey, 1, 10) == "Concussive") { return "50"; }
+    // Force Field -- loses potency fast once Ultras/Colossus/Thors walk over it; make it cheap.
+    if (upgradeKey == "ForceField") { return "100"; }
+    // Yamato -- premium on everything EXCEPT Battlecruiser (where it's just its native ability).
+    if (upgradeKey == "Yamato") {
+        if (unitName == "Battlecruiser") { return "150"; }
+        return "200";
+    }
+    // Blink barracks slot 1 stays 150 (the nerf is the research TIME, not the cost).
+    return "150";
+}
+
+// Returns the research time in CATALOG seconds (Faster = /1.4) as a string.
+string getResearchTimeAmount(string upgradeKey, string unitName, string facility, int slot) {
+    if (getSubString(upgradeKey, 1, 10) == "Concussive") { return "60.2"; }   // ~43s Faster
+    if (upgradeKey == "ForceField") { return "70"; }                          // ~50s Faster
+    if (upgradeKey == "Yamato") {
+        if (unitName == "Battlecruiser") { return "140"; }                    // ~100s Faster
+        return "168";                                                          // ~120s Faster
+    }
+    // Barracks slot 1 Blink arrives too early (bypasses the wall + escapes surrounds) -> much longer,
+    // even longer than ladder. Blink at any other slot/facility stays at the ~87s default.
+    if (upgradeKey == "Blink" && facility == rax && slot == 1) { return "191.8"; } // ~137s Faster
+    return "120";                                                              // ~87s Faster (default)
 }
 
 // Research STARTED (queued): lock the price so the SAME upgrade can't be queued a second time while
@@ -196,19 +242,24 @@ void onResearchStarted(){
     }
 }
 
-// Research CANCELLED: restore the normal 150/150 price so the upgrade can be researched again.
-// Wire to: Unit - Unit Research Progress (Cancel stage) -> onResearchCancelled();
+// Research CANCELLED: restore the upgrade's CONFIGURED price (from getResearchCostAmount) so it can be
+// researched again -- not a hardcoded 150, since some upgrades cost more/less now. Wire to:
+// Unit - Unit Research Progress (Cancel stage) -> onResearchCancelled();
 void onResearchCancelled(){
     unit upgradeFacillity = EventUnit();
     string cancelledUpgrade = EventUnitProgressObjectType();
     int player = EventPlayer();
     int slot;
     string upgradeKey;
+    string facility;
+    string unitName;
 
     if(cancelledUpgrade == "1" || cancelledUpgrade == "2" || cancelledUpgrade == "3" || cancelledUpgrade == "4") {
         slot = StringToInt(cancelledUpgrade);
-        upgradeKey = getSlotSelectedUpgrade(player, slot, getProductionFacilityFromUpgradeFacility(UnitGetType(upgradeFacillity)));
-        setSlotResearchPrice(player, upgradeKey, slot, "150");
+        facility = getProductionFacilityFromUpgradeFacility(UnitGetType(upgradeFacillity));
+        upgradeKey = getSlotSelectedUpgrade(player, slot, facility);
+        unitName = getPlayerSlotUnitId(facility, slot, player);
+        setSlotResearchPrice(player, upgradeKey, slot, getResearchCostAmount(upgradeKey, unitName, facility, slot));
     }
 }
 

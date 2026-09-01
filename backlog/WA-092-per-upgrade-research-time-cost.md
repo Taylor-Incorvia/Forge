@@ -1,10 +1,24 @@
 ---
 id: WA-092
-status: todo
+status: in-progress
 size: M
 phase: 2-post-launch
 priority: 65
 ---
+# Per-(upgrade, slot) research TIME + COST — a tuning lever for over/under-powered rolls
+
+## 🟡 ENGINE IMPLEMENTED (branch wa-092-research-cost-time, PR pending review 2026-08-31)
+Built the dynamic research cost/time config (per (upgrade, unit, facility, slot), per-player):
+- `setSlotResearchTime` mirrors `setSlotResearchPrice` (targets `InfoArray[Research1].Time`).
+- `getResearchCostAmount` / `getResearchTimeAmount` (upgradeHelpers) = single source of truth; default 150 / 120 catalog (~87s Faster); override only the screamers.
+- `applyAllResearchConfigForPlayer` runs at faction setup (initializeUpgradePoolsForPlayer, after upgrades assigned).
+- `onResearchCancelled` restores the *configured* cost, not hardcoded 150.
+- Safe fallback: if the apply never runs, everything stays at today's static 150/120.
+
+First configured values (Faster→catalog ×1.4): Concussive 50 / 43s(60.2); Force Field 100 / 50s(70); Yamato-on-BC 150 / 100s(140); Yamato-on-non-BC 200 / 120s(168); Blink rax-slot-1 150 / 137s(191.8); all else default 150 / 87s(120).
+
+**Still TODO:** the modal display companion (below) + in-editor verification that `CatalogFieldValueSet` on `InfoArray[Research1].Time` takes (unverified field path — like the leap effect, actor/catalog paths need an editor check).
+
 # Per-(upgrade, slot) research TIME + COST — a tuning lever for over/under-powered rolls
 
 ## Why
