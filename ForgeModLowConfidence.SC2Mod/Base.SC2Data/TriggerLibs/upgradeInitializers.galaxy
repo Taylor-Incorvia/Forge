@@ -600,8 +600,40 @@ void assignUpgradesToAllSlotsWithinCaps(int player) {
     }
 }
 
+// WA-092: apply the configured research cost + time (getResearchCostAmount / getResearchTimeAmount,
+// upgradeHelpers.galaxy) to one slot's rolled upgrade, keyed on (upgrade, unit, facility, slot).
+void applyResearchConfigForSlot(int player, string facility, int slot) {
+    string upgradeKey;
+    string unitName;
+
+    upgradeKey = getSlotSelectedUpgrade(player, slot, facility);
+    if (upgradeKey == "") {
+        return;
+    }
+    unitName = getPlayerSlotUnitId(facility, slot, player);
+    setSlotResearchPrice(player, upgradeKey, slot, getResearchCostAmount(upgradeKey, unitName, facility, slot));
+    setSlotResearchTime(player, upgradeKey, slot, getResearchTimeAmount(upgradeKey, unitName, facility, slot));
+}
+
+// WA-092: set every slot's research cost/time for this player. Runs once at faction setup, AFTER units are
+// rolled and upgrades are assigned (both are prerequisites -- reads getPlayerSlotUnitId + getSlotSelectedUpgrade).
+void applyAllResearchConfigForPlayer(int player) {
+    int slotIndex;
+
+    for (slotIndex = 1; slotIndex <= 4; slotIndex += 1) {
+        applyResearchConfigForSlot(player, rax, slotIndex);
+    }
+    for (slotIndex = 1; slotIndex <= 3; slotIndex += 1) {
+        applyResearchConfigForSlot(player, factory, slotIndex);
+    }
+    for (slotIndex = 1; slotIndex <= 3; slotIndex += 1) {
+        applyResearchConfigForSlot(player, starport, slotIndex);
+    }
+}
+
 void initializeUpgradePoolsForPlayer(int player) {
     assignUpgradesToAllSlotsWithinCaps(player);
+    applyAllResearchConfigForPlayer(player); // WA-092: per-(upgrade,unit,facility,slot) research cost + time
     grantInitialUpgrades(player);
     // Both units (set earlier) and upgrades (just set) are ready -> show this player their faction.
     showFactionModalForPlayer(player);
