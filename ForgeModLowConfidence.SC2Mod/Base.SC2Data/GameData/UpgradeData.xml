@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CUpgrade id="LurkerRange">
+        <EffectArray index="0" Reference="Weapon,LurkerMP,Range" Value="3"/>
+        <EffectArray index="1" Reference="Effect,LurkerMP,PeriodCount" Value="3"/>
+    </CUpgrade>
     <CUpgrade id="DiggingClaws">
         <EffectArray Operation="Multiply" Reference="Unit,LurkerMP,Speed" Value="1.500000"/>
         <EffectArray Operation="Multiply" Reference="Abil,SiegeMode,InfoArray[0].SectionArray[Stats].DurationArray[Duration]" Value="0.400000"/>
