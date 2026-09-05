@@ -206,7 +206,8 @@ void initializeUpgrades() {
 
     addBehaviorToUpgrade("Speed", "Speed");
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "pureCaster");
-    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Tempest"); // Tempests become insanely opressive. unbeatable. no counter play. 
+    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Tempest"); // Tempests become insanely opressive. unbeatable. no counter play.
+    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Stalker"); // Speed is fine on its own, but Stalker already has native Blink -- blink + speed = uncatchable, no counterplay (WA-095)
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "melee"); // charge gives melee units speed and the charge ability. No need for this to be in the pool too for melee. 
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "LurkerMP"); // lurkers, tanks, zerglings, zealots have their own speed upgrade that also improves transform speed. 
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "SiegeTank");
