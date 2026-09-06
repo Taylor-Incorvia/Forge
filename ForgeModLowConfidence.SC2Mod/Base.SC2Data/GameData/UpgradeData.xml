@@ -123,7 +123,7 @@
         <ScoreAmount value="400"/>
         <ScoreResult value="BuildOrder"/>
         <EffectArray Operation="Multiply" Reference="Effect,Blink,Range" Value="2"/>
-        <EffectArray Operation="Set" Reference="Unit,Stalker,Sight" Value="16"/>
+        <EffectArray Operation="Set" Reference="Unit,Stalker,Sight" Value="12"/>
         <EffectArray Operation="Multiply" Reference="Effect,Blink,PlacementRange" Value="2"/>
         <EditorCategories value="Race:Terran,UpgradeType:SpellResearch"/>
         <AffectedUnitArray value="Stalker"/>
