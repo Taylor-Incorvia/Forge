@@ -772,4 +772,12 @@
         <OperandArray index="0" value="CountUpgradePFLockNeverCompleteOnly"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
+    <CRequirementCountUpgrade id="CountUpgradeKD8HideNever">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="KD8HideNever" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementGTE id="GTECountUpgradeKD8HideNever1">
+        <OperandArray index="0" value="CountUpgradeKD8HideNever"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
 </Catalog>

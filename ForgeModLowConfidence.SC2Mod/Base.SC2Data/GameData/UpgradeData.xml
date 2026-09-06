@@ -198,4 +198,7 @@
     <CUpgrade id="PFLockNever">
         <EditorCategories value="Race:Terran"/>
     </CUpgrade>
+    <CUpgrade id="KD8HideNever">
+        <EditorCategories value="Race:Terran"/>
+    </CUpgrade>
 </Catalog>
