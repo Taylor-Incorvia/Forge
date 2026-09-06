@@ -122,9 +122,9 @@ void initializeBarracksSlot4Pool() {
 void initializeFactorySlot1Pool() {
     int slot = 1;
     string facility = factory;
-    addUnitToSlotPool(facility, slot, "Vulture"); 
-    addUnitToSlotPool(facility, slot, "Hellion"); 
-    addUnitToSlotPool(facility, slot, "Stalker"); 
+    addUnitToSlotPool(facility, slot, "Vulture");
+    addUnitToSlotPool(facility, slot, "Hellion");
+    // addUnitToSlotPool(facility, slot, "Stalker"); // WA-098: removed temporarily -- illegible/unfun upgrades + outperforms slotmates. Re-add after WA-096 blink-pool redesign.
     // addUnitToSlotPool(facility, slot, "Roach"); 
     // addUnitToSlotPool(facility, slot, "Ravager"); // made this a mecha ravager. Probably want to buff it a little and send it to slot 2. 
     // addUnitToSlotPool(facility, slot, "Predator"); // predator is mad broken as a factory slot 1 unit and mad broken at 100/100 price. Increase price, move to slot 2 and then you can re-enable
