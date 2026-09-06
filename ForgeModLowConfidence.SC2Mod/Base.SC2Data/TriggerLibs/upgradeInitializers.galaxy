@@ -207,7 +207,6 @@ void initializeUpgrades() {
     addBehaviorToUpgrade("Speed", "Speed");
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "pureCaster");
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Tempest"); // Tempests become insanely opressive. unbeatable. no counter play.
-    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Stalker"); // Speed is fine on its own, but Stalker already has native Blink -- blink + speed = uncatchable, no counterplay (WA-095)
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "melee"); // charge gives melee units speed and the charge ability. No need for this to be in the pool too for melee. 
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "LurkerMP"); // lurkers, tanks, zerglings, zealots have their own speed upgrade that also improves transform speed. 
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "SiegeTank");
@@ -295,6 +294,7 @@ void initializeUpgrades() {
     // NOT Effect,Blink,PlacementRange -- so the click range never grew and the extra teleport range was unreachable.
     // b40c4e6 added the missing PlacementRange line, so the data is now complete. Verify on production (editor can't test this).
     addUpgradeToUpgrade("stalkerblinkrange", "stalkerblinkrange");
+    addUpgradeToUpgrade("stalkerblinkrange", "BlinkTech"); // WA-096: also grants blink itself (no longer native). Rolling this = blink + longer blink range.
     addUpgradeRequirementTag("stalkerblinkrange", logicType_AnyOf, "unitTag", "Stalker");
 
     // WA-023: Chitinous Plating -- Ultralisk armor. Now a rolled research (Armory slot 3) instead of a free start upgrade.
@@ -344,6 +344,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("ConcussiveFirebat", logicType_AnyOf, "unitTag", "Firebat");
 
     addUpgradeToUpgrade("stalkerblinkcooldown", "stalkerblinkcooldown");
+    addUpgradeToUpgrade("stalkerblinkcooldown", "BlinkTech"); // WA-096: also grants blink itself (no longer native). Rolling this = blink + reduced cooldown.
     addUpgradeRequirementTag("stalkerblinkcooldown", logicType_AnyOf, "unitTag", "Stalker");
 
     // Range as a COUNT upgrade for Tempest + Siege Tank (instead of the behavior version), so the
@@ -439,8 +440,10 @@ void grantInitialUpgrades(int player) {
     //DuskWing - just a buffed banshee
     // grantUpgrade(player, "BansheeCloak");
 
-    //Stalker - always has blink cause its fun and is a factory unit
-    grantUpgrade(player, "BlinkTech");
+    //Stalker - blink is NO LONGER native (WA-096). It's granted only when the stalker rolls a blink
+    //variant upgrade (stalkerblinkcooldown / stalkerblinkrange), so blink is gated behind a roll + research
+    //instead of being free/early. This is what lets speed/bile/range be fine on the stalker again.
+    // grantUpgrade(player, "BlinkTech");
 
     //Marine
     grantUpgrade(player, "ShieldWall"); // Marines seemed super cost efficient with this. Idk, I don't really want the simplest game play to always be the best. // update 7/11/2026 --I increased the price. Hopefully this doesn't make them too strong again. 
