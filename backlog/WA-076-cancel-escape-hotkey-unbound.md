@@ -143,3 +143,6 @@ index shift without needing the profile switch at all.
 
 ## Priority note (2026-09-06)
 PARKED -- the escape/hotkey-profile unbind bug. Intractable so far; workaround documented (Discord "hotkey nonsense" channel). Taylor: "this makes me hate this project." Not in the active queue.
+
+## Candidate fix path (2026-09-07) — via WA-078
+Taylor now suspects the **WoL units/upgrades** (the Liberty Campaign dependency) are the cause of this escape/hotkey-unbind bug. Plan: fold this into [[WA-078]] as one investigation — fully remove WoL content + drop the dependency, test on production to see if the escape bug vanishes, then add the WoL content back one-by-one to bisect the exact culprit. So this is no longer purely "parked/intractable" -- it has a concrete strategy, gated on the WA-078 branch effort. Still parked as a standalone (do it through WA-078, not on its own).
