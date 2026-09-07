@@ -29,11 +29,23 @@ visually distinct and behaves per the requirements below.
 - (g) **Same hotkey as the build-Tech-Lab hotkey** (the consolidated add-on `X`; one add-on button per
   facility, no collision with train buttons).
 
-## Approach
-Build it as its own clean unit (its own id, distinct from Tech Lab), minimal data — enough to construct,
-attach to a Starport, look like a tech-reactor, and gate slot 3. Don't inherit the campaign object graph
-that caused the duplicate-id / shake problems. Cross-check against how the Tech Lab / Reactor add-ons are
-wired in the mod today (they're the working pattern to mirror).
+## Approach (Taylor's first attempt, 2026-09-07): duplicate the Tech Lab as the starting point
+The Tech Lab already does **most** of what's needed (constructible add-on, gates a slot, correct
+add-on behavior, no doubled production). So start by **duplicating the Tech Lab** into a new unit
+(new id, distinct from Tech Lab), then change only what differs:
+- **Model / actor** → a tech-reactor look (requirement c), with a single clean actor + correct `.m3`
+  path so the idle doesn't shake (requirement d — the shake was the WoL extraction's duplicate/bad actor).
+- **Attach to Starport** instead of Barracks; ensure it does nothing useful for a Factory/Barracks that
+  lands on it (requirements a, b).
+- **Gate Starport slot 3** (requirement e); keep it a slot-gate, not a stock reactor — no doubled
+  production (requirement f).
+- **Build hotkey** = the Tech Lab add-on hotkey (requirement g) — inherited for free if duplicated, just
+  confirm no card collision.
+
+This sidesteps the campaign object graph entirely (which is what caused the duplicate-id / "Unable to
+find parent F_TechReactor" / seizure-idle problems). If duplicating the Tech Lab proves it needs more
+than "a few property + model changes," fall back to a from-scratch minimal add-on mirroring the
+Tech Lab / Reactor wiring.
 
 ## Acceptance
 - [ ] Can build a Tech Reactor on a Starport; can't when it's not a Starport add-on.
