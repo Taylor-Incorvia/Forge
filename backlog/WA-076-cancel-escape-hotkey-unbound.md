@@ -146,3 +146,6 @@ PARKED -- the escape/hotkey-profile unbind bug. Intractable so far; workaround d
 
 ## Candidate fix path (2026-09-07) — via WA-078
 Taylor now suspects the **WoL units/upgrades** (the Liberty Campaign dependency) are the cause of this escape/hotkey-unbind bug. Plan: fold this into [[WA-078]] as one investigation — fully remove WoL content + drop the dependency, test on production to see if the escape bug vanishes, then add the WoL content back one-by-one to bisect the exact culprit. So this is no longer purely "parked/intractable" -- it has a concrete strategy, gated on the WA-078 branch effort. Still parked as a standalone (do it through WA-078, not on its own).
+
+## Now tracked under the WoL-removal epic (2026-09-07)
+See [[WA-108]] for the full plan. Cheapest escape-key test is [[WA-116]] (core-facility Cancel index fix) -- do that before the big WoL removal; the strongest lead in this ticket points at core facility cards, not WoL content.

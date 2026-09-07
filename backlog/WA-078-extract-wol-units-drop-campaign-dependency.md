@@ -97,3 +97,6 @@ Taylor now plans to run WA-078 and [[WA-076]] as ONE investigation, on a separat
 3. **Add back one-by-one (bisection):** reintroduce the WoL units/upgrades incrementally and find exactly which addition reintroduces the escape-key problem.
 
 Taylor: "I think it can be done. It's just a total mess. And inconvenient." Big, deliberate branch effort — NOT a quick task. When he starts, help scaffold the removal branch + a clean add-back checklist so the bisection is orderly.
+
+## Now tracked under the WoL-removal epic (2026-09-07)
+This extraction/recipe work is a child of [[WA-108]] (EPIC: remove the WoL dependency). Note: this ticket's "Why" section calling the campaign dependency the "confirmed root cause" of the escape bug is STALE -- disproven by the 2026-08-16 A/B in [[WA-076]] (dropping the dep did not fix it). Keep this ticket as the extraction *recipe*; see WA-108 for the corrected framing + sequencing.
