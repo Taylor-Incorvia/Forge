@@ -1,6 +1,6 @@
 ---
 id: WA-073
-status: todo
+status: done
 size: M
 phase: 1-game-readiness
 priority: 20
@@ -44,3 +44,6 @@ Investigated the actual data. Two corrections that flip the plan:
 
 ## Notes
 Not a priority — a "sure was annoying" quality-of-play fix from real play. Same trigger shape as WA-015 (`onBlinkUsed`), so the mechanism is familiar. Decision locked: **brief +range, not windup.**
+
+## Closed 2026-09-06
+Brief +range after leap is live on main (PostLeapRange behavior + PostLeapRangeApply in the leap effect set) and tested. Firebat excluded.

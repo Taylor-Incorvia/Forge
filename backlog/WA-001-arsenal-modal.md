@@ -1,6 +1,6 @@
 ---
 id: WA-001
-status: epic
+status: done
 size: L
 phase: 1-game-readiness
 priority: 1
@@ -35,3 +35,6 @@ Idea: hold a ~20s "preview phase" at match start with the Arsenal up and actions
 
 ## Why the build phases aren't tickets yet
 Phases 2–7 depend on the chosen layout + info set — ticketing them before WA-039 would be speculative and get rewritten. Full plan is captured here so nothing's lost; groom the next phase into a ticket when WA-039 lands.
+
+## Closed 2026-09-06
+Arsenal / 'Your Faction' modal is working in production. Decided NOT to add the ~20s preview phase -- doesn't feel needed.

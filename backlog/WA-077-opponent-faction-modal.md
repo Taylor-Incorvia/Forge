@@ -31,3 +31,6 @@ They compose — the shipped active-vision icons aren't wasted; this is the pers
 
 ## Notes
 Credit: **Marc**. Family: WA-001 / WA-039 (Your Faction modal), WA-070 (scout icons — the live layer), WA-074 (vision-gate — shipped). Post-S1 polish; Season 1 already has what it needs content-wise.
+
+## Note (2026-09-06)
+Taylor is not fully sold on this modal -- it pulls scouted info out of the base, away from where players instinctively look. Preferred solution is persisting the icons over the enemy structures even without vision ([[WA-106]]); treat this modal as a gap-closer/fallback, not the target.

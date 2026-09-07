@@ -1,6 +1,6 @@
 ---
 id: WA-090
-status: in-progress
+status: done
 size: M
 phase: 2-post-launch
 priority: 50
@@ -34,3 +34,6 @@ Single-glance state of everything on Taylor's radar for the upcoming patch. Livi
 - His "OP" read **skews by opponent skill** and by **whether he understood the mechanic** — most "felt OP" games this session were actually "I was behind first" or "I didn't know the counter." Separate *imbalance* from *I-was-behind/confused*; balance on **even-game data**, not feels-while-losing.
 - **Convergent, unprompted, from-players-who-played** feedback (e.g. the removed-upgrades complaint from 3 separate commenters) is the strongest signal — much more reliable than a single replay.
 - Goal is **forced creativity for both players**, not an a-click monster. Over-balancing can flatten the game back into a-move. See [[balance-for-forced-creativity]].
+
+## Closed 2026-09-06
+Closing this patch-radar umbrella -- it went stale/inaccurate (Stalker build-time listed as 'leaning' but it shipped and deployed). The one live open question, whether to revert the Raven cost change, is spun out to WA-104.

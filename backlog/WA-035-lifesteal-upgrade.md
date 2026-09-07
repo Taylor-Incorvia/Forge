@@ -1,6 +1,6 @@
 ---
 id: WA-035
-status: in-progress
+status: done
 size: M
 phase: 1-game-readiness
 priority: 41
@@ -51,3 +51,6 @@ Prove on ONE single-weapon unit (e.g. Marine) — validate heal + icon in-game �
 
 ## Notes
 Native mechanism = low engine risk; the cost is per-unit wiring volume + the actor gating. Sibling: [[WA-034]] — identical per-unit/multi-weapon structure; behavior route ruled out for both.
+
+## Closed 2026-09-06
+Marine Lifesteal shipped at 40%. Loop closed -- now just gather feedback: roll to other units if it proves fun, remove entirely if it's lame. No code work pending.

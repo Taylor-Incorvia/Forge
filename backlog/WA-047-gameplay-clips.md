@@ -1,6 +1,6 @@
 ---
 id: WA-047
-status: todo
+status: done
 size: M
 phase: 4-marketing
 priority: 50
@@ -25,3 +25,6 @@ The clip is the credibility proof *and* the hook in one. Seeing a Marine that bl
 
 ## Notes
 Ongoing/recurring content task, not one-and-done — feeds Phase 4 (Marketing) and the funnel (YouTube → Website → Discord → Queue). **Save replays** of good games; you can mine multiple clips/angles from one replay later. Parallel track — not gated by Phase 1 game-readiness work.
+
+## Closed 2026-09-06
+Plenty of clips captured. Cadence decided: post only the BEST clip ~once/month (frequent posting reads as self-promo, not content). Possible future: a YouTube archive/commentary channel of full games.

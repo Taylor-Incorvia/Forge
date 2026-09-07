@@ -1,6 +1,6 @@
 ---
 id: WA-053
-status: in-progress
+status: done
 size: S
 phase: 1-game-readiness
 priority: 21
@@ -31,3 +31,6 @@ For each unit: marker `CUpgrade Concussive<Unit>` → `CountUpgradeConcussive<Un
 - [ ] Firebat slows all cone targets; Stalker slows its single target.
 - [ ] Both in the ConcussiveShells family (cap 1 across the army).
 - [ ] Massive targets immune; no purple-square icons.
+
+## Closed 2026-09-06
+Firebat + Stalker added to the concussive pool, working. Whether Concussive Shells should be a STALKER upgrade at all is a separate design call -> WA-105.
