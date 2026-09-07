@@ -11,7 +11,6 @@ void initializeUnitUnlockUpgradeMapping() {
 
     // slot 2
     setUnitUnlockUpgrade("Hydralisk", "barracks2hydraliskupg");
-    setUnitUnlockUpgrade("WarPig", "barracks2warpigupg");
     setUnitUnlockUpgrade("Marine", "barracks2MarineUpg");
     setUnitUnlockUpgrade("Queen", "barracks2queenupg");
 
@@ -26,7 +25,6 @@ void initializeUnitUnlockUpgradeMapping() {
     // slot 4 
     setUnitUnlockUpgrade("Infestor", "barracks4infestorupg");
     setUnitUnlockUpgrade("Ghost", "barracks4ghostupg");
-    // setUnitUnlockUpgrade("Lurker", "barracks4lurkerupg");
     setUnitUnlockUpgrade("HighTemplar", "barracks4hightemplarupg");
     setUnitUnlockUpgrade("DefilerMP", "barracks4defilerupg");
 
@@ -68,9 +66,7 @@ void initializeUnitUnlockUpgradeMapping() {
     setUnitUnlockUpgrade("VoidRay", "starport2voidrayupg");
 
     // slot 3
-    setUnitUnlockUpgrade("ArbiterMP", "starport3arbiterupg");
     setUnitUnlockUpgrade("Raven", "starport3ravenupg");
-    setUnitUnlockUpgrade("ScienceVessel", "starport3sciencevesselupg");
     setUnitUnlockUpgrade("Tempest", "starport3tempestupg");
     setUnitUnlockUpgrade("Viper", "starport3viperupg");
     setUnitUnlockUpgrade("Battlecruiser", "starport3battlecruiserupg");
@@ -89,7 +85,6 @@ void initializeBarracksSlot2Pool() {
     string facility = rax;
     // addUnitToSlotPool(facility, slot, "Stalker"); // stalker moved to factory slot 1
     addUnitToSlotPool(facility, slot, "Hydralisk");
-    // addUnitToSlotPool(facility, slot, "WarPig");
     addUnitToSlotPool(facility, slot, "Marine");
     addUnitToSlotPool(facility, slot, "Queen");
 }
@@ -175,13 +170,10 @@ void initializeStarportSlot2Pool() {
 void initializeStarportSlot3Pool() {
     int slot = 3;
     string facility = starport;
-    // addUnitToSlotPool(facility, slot, "ArbiterMP"); // maybe with the invis changes, I can add back the arbiter? // tried it, it seems like it would need a bit of a rework so removing it for now. 
     addUnitToSlotPool(facility, slot, "Raven"); 
     addUnitToSlotPool(facility, slot, "Tempest"); 
     addUnitToSlotPool(facility, slot, "Viper"); 
     addUnitToSlotPool(facility, slot, "Battlecruiser");
-
-    // addUnitToSlotPool(facility, slot, "ScienceVessel"); // not using science vessel. Irradiate will be an upgrade
 }
 
 void initializePools() {

@@ -138,8 +138,6 @@ string fm_unitDisplayName(string unitId) {
     if (unitId == "VikingFighter") { return "Viking"; }
     if (unitId == "DuskWing")      { return "Dusk Wing"; }
     if (unitId == "VoidRay")       { return "Void Ray"; }
-    if (unitId == "ArbiterMP")     { return "Arbiter"; }
-    if (unitId == "ScienceVessel") { return "Science Vessel"; }
     return unitId;
 }
 

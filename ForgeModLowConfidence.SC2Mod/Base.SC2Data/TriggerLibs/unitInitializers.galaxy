@@ -47,9 +47,7 @@ void initializeTags() {
 
     // slot 3
     tagPureCaster("Raven");
-    tagPureCaster("ScienceVessel");
     tagPureCaster("Viper");
-    tagPureCaster("ArbiterMP");
 }
 
 void initializeAlternateForms() { // if a lurker is burrowed when an upgrade completes, it doesn't get the upgrade because it is a different unit. 
