@@ -3,7 +3,7 @@ id: WA-063
 status: todo
 size: M
 phase: 1-game-readiness
-priority: 45
+priority: 3
 ---
 # Ultralisk concussive applies no slow at all — pulled from the pool, needs investigation
 
@@ -40,3 +40,9 @@ The mod's `<CEffectSet id="KaiserBlades">` override **is not merging into the li
 
 ## Notes
 Related: WA-034 (concussive system), and the working reference implementations to copy — VoidRay (`EffectArray index="3"` add) and Hellion/Hellbat (set-wrap). Effect ids involved: `KaiserBlades` (set), `KaiserBladesHit`, `KaiserBladesSearch`, `KaiserBladesDamage`, `UltraliskConcussiveSlow`.
+
+## Priority note (2026-09-06)
+Confirm ConcussiveUltralisk is already OUT of the pool (it was commented out); if not, remove it for now. The no-slow root cause is a later investigation.
+
+## Verified 2026-09-06
+ConcussiveUltralisk is ALREADY out of the pool -- both wiring lines are commented out in upgradeInitializers.galaxy (~337-338). So no action needed to "remove for now"; it is already gone. This ticket now only tracks the eventual no-slow root-cause investigation, if we ever want Ultralisk to have concussive.

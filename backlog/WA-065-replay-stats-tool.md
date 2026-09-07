@@ -3,7 +3,7 @@ id: WA-065
 status: todo
 size: M
 phase: 4-analytics
-priority: 20
+priority: 5
 ---
 # Replay stats / analysis tool — extract game data from Wildcard Arena replays
 
@@ -35,3 +35,6 @@ Wildcard Arena is a data-rich game (rolls, upgrades, comps) but right now there'
 
 ## Notes
 Seeds the eventual stats site (Phase 3/website) and informs balance. Related: [[WA-039]] / [[WA-001]] (the Faction modal will surface rolls in-game, replacing the chat print — but the replay parser still reads historical chat). Feeds [[docs/playtest-notes.md]] with hard data to back up feel-based observations.
+
+## Priority note (2026-09-06)
+Not doing this for a while.

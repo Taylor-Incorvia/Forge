@@ -3,7 +3,7 @@ id: WA-086
 status: todo
 size: M
 phase: 2-polish
-priority: 65
+priority: 2
 ---
 # Gate top-slot UPGRADE research behind the corresponding add-on
 
@@ -47,3 +47,6 @@ The fallback is **NOT** a blank slot (rejected — it breaks the slot parity abo
 
 ## Notes
 Only worth doing if the top slots over-perform. Related: `docs/completed-research-button-attempts.md` (full list of gating mechanisms that DON'T work on dynamically-added abilities), CLAUDE.md add-on/slot rules, [[reference-command-card-button-type.md]] (new `LayoutButtons` need `Type="AbilCmd"`).
+
+## Priority note (2026-09-06)
+Want it; but more work, so may slip behind cheaper lower-priority features.

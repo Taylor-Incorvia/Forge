@@ -3,7 +3,7 @@ id: WA-076
 status: todo
 size: L
 phase: 1-game-readiness
-priority: 55
+priority: parked
 ---
 # Cancel/Escape unbinds when switching hotkey profiles IN-GAME (data-level command-card conflict)
 
@@ -140,3 +140,6 @@ and WA-061 look like the same bug wearing different clothes.
 A faster smoke test first: if the Barracks card visibly renders a Cancel button in the
 wrong slot (Row 0 rather than Row 2) while an add-on is building, that alone confirms the
 index shift without needing the profile switch at all.
+
+## Priority note (2026-09-06)
+PARKED -- the escape/hotkey-profile unbind bug. Intractable so far; workaround documented (Discord "hotkey nonsense" channel). Taylor: "this makes me hate this project." Not in the active queue.

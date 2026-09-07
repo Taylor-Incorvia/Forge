@@ -3,7 +3,7 @@ id: WA-092
 status: in-progress
 size: M
 phase: 2-post-launch
-priority: 65
+priority: 4
 ---
 # Per-(upgrade, slot) research TIME + COST — a tuning lever for over/under-powered rolls
 
@@ -83,3 +83,6 @@ Once research time/cost vary per roll, players must be able to **see** them to p
 
 ## Notes
 This is the granular lever Taylor flagged he wants to lean on going forward. Effort is MEDIUM (core plumbing already proven by setSlotResearchPrice); ongoing cost is just adding lookup/list lines. Related balance lens: [[balance-for-forced-creativity]] (tune the screamers, don't over-tune everything). Blink-Zealot context: [[WA-087]]. Tempest context: [[WA-090]].
+
+## Priority note (2026-09-06)
+Engine is DONE (shipped PR #43). Only remainder: surface build/research times on the Your Faction modal. That's the p4 bit.

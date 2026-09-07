@@ -3,7 +3,7 @@ id: WA-077
 status: todo
 size: L
 phase: 2-depth
-priority: 60
+priority: parked
 ---
 # Opponent Faction modal — accumulate discovered enemy rolls (Marc's idea)
 
@@ -34,3 +34,6 @@ Credit: **Marc**. Family: WA-001 / WA-039 (Your Faction modal), WA-070 (scout ic
 
 ## Note (2026-09-06)
 Taylor is not fully sold on this modal -- it pulls scouted info out of the base, away from where players instinctively look. Preferred solution is persisting the icons over the enemy structures even without vision ([[WA-106]]); treat this modal as a gap-closer/fallback, not the target.
+
+## Priority note (2026-09-06)
+Do WA-106 instead (persist icons over structures). Revisit only if 106 is infeasible.

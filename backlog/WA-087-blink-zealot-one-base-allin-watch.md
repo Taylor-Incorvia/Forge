@@ -3,7 +3,7 @@ id: WA-087
 status: todo
 size: S
 phase: 1-game-readiness
-priority: 55
+priority: watch
 ---
 # Blink Zealot one-base all-in — watch, don't nerf (yet)
 
@@ -28,3 +28,6 @@ Cheapest possible version to stress-test: mine ~225 gas for Blink, then all mine
 
 ## Notes
 Related: the Tempest "oppressive" games were also confounded by Taylor being behind first (failed early attack → opponent over-teched). Pattern across this review session: "felt OP" games were mostly "I was already behind" games. Balance on confirmed even-game data, not on feels-while-losing.
+
+## Priority note (2026-09-06)
+No action now -- watch for even-game recurrence of the blink-zealot all-in.

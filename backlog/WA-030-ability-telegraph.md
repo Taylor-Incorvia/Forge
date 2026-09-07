@@ -4,7 +4,7 @@ status: backlog
 size: M
 phase: 1-game-readiness
 tier: nice-to-have
-priority: 40
+priority: 5
 ---
 # Ability telegraph — icon/name above the caster on an upgrade-granted ability (nice-to-have)
 

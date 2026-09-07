@@ -3,7 +3,7 @@ id: WA-036
 status: todo
 size: S
 phase: 1-game-readiness
-priority: 45
+priority: 3
 ---
 # Overseer hotkey won't render (Starport detector button)
 

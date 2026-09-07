@@ -3,7 +3,7 @@ id: WA-046
 status: todo
 size: M
 phase: 1-game-readiness
-priority: 900
+priority: 4
 ---
 # Nice-to-have: Ultralisk looks different when it has Chitinous Plating
 

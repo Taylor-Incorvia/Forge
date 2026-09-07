@@ -3,7 +3,7 @@ id: WA-064
 status: todo
 size: S
 phase: 1-game-readiness
-priority: 25
+priority: 1
 ---
 # Neural Parasite tube lingers after the effect ends (visual only)
 

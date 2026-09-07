@@ -3,7 +3,7 @@ id: WA-102
 status: todo
 size: M
 phase: 2-post-launch
-priority: 40
+priority: 0
 ---
 # Fix placeholder tooltip titles / ability names showing the raw string key
 
@@ -26,3 +26,6 @@ Also audit for **entirely missing keys** — an undefined string shows the full 
 
 ## Notes
 Polish/legibility, not gameplay-breaking, but it's the kind of unfinished-looking thing that undercuts the "what did I roll / what does it do" clarity that's core to Wildcard. No XML-comment concern (GameStrings is a text file). Related: [[WA-048]] (one specific tooltip), [[balance-upgrade-legibility]].
+
+## Priority note (2026-09-06)
+PRIORITY 0 -- do now + PR: fill in the 56 placeholder tooltip titles/names.

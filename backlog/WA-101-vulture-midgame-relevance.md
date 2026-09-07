@@ -3,7 +3,7 @@ id: WA-101
 status: todo
 size: M
 phase: 2-post-launch
-priority: 45
+priority: 2
 ---
 # Vulture: fix the mid-game fall-off — figure out its kit (NO mines/traps)
 
@@ -27,3 +27,6 @@ The fall-off is a timing problem — whatever upgrade it gets must arrive **chea
 
 ## Decision needed
 Pick a direction (Taylor unsure as of 2026-09-06). Whatever it is: mine-free, legible, and cheap+fast so it beats the fall-off timing. Related: [[WA-092]], [[balance-upgrade-legibility]].
+
+## Priority note (2026-09-06)
+DECISION: give the Vulture a rolled KD8 Charge upgrade -- cost 50/50, ~43s research on Faster (catalog 60.2 via the WA-092 engine). Cheap+fast to beat the mid-game fall-off. Mine-free (KD8 is a thrown grenade, not a mine).

@@ -3,7 +3,7 @@ id: WA-106
 status: todo
 size: L
 phase: 2-post-launch
-priority: 45
+priority: 2
 ---
 # Make scouted enemy rolls referenceable WITHOUT active vision
 
@@ -21,3 +21,6 @@ Figure out how to render remembered production icons over a structure the player
 
 ## Notes
 Spun out of WA-070 (done). Related: [[WA-077]] (the modal alternative), scoutTags system.
+
+## Priority note (2026-09-06)
+Want it; bigger project.

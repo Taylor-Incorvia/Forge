@@ -3,7 +3,7 @@ id: WA-104
 status: todo
 size: S
 phase: 2-post-launch
-priority: 55
+priority: 0
 ---
 # Decide: revert the Raven mineral cost change (75 → 100)?
 
@@ -26,3 +26,6 @@ Set Raven minerals 75 → 100 in the mod's UnitData (or wherever the mod overrid
 
 ## Notes
 Spun out of WA-090 (closed). See also [[balance-for-forced-creativity]] (don't over-tune; but removing an unjustified departure from default is the safe direction here).
+
+## Priority note (2026-09-06)
+PRIORITY 0 -- do now + PR: revert Raven minerals 75 -> 100.

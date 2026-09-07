@@ -3,7 +3,7 @@ id: WA-089
 status: todo
 size: S
 phase: 1-game-readiness
-priority: 30
+priority: 4
 ---
 # Stim indicator too brief on rolled-stim units — make the cue linger ~3s (band-aid)
 

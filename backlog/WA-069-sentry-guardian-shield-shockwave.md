@@ -3,7 +3,7 @@ id: WA-069
 status: todo
 size: M
 phase: 1-game-readiness
-priority: 13
+priority: 5
 ---
 # Sentry upgrade — Guardian Shield casts a mini shockwave
 

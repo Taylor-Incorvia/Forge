@@ -3,7 +3,7 @@ id: WA-103
 status: todo
 size: S
 phase: 2-post-launch
-priority: 30
+priority: 2
 ---
 # BUG (unconfirmed): a player reported workers didn't auto-mine at game start
 

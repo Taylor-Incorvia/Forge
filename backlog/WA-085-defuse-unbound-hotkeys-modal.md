@@ -3,7 +3,7 @@ id: WA-085
 status: todo
 size: M
 phase: 1-game-readiness
-priority: 50
+priority: 2
 ---
 # Defuse the "unbound hotkeys" modal (the on-ramp to the escape bug)
 
@@ -37,3 +37,6 @@ Does **NOT** fix the escape bug. It removes the *prompt* that shoves players int
 
 ## Notes
 Post-launch. Related: [[WA-076]] (the escape/Cancel bug itself), [[WA-082]] (cleanup already removed dead buttons, shrinking the surface). First move is 10 min: open the Unbound category, list it, then bind-one-and-test.
+
+## Priority note (2026-09-06)
+Effort unknown; p2 pending a difficulty read.

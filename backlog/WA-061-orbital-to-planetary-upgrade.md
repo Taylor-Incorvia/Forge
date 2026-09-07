@@ -3,7 +3,7 @@ id: WA-061
 status: todo
 size: M
 phase: 1-game-readiness
-priority: 40
+priority: 3
 ---
 # Orbital Command → Planetary Fortress upgrade — a self-limiting anti-drop static defense
 

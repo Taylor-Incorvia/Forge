@@ -3,7 +3,7 @@ id: WA-093
 status: todo
 size: M
 phase: 2-post-launch
-priority: 35
+priority: 4
 ---
 # Remove the energy bar from fighter-casters that can't spend energy (dead-energy = Feedback liability)
 

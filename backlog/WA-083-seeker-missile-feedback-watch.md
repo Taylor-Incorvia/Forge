@@ -3,7 +3,7 @@ id: WA-083
 status: todo
 size: S
 phase: 1-game-readiness
-priority: 60
+priority: watch
 ---
 # Seeker Missile (mass Raven) — gauge player feedback: clarity vs balance
 
@@ -42,3 +42,6 @@ Clumped air (Corsairs stack when repeatedly right-clicked to one spot) ate the s
 
 ## Notes
 Unfamiliar campaign abilities are part of the mod's texture — "players don't know what an HSM is" is a thing to learn, not inherently a defect. Revisit after several more games of feedback.
+
+## Priority note (2026-09-06)
+No action now -- gathering player feedback before touching Seeker Missile.

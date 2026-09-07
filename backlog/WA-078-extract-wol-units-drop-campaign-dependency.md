@@ -3,7 +3,7 @@ id: WA-078
 status: in-progress
 size: L
 phase: 1-game-readiness
-priority: 40
+priority: 2
 ---
 # Extract WoL-dependent units into our own data, drop the Liberty (Campaign) dependency
 
@@ -86,3 +86,6 @@ From the report, WoL-dependent units include: **Goliath, Diamondback, Predator, 
 
 ## Notes
 Precedent: the HotS "Leap Test" mod (`C:\Program Files (x86)\StarCraft II\Mods\Leap Test.SC2Mod`) — same duplicate-then-swap-dependency pattern, proven for the leap ability. **Resolves WA-076.** Enables post-S1 non-WoL content (Season 2 units; see the standalone-game vision doc).
+
+## Priority note (2026-09-06)
+Want it badly; bigger project.
