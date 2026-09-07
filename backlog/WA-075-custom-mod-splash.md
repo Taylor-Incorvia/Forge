@@ -1,6 +1,6 @@
 ---
 id: WA-075
-status: todo
+status: done
 size: S
 phase: 1-game-readiness
 priority: 55
@@ -35,3 +35,6 @@ Within that Document Info splash/preview field, how to point it at **our own ima
 ## Notes
 - Art: a "Forge"/anvil-or-ember mark fits the project identity (Ember, the Forge). Doesn't need to be fancy for S1 — anything custom beats a stock turret. ffmpeg is available for source conversion, though `.dds` export likely needs an image tool / editor plugin.
 - Related: WA-006 (mod description — same modal) and the branding surfaces the website agent owns.
+
+## Closed 2026-09-06
+Accepting the current simple AI-generated icon for now -- Taylor wanted simple and it is. Revisit only if a better image turns up.

@@ -3,7 +3,7 @@ id: WA-068
 status: todo
 size: M
 phase: 1-game-readiness
-priority: 14
+priority: 4
 ---
 # Ravager → Barracks slot 3 + Corrosive Bile buff upgrades
 

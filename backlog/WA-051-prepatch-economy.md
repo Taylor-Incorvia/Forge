@@ -1,6 +1,6 @@
 ---
 id: WA-051
-status: in-progress
+status: done
 size: S
 phase: 1-game-readiness
 priority: 10
@@ -34,3 +34,6 @@ Freeze Wildcard Arena on the **pre-patch economy** — **12 worker start, 400-mi
 
 ## Notes
 Fully reversible — these are 2 data values + a small starting-units lever, so flipping back to a future ladder standard is a five-minute change. Do this as its own small PR; unrelated to the upgrade-cap work (WA-049/WA-050). Decision rationale from the 2026-07-16 discussion.
+
+## Closed 2026-09-06
+Pre-patch economy (12 workers, 400 CC, old CC supply) is live; nothing off in play.

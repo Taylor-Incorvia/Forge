@@ -1,6 +1,6 @@
 ---
 id: WA-024
-status: in-review
+status: done
 size: M
 phase: 1-game-readiness
 priority: 20
@@ -57,3 +57,6 @@ The **Ghost Academy is repurposed as the Barracks upgrade facility** in this mod
 
 ## Notes
 Ghost = Barracks slot 4 (`initialize.galaxy`). Command-card slot pressure on the Ghost Academy is the crux — it's doing double duty as an upgrade facility. `reference/` has the full stock nuke wiring if you need to compare against a clean setup.
+
+## Closed 2026-09-06
+Nuke (Ghost Academy builds it, Ghost uses it) confirmed working on production.

@@ -3,7 +3,7 @@ id: WA-078
 status: in-progress
 size: L
 phase: 1-game-readiness
-priority: 40
+priority: 2
 ---
 # Extract WoL-dependent units into our own data, drop the Liberty (Campaign) dependency
 
@@ -86,3 +86,14 @@ From the report, WoL-dependent units include: **Goliath, Diamondback, Predator, 
 
 ## Notes
 Precedent: the HotS "Leap Test" mod (`C:\Program Files (x86)\StarCraft II\Mods\Leap Test.SC2Mod`) — same duplicate-then-swap-dependency pattern, proven for the leap ability. **Resolves WA-076.** Enables post-S1 non-WoL content (Season 2 units; see the standalone-game vision doc).
+
+## Priority note (2026-09-06)
+Want it badly; bigger project.
+
+## Strategy update (2026-09-07) — this is also the candidate fix for the escape-key bug
+Taylor now plans to run WA-078 and [[WA-076]] as ONE investigation, on a separate branch, once the post-Aug-31 changes on main are test-deployed and he enters a quiet play/archive period:
+1. **Full removal first:** strip ALL WoL units + upgrades, drop the WoL (Liberty Campaign) dependency entirely.
+2. **Test on production** — does the escape/hotkey-unbind bug ([[WA-076]]) disappear? Hypothesis: yes; the WoL-dependent content is the suspected cause.
+3. **Add back one-by-one (bisection):** reintroduce the WoL units/upgrades incrementally and find exactly which addition reintroduces the escape-key problem.
+
+Taylor: "I think it can be done. It's just a total mess. And inconvenient." Big, deliberate branch effort — NOT a quick task. When he starts, help scaffold the removal branch + a clean add-back checklist so the bisection is orderly.

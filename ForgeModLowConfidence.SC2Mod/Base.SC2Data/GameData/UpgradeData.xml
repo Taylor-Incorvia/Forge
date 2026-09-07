@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CUpgrade id="LurkerRange">
+        <EffectArray index="0" Reference="Weapon,LurkerMP,Range" Value="3"/>
+        <EffectArray index="1" Reference="Effect,LurkerMP,PeriodCount" Value="3"/>
+    </CUpgrade>
     <CUpgrade id="DiggingClaws">
         <EffectArray Operation="Multiply" Reference="Unit,LurkerMP,Speed" Value="1.500000"/>
         <EffectArray Operation="Multiply" Reference="Abil,SiegeMode,InfoArray[0].SectionArray[Stats].DurationArray[Duration]" Value="0.400000"/>
@@ -132,7 +136,7 @@
     </CUpgrade>
     <CUpgrade id="LifestealMarine">
         <EditorCategories value="Race:Terran"/>
-        <EffectArray Reference="Effect,GuassRifle,LeechFraction[Life]" Value="0.15"/>
+        <EffectArray Reference="Effect,GuassRifle,LeechFraction[Life]" Value="0.4"/>
         <AffectedUnitArray value="Marine"/>
     </CUpgrade>
     <CUpgrade id="ConcussiveVoidRay">
@@ -190,5 +194,11 @@
     </CUpgrade>
     <CUpgrade id="PhoenixRangeUpgrade">
         <EffectArray index="0" Reference="Weapon,IonCannons,Range" Value="2.5"/>
+    </CUpgrade>
+    <CUpgrade id="PFLockNever">
+        <EditorCategories value="Race:Terran"/>
+    </CUpgrade>
+    <CUpgrade id="KD8HideNever">
+        <EditorCategories value="Race:Terran"/>
     </CUpgrade>
 </Catalog>

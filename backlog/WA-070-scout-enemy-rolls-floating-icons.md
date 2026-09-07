@@ -1,6 +1,6 @@
 ---
 id: WA-070
-status: todo
+status: done
 size: M
 phase: 1-game-readiness
 priority: 30
@@ -58,3 +58,6 @@ The data is trivial and every hard display problem has a native:
 
 ## Notes
 Rejected sibling approach (Option C): forcing the enemy's greyed command card to show on selection — SC2 hides enemy command cards by design; no clean data toggle found. Option A (this) chosen. Option B (dialog panel on selection) is the fallback if always-on clutter proves bad. Part of the roll-visibility / "Your Faction" family (WA-001, WA-039).
+
+## Closed 2026-09-06
+Scout-enemy-rolls floating icons working. Making scouted info referenceable WITHOUT active vision (icons currently vanish on vision loss) is spun out to WA-106.

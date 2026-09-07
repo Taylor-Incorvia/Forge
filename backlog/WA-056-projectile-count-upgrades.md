@@ -3,7 +3,7 @@ id: WA-056
 status: todo
 size: M
 phase: 1-game-readiness
-priority: 24
+priority: 3
 ---
 # Weapon projectile-count upgrades (Phoenix, Liberator)
 

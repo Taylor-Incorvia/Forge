@@ -1,6 +1,6 @@
 ---
 id: WA-038
-status: in-review
+status: done
 size: S
 phase: 1-game-readiness
 priority: 46
@@ -32,3 +32,6 @@ The rolled `F_TempestDisruptionBlast` (=G) is a separate upgrade button and is u
 
 ## Acceptance
 - [ ] The Tectonic Destabilizers button no longer appears on the Tempest card; nothing else on the card is disturbed. _(local visual confirm pending)_
+
+## Closed 2026-09-06
+Unresearchable Tectonic Destabilizers button removed from the Tempest card -- working.

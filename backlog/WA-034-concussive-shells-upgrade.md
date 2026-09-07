@@ -1,6 +1,6 @@
 ---
 id: WA-034
-status: in-progress
+status: done
 size: M
 phase: 1-game-readiness
 priority: 40
@@ -81,3 +81,6 @@ For a non-Marauder unit **U** to slow on attack:
 
 ## Notes
 Marauder slice = CLAUDE.md count-upgrade verbatim. Generalization = per-unit weapon surgery — heavier but mechanical once the pattern's proven. Sibling: [[WA-035]] (identical per-unit/multi-weapon structure; behavior route ruled out for both).
+
+## Closed 2026-09-06
+Concussive Shells per-unit upgrades working on production; rolled on nearly everything in the pool.

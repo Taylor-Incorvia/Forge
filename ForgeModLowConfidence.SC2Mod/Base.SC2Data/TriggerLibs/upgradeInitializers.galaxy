@@ -201,7 +201,7 @@ void initializeUpgrades() {
 
     addBehaviorToUpgrade("Speed", "Speed");
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "pureCaster");
-    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Tempest"); // Tempests become insanely opressive. unbeatable. no counter play. 
+    addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "Tempest"); // Tempests become insanely opressive. unbeatable. no counter play.
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "melee"); // charge gives melee units speed and the charge ability. No need for this to be in the pool too for melee. 
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "LurkerMP"); // lurkers, tanks, zerglings, zealots have their own speed upgrade that also improves transform speed. 
     addUpgradeRequirementTag("Speed", logicType_NoneOf, "unitTag", "SiegeTank");
@@ -289,6 +289,7 @@ void initializeUpgrades() {
     // NOT Effect,Blink,PlacementRange -- so the click range never grew and the extra teleport range was unreachable.
     // b40c4e6 added the missing PlacementRange line, so the data is now complete. Verify on production (editor can't test this).
     addUpgradeToUpgrade("stalkerblinkrange", "stalkerblinkrange");
+    addUpgradeToUpgrade("stalkerblinkrange", "BlinkTech"); // WA-096: also grants blink itself (no longer native). Rolling this = blink + longer blink range.
     addUpgradeRequirementTag("stalkerblinkrange", logicType_AnyOf, "unitTag", "Stalker");
 
     // WA-023: Chitinous Plating -- Ultralisk armor. Now a rolled research (Armory slot 3) instead of a free start upgrade.
@@ -338,6 +339,7 @@ void initializeUpgrades() {
     addUpgradeRequirementTag("ConcussiveFirebat", logicType_AnyOf, "unitTag", "Firebat");
 
     addUpgradeToUpgrade("stalkerblinkcooldown", "stalkerblinkcooldown");
+    addUpgradeToUpgrade("stalkerblinkcooldown", "BlinkTech"); // WA-096: also grants blink itself (no longer native). Rolling this = blink + reduced cooldown.
     addUpgradeRequirementTag("stalkerblinkcooldown", logicType_AnyOf, "unitTag", "Stalker");
 
     // Range as a COUNT upgrade for Tempest + Siege Tank (instead of the behavior version), so the
@@ -433,8 +435,10 @@ void grantInitialUpgrades(int player) {
     //DuskWing - just a buffed banshee
     // grantUpgrade(player, "BansheeCloak");
 
-    //Stalker - always has blink cause its fun and is a factory unit
-    grantUpgrade(player, "BlinkTech");
+    //Stalker - blink is NO LONGER native (WA-096). It's granted only when the stalker rolls a blink
+    //variant upgrade (stalkerblinkcooldown / stalkerblinkrange), so blink is gated behind a roll + research
+    //instead of being free/early. This is what lets speed/bile/range be fine on the stalker again.
+    // grantUpgrade(player, "BlinkTech");
 
     //Marine
     grantUpgrade(player, "ShieldWall"); // Marines seemed super cost efficient with this. Idk, I don't really want the simplest game play to always be the best. // update 7/11/2026 --I increased the price. Hopefully this doesn't make them too strong again. 
@@ -595,9 +599,41 @@ void assignUpgradesToAllSlotsWithinCaps(int player) {
     }
 }
 
+// WA-092: apply the configured research cost + time (getResearchCostAmount / getResearchTimeAmount,
+// upgradeHelpers.galaxy) to one slot's rolled upgrade, keyed on (upgrade, unit, facility, slot).
+void applyResearchConfigForSlot(int player, string facility, int slot) {
+    string upgradeKey;
+    string unitName;
+
+    upgradeKey = getSlotSelectedUpgrade(player, slot, facility);
+    if (upgradeKey == "") {
+        return;
+    }
+    unitName = getPlayerSlotUnitId(facility, slot, player);
+    setSlotResearchPrice(player, upgradeKey, slot, getResearchCostAmount(upgradeKey, unitName, facility, slot));
+    setSlotResearchTime(player, upgradeKey, slot, getResearchTimeAmount(upgradeKey, unitName, facility, slot));
+}
+
+// WA-092: set every slot's research cost/time for this player. Runs once at faction setup, AFTER units are
+// rolled and upgrades are assigned (both are prerequisites -- reads getPlayerSlotUnitId + getSlotSelectedUpgrade).
+void applyAllResearchConfigForPlayer(int player) {
+    int slotIndex;
+
+    for (slotIndex = 1; slotIndex <= 4; slotIndex += 1) {
+        applyResearchConfigForSlot(player, rax, slotIndex);
+    }
+    for (slotIndex = 1; slotIndex <= 3; slotIndex += 1) {
+        applyResearchConfigForSlot(player, factory, slotIndex);
+    }
+    for (slotIndex = 1; slotIndex <= 3; slotIndex += 1) {
+        applyResearchConfigForSlot(player, starport, slotIndex);
+    }
+}
+
 void initializeUpgradePoolsForPlayer(int player) {
     assignUpgradesToAllSlotsWithinCaps(player);
+    applyAllResearchConfigForPlayer(player); // WA-092: per-(upgrade,unit,facility,slot) research cost + time
     grantInitialUpgrades(player);
     // Both units (set earlier) and upgrades (just set) are ready -> show this player their faction.
     showFactionModalForPlayer(player);
-}
+}

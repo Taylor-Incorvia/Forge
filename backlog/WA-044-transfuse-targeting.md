@@ -1,9 +1,9 @@
 ---
 id: WA-044
-status: todo
+status: done
 size: S
 phase: 1-game-readiness
-priority: 22
+priority: declined
 ---
 # Let Transfuse heal (just about) any unit — kill the Biological target gate
 
@@ -37,3 +37,6 @@ This ticket now needs the **editor merged-view validator hunt** to truly kill th
 
 ## Notes
 Can't be validated locally (same editor-test limitation as the rest of the caster work) — pairs with any build you're already deploying. Low risk: worst case is a one-toggle editor change on the effect validator.
+
+## Closed 2026-09-06 (declined)
+Decided not to do this. Transfuse staying biological-only is fine -- it is not worth an upgrade slot as a general heal. It remains a Queen thing; could be a Queen-balance lever someday, but not a first reach.

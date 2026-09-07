@@ -3,7 +3,7 @@ id: WA-080
 status: todo
 size: M
 phase: 2-depth
-priority: 70
+priority: 5
 ---
 # Consider replacing Queen with Dragoon in Barracks slot 2
 

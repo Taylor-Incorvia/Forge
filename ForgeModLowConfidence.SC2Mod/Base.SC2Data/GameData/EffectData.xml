@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectDamage id="NeutronFlare">
+        <AreaArray index="0" Radius="0.820000" Fraction="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="YamatoU">
+        <Amount value="240"/>
+    </CEffectDamage>
     <CEffectEnumArea id="ArbiterMPRecallSearch">
         <AreaArray index="0" Radius="4.5"/>
     </CEffectEnumArea>
@@ -301,7 +307,13 @@
         <EffectArray value="HotSRaptorLeapSwitch2"/>
         <EffectArray value="MakePrecursor"/>
         <EffectArray value="TempTimeout2"/>
+        <EffectArray value="PostLeapRangeApply"/>
     </CEffectSet>
+    <CEffectApplyBehavior id="PostLeapRangeApply">
+        <WhichUnit Value="Caster"/>
+        <ValidatorArray value="LeapCasterNotFirebat"/>
+        <Behavior value="PostLeapRange"/>
+    </CEffectApplyBehavior>
     <CEffectSwitch id="HotSRaptorLeapSwitch2">
         <EditorCategories value="Race:Zerg"/>
         <CaseArray Validator="TargetIsPathable" Effect="HotSRaptorLeapLM2"/>

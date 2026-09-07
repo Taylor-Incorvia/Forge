@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CValidatorUnitType id="LeapCasterNotFirebat">
+        <Value value="Firebat"/>
+        <Find value="0"/>
+    </CValidatorUnitType>
     <CValidatorLocationCompareRange id="ChargeMaxDistance">
         <Range value="6"/>
     </CValidatorLocationCompareRange>

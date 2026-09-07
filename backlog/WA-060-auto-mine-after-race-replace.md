@@ -1,6 +1,6 @@
 ---
 id: WA-060
-status: todo
+status: done
 size: M
 phase: 1-game-readiness
 priority: 35
@@ -41,3 +41,6 @@ newScv = UnitLastCreated();
 
 ## Notes
 Scope is isolated to the race-replacement path (`convertNonTerranUnit`) + whatever the editor trigger that calls it is wired to. Not a devMode thing — real gameplay parity. Sibling: the race-replacement feature (no ticket) and [[WA-015]] (same `UnitIssueOrder` pattern).
+
+## Closed 2026-09-06
+Auto-mine after race replacement works in all tests (Taylor tests as Zerg). One unconfirmed player report of workers not auto-mining -> spun out to WA-103 (likely Protoss or user error; never reproduced).

@@ -1,6 +1,6 @@
 ---
 id: WA-039
-status: todo
+status: done
 size: S
 phase: 1-game-readiness
 priority: 2
@@ -51,3 +51,6 @@ Still open (decide in this ticket): open/close/reopen behavior (auto at start? b
 
 ## Next
 Once this lands, groom WA-001 phase 2 (static modal shell) into a ticket.
+
+## Closed 2026-09-06
+Obsolete -- the Arsenal / Your Faction modal (WA-001) is built and shipped, so the paper-design/spec ticket is moot.

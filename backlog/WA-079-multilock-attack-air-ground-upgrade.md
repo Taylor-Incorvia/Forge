@@ -3,7 +3,7 @@ id: WA-079
 status: todo
 size: M
 phase: 2-depth
-priority: 75
+priority: 5
 ---
 # Multi-Lock upgrade — fire air + ground weapons simultaneously (any dual-weapon unit)
 

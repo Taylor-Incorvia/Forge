@@ -3,7 +3,7 @@ id: WA-066
 status: todo
 size: M
 phase: 1-game-readiness
-priority: 35
+priority: 4
 ---
 # Hellion "flame wall" upgrade — combine blue flame + a big, visually-matched splash
 
