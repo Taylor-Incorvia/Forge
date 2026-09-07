@@ -1,6 +1,6 @@
 ---
 id: WA-104
-status: todo
+status: done
 size: S
 phase: 2-post-launch
 priority: 0
@@ -29,3 +29,6 @@ Spun out of WA-090 (closed). See also [[balance-for-forced-creativity]] (don't o
 
 ## Priority note (2026-09-06)
 PRIORITY 0 -- do now + PR: revert Raven minerals 75 -> 100.
+
+## Done 2026-09-06 (PR pending)
+Reverted Raven minerals 75 -> 100 in UnitData.xml (back to stock). The buff (100->75, intended to reward micro caster play) never served its goal -- mass Raven + Seeker Missile played as a-click, not APM-rewarding, and was oppressive in volume. Removing an unjustified discount. Seeker Missile *damage* stays a separate watch ([[WA-083]]).

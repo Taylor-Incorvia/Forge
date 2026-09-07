@@ -461,7 +461,7 @@
         <CostResource index="Vespene" value="50"/>
     </CUnit>
     <CUnit id="Raven">
-        <CostResource index="Minerals" value="75"/>
+        <CostResource index="Minerals" value="100"/>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="RavenShredderMissile" Type="AbilCmd" AbilCmd="RavenShredderMissile,Execute" Column="1"/>
             <LayoutButtons index="7" Face="RavenScramblerMissile" Type="AbilCmd" AbilCmd="RavenScramblerMissile,Execute" Column="2"/>
