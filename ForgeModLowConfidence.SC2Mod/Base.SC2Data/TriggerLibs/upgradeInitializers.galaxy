@@ -160,7 +160,10 @@ void initializeUpgrades() {
 
     addAbilityToUpgrade("Blink", "F_Blink");
     addUpgradeRequirementTag("Blink", logicType_NoneOf, "unitTag", "pureCaster"); // casters with blink sounds underwhelming 90% of the time and completely abusive 10% of the time
-    addUpgradeRequirementTag("Blink", logicType_NoneOf, "unitTag", "Stalker"); // Stalker starts with Blink (BlinkTech) -- don't roll a redundant second one
+    // WA-107: Stalker is a normal factory-slot-1 unit again -- no baseline blink, and it rolls plain Blink
+    // like any other unit (one upgrade per slot, so it can't stack blink + speed). The enhanced-blink
+    // experiment (stalkerblinkrange / stalkerblinkcooldown) is retired; that "second upgrade" idea belongs
+    // to a future Forge mechanic, not this one-upgrade-per-slot system.
     // WA-015: removed addAltFormBannedAbility (never worked -- "LurkerBurrowed" != the real alt-form id "LurkerMPBurrowed").
     // Burrowed Lurkers / sieged Tanks now blink, then auto-transform back via onBlinkUsed() (unitInitializers.galaxy) + an editor trigger.
 
@@ -290,12 +293,10 @@ void initializeUpgrades() {
     // addUpgradeToUpgrade("TwinLinkedFlameThrowers", "TwinLinkedFlameThrowers");
     // addUpgradeRequirementTag("TwinLinkedFlameThrowers", logicType_AnyOf, "unitTag", "Hellion");
 
-    // WA-014: re-enabled. First prod push (a001b4d) shipped the CUpgrade with only Effect,Blink,Range doubled and
-    // NOT Effect,Blink,PlacementRange -- so the click range never grew and the extra teleport range was unreachable.
-    // b40c4e6 added the missing PlacementRange line, so the data is now complete. Verify on production (editor can't test this).
-    addUpgradeToUpgrade("stalkerblinkrange", "stalkerblinkrange");
-    addUpgradeToUpgrade("stalkerblinkrange", "BlinkTech"); // WA-096: also grants blink itself (no longer native). Rolling this = blink + longer blink range.
-    addUpgradeRequirementTag("stalkerblinkrange", logicType_AnyOf, "unitTag", "Stalker");
+    // WA-107: enhanced-blink range variant retired (see the Blink block above). The CUpgrade/CAbilResearch/
+    // CButton/GameStrings defs for "stalkerblinkrange" are left in place as dead/unused data -- removing a
+    // command-card button can poison the editor cache, and an unrolled upgrade never appears anyway. If a
+    // Forge (second-upgrade) mechanic ever lands, rewire it here.
 
     // WA-023: Chitinous Plating -- Ultralisk armor. Now a rolled research (Armory slot 3) instead of a free start upgrade.
     addUpgradeToUpgrade("ChitinousPlating", "ChitinousPlating");
@@ -343,9 +344,8 @@ void initializeUpgrades() {
     addUpgradeToUpgrade("ConcussiveFirebat", "ConcussiveFirebat");
     addUpgradeRequirementTag("ConcussiveFirebat", logicType_AnyOf, "unitTag", "Firebat");
 
-    addUpgradeToUpgrade("stalkerblinkcooldown", "stalkerblinkcooldown");
-    addUpgradeToUpgrade("stalkerblinkcooldown", "BlinkTech"); // WA-096: also grants blink itself (no longer native). Rolling this = blink + reduced cooldown.
-    addUpgradeRequirementTag("stalkerblinkcooldown", logicType_AnyOf, "unitTag", "Stalker");
+    // WA-107: enhanced-blink cooldown variant retired (see the Blink block above). Defs left as dead/unused
+    // data for the same reason as stalkerblinkrange.
 
     // Range as a COUNT upgrade for Tempest + Siege Tank (instead of the behavior version), so the
     // catalog weapon Range changes and the range indicator (CActorRange) updates. Modifies all weapons
@@ -440,9 +440,8 @@ void grantInitialUpgrades(int player) {
     //DuskWing - just a buffed banshee
     // grantUpgrade(player, "BansheeCloak");
 
-    //Stalker - blink is NO LONGER native (WA-096). It's granted only when the stalker rolls a blink
-    //variant upgrade (stalkerblinkcooldown / stalkerblinkrange), so blink is gated behind a roll + research
-    //instead of being free/early. This is what lets speed/bile/range be fine on the stalker again.
+    //Stalker - blink is NOT native. Blink is just one of the upgrades the stalker can roll (WA-107),
+    //like any non-caster unit. No baseline blink (too strong in factory slot 1); no enhanced-blink variants.
     // grantUpgrade(player, "BlinkTech");
 
     //Marine
