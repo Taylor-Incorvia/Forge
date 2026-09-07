@@ -149,3 +149,21 @@ Taylor now suspects the **WoL units/upgrades** (the Liberty Campaign dependency)
 
 ## Now tracked under the WoL-removal epic (2026-09-07)
 See [[WA-108]] for the full plan. Cheapest escape-key test is [[WA-116]] (core-facility Cancel index fix) -- do that before the big WoL removal; the strongest lead in this ticket points at core facility cards, not WoL content.
+
+## Investigation plan — prod-anchored isolation (2026-09-07)
+Past "muddy" conclusions were likely EDITOR-tested (Test Document fakes hotkeys). Redo as isolated,
+PUBLISHED experiments. Test = enter on a custom profile -> switch to Standard IN-GAME -> does Escape cancel?
+Prefer ADDING one variable to a known-good blank mod over SUBTRACTING from the full broken mod (subtracting
+is confounded -- removing data can dangle references and mislead). Keep any removal a COHERENT whole block.
+
+Anchors (both prod-confirmed above): blank VoidMulti mod = WORKS; full Wildcard = BREAKS.
+
+- **Test 1 -- bare campaign dep a cause?** Empty mod, deps = VoidMulti + Liberty(Campaign), no custom data. Publish, test.
+  - Breaks -> the dep itself is a cause; escape fix REQUIRES dropping it (WA-116 can't fully fix). Finally settles the long-muddy dep question.
+  - Works -> dep innocent; it's our data -> Test 2.
+- **Test 2 -- facility command cards? (the WA-116 lead)** Strip the mod's Barracks/Factory/Starport CUnit `CardLayouts` overrides in UnitData.xml (inherit base). Publish, test.
+  - Works -> it's the facility cards. Restore one facility at a time to pin which -> WA-116 fix (realign Cancel indices, restore Type/Row).
+  - Breaks -> Test 3.
+- **Test 3 -- binary-search the rest.** Halve remaining custom data (non-structure CUnit overrides, or ButtonData custom entries), test, narrow by halving.
+
+**Run Test 1 even if Test 2 fixes it** -- multiple causes are likely and the bare dep has never been cleanly tested.

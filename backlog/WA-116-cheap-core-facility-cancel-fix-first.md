@@ -41,3 +41,8 @@ menu-Escape unaffected; the other cancels (CancelBuilding) intact.
 
 ## Notes
 VERIFY ON PUBLISHED BUILDS ONLY (the editor Test Document faked hotkeys — see [[WA-076]]).
+
+## Do the isolation tests first (2026-09-07)
+Before hand-fixing indices, run the prod-anchored isolation plan in [[WA-076]] ("Investigation plan").
+Test 1 (bare dep) + Test 2 (strip facility CardLayouts) tell you whether this WA-116 fix is even the right
+lever, or whether the cause is the dependency / elsewhere. Editor tests don't count -- published only.
