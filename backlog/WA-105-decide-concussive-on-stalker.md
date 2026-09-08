@@ -29,3 +29,9 @@ Spun out of WA-053 (closed). Related: [[balance-upgrade-legibility]] (concussive
 
 ## Priority note (2026-09-06)
 DECISION MADE: add Concussive Shells to the Stalker pool now; remove later only if it proves un-fun. This ticket = ADD it (not decide).
+
+## Update (2026-09-08) — leaning NOT doing it
+Taylor reconsidered: the only reason to add it is the Stalker's now-smaller pool (post [[WA-107]]), but he
+thinks that's fine — stim Stalkers / fast Stalkers are enough, no major problem expected. "I don't think
+I'm going to do that." Leaving the ticket open at low priority in case the pool feels thin in practice, but
+not planned.

@@ -3,7 +3,7 @@ id: WA-061
 status: todo
 size: M
 phase: 1-game-readiness
-priority: 3
+priority: parked
 ---
 # Orbital Command → Planetary Fortress upgrade — a self-limiting anti-drop static defense
 
@@ -96,3 +96,10 @@ So: let a player upgrade their **Orbital Command → Planetary Fortress** as the
 
 ## Notes
 Design intent: Planetary is the *only* static defense I want to enable, precisely because expense + footprint make it self-limiting (rarely >2 per base) — unlike supply-free spammable turrets/cannons/spines. Data-only if it holds together; the caster-validator swap on `UpgradeToOrbital` is the one change with a real footgun (see gotcha). Sibling to the base-structure setup; no galaxy expected. Related: [[WA-051]] (400-mineral CC — same base-economy tuning surface).
+
+## Decision (2026-09-08) — PARKED, leaning decline
+Taylor: "I'm willing to part with the ability to transform an Orbital into a Planetary Fortress." So there
+is NO Planetary Fortress in the mod. He wanted to test how it'd affect games but has decided he doesn't
+care to. Known tradeoff accepted: no PF likely means slightly less turtle defense — fine; the mod may even
+be played too much on a knife's edge, so fewer turtle options is acceptable. Door left open ONLY if a lot
+of degenerate strategies show up. Not doing it now.
