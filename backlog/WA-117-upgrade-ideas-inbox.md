@@ -30,6 +30,12 @@ values from the screenshot: cost 150/150, research 90s, Robotics Bay. Adapt cost
 research engine ([[WA-092]]) if built. Legibility: needs an obvious burning visual on afflicted targets.
 (Loosely related to the "Colossus fire-trail" Season-2 idea noted in [[WA-078]].)
 
+### 4. "Recycle" — units refund ~25% of their cost on death (from Rogue Command)
+An upgrade where a unit refunds a portion of its cost (Rogue Command uses 25%) when it dies. Taylor's
+favorite upgrade in that game; thinks it'd be a great Wildcard upgrade. Economy-flavored (softens trades /
+rewards aggression), not a combat effect — so the opponent-legibility rule matters less here than for
+attack upgrades. Which units/slots it should roll on is a later design call.
+
 ## Balance watch (not an idea — a "don't touch yet")
 - **Marine lifesteal is currently 40% and may be too strong.** Taylor: do NOT change it until a real game
   clearly shows it dominating — decide from evidence, not theory. Same watch-before-nerf discipline as
