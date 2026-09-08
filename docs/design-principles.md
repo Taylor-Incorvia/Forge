@@ -14,6 +14,8 @@ Standard SC2 rewards a rehearsed plan ("8 gateways, 56 workers, twilight, attack
 
 **Cognitive load is not in the numbers.** A player massing one unit and A-moving spends far less attention on decisions than a player reading their hand and mixing a composition. At *equal skill*, the simple-plan player executes cleaner and makes fewer mistakes. Therefore:
 
+**Attention is a resource — and the a-click discount is paid in macro.** The attention an a-click comp *doesn't* spend on its army gets reinvested where it compounds: more workers, more production, never getting supply-blocked. So a low-attention unit isn't merely less error-prone — it's economically *more efficient for the same player*, because it frees the scarcest resource (the player's attention) to run the economy. That efficiency has to be paid for somewhere: **an easy-to-use unit must cost more than an attention-hungry unit of equal combat value.** The price tag is where you charge for the attention it saves.
+
 > **"Balanced on paper" = "too strong in practice"** for any low-cognitive-load strategy. To equalize the actual games, the lazy strategy must be *weaker on paper.*
 
 And for this mod it's not merely balance — a viable single-unit-mass plan lets players **opt out of the reactive gameplay that is the entire point.** So:
@@ -36,6 +38,7 @@ Levers are not equal against this effect:
 Both are needed to force thinking at both layers.
 
 ### Evidence (why we believe this)
+- **Taylor's own ladder habit (the canonical case):** on ladder he *always* goes Zealot/Immortal/Archon — a pure a-click comp — specifically because it lets him watch his macro instead of his army. Any attention-hungry comp makes him forget to macro, stop producing, and lose MMR. The Archon (~100/300 for the 2 High Templar) is brutally cost-efficient on ladder *precisely because* it asks almost nothing of your attention — which is exactly why Wildcard raised its cost hard. Marine got a bump for the same reason (a-clickable, if not always as pure). If a unit lets you stop looking at your army, it has to cost more.
 - **Reduced-cost blink Hydralisks:** mass blink Hydra *won against an opponent who was genuinely drafting a composition to counter it.* The lazy plan beat the reactive one — textbook failure mode of over-cheapening a mass unit.
 - **Marine at 50/10:** a friend just showed up with mass Marine + a few Liberators and trashed us → bumped to **50/25** (the "flatten the mode" fix). See the patch note / `WA-016`.
 - **Marine at 50/25 — open question.** Even at the higher price, opponents *still* commit serious Marine counts, and we lost most of those games. Marine is *the* canonical low-cognitive-load unit (a-move, stim, stutter-step), so it may overperform even at a "fair" price — exactly what this principle predicts. **Watch:** 50/25 may still be only "fair," not yet "slightly underpowered." If it needs a further tax, use a **cost increase** or a production/build-time nerf — not a buff to its counters.
