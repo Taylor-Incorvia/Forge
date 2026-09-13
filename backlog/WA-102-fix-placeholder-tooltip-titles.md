@@ -1,6 +1,6 @@
 ---
 id: WA-102
-status: todo
+status: done
 size: M
 phase: 2-post-launch
 priority: 0
@@ -29,3 +29,10 @@ Polish/legibility, not gameplay-breaking, but it's the kind of unfinished-lookin
 
 ## Priority note (2026-09-06)
 PRIORITY 0 -- do now + PR: fill in the 56 placeholder tooltip titles/names.
+
+## Done 2026-09-06 (PR pending)
+Two parts:
+1. Rewrote the 53 self-referential name entries (`Abil/Name/<id>` and a few `Button/Name`) that were rendering the raw id -- e.g. `GoliathRange2`, `ConcussiveVulture1`, `stalkerblinkrange1`, `D8Charge1`. (The 4 remaining key==value entries -- Charge, Irradiate, Transfusion, Stalker -- are real English words that render fine, left alone.) Also fixed the `Infernal Pre-Igniter1` trailing-digit typo and the ugly `F_Abduct`/`F_Yoink` names.
+2. **Bigger find via the audit:** the research header the user saw ("button/buttonname/range2") was one symptom of a *systemic* gap -- ~130 research abilities had no `Abil/Name/<id><slot>` and ~130 research buttons had no `Button/Name/Research<id><slot>`, so every research hover showed a raw path. Added all 239 missing strings, names derived from each ability's existing display name where present (Force Field, Fungal Growth, Yamato Cannon, ...) and authored for the rest. Includes a few dead/unused research entries for completeness (harmless).
+
+Still worth an in-editor spot-check on the command card + Your Faction modal, but the strings are all present and readable now.
