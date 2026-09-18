@@ -4,6 +4,21 @@ A running journal of play sessions — half **balance/design observations**, hal
 
 ---
 
+## 2026-09-16 — Corrosive Bile Marauders (captured from post-game discussion, not dictated)
+
+### Game — rushed Corrosive Bile on Marauders → **LOSS** (vs baseline-blink Stalkers)
+**The data is confounded — do NOT act on it.**
+- Rushed the Corrosive Bile upgrade on Marauders expecting an easy win; lost.
+- **Wrong build:** meant to publish v0.7.3 first but only deployed to EU/KR, not NA — so the games ran on the OLD build. The opponent had **baseline-blink Stalkers "that didn't need to upgrade anything"** — i.e. the exact free-blink Stalker that v0.7.3 *removes*. Lost to a unit that won't exist on the patched build.
+- **Suspected pilot error:** "I think the takeaway might be that I suck with corrosive bile." Plausible — bile is a manually-aimed skillshot.
+- **Taylor's in-the-moment read:** *"this is the strongest upgrade option available to me,"* NOT *"this is the most broken thing I've ever seen."* A measured read that argues *against* it being degenerate.
+
+### Balance / design observations
+- **Bile Marauder is the cheapest bile carrier (100/25).** Notable because the Firebat shares that base cost but the mod bumped its gas to 50, leaving the Marauder alone at 100/25. That's *why* the "is bile too cheap on the Marauder?" question came up. See [[WA-063]]/[[WA-105]] concussive family and the eligibility rules in `upgradeInitializers.galaxy`.
+- **Decision: don't remove bile from the Marauder pool yet.** Reasons: (1) the loss is confounded (stale build + already-fixed OP Stalker + suspected misplay); (2) bile is manually aimed, so it self-limits on mass (attention-gated, not a-click) — see the new corollary in `design-principles.md`; (3) Taylor's own read was "strong, not broken." **Watch for one clean game** — patched build, bile piloted with intent, ideally from an even position — before touching it.
+
+---
+
 ## 2026-07-27 — 2 games (only game 1 dictated)
 
 ### Game — held a Zealot/Marine rush, then threw the macro game → **LOSS** (vs Colossus/Void Ray/Marine)

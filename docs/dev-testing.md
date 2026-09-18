@@ -48,3 +48,8 @@ Related gotcha: a card's `LayoutButtons` attribute that was *historically a diff
 - [ ] `testCaseNumber = 0`
 - [ ] Removed any force-roll `if` blocks added to `setRandomSlotUnitFromPoolForPlayer` / `assignRandomUpgradeFromPoolToPlayerSlot`
 - [ ] (The permanent `testCaseNumber` sweep block stays — it's inert with the flags off)
+
+## Publishing / deploy gotchas
+- **Publish to ALL THREE regions (NA / EU / KR).** The editor publishes per-region, and it's easy to update some regions and not others — then you unknowingly play/test a **stale build**. This bit us **2026-09-16**: a patch went to EU/KR but not NA, so games ran on the old build (old baseline-blink Stalkers), which confounded a balance read (see `playtest-notes.md`, bile-Marauder game). **After publishing, confirm the live version in-client** before drawing any conclusions from games.
+- **NA can hang at "transmitting header file"** while EU is fine — that's a stale NA session, not the mod. Fix: launch Battle.net, log in, close it, then re-publish. (See the `reference-na-publish-header-hang` memory.)
+- **The "private test mod" is a *public* document** (you can't play a mod unless it's public), so it's easy to publish there by habit instead of the real Wildcard Arena document. Double-check which document you're publishing.

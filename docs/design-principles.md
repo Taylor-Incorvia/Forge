@@ -46,6 +46,11 @@ Both are needed to force thinking at both layers.
 
 ---
 
+## Corollary: aimed upgrades self-limit — and are allowed to be strong
+A **manually-aimed / actively-cast** upgrade (Corrosive Bile, Force Field, Yamato, Seeker Missile, Blink) costs the player *attention every time they use it* — you aim each one. So massing units that carry it is **attention-gated, not a-click**: 10 bile Marauders is 10 biles you have to aim, not an a-move. By the attention-as-a-resource rule above, that means an aimed upgrade is **allowed to be strong** — it charges the player in the scarcest resource, the opposite of the lazy a-click plan.
+
+Consequence for the "too strong on a cheap unit" bans: those were made against **passive procs** — Concussive Shells is an on-attack slow that just happens while you a-move, so it *is* lazy and got fenced off cheap-mass units (Marine/Hellion/Vulture). That logic does **NOT** automatically transfer to an *aimed* upgrade on a cheap unit. Corrosive Bile on a 100/25 Marauder looks scary on a spreadsheet but self-limits in practice, because you can't spam-aim a whole army's worth of biles. **Before restricting an aimed upgrade by unit cost, watch real games — the passive-proc intuition overcounts it.** (Origin: the 2026-09-16 bile-Marauder game — see playtest-notes.md.)
+
 ## Corollary: noticeable upgrades over invisible ones
 Generic +1/+1 attack/armor upgrades add little strategic depth — you rarely *know* you're losing to an upgrade disadvantage until you watch the replay. Wildcard Arena drops them for **visible, decision-driving** rolled upgrades (Blink, blue flame, range, transform speed…). An upgrade should change **how a unit micros or what it's good against** — something a player can see and react to. This also feeds the north star: a situational upgrade rewards reading the game.
 
